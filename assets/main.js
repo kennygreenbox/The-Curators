@@ -89,6 +89,9 @@ function rendering() {
 
       var render__html = $(".shipping__goal", cart__html);
       $(".shipping__goal").replaceWith(render__html);
+
+      var render__html = $(".total-protein-cart", cart__html);
+      $(".total-protein-cart").replaceWith(render__html);
       upsellProductGrid()
 
     });

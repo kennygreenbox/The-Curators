@@ -1330,11 +1330,19 @@ object-fit: contain;
 .cart-counter {border: 1px solid var(--black); border-radius: 6px; float: left;}
 .cart-counter input{font-size: 1em; line-height: 1.2; border: 0; background-color: transparent; text-align: center; width: 28px; font-family: var(--font-family);} 
 .cart-footer{margin-top: auto;}
+.total-protein-cart {
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+.total-protein-cart h6 {
+  font-weight: 600;
+  width: auto;
+}
 .cart-total h5{line-height: 1;}
 .cart-drawer .caption{font-weight: var(--font-ultra-light); line-height: 1;}
 .cart-drawer .caption strong{font-weight: var(--font-light);}
 .quantity-wrapper{width: 100%; margin-top: 14px;}
-.cart-body{height:calc(100dvh - 328px); overflow-y: scroll;}
+.cart-body{height:calc(100dvh - 328px); overflow-y: scroll; flex:1;}
 
 .upsell-heading p{font-size: 18px; line-height: 1;}
 .upsell-thumb{width: 74px; height: 77px;}
