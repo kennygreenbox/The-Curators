@@ -1,11 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "social_facebook_link": "https:\/\/www.facebook.com\/WeAreTheCurators\/",
+    "social_facebook_link": "https://www.facebook.com/WeAreTheCurators/",
     "social_pinterest_link": "",
-    "social_instagram_link": "https:\/\/www.instagram.com\/wearethecurators\/",
-    "social_tiktok_link": "https:\/\/www.tiktok.com\/@wearethecurators?lang=en",
-    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/curators-of-flavour-ltd\/",
-    "favicon": "shopify:\/\/shop_images\/favicon.svg",
+    "social_instagram_link": "https://www.instagram.com/wearethecurators/",
+    "social_tiktok_link": "https://www.tiktok.com/@wearethecurators?lang=en",
+    "social_linkedin_link": "https://www.linkedin.com/company/curators-of-flavour-ltd/",
+    "favicon": "shopify://shop_images/favicon.svg",
     "sections": {
       "header": {
         "type": "header",
@@ -14,7 +23,7 @@
             "type": "item",
             "settings": {
               "menu_name": "PORK PUFFS",
-              "url": "shopify:\/\/collections\/pork-puffs",
+              "url": "shopify://collections/pork-puffs",
               "new": false,
               "product1": "original-salted-pork-puffs-25g-x-20",
               "product2": "smoky-bacon-pork-puffs-25g-x-20",
@@ -26,7 +35,7 @@
             "type": "item",
             "settings": {
               "menu_name": "PROTEIN CHIPS",
-              "url": "shopify:\/\/collections\/protein-chips",
+              "url": "shopify://collections/protein-chips",
               "new": true,
               "product1": "tangy-cheese-protein-chips-35g",
               "product2": "thai-sweet-chilli-protein-chips-35g",
@@ -38,7 +47,7 @@
             "type": "item",
             "settings": {
               "menu_name": "BILTONG",
-              "url": "shopify:\/\/collections\/biltong",
+              "url": "shopify://collections/biltong",
               "new": false,
               "product1": "beef-biltong-the-original-box-of-5-or-12",
               "product2": "british-beef-biltong-snacking-sticks-original-flavour-12-pack",
@@ -50,7 +59,7 @@
             "type": "item",
             "settings": {
               "menu_name": "CHEESIES",
-              "url": "shopify:\/\/collections\/cheesies",
+              "url": "shopify://collections/cheesies",
               "new": false,
               "product1": "cheddar-cheesies",
               "product2": "goats-cheese-cheesies",
@@ -66,13 +75,13 @@
           "item_iA7RWm"
         ],
         "settings": {
-          "logo_animation": "https:\/\/cdn.shopify.com\/s\/files\/1\/0859\/1265\/0061\/files\/data_b9d48530-64c3-488c-8e25-d4cf0494da71.json?v=1734423701",
-          "announcement": "<p>THE CURATORS⚡️ New look, same great snacks. ⚡️ FREE DELIVERY OVER £35<\/p>",
+          "logo_animation": "https://cdn.shopify.com/s/files/1/0859/1265/0061/files/data_b9d48530-64c3-488c-8e25-d4cf0494da71.json?v=1734423701",
+          "announcement": "<p>THE CURATORS⚡️ New look, same great snacks. ⚡️ FREE DELIVERY OVER £35</p>",
           "menu": "menu-left",
           "menu_r": "menu-right",
           "menu_mobi": "mobile-menu",
           "mega_btn_label": "Shop all",
-          "mega_btn_url": "shopify:\/\/collections\/all-products"
+          "mega_btn_url": "shopify://collections/all-products"
         }
       },
       "footer": {
@@ -103,7 +112,7 @@
           "copyright_text": "Curators of Flavour Ltd. All rights reserved.",
           "bot_menu": "refund-menu",
           "fixed_btn_label": "Rewards Coming Soon",
-          "fixed_btn_url": "shopify:\/\/collections\/all-products"
+          "fixed_btn_url": "shopify://collections/all-products"
         }
       },
       "instagram": {
@@ -112,31 +121,31 @@
           "item_8e6iW7": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/instagram-01.webp"
+              "image": "shopify://shop_images/instagram-01.webp"
             }
           },
           "item_MgbE33": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/instagram-05.webp"
+              "image": "shopify://shop_images/instagram-05.webp"
             }
           },
           "item_rJmBeC": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/instagram-02.webp"
+              "image": "shopify://shop_images/instagram-02.webp"
             }
           },
           "item_Ezgdy3": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/instagram-04.webp"
+              "image": "shopify://shop_images/instagram-04.webp"
             }
           },
           "item_pDLdfC": {
             "type": "item",
             "settings": {
-              "image": "shopify:\/\/shop_images\/instagram-03.webp"
+              "image": "shopify://shop_images/instagram-03.webp"
             }
           }
         },
@@ -148,9 +157,9 @@
           "item_pDLdfC"
         ],
         "settings": {
-          "text": "<h2>Follow Us<\/h2>",
+          "text": "<h2>Follow Us</h2>",
           "btn_label": "@WEARETHECURATORS",
-          "btn_url": "https:\/\/www.instagram.com\/wearethecurators\/"
+          "btn_url": "https://www.instagram.com/wearethecurators/"
         }
       },
       "cart-drawer": {
@@ -197,7 +206,7 @@
         "settings": {
           "login_title": "Sign In",
           "title": "New to The Curators?",
-          "text": "<p>Create an account to track orders, manage your subscriptions, and checkout with ease.<\/p>"
+          "text": "<p>Create an account to track orders, manage your subscriptions, and checkout with ease.</p>"
         }
       },
       "registration-section": {
@@ -211,7 +220,7 @@
     "content_for_index": [],
     "blocks": {
       "4291333794791649201": {
-        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-sdk\/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
         "disabled": true,
         "settings": {
           "disableBundledCSS": false,
@@ -220,12 +229,12 @@
         }
       },
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       },
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {}
       }

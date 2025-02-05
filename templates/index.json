@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_Jh7JJQ": {
@@ -28,12 +37,12 @@
         "item_YX7L97"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Home_Hero_1.webp",
+        "image": "shopify://shop_images/Home_Hero_1.webp",
         "deco_text": "PROTEIN PACKED",
         "rest_text": "SUPER SNACKS",
         "text": "Knock-Out Flavour Meets Power-Packed Nutrition.",
         "btn_label": "Shop Protein Snacks",
-        "btn_url": "shopify:\/\/collections\/pork-puffs"
+        "btn_url": "shopify://collections/pork-puffs"
       }
     },
     "partner_Re77b3": {
@@ -42,109 +51,109 @@
         "item_jz9QhL": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/amazon.svg"
+            "img": "shopify://shop_images/amazon.svg"
           }
         },
         "item_wmCDb7": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/sainsbury.svg"
+            "img": "shopify://shop_images/sainsbury.svg"
           }
         },
         "item_zp7rdd": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/tesco.svg"
+            "img": "shopify://shop_images/tesco.svg"
           }
         },
         "item_qkyyde": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/Waitrose.svg"
+            "img": "shopify://shop_images/Waitrose.svg"
           }
         },
         "item_rj7C3L": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/ASDA.svg"
+            "img": "shopify://shop_images/ASDA.svg"
           }
         },
         "item_LxcHF9": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/HB.svg"
+            "img": "shopify://shop_images/HB.svg"
           }
         },
         "item_gXRiXR": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/wholefoods.svg"
+            "img": "shopify://shop_images/wholefoods.svg"
           }
         },
         "item_4i7zLk": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/ocado.svg"
+            "img": "shopify://shop_images/ocado.svg"
           }
         },
         "item_6A8N9k": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/Morrisons.svg"
+            "img": "shopify://shop_images/Morrisons.svg"
           }
         },
         "item_i3QE7C": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/amazon.svg"
+            "img": "shopify://shop_images/amazon.svg"
           }
         },
         "item_FP6qtP": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/sainsbury.svg"
+            "img": "shopify://shop_images/sainsbury.svg"
           }
         },
         "item_EBjwy8": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/tesco.svg"
+            "img": "shopify://shop_images/tesco.svg"
           }
         },
         "item_3RtVUb": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/Waitrose.svg"
+            "img": "shopify://shop_images/Waitrose.svg"
           }
         },
         "item_XQPAWW": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/ASDA.svg"
+            "img": "shopify://shop_images/ASDA.svg"
           }
         },
         "item_KYWaqB": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/HB.svg"
+            "img": "shopify://shop_images/HB.svg"
           }
         },
         "item_VcwdQE": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/wholefoods.svg"
+            "img": "shopify://shop_images/wholefoods.svg"
           }
         },
         "item_X3J3Vr": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/ocado.svg"
+            "img": "shopify://shop_images/ocado.svg"
           }
         },
         "item_NiXyaP": {
           "type": "item",
           "settings": {
-            "img": "shopify:\/\/shop_images\/Morrisons.svg"
+            "img": "shopify://shop_images/Morrisons.svg"
           }
         }
       },
@@ -169,7 +178,7 @@
         "item_NiXyaP"
       ],
       "settings": {
-        "text": "<p>WE'RE IN ALL YOUR FAVOURITES<\/p>"
+        "text": "<p>WE'RE IN ALL YOUR FAVOURITES</p>"
       }
     },
     "favourite_products_tTLB7t": {
@@ -178,44 +187,44 @@
         "product_XHXCtg": {
           "type": "product",
           "settings": {
-            "image": "shopify:\/\/shop_images\/pork-puffs_1.webp",
+            "image": "shopify://shop_images/pork-puffs_1.webp",
             "product": "original-salted-pork-puffs",
             "new": false,
             "title": "SHOP PORK PUFFS",
-            "url": "shopify:\/\/collections\/pork-puffs",
+            "url": "shopify://collections/pork-puffs",
             "weight": "17-19"
           }
         },
         "product_X7Gzf9": {
           "type": "product",
           "settings": {
-            "image": "shopify:\/\/shop_images\/protein-chips_1.webp",
+            "image": "shopify://shop_images/protein-chips_1.webp",
             "product": "sea-salt-cider-vinegar-pork-puffs",
             "new": false,
             "title": "SHOP PROTEIN CHIPS",
-            "url": "shopify:\/\/collections\/protein-chips",
+            "url": "shopify://collections/protein-chips",
             "weight": "10"
           }
         },
         "product_x3pYXA": {
           "type": "product",
           "settings": {
-            "image": "shopify:\/\/shop_images\/beef-biltong_1.webp",
+            "image": "shopify://shop_images/beef-biltong_1.webp",
             "product": "smoky-bacon-pork-puffs",
             "new": false,
             "title": "SHOP BEEF BILTONG",
-            "url": "shopify:\/\/collections\/biltong",
+            "url": "shopify://collections/biltong",
             "weight": "14"
           }
         },
         "product_eAtTTw": {
           "type": "product",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cheesies_1.webp",
+            "image": "shopify://shop_images/cheesies_1.webp",
             "product": "sea-salt-cider-vinegar-pork-puffs",
             "new": true,
             "title": "SHOP CHEESIES",
-            "url": "shopify:\/\/collections\/cheesies",
+            "url": "shopify://collections/cheesies",
             "weight": "7"
           }
         }
@@ -227,8 +236,8 @@
         "product_eAtTTw"
       ],
       "settings": {
-        "heading": "<h2>YOUR FAVOURITE SAVOURY SNACKS, SUPERCHARGED WITH PROTEIN.<\/h2>",
-        "text": "<p>We make protein packed super snacks that deliver a double punch of high protein and unbeatable flavour.<\/p>"
+        "heading": "<h2>YOUR FAVOURITE SAVOURY SNACKS, SUPERCHARGED WITH PROTEIN.</h2>",
+        "text": "<p>We make protein packed super snacks that deliver a double punch of high protein and unbeatable flavour.</p>"
       }
     },
     "benefits_table_DHkVBW": {
@@ -277,7 +286,7 @@
         "marquee_8f3tmr": {
           "type": "marquee",
           "settings": {
-            "text": "FREE SHIPPING ON ALL ORDERS"
+            "text": "FREE DELIVERY OVER £35"
           }
         },
         "marquee_PPEjmK": {
@@ -295,7 +304,7 @@
         "marquee_hVJrWB": {
           "type": "marquee",
           "settings": {
-            "text": "FREE SHIPPING ON ALL SNACKS"
+            "text": "FREE DELIVERY OVER £35"
           }
         },
         "marquee_kLj6M7": {
@@ -313,7 +322,7 @@
         "marquee_aNT6zD": {
           "type": "marquee",
           "settings": {
-            "text": "FREE SHIPPING ON ALL SNACKS"
+            "text": "FREE DELIVERY OVER £35"
           }
         },
         "marquee_QY46Q9": {
@@ -331,7 +340,7 @@
         "marquee_cg4qcC": {
           "type": "marquee",
           "settings": {
-            "text": "FREE SHIPPING ON ALL SNACKS"
+            "text": "FREE DELIVERY OVER £35"
           }
         }
       },
@@ -354,19 +363,19 @@
         "marquee_cg4qcC"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Untitled_design_90.png",
-        "title": "<h4>BE SNACK DAY READY<\/h4>",
+        "image": "shopify://shop_images/Untitled_design_90.png",
+        "title": "<h4>BE SNACK DAY READY</h4>",
         "btn_label": "Try our Packs & Bundles",
-        "btn_url": "shopify:\/\/collections\/snack-collections",
-        "t_heading": "<h2>EMBARRASSING OTHER SNACKS SINCE 2018<\/h2>",
+        "btn_url": "shopify://collections/snack-collections",
+        "t_heading": "<h2>EMBARRASSING OTHER SNACKS SINCE 2018</h2>",
         "table_title": "Average Crisps",
-        "table_image": "shopify:\/\/shop_images\/curators-table-logo.svg",
+        "table_image": "shopify://shop_images/curators-table-logo.svg",
         "t_btn_label": "Shop snacks",
-        "t_btn_url": "shopify:\/\/collections\/all-products",
-        "image_left_1": "shopify:\/\/shop_images\/protein-chip2.webp",
-        "image_left_2": "shopify:\/\/shop_images\/protein-chip.webp",
-        "image_right_1": "shopify:\/\/shop_images\/protein-chip4.webp",
-        "image_right_2": "shopify:\/\/shop_images\/protein-chip3.webp"
+        "t_btn_url": "shopify://collections/all-products",
+        "image_left_1": "shopify://shop_images/protein-chip2.webp",
+        "image_left_2": "shopify://shop_images/protein-chip.webp",
+        "image_right_1": "shopify://shop_images/protein-chip4.webp",
+        "image_right_2": "shopify://shop_images/protein-chip3.webp"
       }
     },
     "featured_products_Lh4Hba": {
@@ -375,28 +384,28 @@
         "item_KQwWxM": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/beef-biltong-b_59cb9b41-7fd6-41ee-870a-28e1f0d20ec2.png",
+            "image": "shopify://shop_images/beef-biltong-b_59cb9b41-7fd6-41ee-870a-28e1f0d20ec2.png",
             "product": "beef-biltong-the-original-box-of-5-or-12"
           }
         },
         "item_zLaBKX": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cheese-pork-puffs_d841f9b1-588f-404a-90e2-97618455925a.png",
+            "image": "shopify://shop_images/cheese-pork-puffs_d841f9b1-588f-404a-90e2-97618455925a.png",
             "product": "cheddar-cheesies"
           }
         },
         "item_VRUFbx": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Smoky_Bacon_25g_website_images_2acec673-1c3b-42da-9aaf-673b55b9243e.png",
+            "image": "shopify://shop_images/Smoky_Bacon_25g_website_images_2acec673-1c3b-42da-9aaf-673b55b9243e.png",
             "product": "smoky-bacon-pork-puffs-75g"
           }
         },
         "item_aWWUYX": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Cheese_Protein_Chips_1.png",
+            "image": "shopify://shop_images/Cheese_Protein_Chips_1.png",
             "product": "tangy-cheese-protein-chips-35g"
           }
         }
@@ -408,10 +417,10 @@
         "item_aWWUYX"
       ],
       "settings": {
-        "text": "<h2>Snacking Essentials<\/h2>",
+        "text": "<h2>Snacking Essentials</h2>",
         "btn_label_desk": "Shop Protein Snacks",
         "btn_label_mobi": "Shop All",
-        "btn_url": "shopify:\/\/collections\/all-products"
+        "btn_url": "shopify://collections/all-products"
       }
     },
     "call_to_action_f4QPFP": {
@@ -420,13 +429,13 @@
         "image_EaiTq8": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/protein-chip-01_1.webp"
+            "image": "shopify://shop_images/protein-chip-01_1.webp"
           }
         },
         "image_KGABwJ": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/protein-chip-02_1.webp"
+            "image": "shopify://shop_images/protein-chip-02_1.webp"
           }
         }
       },
@@ -435,16 +444,16 @@
         "image_KGABwJ"
       ],
       "settings": {
-        "image_desk": "shopify:\/\/shop_images\/Puffs_Hero.webp",
-        "image_mobi": "shopify:\/\/shop_images\/Puffs_Hero.webp",
+        "image_desk": "shopify://shop_images/Puffs_Hero.webp",
+        "image_mobi": "shopify://shop_images/Puffs_Hero.webp",
         "heading_deco": "NEW PROTEIN CHIPS",
         "heading_rest": "ARE COMING",
-        "text": "<p>Seriously tasty, crunchy triangles of protein perfection. Bringing you real snacking satisfaction. We've dialled the crunch up to 11 and maxed out on superior flavour, our protein tortilla chips deliver everything the other guys can't.<\/p><p>Look out for two different protein packed flavours coming soon!<\/p>",
+        "text": "<p>Seriously tasty, crunchy triangles of protein perfection. Bringing you real snacking satisfaction. We've dialled the crunch up to 11 and maxed out on superior flavour, our protein tortilla chips deliver everything the other guys can't.</p><p>Look out for two different protein packed flavours coming soon!</p>",
         "btn_label": "COMING SOON - PRE ORDER NOW",
-        "btn_url": "shopify:\/\/collections\/protein-chips",
+        "btn_url": "shopify://collections/protein-chips",
         "roundel_text": "18g",
-        "roundel_bg_image": "shopify:\/\/shop_images\/10g_roundel.webp",
-        "roundel_image": "shopify:\/\/shop_images\/protein-outer.svg",
+        "roundel_bg_image": "shopify://shop_images/10g_roundel.webp",
+        "roundel_image": "shopify://shop_images/protein-outer.svg",
         "roundel_colour": "",
         "roundel_text_colour": ""
       }
@@ -455,49 +464,49 @@
         "item_RwkML9": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         },
         "item_eAGyzh": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         },
         "item_34QUaf": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         },
         "item_wHkKz7": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         },
         "item_ExHHDz": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         },
         "item_rTFDkK": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         },
         "item_EPWRg9": {
           "type": "item",
           "settings": {
-            "text": "<h6>THE SNACKS LOVE YOU BACK<\/h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”<\/p>",
+            "text": "<h6>THE SNACKS LOVE YOU BACK</h6><p>“If you’re Keto, diabetic or on a low carb diet and get a crisps craving, these are the perfect option”</p>",
             "city": "– Emily, London"
           }
         }
@@ -520,9 +529,9 @@
     "text_with_image_wYLeLd": {
       "type": "text-with-image",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Rewards.webp",
-        "heading": "<h2><em><strong>REWARDS FOR<\/strong><\/em><strong><br\/><\/strong>your high protein snacking<\/h2>",
-        "text": "<p>Our loyalty program rewards you for fueling your day with high-protein snacks! Every time you purchase our products, you’ll earn points that can be redeemed for exclusive discounts, free snacks, and special perks. The more you snack, the more you save! As a member, you'll also get early access to new flavors, limited edition products, and special promotions.<\/p>",
+        "image": "shopify://shop_images/Rewards.webp",
+        "heading": "<h2><em><strong>REWARDS FOR</strong></em><strong><br/></strong>your high protein snacking</h2>",
+        "text": "<p>Our loyalty program rewards you for fueling your day with high-protein snacks! Every time you purchase our products, you’ll earn points that can be redeemed for exclusive discounts, free snacks, and special perks. The more you snack, the more you save! As a member, you'll also get early access to new flavors, limited edition products, and special promotions.</p>",
         "txt_above_btn": "COMING SOON",
         "btn_label": "",
         "btn_url": "#"
@@ -534,22 +543,22 @@
         "item_txceL6": {
           "type": "item",
           "settings": {
-            "large_text": "<h5>HIGH<\/h5><p>PROTEIN<\/p>",
-            "text": "<p>Everything we create contains a big hit of natural protein. We're boosting everyday snacking.<\/p>"
+            "large_text": "<h5>HIGH</h5><p>PROTEIN</p>",
+            "text": "<p>Everything we create contains a big hit of natural protein. We're boosting everyday snacking.</p>"
           }
         },
         "item_bwnpQr": {
           "type": "item",
           "settings": {
-            "large_text": "<h5>KETO<\/h5><p>FRIENDLY<\/p>",
-            "text": "<p>Our snacks are keto friendly, delivering light and crunchy crisps without all the carbs. <\/p>"
+            "large_text": "<h5>KETO</h5><p>FRIENDLY</p>",
+            "text": "<p>Our snacks are keto friendly, delivering light and crunchy crisps without all the carbs. </p>"
           }
         },
         "item_adYnpR": {
           "type": "item",
           "settings": {
-            "large_text": "<h5>LOW<\/h5><p>CARB<\/p>",
-            "text": "<p>We believe in protein snacking with NO compromise on taste. Our snacks are award-winning for a reason.<\/p>"
+            "large_text": "<h5>LOW</h5><p>CARB</p>",
+            "text": "<p>We believe in protein snacking with NO compromise on taste. Our snacks are award-winning for a reason.</p>"
           }
         }
       },
@@ -559,15 +568,15 @@
         "item_adYnpR"
       ],
       "settings": {
-        "bg_img": "shopify:\/\/shop_images\/bg-texture.jpg",
-        "text": "<h2>Get MORE from your everyday snacks<\/h2><h6>We believe in savoury snacking with no compromise between flavour and nutrition, where YOU can easily find tasty A.F. alternatives to your fave classic crisps, supercharged with a big hit of protein to support a balanced diet.<br\/><\/h6>",
-        "box_img": "shopify:\/\/shop_images\/cheesies_7d75f506-1bb3-4a82-98c8-a3cf4512d105.png",
-        "box_bg_img": "shopify:\/\/shop_images\/cheesies_bg.webp",
+        "bg_img": "shopify://shop_images/bg-texture.jpg",
+        "text": "<h2>Get MORE from your everyday snacks</h2><h6>We believe in savoury snacking with no compromise between flavour and nutrition, where YOU can easily find tasty A.F. alternatives to your fave classic crisps, supercharged with a big hit of protein to support a balanced diet.<br/></h6>",
+        "box_img": "shopify://shop_images/cheesies_7d75f506-1bb3-4a82-98c8-a3cf4512d105.png",
+        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
         "first_text": "ARE YOU",
         "deco_text": "CHEESE",
         "last_text": "OBSESSED?",
         "btn_label": "MEET CHEESIES",
-        "btn_url": "shopify:\/\/collections\/cheesies"
+        "btn_url": "shopify://collections/cheesies"
       }
     },
     "logo_bar_7YCmkP": {
@@ -576,19 +585,19 @@
         "item_UKPWnM": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/gymshark.svg"
+            "image": "shopify://shop_images/gymshark.svg"
           }
         },
         "item_bBjQwm": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/BHF.svg"
+            "image": "shopify://shop_images/BHF.svg"
           }
         },
         "item_XAn3My": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/barrys.svg"
+            "image": "shopify://shop_images/barrys.svg"
           }
         }
       },
@@ -598,23 +607,23 @@
         "item_XAn3My"
       ],
       "settings": {
-        "text": "<p>PROUDLY ASSOCIATED WITH<\/p>"
+        "text": "<p>PROUDLY ASSOCIATED WITH</p>"
       }
     },
     "image_text_MQBKRd": {
       "type": "image-text",
       "settings": {
-        "image_desk": "shopify:\/\/shop_images\/Founders_0972175b-0d56-4df0-9572-aa0b35fb2cce.webp",
-        "image_mobi": "shopify:\/\/shop_images\/Founders_0972175b-0d56-4df0-9572-aa0b35fb2cce.webp",
+        "image_desk": "shopify://shop_images/Founders_0972175b-0d56-4df0-9572-aa0b35fb2cce.webp",
+        "image_mobi": "shopify://shop_images/Founders_0972175b-0d56-4df0-9572-aa0b35fb2cce.webp",
         "image_position": "bottom",
         "image_position_mobi": "top",
         "image_fit": "contain",
         "image_fit_mobi": "cover",
         "top_heading": "MEET THE",
         "decoration_heading": "FOUNDERS",
-        "text": "<p>Hey, we're Max & Ed - founders of The Curators. Back in 2018, we had a vision to disrupt the savoury snacking world and build a snack brand of healthy, nutritional alternatives to your unhealthy crisps, inspiring people to be more active and giving them the fuel to do it. <br\/><br\/>Inspired by our travels and desire to offer naturally protein-rich snack options for active, modern snackers, we've since expanded the range to include Pork Puffs, Protein Chips, Biltong and our NEW Cheesies range.<\/p>",
+        "text": "<p>Hey, we're Max & Ed - founders of The Curators. Back in 2018, we had a vision to disrupt the savoury snacking world and build a snack brand of healthy, nutritional alternatives to your unhealthy crisps, inspiring people to be more active and giving them the fuel to do it. <br/><br/>Inspired by our travels and desire to offer naturally protein-rich snack options for active, modern snackers, we've since expanded the range to include Pork Puffs, Protein Chips, Biltong and our NEW Cheesies range.</p>",
         "btn_label": "Our Story",
-        "btn_url": "shopify:\/\/pages\/about-us"
+        "btn_url": "shopify://pages/about-us"
       }
     },
     "instagram_fAjLc9": {
@@ -623,37 +632,37 @@
         "item_GzBrLq": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquee-5.jpg"
+            "image": "shopify://shop_images/marquee-5.jpg"
           }
         },
         "item_LYFFbD": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquee-1.jpg"
+            "image": "shopify://shop_images/marquee-1.jpg"
           }
         },
         "item_xBmVEa": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquee-2.jpg"
+            "image": "shopify://shop_images/marquee-2.jpg"
           }
         },
         "item_rK9BVF": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquee-3.jpg"
+            "image": "shopify://shop_images/marquee-3.jpg"
           }
         },
         "item_H3rLDf": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquee-4.jpg"
+            "image": "shopify://shop_images/marquee-4.jpg"
           }
         },
         "item_ciGK8h": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquee-5.jpg"
+            "image": "shopify://shop_images/marquee-5.jpg"
           }
         }
       },
@@ -667,7 +676,7 @@
       ],
       "disabled": true,
       "settings": {
-        "text": "<h2>Follow Us<\/h2>",
+        "text": "<h2>Follow Us</h2>",
         "btn_label": "@THECURATORS",
         "btn_url": ""
       }
