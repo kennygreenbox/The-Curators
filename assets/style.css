@@ -760,6 +760,7 @@ body.navShown{overflow-y: hidden}
 .trustpilot-wrapper p{line-height: 1;}
 
 .page-header-contained{overflow: unset; min-height: 580px; display:flex; align-items: stretch;}
+
 .page-header-contained .container-inner{min-height: 505px;}
 /* .page-header-contained .container-inner{height:calc(100dvh - 108px)} */
 .page-header-contained .container-inner .common-wrap, .page-header-contained .container-inner .grid-container{height: 100%;;}
