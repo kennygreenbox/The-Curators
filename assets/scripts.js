@@ -173,10 +173,11 @@
         }
 
         if ($('.upsell-slider').length) {
-          var productSlider = new Swiper('.upsell-slider', {
+          var upselltSlider = new Swiper('.upsell-slider', {
               loop: true,
               slidesPerView: 1.23,
               spaceBetween: 16,
+              shortSwipes:false,
               pagination: {
                 el: ".swiper-pagination",
               }

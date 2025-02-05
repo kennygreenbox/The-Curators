@@ -23,10 +23,12 @@ function upsellProductGrid() {
   }
 
   if ($('.upsell-slider').length) {
-    var productSlider = new Swiper('.upsell-slider', {
+    var upsellSlider = new Swiper('.upsell-slider', {
       loop: true,
       slidesPerView: 1.23,
       spaceBetween: 16,
+      allowTouchMove: true,
+      shortSwipes:false,
       pagination: {
         el: ".swiper-pagination",
       }
@@ -90,7 +92,7 @@ function rendering() {
       upsellProductGrid()
 
     });
-
+  
 }
 
 
