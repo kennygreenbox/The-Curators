@@ -1,0 +1,210 @@
+{% assign s = section.settings %}
+
+{%- assign show_reviews = settings.show_reviews -%}
+{%- assign enable_yotpo = settings.enable_yotpo -%}
+{%- assign yotpo_ID = settings.yotpo_ID -%}
+
+
+
+
+
+
+
+
+
+
+
+   
+   <div class="page-container medlg-container  common-wrap clear">
+        <div class="padding-top-l container-inner">
+
+
+
+            
+<!-- Start of Judge.me code --> 
+<div style='clear:both'></div> 
+<div id='judgeme_product_reviews' class='jdgm-widget jdgm-review-widget' data-id='{{ product.id }}'> 
+  {{ product.metafields.judgeme.widget }} 
+</div> 
+<!-- End of Judge.me code -->
+
+
+
+            {% comment %} <div class="fadeIn txt-ctr content-wrap">
+                {{ s.section_heading |  replace: '<h2', '<h2 class="margin-bottom-default"' }}
+                <div class="margin-bottom-default flex flex-y-align flex-x-align rating line">
+                    <div class="flex star-wrap margin-right-base">
+                        <img src="{{'star-red.svg' |  asset_url }}" alt="">
+                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                    </div>
+                    <p>4.8 Rated by 65 customers</p>
+                </div>
+                {% if s.btn_label != blank %}
+                    <div class="btn-wrap">
+                        <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                            <span class="button__flair"></span>
+                            <span class="button__label">{{ s.btn_label }}</span>
+                        </a>
+                    </div>
+                    
+                {% endif %}
+            </div>
+            <div class="padding-top-xxl review-wrapper">
+                <div class="review-body">
+                    {% for block in section.blocks %}
+                        {% assign b = block.settings %}
+                        {% if block.type == 'text' %}
+                            <div class="fadeIn flex-box flex-space-between padding-y-xl {% if forloop.first %}padding-top-none{% endif %} review-item border-btm">
+                                <div class="flex lg:flex-col flex-y-align author-overview">
+                                    <div class="author-thumb author-no-img br-100 margin-bottom-s">
+                                        <p><strong>{{ b.text_inside_img }}</strong></p>
+                                    </div>
+                                    <div class="lg:txt-ctr author margin-left-s lg:margin-none">
+                                        {{ b.text_under_img |  replace: '<em>', '<p class="caption">' |  replace: '</em>', '</p>' }}
+                                    </div>
+                                </div>
+                                <div class="product-review">
+                                    <div class="review">
+                                        <div class="margin-bottom-s flex flex-y-align rating">
+                                            <div class="flex star-wrap margin-right-base">
+                                                <img src="{{'star-red.svg' |  asset_url }}" alt="">
+                                                <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                                <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                                <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                                <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                            </div>
+                                            <p class="caption">20 hours ago</p>
+                                        </div>
+                                        <h5>{{ b.review_caption }}</h5>
+                                        <div class="lead-text">
+                                            {{ b.review }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% elsif block.type == 'image' %}
+                                <div class="fadeIn flex-box flex-space-between padding-y-xl review-item border-btm">
+                        <div class="flex lg:flex-col flex-y-align author-overview">
+                            <div class="author-thumb br-100 margin-bottom-s">
+                                <figure>
+                                    {% render 'responsive-image', image: b.img, image_class: 'bg-img' %}
+                                </figure>
+                            </div>
+                            <div class="lg:txt-ctr author margin-left-s lg:margin-none">
+                                {{ b.text_under_img |  replace: '<em>', '<p class="caption">' |  replace: '</em>', '</p>' }}
+                            </div>
+                        </div>
+                        <div class="product-review">
+                            <div class="review">
+                                <div class="margin-bottom-s flex flex-y-align rating">
+                                    <div class="flex star-wrap margin-right-base">
+                                        <img src="{{'star-red.svg' |  asset_url }}" alt="">
+                                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                        <img src="{{'star-red.svg' | asset_url }}" alt="">
+                                    </div>
+                                    <p class="caption">20 hours ago</p>
+                                </div>
+                                <h5>{{ b.review_caption }}</h5>
+                                <div class="lead-text">
+                                    {{ b.review }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+    
+
+
+{% schema %}
+    {
+        "name": "Customer Reviews",
+        "tag": "section",
+        "class": "pos-relative section padding-section reviews",
+        "settings": [
+            {
+            "type": "richtext",
+            "id": "section_heading",
+            "label": "Section Heading"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],"blocks": [
+            {
+                "type": "text",
+                "name": "Text",
+                "settings": [                    
+                    {
+                    "type": "text",
+                    "id": "text_inside_img",
+                    "label": "Text insise Image"
+                    },
+                    {
+                    "type": "richtext",
+                    "id": "text_under_img",
+                    "label": "Text Under Image"
+                    },
+                    {
+                    "type": "text",
+                    "id": "review_caption",
+                    "label": "Review Caption"
+                    },
+                    {
+                    "type": "richtext",
+                    "id": "review",
+                    "label": "Review"
+                    }
+                ]
+            },{
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                    },
+                    {
+                    "type": "richtext",
+                    "id": "text_under_img",
+                    "label": "Text Under Image"
+                    },
+                    {
+                    "type": "text",
+                    "id": "review_caption",
+                    "label": "Review Caption"
+                    },
+                    {
+                    "type": "richtext",
+                    "id": "review",
+                    "label": "Review"
+                    }
+                ]
+            }
+            
+        ],
+        "presets": [
+        {
+            "name": "Customer Reviews"
+        }
+      ]
+    }
+{% endschema %}

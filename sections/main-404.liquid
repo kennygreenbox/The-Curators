@@ -1,0 +1,50 @@
+{% assign s = section.settings %}
+  <div class="other-hero__inner">
+      <div class="other-hero__wrap">
+          <div class="common-wrap page-container">
+              <div class="other-hero__wrapper">
+                  <div class="other-hero__content">
+                    {{ s.section_txt }}
+                  </div>
+                  <div class="puff-fst-img">
+                      <img src="{{'puff-1.svg' | asset_url }}" alt="">
+                  </div>
+                  <div class="puff-second-img">
+                      <img src="{{'puff-2.svg' | asset_url }}" alt="">
+                  </div>
+                  <div class="puff-third-img">
+                      <img src="{{'puff-3.svg' | asset_url }}" alt="">
+                  </div>
+                  <div class="puff-four-img">
+                      <img src="{{'puff-4.svg' | asset_url }}" alt="">
+                  </div>
+                  <div class="puff-five-img">
+                      <img src="{{'puff-5.svg' | asset_url }}" alt="">
+                  </div>
+                  <div class="puff-six-img">
+                      <img src="{{'puff-6.svg' | asset_url }}" alt="">
+                  </div>
+                  <div class="puff-seven-img">
+                      <img src="{{'puff-7.svg' |  asset_url }}" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+{% schema %}
+  {
+      "name": "404 page",
+      "tag": "section",
+      "class": "other-hero",
+      "settings": [            
+          {
+          "type": "richtext",
+          "id": "section_txt",
+          "label": "Section Text"
+          }
+      ]
+  }
+{% endschema %}

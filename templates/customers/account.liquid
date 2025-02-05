@@ -1,0 +1,246 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="page-container common-wrap clear">
+
+<div class="customer">
+  <div class="customer__bg">
+    <img src="{{'cloud.jpg' | asset_img_url: 'master'}}" alt="">
+  </div>
+  <div class="common-wrap">
+    <div class="customer__header">
+      <div class="customer__title">Heya, {{ customer.first_name }}</div>
+      <div class="customer__message">
+        <p>Welcome to your account. Check out previous orders and get delivery updates all in one place.</p>
+      </div>
+      <a href="{{ routes.account_logout_url }}" class="customer__button btn btn_primary mobi">Sign out</a>
+    </div>
+
+    <div class="customer__content">
+      <div class="customer__content-left">
+        <div class="customer__nav">
+          <div class="customer__nav-item">
+            <a
+              href="#"
+              data-target="#details"
+              class="customer__nav-url active customer__nav-url_tab">Account details</a>
+          </div>
+          <div class="customer__nav-item">
+            <a
+              href="#"
+              data-target="#orders"
+              class="customer__nav-url customer__nav-url_tab">Your order history</a>
+          </div>
+          <div class="customer__nav-item">
+            <a
+              href="/tools/recurring/login"
+              data-target="#orders"
+              class="customer__nav-url">Manage Subscriptions</a>
+          </div>
+          <a href="{{ routes.account_logout_url }}" class="customer__button btn btn_primary desk">Sign out</a>
+          <!-- <div class="customer__nav-item">
+          <a href="">Track your order</a>
+          </div> -->
+        </div>
+      </div>
+      <div class="customer__content-right">
+        <div class="customer__account-form customer__tab-content active" id="details">
+          {% form 'customer_address', customer.default_address %}
+            <div class="customer__field-header">Personal Info</div>
+            <div class="field">
+              <input
+                class="customer__input"
+                type="text"
+                id="AddressFirstName_{{ form.id }}"
+                name="address[first_name]"
+                value="{{ form.first_name }}"
+                autocomplete="given-name"
+                placeholder="">
+              <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+            </div>
+            <div class="field">
+              <input
+                class="customer__input"
+                type="text"
+                id="AddressLastName_{{ form.id }}"
+                name="address[last_name]"
+                value="{{ form.last_name }}"
+                autocomplete="family-name"
+                placeholder="">
+              <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+            </div>
+            <div class="field">
+              <input
+                class="customer__input"
+                type="tel"
+                id="AddressPhone_{{ form.id }}"
+                name="address[phone]"
+                value="{{ form.phone }}"
+                autocomplete="tel"
+                placeholder="Add number">
+              <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+            </div>
+
+            <div class="customer__field-header customer__field-header_mt_60">Shipping</div>
+            <div class="field">
+              <input
+                class="customer__input"
+                type="text"
+                id="AddressAddress1_{{ form.id }}"
+                name="address[address1]"
+                value="{{ form.address1 }}"
+                autocomplete="address-line1"
+                placeholder="">
+              <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}</label>
+            </div>
+            <!-- <div class="field">
+            <input class="customer__input" type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" autocomplete="address-line2" placeholder="">
+            <label for="AddressAddress2_{{ form.id }}">{{ 'customer.addresses.address2' | t }}</label>
+            </div> -->
+            <div class="field">
+              <input
+                class="customer__input"
+                type="text"
+                id="AddressCity_{{ form.id }}"
+                name="address[city]"
+                value="{{ form.city }}"
+                autocomplete="address-level2"
+                placeholder="">
+              <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+            </div>
+            <div class="field">
+              <label for="AddressCountry_{{ form.id }}">
+                {{ 'customer.addresses.country' | t }}
+              </label>
+              <div class="select">
+                <select
+                  id="AddressCountry_{{ form.id }}"
+                  name="address[country]"
+                  data-address-country-select
+                  data-default="{{ form.country }}"
+                  data-form-id="{{ form.id }}"
+                  autocomplete="country"
+                  ,
+                  class="address-country">
+                  {{ all_country_option_tags }}
+                </select>
+              </div>
+            </div>
+            <div id="AddressProvinceContainer_{{ form.id }}" style="display:none;">
+              <label for="AddressProvince_{{ form.id }}">
+                {{ 'customer.addresses.province' | t }}
+              </label>
+              <div class="select">
+                <select
+                  id="AddressProvince_{{ form.id }}"
+                  name="address[province]"
+                  data-default="{{ form.province }}"
+                  autocomplete="address-level1"></select>
+              </div>
+            </div>
+            <div class="field">
+              <input
+                class="customer__input"
+                type="text"
+                id="AddressZip_{{ form.id }}"
+                name="address[zip]"
+                value="{{ form.zip }}"
+                autocapitalize="characters"
+                autocomplete="postal-code"
+                placeholder="Add ZIP code">
+              <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+            </div>
+            <!-- <div class="field">
+            {{ form.set_as_default_checkbox }}
+            <label for="address_default_address_{{ form.id }}">
+            {{ 'customer.addresses.set_default' | t }}
+            </label>
+            </div> -->
+            <div>
+              <button type="submit" class="customer__button btn btn_primary">Update</button>
+              <button type="reset" class="customer__button btn btn_outline btn_dark customer__cancel">{{ 'customer.addresses.cancel' | t }}</button>
+            </div>
+          {% endform %}
+        </div>
+
+
+
+        <div class="customer__tab-content" id="orders">
+
+          {% if customer.orders_count >= 1 %}
+            <div class="order-history-wrap">
+              <div class="account-content-wrap">
+                <div class="account-heading">
+                  <h5>{{ section.blocks[1].settings.tab_name }}</h5>
+                </div>
+                <div class="account-text-wrap">
+                  {{ section.blocks[1].settings.tab_text }}
+                  <div class="order-history-item-wrap">
+
+                    <div class="order-history-item">
+                      <h6>Order</h6>
+                      <ul>
+                        {% for order in customer.orders %}
+                          <li>
+                            <a href="#">{{ order.name }}</a>
+                            {% comment %}
+                            <a href="{{order.customer_url }}">{{ order.name }}</a>
+                            {% endcomment %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="order-history-item">
+                      <h6>Date</h6>
+                      <ul>
+                        {% for order in customer.orders %}
+                          <li>{{ order.created_at | date: format: 'abbreviated_date' }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="order-history-item">
+                      <h6>Total</h6>
+                      <ul>
+                        {% for order in customer.orders %}
+                          <li>{{ order.total_price | money }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                    <div class="order-history-item">
+                      <h6>Status</h6>
+                      <ul>
+                        {% for order in customer.orders %}
+                          <li>{{ order.fulfillment_status_label }}</li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="customer__no-order">You don’t have any orders</div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+<!-- Begin ReCharge code -->
+<!-- <p id="rc_link_container">
+<a href="/tools/recurring/login">Manage Subscriptions</a>
+</p> --><!-- End ReCharge code -->
+
+  <style>
+.your-cart-wrap {
+  display: none;
+}
+</style>

@@ -1,0 +1,104 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "frequently_asked_j786Mt": {
+      "type": "Frequently-asked",
+      "blocks": {
+        "heading_6hheG8": {
+          "type": "heading",
+          "settings": {
+            "title": "ORDERS"
+          }
+        },
+        "item_mgMtAg": {
+          "type": "item",
+          "settings": {
+            "title": "How do I track my snacks?",
+            "content": "<p>Once you’ve placed an order with us, you will receive tracking details with Royal Mail for small orders and DPD for larger orders. Your snacks should be with you in 2-3 working days. If you are still expecting your order, please send us an email at hello@wearethecurators.com with your order number so that we can investigate this for you.Unfortunately, we are not currently set up for International Deliveries. We are unable to ship to Northern Ireland due to an import tax issue. We’re hoping we will be able to again soon but in the meantime, you can find our Pork Puffs in Tesco in NI.<\/p>"
+          }
+        },
+        "item_TdFyb9": {
+          "type": "item",
+          "settings": {
+            "title": "What is your Returns Policy?",
+            "content": "<p><strong>Change of Heart? No Problem!<\/strong><\/p><p>If you no longer want your order, you can return it within 30 days of delivery. After that, we can’t offer a refund or exchange – but hey, that’s more snacks for you to enjoy!<\/p><p><br\/><strong>The Golden Rules of Returns<\/strong><\/p><p>Unopened, unused, and in original packaging? You’re good to go!<br\/>Opened or nibbled on? Sorry, but we can’t accept returns on food that’s been opened – we need to keep things fresh and safe! Please see our full Returns information under 'Refund Policy' at the bottom of our website.<\/p>"
+          }
+        },
+        "item_EkP9ER": {
+          "type": "item",
+          "settings": {
+            "title": "My snacks aren't here. What do I do?",
+            "content": "<p>We’re so sorry you’ve had an issue with your order. As a small team, our mission is to ensure our customers experience the highest level of service and satisfaction when ordering our snacks. Please email hello@wearethecurators.com so we can look into your order and sort things out!<\/p>"
+          }
+        },
+        "item_MHNbVB": {
+          "type": "item",
+          "settings": {
+            "title": "How long will my snacks take to arrive?",
+            "content": "<p>Your snacks should be with you in 2-3 working days!<\/p>"
+          }
+        },
+        "item_a3QyJi": {
+          "type": "item",
+          "settings": {
+            "title": "Where can I find your snacks in store?",
+            "content": "<p>Our range of high protein snacks are currently available in the following retailers:- Sainsbury's- Morrisons- Asda- Tesco- Waitrose- Holland & Barrett- Amazon- OcadoYou can usually find us hanging out on a clip-strip in the snacks aisle or with the beer, wine and spirits.<\/p>"
+          }
+        },
+        "heading_DDmgpG": {
+          "type": "heading",
+          "settings": {
+            "title": "PRODUCTS"
+          }
+        },
+        "item_eMYhVj": {
+          "type": "item",
+          "settings": {
+            "title": "Are your snacks recyclable?",
+            "content": "<p>We are currently offering a recycling option in supermarkets. These are not currently recyclable at home. As a B-Corp and a small business, we are always looking for ways to make our packaging more environmentally friendly.  <\/p>"
+          }
+        },
+        "item_68KFYE": {
+          "type": "item",
+          "settings": {
+            "title": "Are The Curators \/ Cheesies gluten free?",
+            "content": "<p>YES. Everything on our website is Gluten Free.<\/p>"
+          }
+        },
+        "item_iBFmpz": {
+          "type": "item",
+          "settings": {
+            "title": "What's in your snacks?",
+            "content": "<p>KETO: Our Pork Puffs, Biltong and Cheesies ranges are all keto friendly with next to no carbs across the range. BEEF BILTONG: All of our meat is British and our suppliers follow The Five Freedoms of Animal Welfare. Our cows are all grass fed too.VEGGIE PUFFS: Both our Cheese and Barbecue flavour Veggie Puffs are completely suitable for vegans. We know, hard to believe once you’ve given them a taste. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6hheG8",
+        "item_mgMtAg",
+        "item_TdFyb9",
+        "item_EkP9ER",
+        "item_MHNbVB",
+        "item_a3QyJi",
+        "heading_DDmgpG",
+        "item_eMYhVj",
+        "item_68KFYE",
+        "item_iBFmpz"
+      ],
+      "settings": {
+        "heading": "<h1>FAQs<\/h1><h4>Crunching Down Your Questions<\/h4>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "frequently_asked_j786Mt"
+  ]
+}

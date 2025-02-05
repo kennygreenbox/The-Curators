@@ -1,0 +1,59 @@
+{% assign s = section.settings %}
+    <div class="padding-none page-container common-wrap clear">
+        <div class="padding-y-l">
+            {% if s.text != blank %}
+                <div class="txt-ctr content">
+                    {{ s.text |  replace: '<p', '<p class="caption"' }}
+                </div>
+                
+            {% endif %}
+        <div class="padding-top-base flex flex-x-align flex-y-align logo-bar-img-container">
+            <div class="section flex flex-y-align swiper-container no-marquee mobile-marquee-slider">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        {% assign b = block.settings %}
+                        <div class="logo-item swiper-slide">
+                            <figure>
+                                <img src="{{ b.image |  image_url }}" alt="">
+                            </figure>
+                        </div>                        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Logo Bar",
+        "tag": "section",
+        "class": "margin-bottom-m section logo-bar-section",
+        "settings": [
+            {
+            "type": "richtext",
+            "id": "text",
+            "label": "Section text"
+            }
+        ],"blocks": [
+            {
+                "type": "item",
+                "name": "Image",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "Logo Bar"
+        }
+      ]
+    }
+{% endschema %}

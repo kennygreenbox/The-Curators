@@ -1,0 +1,80 @@
+<div class="filters">
+  <div class="filters__item">
+    <div class="filters__label">Price</div>
+    <div class="filters__filter-wrap">
+      <div class="filters__filter">
+        <input
+          type="radio"
+          class="filters__input filters__input_price"
+          name="filter.v.price.lte"
+          value="800"
+          id="price-1">
+        <label class="filter-label filter-label_price" for="none">
+          {% if filter.label contains 'colour' %}
+            <div class="filter__color" style="background-color: {{value.value}};"></div>
+          {% endif %}
+          <span>&lt; £800</span>
+        </label>
+      </div>
+      <div class="filters__filter">
+        <input
+          type="radio"
+          class="filters__input filters__input_price"
+          name="filter.v.price.gte"
+          value="800"
+          id="price-2_1">
+        <input
+          type="radio"
+          class="filters__input filters__input_price"
+          name="filter.v.price.lte"
+          value="1000"
+          id="price-2_2">
+        <label class="filter-label filter-label_price" for="price-2">
+          {% if filter.label contains 'colour' %}
+            <div class="filter__color" style="background-color: {{value.value}};"></div>
+          {% endif %}
+          <span>&lt; £800 - £1000</span>
+        </label>
+      </div>
+      <div class="filters__filter">
+        <input
+          type="radio"
+          class="filters__input filters__input_price"
+          name="filter.v.price.gte"
+          value="1000"
+          id="price-3">
+        <label class="filter-label filter-label_price" for="none">
+          {% if filter.label contains 'colour' %}
+            <div class="filter__color" style="background-color: {{value.value}};"></div>
+          {% endif %}
+          <span>£1000 +</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  {% for filter in collection.filters %}
+    <div class="filters__item">
+      <div class="filters__label">{{ filter.label }}</div>
+      <div class="filters__filter-wrap">
+        {% for value in filter.values %}
+          <div class="filters__filter">
+            <input
+              type="checkbox"
+              class="filters__input"
+              name="{{ value.param_name }}"
+              value="{{ value.value }}"
+              id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+              {% if value.active %}checked{% endif %}
+              {% if value.count == 0 and value.active == false %}disabled{% endif %}>
+            <label class="filter-label" for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+              {% if filter.label contains 'colour' %}
+                <div class="filter__color" style="background-color: {{value.value}};"></div>
+              {% endif %}
+              <span>{{ value.value }}</span>
+            </label>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

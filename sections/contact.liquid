@@ -1,0 +1,74 @@
+{% assign s = section.settings %}
+    <div class="contact-hero__inner">
+        <div class="common-wrap page-container">
+            <div class="contact-hero__wrapper">
+                <div class="contact-hero__wrap">
+                    <div class="contact-hero__left">
+                        {{ s.section_txt }}
+                        {{ s.bot_text |  replace: '<p>', '<div class="contact-hero__left-description">' |  replace: '</p>', '</div>' }}
+                    </div>
+                    <div class="contact-hero__right">
+                        {% form 'contact' %}
+                            {{ form.errors | default_errors }}
+                            <div class="contact-hero__right-headding">
+                                <h3>ENQUIRIES</h3>
+                            </div>
+                            <div class="contact-hero__right-input">
+                                <input type="text" name="contact[Name]" id="name" placeholder="Name">
+                                <input type="email" name="contact[Email]" id="email" placeholder="Email">
+                                <div class="contact-hero__select">
+                                    <select name="subject" id="subject" name="contact[Subject]">
+                                        <option value="subject">Subject</option>
+                                        <option value="General">General</option>
+                                        <option value="Order - Account Info">Order / Account Info</option>
+                                        <option value="Complaint">Complaint</option>
+                                    </select>
+                                </div>
+                                <textarea rows="4" placeholder="Message" name="contact[Message]"></textarea>
+                            </div>
+                            <div class="contact-hero__btn">
+                                <button type="submit" value="Create">submit</button>
+                            </div>
+                            
+                        {% endform %}
+                        <div class="contact-hero__right-description">
+                            <p>{{ s.form_text }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-hero__bg">
+                    <div class="contact-hero__fst-bg">
+                        <img src="{{'contact-hero-bg-1.png' | asset_url }}" alt="">
+                    </div>
+                    <div class="contact-hero__second-bg">
+                        <img src="{{'contact-hero-bg-2.png' |  asset_url }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% schema %}
+    {
+        "name": "Contact",
+        "tag": "section",
+        "class": "contact-hero",
+        "settings": [            
+            {
+            "type": "richtext",
+            "id": "section_txt",
+            "label": "Section Text"
+            },{
+            "type": "richtext",
+            "id": "bot_text",
+            "label": "Bottom text"
+            },{
+            "type": "text",
+            "id": "form_text",
+            "label": "Form text"
+            }
+        ]
+    }
+{% endschema %}

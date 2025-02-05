@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "item_HFBtAk": {
+          "type": "item",
+          "settings": {
+            "title": "BEST SELLERS",
+            "url": "shopify:\/\/collections\/best-sellers",
+            "link": ""
+          }
+        },
+        "item_KXHthx": {
+          "type": "item",
+          "settings": {
+            "title": "SNACKS",
+            "url": "#",
+            "link": "collection-menu"
+          }
+        },
+        "item_Mfzjgy": {
+          "type": "item",
+          "settings": {
+            "title": "PACKS & BUNDLES",
+            "url": "shopify:\/\/collections\/bundles",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_HFBtAk",
+        "item_KXHthx",
+        "item_Mfzjgy"
+      ],
+      "settings": {
+        "desk_img": "shopify:\/\/shop_images\/Untitled_design_89.png",
+        "mobi_img": "shopify:\/\/shop_images\/Untitled_design_88.png",
+        "collection_title": "All products",
+        "collection_text": "<p>Light, crispy, and full of flavour, these protein packed Pork Puffs are a perfect crisp alternative.<\/p>",
+        "sidebar_title": "SHOP THE CURATORS"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid"
+  ]
+}

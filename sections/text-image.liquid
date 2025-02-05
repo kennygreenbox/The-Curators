@@ -1,0 +1,92 @@
+{% assign s = section.settings %}
+			
+            
+            <div class="container-inner">
+				<div class="page-container common-wrap clear">
+					<div class="grid-item grid-container grid-container-one lg:grid-container-full gutter">
+						<div class="flex flex-y-align grid-five grid-item">
+							<div class="page-header-content">								
+									<div class="page-header-inner">										
+										<div class="flex flex-col content "  >											
+											<div class="fadeIn flex flex-col content-wrap pos-relative">
+												<div class="zig-zag-visual pos-absolute ">
+													<figure>
+														<img src="{{'zig-zag.svg' |  asset_url }}" alt="">
+													</figure>
+												</div>
+												<div class="margin-bottom-default-sml heading-wrap multi-font-heading">
+													<h1><span class="font-alt">{{ s. rest_text }}</span><br>
+														<span class="pos-relative ">{{ s.deco_text }}<span class="pos-absolute underline-animation"><img src="{{'unerline-yellow.svg' |  asset_url }}" alt=""></span></span></h1>
+												</div>
+												<h2 class="h5">{{ s.text }}</h2>
+											</div>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="flex grid-seven grid-item">
+                            {% render 'smart-image', image: s.image, image_mob: s.image_mobi, image_class: 'bg-img lazyload' %}
+						<div class="pos-absolute sticker founded-sticker animationTrigger">
+							<figure class="staggerItem">
+								<img src="{{'founded-sticker.svg' |  asset_url }}" alt="">
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="pos-absolute puffs-visual puffs-visual-header">
+				<div class="animate-up">
+					<figure>
+						<img src="{{'Puff-bacon-light-yellow-about.png' |  asset_url }}" alt="">
+					</figure>
+				</div>
+				<div class="animate-up">
+					<figure>
+						<img src="{{'Puff-small-bacon-light-header.png' | asset_url }}" alt="">
+					</figure>
+				</div>
+				<div class="animate-up">
+					<figure>
+						<img src="{{'Puff-bacon-light-yellow-about.png' | asset_url }}" alt="">
+					</figure>
+				</div>
+			</div>
+
+
+        {% schema %}
+            {
+                "name": "Text Image",
+                "tag": "section",
+                "class": "pos-relative parallax-trigger has-blue-background pos-relative section page-header page-header-section animationTrigger page-header-contained",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image for desktop"
+                    },{
+                    "type": "image_picker",
+                    "id": "image_mobi",
+                    "label": "Image for Mobile"
+                    },
+                    {
+                    "type": "text",
+                    "id": "deco_text",
+                    "label": "Decoration text"
+                    },{
+                    "type": "text",
+                    "id": "rest_text",
+                    "label": "Rest of the text"
+                    },{
+                    "type": "text",
+                    "id": "text",
+                    "label": "Small text"
+                    }
+                ],
+                "presets": [
+                {
+                    "name": "Text Image"
+                }
+              ]
+            }
+        {% endschema %}

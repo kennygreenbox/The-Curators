@@ -1,0 +1,95 @@
+{% assign s = section.settings %}
+   
+   
+   <div class="page-container common-wrap clear">
+        <div class="grid-container lg:grid-container-two gutter row-rev">
+            <div class="padding-top-default-sml lg:padding-top-none grid-item grid-container grid-container-one lg:grid-container-six lg:padding-right-xl">
+                <div class="grid-five">
+                    <div class="fadeIn flex flex-col content-wrap pos-relative">
+                        <div class="heading-wrap multi-font-heading">
+                            <h2><span class="font-alt">{{ s.deco_text }}</span><br>
+                                {{ s.rest_text }}</h2>
+                        </div>
+                        {{ s.text |  replace: '<p', '<p class="h6"' }}
+                        {% if s.btn_label != blank %}
+                            <div class="btn-wrap">
+                                <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                                    <span class="button__flair"></span>
+                                    <span class="button__label">{{ s.btn_label }}</span>
+                                </a>
+                            </div>                            
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="pos-relative grid-item animationTrigger">
+                <div class="br-15x main-visual">
+                    <div class="parallax-top">
+                        <figure>
+                            {% render 'responsive-image', image: s.image, image_class: 'bg-img' %}
+                        </figure>
+                    </div>
+
+                    <div class="pos-absolute sticker logo-sticker ">
+                        <div class="pos-relative sticker-container">
+                            <figure>
+                                <img src="{{'BCORP-PENDING-w.svg' |  asset_url }}" alt="" class="lazyload">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pos-absolute sticker snack-impact-sticker ">
+                    <div class="pos-relative sticker-container staggerItem">
+                        <figure>
+                            <img src="{{'snack.svg' | asset_url }}" alt="" class="lazyload">
+                        </figure>
+                    </div>
+                </div>
+
+                
+            </div>	
+        </div>
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Snack with Impact",
+        "tag": "section",
+        "class": "has-orange-background section padding-section parallax-trigger text-img-parallax-section",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+            },
+            {
+            "type": "text",
+            "id": "deco_text",
+            "label": "Decoration text"
+            },{
+            "type": "text",
+            "id": "rest_text",
+            "label": "Rest of the text"
+            },{
+            "type": "richtext",
+            "id": "text",
+            "label": "Small text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],
+        "presets": [
+        {
+            "name": "Snack with Impact"
+        }
+      ]
+    }
+{% endschema %}

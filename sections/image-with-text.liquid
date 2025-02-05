@@ -1,0 +1,79 @@
+{% assign s = section.settings %}
+    
+    
+    <div class="page-container common-wrap clear">
+        <div class="grid-container lg:grid-container-two gutter  mobi-reverse">
+            <div class="grid-item grid-container grid-container-one lg:grid-container-six align-right">
+                <div class="grid-five">
+                    <div class="fadeIn flex flex-col content-wrap pos-relative">
+                        <div class="heading-wrap multi-font-heading">
+                            <h3>{{ s.first_text }} <span class="font-alt"> {{ s.second_text }} <span class="pos-relative ">{{ s.deco_text }}<span class="pos-absolute underline-animation"><img src="{{'explosion-underline.svg' |  asset_url }}" alt=""></span></span> {{ s.third_text }} </span> {{ s.rest_text }}</h3>
+                        </div>
+                        {{ s.bot_text |  replace: '<p', '<p class="h6"' }}
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="pos-relative grid-item parallax-inner-item grid-container grid-container-one lg:grid-container-six align-right">
+                <div class="grid-five">
+                    <div class="br-15x main-visual">
+                        <div class="parallax-inner">
+                            <figure>
+                                {% render 'responsive-image', image: s.image image_class: 'bg-img' %}
+                            </figure>
+                        </div>
+
+                    </div>	
+                </div>
+            </div>	
+        </div>
+    </div>
+
+    
+
+{% schema %}
+    {
+        "name": "Image with Text",
+        "tag": "section",
+        "class": "margin-top-s lg:margin-top-none section parallax-trigger text-img-parallax-section",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+            },
+            {
+            "type": "text",
+            "id": "first_text",
+            "label": "First text"
+            },{
+            "type": "text",
+            "id": "second_text",
+            "label": "Second text"
+            },{
+            "type": "text",
+            "id": "third_text",
+            "label": "Third text"
+            },{
+            "type": "text",
+            "id": "deco_text",
+            "label": "Decoration text"
+            },{
+            "type": "text",
+            "id": "rest_text",
+            "label": "Rest of the text"
+            },{
+            "type": "richtext",
+            "id": "bot_text",
+            "label": "Bottom text"
+            }
+        ],"blocks": [
+         
+        ],
+        "presets": [
+        {
+            "name": "Image with Text"
+        }
+      ]
+    }
+{% endschema %}

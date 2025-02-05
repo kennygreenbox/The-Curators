@@ -1,0 +1,181 @@
+{% liquid
+    assign s = section.settings 
+    assign roundel_text = s.roundel_text
+    assign roundel_bg_image = s.roundel_bg_image
+    assign roundel_image = s.roundel_image
+    assign roundel_colour = s.roundel_colour
+    assign roundel_text_colour = s.roundel_text_colour
+%}
+
+    <div class="page-container common-wrap clear {% if roundel_text != blank or roundel_bg_image != blank%}has-roundel{% endif %}">
+        <div class="grid-container grid-container-one lg:grid-container-full gutter row-rev">
+            <div class="grid-item grid-five">
+                <div class="fadeIn flex flex-col flex-x-align content-wrap  pos-relative">
+                    
+                    <div class="heading-wrap multi-font-heading">
+                        <h2 class="h1 ">
+                            {% if s.heading_deco != blank %}
+                                <span class="pos-relative ">{{ s.heading_deco }}<span class="pos-absolute underline-animation"><img src="{{'underline-yellow-b.svg' |  asset_url }}" alt=""></span></span><br>
+                            {% endif %}
+                            {% if s.heading_rest != blank %}
+                                <span class="font-alt">{{ s.heading_rest }}</span>                                
+                            {% endif %}
+                            </h2>
+                    </div>
+                    {{ s.text |  replace: '<p', '<p class="h6 padding-y-xs"' }}                    
+                    {% if s.btn_label != blank %}
+                        <div class="btn-wrap">
+                            <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                                <span class="button__flair"></span>
+                                <span class="button__label">{{ s.btn_label }}</span>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class=" call-to-action-visual pos-relative md-lg:pos-absolute">
+                <div class="parallax-mid desktopOnly">
+
+                {% render 'smart-image', image: s.image_desk, image_mob: s.image_mobi, image_class: 'bg-img lazyload' %}                   
+                </div>
+
+                {% if section.blocks.size > 0 %}
+                    <div class="pos-absolute puffs-visual">
+                        {% for block in section.blocks %}
+                            {% assign image = block.settings.image %}
+                            {% if image != blank %}
+                                <div class="animate-up">
+                                    <figure>
+                                        {% render 'responsive-img' with image: image %}
+                                        {% comment %} <img src="{{'cheesies-singles_1.webp ' |  asset_url }}" alt=""> {% endcomment %}
+                                    </figure>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% comment %} <div class="animate-up">
+                            <figure>
+                                <img src="{{'cheesies-singles_2.webp ' |  asset_url }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="animate-up">
+                            <figure>
+                                <img src="{{'cheesies-singles_3.webp' |  asset_url }}" alt="">
+                            </figure>
+                        </div> {% endcomment %}
+                        <!-- <div class="paralllax-img-b"></div>
+                        <div class="paralllax-img-c"></div> -->
+                    </div>
+                {% endif %}
+            </div>
+            {% if roundel_text != blank or roundel_bg_image != blank%}
+            <div class="pos-absolute sticker protein-sticker">
+                <div class="pos-relative sticker-container">
+                    <div class="inner-sticker" {% if roundel_bg_image == blank %}style="background-color:{{roundel_colour}};"{% endif %}>
+                        {% if roundel_bg_image != blank %}
+                        <figure>
+                            {% render 'responsive-img' with image:roundel_bg_image %}
+                        </figure>
+                        {% else %}
+                            <span style=" color:{{ roundel_text_colour }}">{{ roundel_text }}</span>
+                        {% endif %}
+                    </div>
+                    {% if roundel_image != blank %}
+                    <div class="rotate outer-sticker pos-absolute">
+                        <figure>
+                            {% render 'responsive-img' with image:roundel_image %}
+                        </figure>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+            
+        </div>
+    </div>
+
+{% schema %}
+    {
+        "name": "Call To Action",
+        "tag": "section",
+        "class": "section padding-section padding-bottom-none has-orange-background pos-relative parallax-trigger call-to-action-section",
+        "max_blocks": 3,
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image_desk",
+            "label": "Image for desktop"
+            },{
+            "type": "image_picker",
+            "id": "image_mobi",
+            "label": "Image for Mobile"
+            },
+            {
+            "type": "text",
+            "id": "heading_deco",
+            "label": "Decoration Heading"
+            },{
+            "type": "text",
+            "id": "heading_rest",
+            "label": "Rest of The Heading"
+            },{
+            "type": "richtext",
+            "id": "text",
+            "label": "Section Text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            },
+            {
+                "type":"header",
+                "content":"Roundel"
+            },
+            {
+                "type": "text",
+                "id": "roundel_text",
+                "label": "Roundel Text"
+            },{
+                "type": "image_picker",
+                "id": "roundel_bg_image",
+                "label": "Roundel Background Image",
+                "info": "If you want to use a background image instead of text."
+                },
+            {
+            "type": "image_picker",
+            "id": "roundel_image",
+            "label": "Roundel Spinning Image"
+            },{
+                "type": "color",
+                "id": "roundel_colour",
+                "label": "Roundel Background Colour"
+            },{
+                "type": "color",
+                "id": "roundel_text_colour",
+                "label": "Roundel Text Colour"
+            }
+        ],"blocks": [
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Floating Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "Call To Action"
+        }
+      ]
+    }
+{% endschema %}
+
+

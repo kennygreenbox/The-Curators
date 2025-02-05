@@ -1,0 +1,235 @@
+{% assign s = section.settings %}
+{% assign title = collection.title %}
+
+<section class="section shop-product-section">
+    <div class="page-container common-wrap clear">
+        <div class=" flex flex-col lg:flex-row lg:flex-nowrap shop-wrapper grid-l">
+            <div class="shop-filter ">
+                <div class="flex flex-col br-10x lg:padding-x-default lg:padding-bottom-l lg:padding-top-l shop-filter-container">
+                    <div class="flex flex-col filter-item">
+                        {% if s.sidebar_title != blank %}
+                            <h4 class="txt-ctr lg:txt-l">{{ s.sidebar_title }}</h4>                            
+                        {% endif %}
+                        
+
+                        <div class="pos-relative dropdown-container">
+                            <div class="selected-option mobi tablet padding-x-default margin-top-l">Select an option</div>
+
+                            <div class="lg:margin-top-xl filter-options dropdown-menu">
+                                <div class="padding-default lg:padding-none filter-option">
+                                    <ul class="flex flex-col grid-default collection-wrap">
+                                        {% for block in section.blocks %}
+                                            {% assign b = block.settings %}
+                                            {% assign childLinkActive = false %}
+                                            {% if b.link.links.size > 0 %}
+                                                {% for link in b.link.links %}
+                                                    {% if link.url == request.path %}
+                                                        {% assign childLinkActive = true %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                            <li class="{% if b.url == request.path or childLinkActive == true %}selected{% endif %} {% if b.link.links.size > 0 %}has-nested{% endif %}">
+                                            <a href="{{ b.url }}" class="main-option">{{ b.title }}</a>
+                                            {% if b.link != blank %}
+                                                <ul class="flex flex-col nested">
+                                                  {% for link in b.link.links %}
+                                                    <li class="{% if link.active %} selected-child{% endif %}"><a href="{{ link.url }}" class="sub-option">{{ link.title }}</a></li>                                                    
+                                                  {% endfor %}
+                                                </ul>                                                
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                        
+                                    </ul>
+                                    <div class="lg:margin-top-xl margin-top-l btn-wrap">
+                                        <a href="/collections/all-products" class="button button--stroke btn btn-outline btn-large" data-block="button">
+                                            <span class="button__flair"></span>
+                                            <span class="button__label">Shop all</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-products-container">
+                <section class="padding-default lg:padding-x-xl lg:padding-bottom-l lg:padding-top-l flex lg:flex-y-align pos-relative shop-collection-banner br-10x">
+                    {% comment %} <div class="sm-img-wrap">
+                        <div class="bar-img"><img src="{{ 'image-bar.svg' |  asset_url }}" alt=""></div>
+                        <div class="puff-img"><img src="{{ 'puff1.svg' |  asset_url }}" alt=""></div>
+                    </div> {% endcomment %}
+                    {% assign banner_img = collection.metafields.custom.banner_image.value %}
+                <div class="collection-banner-img {% if banner_img.dark_overlay == true %}banner-overlay {% endif %}pos-absolute">
+                  
+                      {% comment %} {% render 'smart-image', image: collection.metafields.custom.banner_image.value, image_mobi: s.mobi_img, image_class: 'bg-img lazyload' %} {% endcomment %}
+                      {% if banner_img != blank %}
+                        <picture>
+                          <source media="(min-width: 992px)" srcset="{{ banner_img.desktop_image | image_url }}">
+                          <source media="(max-width: 991px)" srcset="{{ banner_img.mobile_image |  image_url }}">
+                          <img src="{{ banner_img.desktop_image |  image_url }}" srcset="{{ banner_img.desktop_image | image_url }} 992w, {{ banner_img.desktop_image | image_url }}" alt="" class="bg-img lazyload">
+                      </picture>
+                      
+                      {% else %}
+                      <picture>
+                        <source media="(min-width: 992px)" srcset="{{ s.desk_img | image_url }}">
+                        <source media="(max-width: 991px)" srcset="{{ s.mobi_img |  image_url }}">
+                        <img src="{{ s.desk_img |  image_url }}" srcset="{{ s.desk_img | image_url }} 992w, {{ s.desk_img | image_url }}" alt="" class="bg-img lazyload">
+                    </picture>
+                      {% endif %}                    
+                      </div>
+                    <div class="collection-banner-content">
+                        {% if banner_img.collection_logo != blank %}
+                            {% render 'smart-image', image: banner_img.collection_logo, image_mob: banner_img.collection_logo, image_class: 'collection-logo lazyload' %}       
+                        {% elsif collection.title != "Products" %}
+                            <h2>{{ collection.title }}</h2> 
+                            {% else %}
+                                <h2>{{ s.collection_title }}</h2>                           
+                        {% endif %}
+                        {% if collection.description != blank %}
+                            <div class="lead-text">
+                                {{ collection.description }}
+                            </div>
+                            {% else %}
+                            <div class="lead-text">
+                                {{ s.collection_text }}
+                            </div>                       
+                        {% endif %}
+                    </div>
+                </section>
+                <section class="margin-top-l shop-products">
+
+                    <div class="grid-container lg:grid-container-three gutter product-item-wrapper">
+                      {% for product in collection.products %}
+                        {% assign grid_card = product.metafields.custom.grid_card.value %}
+                        <div class="flex flex-col product-item">
+                            <a href="{{ product.url }}" class="pos-relative br-10x flex flex-bottom-align product-item-container">
+                                <div class="flex-box badge-wrapper">
+                                {% if grid_card.badges.value != blank %}
+                                    {% for item in grid_card.badges.value %}
+                                        <div class="badge">
+                                            {{ item.text |  metafield_tag |  replace: '<p>', '<div>' |  replace: '</p>', '</div>' |  replace: '<em>', '<span class="unit">' |  replace: '</em>', '</span>' }}
+                                        </div>                                    
+                                    {% endfor %}
+                                {% else %}
+                                    {% for item in product.metafields.custom.badge.value  limit: 2 %}
+                                        <div class="badge">
+                                            {{ item.text |  metafield_tag |  replace: '<p>', '<div>' |  replace: '</p>', '</div>' |  replace: '<em>', '<span class="unit">' |  replace: '</em>', '</span>' }}
+                                        </div>                                    
+                                    {% endfor %}
+                                {% endif %}
+                                </div>                               
+
+                                <div class="pos-absolute bg-visual product-img">
+                                    <figure>
+
+                                    {% if grid_card.grid_image != blank %}
+                                        {% assign card_image = grid_card.grid_image.value %}
+                                    {% elsif product.metafields.custom.card_image != blank %}
+                                        {% assign card_image = product.metafields.custom.card_image %}
+                                    {% else %}
+                                        {% assign card_image = product.featured_image %}
+                                    {% endif %}
+                                    {% if card_image != blank %}
+                                        {% render 'responsive-image', image: card_image, image_class: 'bg-img' %}                                                
+                                    {% endif %}
+
+                                        {% comment %} <img src="assets/img/pork-puffs-b.png" alt="" class="bg-img"> {% endcomment %}
+                                    </figure>
+                                </div>
+                            </a>
+                            <div class="padding-top-m card-content">
+                                <div class="flex flex-col grid-default-sml card-footer">
+                                    
+                                    <h5>{% if grid_card.title %}{{ grid_card.title }}{% else %}{{ product.title }}{% endif %}</h5>
+                                    {% if grid_card.description %}<p>{{ grid_card.description | newline_to_br }}</p>{% else %}{{ product.metafields.custom.description |  metafield_tag }}{% endif %}
+                                    {% form 'product', product, class: 'shopify-product-form' %}
+                                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">  
+                                    
+                                    <div class="flex-box flex-col flex-space-between grid-default-sml btn-wrap ">
+                                        <div class="dropdown product_options">
+                                            <select class="cart__collection-product-select cart__product-select" name="id">
+                                              {% for variant in product.variants %}
+                                                <option data-quantity-available="{{ variant.available }}" data-quantity-price="{{ variant.price |  money }}" value="{{ variant.id }}">{{ variant.title }}</option>                                                        
+                                            {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% liquid
+                                            assign button_details = product.metafields.custom.button_details.value
+                                            assign enable_button_variation = button_details.enable_button_variation
+                                            assign button_label = button_details.button_label
+                                            %}
+                                        <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__cart-collection-product" data-block="button">
+                                            <span class="button__flair"></span>
+                                            <span class="button__label">
+                                                <span>{% if enable_button_variation == true and button_label != blank %}{{ button_label }}{% else %}Add to Cart{% endif %}</span>&nbsp;-&nbsp;<span class="card__product-price">{{ product.price |  money }}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                {% endform %}
+                                </div>
+                            </div>
+                            
+                        </div>    
+                      {% endfor %}
+                    </div>
+                </section>
+                        
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Product grid",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desk_img",
+      "label": "Desktop Image"
+    },{
+      "type": "image_picker",
+      "id": "mobi_img",
+      "label": "Mobile Image"
+    },{
+      "type": "text",
+      "id": "collection_title",
+      "label": "Collection Title"
+    },{
+      "type": "richtext",
+      "id": "collection_text",
+      "label": "Collection Text"
+    },{
+      "type": "text",
+      "id": "sidebar_title",
+      "label": "Sidebar Title"
+    }
+    
+  ],"blocks": [
+    {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Item Title"
+            },{
+                "type": "url",
+                "id": "url",
+                "label": "Item URL"
+            },{
+                "type": "link_list",
+                "id": "link",
+                "label": "Item menu",
+                "info": "Subitems"
+            }
+        ]
+    }
+]
+}
+{% endschema %}
+

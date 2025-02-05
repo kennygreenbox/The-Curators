@@ -1,0 +1,88 @@
+{% assign s = section.settings %}
+    
+    
+    <div class="page-container common-wrap clear">
+        <div class="fadeIn txt-ctr lg-container content-wrap">
+            <div class="txt-ctr trust-pilot-badge margin-bottom-m">
+                <figure><img src="{{'Trustpilot_brandmark_gr-blk-RGB.png' |  asset_url }}" alt=""></figure>
+            </div>
+            <h2><span class="pos-relative">{{ s.deco_text }}<span class="pos-absolute underline-animation"><img src="{{'underline-green.svg' |  asset_url }}" alt=""></span></span> {{ s.rest_text }}</h2>
+
+        </div>
+    </div>
+
+        <div class="margin-top-xl page-container lg:padding-none trust-marquee-slider marquee-slider-wrap swiper swiper-container">
+            <div class="swiper-wrapper">
+
+            {% for block in section.blocks %}
+                {% assign b = block.settings %}
+                <div class="br-20x lg:margin-right-m padding-l testimonial-item swiper-slide">
+                    <div class="flex flex-col flex-y-align testimonial-item-inner">
+                        <div class="margin-bottom-base rating">
+                            <figure>
+                                <img src="{{'Trustpilot_ratings_5star-RGB.png' |  asset_url }}" alt="">
+                            </figure>
+                        </div>
+                        {% if b.text != blank %}
+                            <div class="txt-ctr flex-col flex testimonial-overview">
+                                {{ b.text |  replace: '<p>', '<blockquote>'  |  replace: '</p>', '</blockquote>' }}
+                                <cite>{{ b.city }}</cite>
+                            </div>                            
+                        {% endif %}
+                    </div>
+                </div>                
+            {% endfor %}
+                
+            </div>
+            <div class="mobi swiper-navigation">
+            
+            <div class=" swiper-button-prev"></div>
+            <div class=" swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% schema %}
+    {
+        "name": "Testimonial",
+        "tag": "section",
+        "class": "section padding-section testimonial-section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "deco_text",
+                "label": "Decoration Text"
+                },{
+                "type": "text",
+                "id": "rest_text",
+                "label": "Rest of The Text"
+                }
+        ],"blocks": [
+            {
+                "type": "item",
+                "name": "Item",
+                "settings": [
+                    {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                    },{
+                    "type": "text",
+                    "id": "city",
+                    "label": "City"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "Testimonial"
+        }
+        ]
+    }
+{% endschema %}

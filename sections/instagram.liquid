@@ -1,0 +1,65 @@
+{% assign s = section.settings %}
+    <div class="fadeIn font-alt txt-ctr content-wrap">
+        {{ s.text }}
+        <div class="padding-top-default btn-wrap">
+            {% if s.btn_label != blank %}
+                <a href="{{ s.btn_url }}" class="button button--stroke btn btn-rounded btn-secondary btn-medium" data-block="button">
+                    <span class="button__flair"></span>
+                    <span class="button__label">{{ s.btn_label }}</span>
+                </a>                
+            {% endif %}
+            <div class="margin-top-default social-wrap instagram-social-wrap">
+                {% render 'social-links' %}		
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="margin-top-xl social-marquee-slider marquee-slider-wrap swiper swiper-container">
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+                {% assign b = block.settings %}
+                <div class="slide-item margin-right-m swiper-slide">
+                    {% render 'responsive-image', image: b.image, image_class: 'bg-img'%}
+                </div>                
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Instagram",
+        "tag": "section",
+        "class": "section padding-top-xl instagram-feed",
+        "settings": [
+            {
+            "type": "richtext",
+            "id": "text",
+            "label": "Section text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],"blocks": [
+            {
+                "type": "item",
+                "name": "Item",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

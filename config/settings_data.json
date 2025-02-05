@@ -1,0 +1,234 @@
+{
+  "current": {
+    "social_facebook_link": "https:\/\/www.facebook.com\/WeAreTheCurators\/",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/wearethecurators\/",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@wearethecurators?lang=en",
+    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/curators-of-flavour-ltd\/",
+    "favicon": "shopify:\/\/shop_images\/favicon.svg",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "item_HF7iTL": {
+            "type": "item",
+            "settings": {
+              "menu_name": "PORK PUFFS",
+              "url": "shopify:\/\/collections\/pork-puffs",
+              "new": false,
+              "product1": "original-salted-pork-puffs-25g-x-20",
+              "product2": "smoky-bacon-pork-puffs-25g-x-20",
+              "product3": "salt-vinegar-pork-puffs-25g-x-20",
+              "product4": "cheese-pork-puffs-23g-x-20"
+            }
+          },
+          "item_hmkbdT": {
+            "type": "item",
+            "settings": {
+              "menu_name": "PROTEIN CHIPS",
+              "url": "shopify:\/\/collections\/protein-chips",
+              "new": true,
+              "product1": "tangy-cheese-protein-chips-35g",
+              "product2": "thai-sweet-chilli-protein-chips-35g",
+              "product3": "mixed-protein-chips-20-x-35g",
+              "product4": ""
+            }
+          },
+          "item_zGUHdQ": {
+            "type": "item",
+            "settings": {
+              "menu_name": "BILTONG",
+              "url": "shopify:\/\/collections\/biltong",
+              "new": false,
+              "product1": "beef-biltong-the-original-box-of-5-or-12",
+              "product2": "british-beef-biltong-snacking-sticks-original-flavour-12-pack",
+              "product3": "",
+              "product4": ""
+            }
+          },
+          "item_iA7RWm": {
+            "type": "item",
+            "settings": {
+              "menu_name": "CHEESIES",
+              "url": "shopify:\/\/collections\/cheesies",
+              "new": false,
+              "product1": "cheddar-cheesies",
+              "product2": "goats-cheese-cheesies",
+              "product3": "gouda-cheesies",
+              "product4": "red-leicester-cheesies"
+            }
+          }
+        },
+        "block_order": [
+          "item_HF7iTL",
+          "item_hmkbdT",
+          "item_zGUHdQ",
+          "item_iA7RWm"
+        ],
+        "settings": {
+          "logo_animation": "https:\/\/cdn.shopify.com\/s\/files\/1\/0859\/1265\/0061\/files\/data_b9d48530-64c3-488c-8e25-d4cf0494da71.json?v=1734423701",
+          "announcement": "<p>THE CURATORS⚡️ New look, same great snacks. ⚡️ FREE DELIVERY OVER £35<\/p>",
+          "menu": "menu-left",
+          "menu_r": "menu-right",
+          "menu_mobi": "mobile-menu",
+          "mega_btn_label": "Shop all",
+          "mega_btn_url": "shopify:\/\/collections\/all-products"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "link_qHxJjX": {
+            "type": "link",
+            "settings": {
+              "link": "footer-1"
+            }
+          },
+          "link_xLmE83": {
+            "type": "link",
+            "settings": {
+              "link": "footer-2"
+            }
+          }
+        },
+        "block_order": [
+          "link_qHxJjX",
+          "link_xLmE83"
+        ],
+        "settings": {
+          "bold_heading": "JOIN OUR",
+          "deco_heading": "snacking",
+          "rest_heading": "community",
+          "text": "Join our newsletter to save 20% on your first order and enjoy exclusive perks.",
+          "copyright_text": "Curators of Flavour Ltd. All rights reserved.",
+          "bot_menu": "refund-menu",
+          "fixed_btn_label": "Rewards Coming Soon",
+          "fixed_btn_url": "shopify:\/\/collections\/all-products"
+        }
+      },
+      "instagram": {
+        "type": "instagram",
+        "blocks": {
+          "item_8e6iW7": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/instagram-01.webp"
+            }
+          },
+          "item_MgbE33": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/instagram-05.webp"
+            }
+          },
+          "item_rJmBeC": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/instagram-02.webp"
+            }
+          },
+          "item_Ezgdy3": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/instagram-04.webp"
+            }
+          },
+          "item_pDLdfC": {
+            "type": "item",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/instagram-03.webp"
+            }
+          }
+        },
+        "block_order": [
+          "item_8e6iW7",
+          "item_MgbE33",
+          "item_rJmBeC",
+          "item_Ezgdy3",
+          "item_pDLdfC"
+        ],
+        "settings": {
+          "text": "<h2>Follow Us<\/h2>",
+          "btn_label": "@WEARETHECURATORS",
+          "btn_url": "https:\/\/www.instagram.com\/wearethecurators\/"
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "blocks": {
+          "upsell_NgQaEq": {
+            "type": "upsell",
+            "settings": {
+              "product": "cheddar-cheesies"
+            }
+          },
+          "upsell_fiGjhN": {
+            "type": "upsell",
+            "settings": {
+              "product": "gouda-cheesies"
+            }
+          },
+          "upsell_QpLhNy": {
+            "type": "upsell",
+            "settings": {
+              "product": "mixed-pork-puffs"
+            }
+          }
+        },
+        "block_order": [
+          "upsell_NgQaEq",
+          "upsell_fiGjhN",
+          "upsell_QpLhNy"
+        ],
+        "settings": {
+          "upsell_title": "WE THINK YOU’LL LOVE:",
+          "shipping_price": "35",
+          "shipping_left": "SPEND ANOTHER",
+          "shipping_right": "AND GET SHIPPING FREE!",
+          "deco_text": "",
+          "rest_text": "",
+          "text": "",
+          "btn_label": "",
+          "btn_url": ""
+        }
+      },
+      "login-section": {
+        "type": "login-section",
+        "settings": {
+          "login_title": "Sign In",
+          "title": "New to The Curators?",
+          "text": "<p>Create an account to track orders, manage your subscriptions, and checkout with ease.<\/p>"
+        }
+      },
+      "registration-section": {
+        "type": "registration-section",
+        "settings": {
+          "login_title": "Create an Account",
+          "text": ""
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "4291333794791649201": {
+        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-sdk\/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "disabled": true,
+        "settings": {
+          "disableBundledCSS": false,
+          "disableBundledFonts": false,
+          "useClassIsolator": false
+        }
+      },
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
+}

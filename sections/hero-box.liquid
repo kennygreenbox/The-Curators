@@ -1,0 +1,147 @@
+{% assign s = section.settings %}
+    <div class="container-inner pos-relative padding-section">
+        <div class="padding-y-l ">
+            <div class="pos-absolute bg-visual">
+                <figure>
+                    {% render 'responsive-image', image: s.bg_img, image_class: 'bg-img lazyload' %}
+                </figure>
+            </div>
+            
+            <div class="page-container common-wrap clear">
+                {% if s.text != blank %}
+                    <div class="fadeIn txt-ctr content-wrap">
+                        {{ s.text }}
+                    </div>                    
+                {% endif %}
+                <div class="margin-top-xxl grid-container lg:grid-container-three gutter padding-x-default-sml lg:padding-none ">
+                    {% for block in section.blocks %}
+                        {% assign b = block.settings %}
+                        <div class="flex flex-col flex-y-align padding-x-default herobox-item staggerItem">
+                            <div class="card-header">
+                                {% if b.large_text != blank %}
+                                    <span class="flex flex-col txt-ctr font-alt">   
+                                        {{ b.large_text |  replace: '<h5>', '<div class="font-alt-large">' |  replace: '</h5>', '</div>' |  replace: '<p>', '<div class="font-alt-med">' |  replace: '</p>' , '</div>' }} 
+                                    </span>                                    
+                                {% endif %}
+                            </div>
+                            {% if b.text != blank %}
+                                <div class="txt-ctr card-body">
+                                    {{ b.text |  replace: '<p', '<p class="h6"' }}
+                                </div>                                
+                            {% endif %}
+                        </div>                        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin-bottom-m parallax-trigger call-to-action-sml-section">
+        <div class="page-container xl-container common-wrap clear">
+            <div class="pos-relative br-30x has-turquoise-background call-to-action-sml-wrapper lg:padding-left-xl lg:padding-right-xl flex-box flex-space-between" >
+                <div class="flex flex-col padding-y-l padding-left-default padding-right-default lg:padding-y-default lg:padding-left-xs lg:padding-right-xs content-wrap">
+                    <h2>{{ s.first_text }} <span class="pos-relative">{{ s.deco_text }}<span class="pos-absolute underline-animation"><img src="{{'underline-med.svg' |  asset_url}}" alt=""></span></span> <br>{{ s.last_text }}</h2>
+                    {% comment %} {{ s.box_text }} {% endcomment %}
+                      {% if s.btn_label != blank %}
+                        <div class="btn-wrap">
+                            <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                                <span class="button__flair"></span>
+                                <span class="button__label">{{ s.btn_label }}</span>
+                            </a>
+                        </div>
+                        
+                      {% endif %}
+                </div>
+                <div class="pos-absolute bg-visual ">
+                    <div class="parallax-top">
+
+                        {% assign box_bg_img = s.box_bg_img %}
+                        {% if box_bg_img != blank %}
+                        <figure>
+                            {% render 'responsive-image' with image: box_bg_img %}
+                        </figure>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if s.box_img != blank %}
+                    <div class="cta-visual">
+                        <figure>
+                            <img src="{{ s.box_img |  image_url }}" alt="">
+                        </figure>
+                    </div>                    
+                {% endif %}
+                
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Hero-box",
+        "tag": "section",
+        "class": "section  herobox-section animationTrigger",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "bg_img",
+            "label": "Background Image"
+            },{
+            "type": "richtext",
+            "id": "text",
+            "label": "Section text"
+            },{
+            "type": "image_picker",
+            "id": "box_img",
+            "label": "Box Image"
+            },{
+                "type": "image_picker",
+                "id": "box_bg_img",
+                "label": "Background Image"
+            },{
+            "type": "text",
+            "id": "first_text",
+            "label": "First text"
+            },{
+            "type": "text",
+            "id": "deco_text",
+            "label": "Decoration text"
+            },{
+            "type": "text",
+            "id": "last_text",
+            "label": "Last text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],"blocks": [
+            {
+                "type": "item",
+                "name": "Item",
+                "settings": [
+                    {
+                    "type": "richtext",
+                    "id": "large_text",
+                    "label": "Large Text"
+                    },{
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "Hero-box"
+        }
+      ]
+    }
+{% endschema %}

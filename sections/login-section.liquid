@@ -1,0 +1,132 @@
+{% comment %} {{ 'customer.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
+<div class="customer">
+    <!-- <div class="customer__bg">
+    <img src="{{'cloud.jpg' | asset_img_url: 'master'}}" alt="">
+    </div> --><div class="common-wrap">
+      <div class="customer__form-wrap">
+        <div class="customer__login">
+          <div class="customer__login-inner">
+            <h3 class="customer__column-title">{{ section.settings.login_title }}</h3>
+            <div class="customer__form">
+              {%- form 'customer_login', novalidate: 'novalidate' -%}
+                {%- if form.errors -%}
+  
+                  {{ form.errors | default_errors }}
+                {%- endif -%}
+  
+                <input
+                  class="customer__input"
+                  type="email"
+                  name="customer[email]"
+                  id="CustomerEmail"
+                  autocomplete="email"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                  {% endif %}
+                  placeholder="Email">
+                <input
+                  class="customer__input"
+                  type="password"
+                  value=""
+                  name="customer[password]"
+                  id="CustomerPassword"
+                  autocomplete="current-password"
+                  {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                  {% endif %}
+                  placeholder="Password">
+  
+                <button type="submit" class="customer__button btn btn_primary customer__button_login">
+                  Log in
+                </button>
+              {%- endform -%}
+              <a href="#" class="customer__forget-btn reset-pass">Forgot password</a>
+            </div>
+          </div>
+  
+  
+          <div class="customer__login-reset">
+            <h3 class="customer__column-title">Recover</h3>
+            <div class="customer__form">
+              {%- form 'recover_customer_password' -%}
+                {% if form.errors %}
+                  {{ form.errors | default_errors }}
+                {% endif %}
+                {% if form.posted_successfully? %}
+                  <div class="account-and-login__success">
+                      <p>Please follow the link that we have sent to your email to reset your customer account password.</p>
+                  </div>
+                  <script>
+                      let login_form= document.getElementsByClassName("customer__login-inner")[0];
+                      let reset_form= document.getElementsByClassName("customer__login-reset")[0];
+                      login_form.style.display='none';
+                      reset_form.style.display='block';
+                  </script>
+                  {% endif %}
+                <input
+                  type="email"
+                  class="customer__input"
+                  value=""
+                  name="email"
+                  id="RecoverEmail"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                  aria-invalid="true"
+                  aria-describedby="RecoverEmail-email-error"
+                  autofocus
+                  {% endif %}
+                  placeholder="Email">
+  
+                <button type="submit" class="customer__button btn btn_primary">Reset</button>
+                {%- if form.errors -%}
+                  <small id="RecoverEmail-email-error" class="form__message">
+                    {{ form.errors.messages['form'] }}
+                  </small>
+                {%- endif -%}
+              {%- endform -%}
+              <a href="#" class="customer__forget-btn back-to-login">Back to login</a>
+            </div>
+          </div>
+  
+  
+  
+        </div>
+  
+        <div class="customer__registration-column">
+          <h3 class="customer__column-title">{{ section.settings.title }}</h3>
+          <div class="customer__registration-column-text">{{ section.settings.text }}</div>
+          <a href="{{routes.account_register_url}}" class="customer__button btn btn_primary">Create an account</a>
+          <!-- <img src="{{section.settings.image | img_url: '300x'}}" alt="" class="customer__column-image"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% schema %}
+  {
+    "name": "Login",
+    "settings": [
+      {
+        "type": "text",
+        "id": "login_title",
+        "label": "Login column title"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Registration column title"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Registration column text"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Registration column image"
+      }
+    ]
+  }
+{% endschema %}

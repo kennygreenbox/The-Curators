@@ -1,0 +1,125 @@
+{% assign s = section.settings %}
+<div class="padding-y-base padding-top-none container-inner">
+    <div class="page-container common-wrap clear">
+        <div class="lg:txt-ctr lg-container flex flex-col content-wrap fadeIn">
+            {{ s.heading }}
+            {% if s.text != blank %}
+                <div class="sml-container">
+                    {{ s.text |  replace: '<p', '<p class="h5"' }}
+                </div>                
+            {% endif %}
+        </div>
+        <div class="margin-top-xxl featured-product-wrap ">
+            <div class="product-item-wrapper featured-product-grid swiper-container">
+                <div class="lg:grid-container lg:grid-container-four-equal lg:grid-default-sml  swiper-wrapper ">
+                    {% for block in section.blocks %}
+                        {% assign b = block.settings %}
+                        {% assign product = b.product %}
+                        {% assign product_url = product.url %}
+                        {% assign item_url = b.url %}
+                        <a href="{% if item_url != blank %}{{ item_url }}{% else %}{{ product_url }}{% endif %}" class="swiper-slide product-item staggerItem">
+                            <div class="pos-relative br-10x flex flex-col flex-bottom-align lg:flex-row lg:flex-nowrap product-item-container {% if b.new %}new-product{% endif %}">
+                                <div class="badge-wrapper">
+                                    {% if b.weight != blank %}
+                                        <div class="badge">
+                                            <div>{{ b.weight }}<span class="unit">g</span></div>
+                                            <div>Protein</div>
+                                        </div>                                        
+                                    {% endif %}
+                                    {% if b.new %}
+                                        <div class="badge new-badge">
+                                            <div>NEW</div>
+                                        </div>  
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="bg-visual lg:pos-absolute product-img">
+                                    <figure>
+                                        {% if b.image != blank %}
+                                            <img src="{{ b.image |  image_url }}" alt="" class="bg-img">  
+                                            
+                                            {% else %}
+                                            <img src="{{ product.featured_image |  image_url }}" alt="" class="bg-img">  
+    
+                                        {% endif %}
+                                    </figure>
+                                </div>
+                                <div class="flex flex-col flex-space-between card-content">
+                                    <div class="txt-ctr lg:txt-l card-footer">
+
+                                        <div class="btn-wrap">
+                                            <div class="button button--stroke btn btn-primary btn-medium" data-block="button">
+                                                <span class="button__flair"></span>
+                                                <span class="button__label">{{ b.title }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>                        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% schema %}
+    {
+        "name": "Favorite Products",
+        "tag": "section",
+        "class": "section padding-section padding-bottom-xl featured-products animationTrigger desktopOnly",
+        "settings": [
+            {
+            "type": "richtext",
+            "id": "heading",
+            "label": "Section Heading"
+            },{
+            "type": "richtext",
+            "id": "text",
+            "label": "Section text"
+            }
+        ],"blocks": [
+            {
+                "type": "product",
+                "name": "Product",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                    },{
+                    "type": "product",
+                    "id": "product",
+                    "label": "Select a product"
+                    },{
+                    "type": "checkbox",
+                    "id": "new",
+                    "label": "New Product?"
+                    },{
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                    },{
+                    "type": "url",
+                    "id": "url",
+                    "label": "Item URL"
+                    },{
+                    "type": "text",
+                    "id": "weight",
+                    "label": "Weight",
+                    "info": "G Protein"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "Favorite Products"
+        }
+      ]
+    }
+{% endschema %}

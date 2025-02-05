@@ -1,0 +1,114 @@
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
+  <div class="customer">
+  <!-- <div class="customer__bg">
+  <img src="{{'cloud.jpg' | asset_img_url: 'master'}}" alt="">
+  </div> --><div class="common-wrap">
+    <div class="customer__form-wrap customer__form-wrap_registration">
+      <div class="customer__registration">
+        <div class="customer__login-inner">
+          <h3 class="customer__column-title">{{ section.settings.login_title }}</h3>
+          <div class="customer__form">
+
+            {%- form 'create_customer' -%}
+              <input
+                class="customer__input"
+                type="text"
+                name="customer[first_name]"
+                id="RegisterForm-FirstName"
+                {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+                autocomplete="given-name"
+                placeholder="{{ 'customer.register.first_name' | t }}"
+                required>
+              <input
+                class="customer__input"
+                type="text"
+                name="customer[last_name]"
+                id="RegisterForm-LastName"
+                {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+                autocomplete="family-name"
+                placeholder="{{ 'customer.register.last_name' | t }}"
+                required>
+
+              <input
+                class="customer__input"
+                type="email"
+                name="customer[email]"
+                id="RegisterForm-email"
+                {% if form.email %}
+                value="{{ form.email }}"
+                {% endif %}
+                spellcheck="false"
+                autocapitalize="off"
+                autocomplete="email"
+                aria-required="true"
+                {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-email-error"
+                {% endif %}
+                placeholder="{{ 'customer.register.email' | t }}"
+                required>
+
+              <input
+              class="customer__input"
+                type="password"
+                name="customer[password]"
+                id="RegisterForm-password"
+                aria-required="true"
+                {% if form.errors contains 'password' %}
+                aria-invalid="true"
+                aria-describedby="RegisterForm-password-error"
+                {% endif %}
+                placeholder="{{ 'customer.register.password' | t }}"
+                required>
+
+              {% comment %}
+              <div class="terms" style="position: relative;">
+              <input
+              type="checkbox"
+              id="agree"
+              class="policy-check-input"
+              required>
+              <label for="agree" class="policy-check">{{ section.settings.text }}</label>
+              </div>
+              {% endcomment %}
+
+
+              <button type="submit" class="customer__button btn btn_primary register-btn">Create account</button>
+              {% if form.errors %}
+                {{ form.errors | default_errors }}
+              {% endif %}
+            {%- endform -%}
+
+            <div class="customer__goto-login">
+              <div class="customer__question">Already a member?</div>
+              <a href="{{routes.account_login_url}}" class="back-to-login-btn ">Log in</a>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Registration",
+    "settings": [
+      {
+        "type": "text",
+        "id": "login_title",
+        "label": "Login column title"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Policy check text"
+      }
+    ]
+  }
+{% endschema %}

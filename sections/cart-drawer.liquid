@@ -1,0 +1,243 @@
+{% assign s = section.settings %}
+    <div class="cart-header">
+        <div class="padding-default padding-top-default-sml padding-bottom-s padding-top-s flex flex-space-between">
+            <div class="cart-item-counter"><h5>CART <span>(<span class="cart-trigger">{{ cart.item_count  }}</span>)</span></h5></div>
+            <div class="cart-close"><img src="{{'close.svg' |  asset_url }}" alt=""></div>
+        </div>
+        {% assign shipping_price = s.shipping_price |  times: 100 %}
+        {% if cart.total_price < shipping_price %}
+            <div class="has-turquoise-alt-background shipping-text padding-y-default-sml txt-ctr shipping__goal"><p><strong>{{ s.shipping_left }} {{ shipping_price | minus: cart.total_price | money }} {{ s.shipping_right  }}</strong></p></div>
+            {% else %}
+            <div class="has-turquoise-alt-background shipping-text padding-y-default-sml txt-ctr shipping__goal"><p><strong>You have got free shipping</strong></p></div>
+        {% endif %}
+       
+    </div>
+    <div class="flex flex-space-between flex-col cart__drawer-items-wrap  cart-body">
+
+
+    {% for item in cart.items %}
+        <div class="flex flex-space-between padding-default cart-item">
+            <div class="flex cart-product-details">
+                <div class="cart-item-thumb padding-right-m br-10x">
+                    <figure>
+                        <img src="{{ item.image  |  image_url }}" alt="" class="bg-img lazyload">
+                    </figure>
+                </div>
+                <div class="flex flex-col flex-space-between flex-top-align cart-product-details ">
+                    <div class="flex flex-col product-details-top">
+                        <h6><strong>{{ item.product.title }}</strong></h6>
+                        <span class="caption">{{ item.variant.title }} bags</span>
+                        {% if item.selling_plan_allocation %}
+                            <span class="caption"><strong>{{ item.selling_plan_allocation.selling_plan.name }}</strong></span>
+                            {% else %}
+                            <span class="caption"><strong>One-time purchase</strong></span>
+                        {% endif %}
+                        
+                    </div>
+                    <div class="quantity-wrapper margin-top-base">
+                        <div class="padding-y-xs flex flex-justify-start br-6x cart-counter">
+                            <button class="quantity-btn minus-item" onclick="decrement(this)"></button>
+                            <input type="number" class="item-count" value="{{ item.quantity }}" data-line="{{ forloop.index }}">
+                            <button class="quantity-btn plus-item" onclick="increment(this)"></button>
+                        </div>
+                        <div class="margin-left-base remove-cart-item" onclick="removeItem(event,this)"
+                        data-line="{{ forloop.index }}"><p>REMOVE</p></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flex flex-col flex-space-between cart-product-price txt-r">
+                <div class="item-total"><h6><strong>{{ item.line_price |  money }}</strong></h6></div>
+            </div>
+        </div>        
+    {% endfor %}
+
+
+        <div class="padding-default padding-top-base padding-bottom-base padding-right-none has-neutral-background upsell-items">
+            <div class="upsell-heading">
+                <p><strong>{{ s.upsell_title  }}</strong></p>
+            </div>
+            <div class="margin-top-base upsell-slider swiper swiper-container ">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'upsell' %}
+                            {% assign b = block.settings %}
+                            {% assign product = all_products[b.product] %}
+                            <div class="slide-item  br-10x swiper-slide">
+                        <div class="has-white-background padding-default-sml upsell-item">
+                            <div class="flex grid upsell-product">
+                                <div class="br-10x upsell-thumb">
+                                    <figure>
+                                        {% render 'responsive-img' with image:product.featured_image, class:"bg-img" %}
+                                        {% comment %} <img src="{{ product.featured_image |  image_url }}" alt="" class="bg-img lazyload"> {% endcomment %}
+                                    </figure>
+                                </div>
+                                <div class="flex flex-col flex-x-align upsell-product-details padding-right-s">
+                                    <div class="flex flex-space-between product-title-price">
+                                        <h6><strong>{{ product.title }}</strong></h6>
+                                        <div class="flex grid-s item-total">
+                                            {% if product.compare_at_price > product.price %}
+                                                <span class="h6 discounted"><strong>{{ product.compare_at_price |  money  }}</strong></span>
+                                            {% endif %}
+                                          
+                                            <span class="h6"><strong>{{ product.price |  money }}</strong></span>
+                                        </div>
+                                    </div>
+                                    {% comment %} {{ b.caption |  replace: '<p>','<p class="caption">' |  replace: '</p>','</p>'   }} {% endcomment %}
+                                    {% assign grid_card = product.metafields.custom.grid_card.value %}
+                                    {% if grid_card.description %}<p>{{ grid_card.description | newline_to_br }}</p>{% else %}{{ product.metafields.custom.description |  metafield_tag }}{% endif %}
+                                    {% comment %} <p class="caption">2x Pork Puffs, 2x Protein Puffs, 2x Cheesies, 2x Biltong</p> {% endcomment %}
+                                    
+                                </div>
+
+                              
+                            </div>
+                            <div class="margin-top-base btn-wrap">
+                                {% form 'product', product, class: "upsell_product" %}
+                                    <input
+                                      type="hidden"
+                                      name="id"
+                                      value="{{ product.selected_or_first_available_variant.id }}">
+                                <a href="#" onclick="addUpsell_porduct(this,event)" class="button button--stroke btn-secondary btn-large btn" data-block="button">
+                                    <span class="button__flair"></span>
+                                       <span class="button__label" >Add</span>
+                                </a>
+                            {% endform %}
+                            </div>
+                        </div>
+                    </div>
+                        {% endif %}
+                    {% endfor %}
+               
+                </div>
+                <div class="margin-top-base swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="border-top cart-footer">
+        {% comment %}
+        <div class="flex flex-y-align rating padding-default border-btm">
+            <div class="flex star-wrap flex-y-align margin-right-default-sml">
+                <img src="{{'trustpilot.png' |  asset_url}}" alt="">
+            </div>
+            <span class="p">Loved by 500+ snackers</span>
+        </div>
+        {% endcomment %}
+        <div class="padding-default padding-bottom-l padding-top-default-sml">
+            <div class="flex flex-space-between cart-total">
+                <h5>ORDER TOTAL</h5>
+                <div class="total-cost"><h5>{{ cart.total_price | money }}</h5></div>
+            </div>
+            <div class="flex flex-space-between cart-shipping-total">
+                <span class="caption">Shipping</span>
+                <span class="caption">calculated at checkout</span>
+            </div>
+            <a href="/checkout" class="cart-btn button button--stroke btn-secondary btn-large btn margin-top-default-sml" data-block="button">
+                <span class="button__flair"></span>
+                <span class="button__label">Checkout</span>
+            </a>
+            <div class="txt-ctr flex flex-y-align flex-x-align margin-top-default-sml discount-notice">
+                <figure>
+                    <img src="{{'percentage.svg' |  asset_url}}" alt="">
+                </figure>
+                <span class="caption">Add discount codes at checkout</span>
+            </div>
+        </div>
+    </div>
+
+{% comment %}
+ block description
+ ,{
+    "type": "richtext",
+    "id": "caption",
+    "label": "Product caption"
+}
+{% endcomment %}
+{% schema %}
+    {
+        "name": "Cart Drawer",
+        "tag": "section",
+        "class": "section has-white-background flex flex-col cart-drawer",
+        "settings": [
+            {
+                "type": "text",
+                "id": "upsell_title",
+                "label": "Upsell title"
+            },
+            {
+                "type": "header",
+                "content":"Shipping goal"
+            },
+            {
+            "type": "text",
+            "id": "shipping_price",
+            "label": "Shipping price"
+            },
+            {
+            "type": "text",
+            "id": "shipping_left",
+            "label": "Shipping left text"
+            },
+            {
+            "type": "text",
+            "id": "shipping_right",
+            "label": "Shipping right text"
+            },
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image for desktop"
+            },
+            {
+            "type": "text",
+            "id": "deco_text",
+            "label": "Decoration text"
+            },{
+            "type": "text",
+            "id": "rest_text",
+            "label": "Rest of the text"
+            },{
+            "type": "text",
+            "id": "text",
+            "label": "Small text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],"blocks": [
+            {
+                "type": "item",
+                "name": "Text Block",
+                "settings": [
+                    {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Text"
+                    }
+                ]
+            },
+            {
+                "type": "upsell",
+                "name":"Usell Product",
+                "settings": [
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Select product"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "Cart Drawer"
+        }
+      ]
+    }
+{% endschema %}

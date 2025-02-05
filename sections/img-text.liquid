@@ -1,0 +1,106 @@
+{% assign s = section.settings %}
+ 
+ <div class="page-container common-wrap clear">
+        <div class="padding-bottom-xxl sml-container">
+            <div class="content-wrap txt-ctr">
+                <div class="heading-wrap multi-font-heading">
+                    <h2 class="h3"><span class="font-alt">{{ s.first_text }}</span> {{ s.second_text }}<br><span class="pos-relative ">{{ s.deco_text }}<span class="pos-absolute underline-animation"><img src="{{'protein-underline.svg' |  asset_url}}" alt=""></span></span></h2>
+                    <div class="lg:padding-x-m">
+                        <p class="h6 lg:padding-x-xxl">{{ s.small_text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container lg:grid-container-two gutter row-rev ">
+            <div class="padding-top-xl grid-item grid-container grid-container-one lg:grid-container-six">
+                <div class="grid-four">
+                    <div class="fadeIn flex flex-col content-wrap pos-relative">
+                        <div class="heading-wrap multi-font-heading">
+                            <h3><span class="font-alt">
+                                    <span class="pos-relative ">{{ s.s_deco_text }}<span class="pos-absolute underline-animation"><img src="{{'fear-underline.svg' |  asset_url }}" alt=""></span></span>
+                                </span> {{ s.s_rest_text }}</h3>
+                        </div>
+                        {{ s.s_small_text |  replace: '<p', '<p class="h6"' }}
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="pos-relative grid-item grid-container grid-container-one lg:grid-container-six align-right">
+                <div class="grid-five">
+                    <div class="br-15x main-visual">
+                        <div class="parallax-top">
+                            <figure>
+                                {% render 'responsive-image', image: s.image, image_class: 'bg-img' %}
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </div>
+    </div>
+
+    <div class="pos-absolute puffs-visual puffs-visual-about">
+        <div class="animate-down">
+            <figure>
+                <img src="{{'Puff-bacon-light-yellow-about.png' |  asset_url }}" alt="">
+            </figure>
+        </div>
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Image Text block",
+        "tag": "section",
+        "class": "pos-relative section padding-section lg:padding-bottom-none parallax-trigger text-img-parallax-section",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Heading"
+            },
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+            },
+            {
+            "type": "text",
+            "id": "first_text",
+            "label": "First Text"
+            },{
+            "type": "text",
+            "id": "second_text",
+            "label": "Second Text"
+            },{
+            "type": "text",
+            "id": "deco_text",
+            "label": "Decoration Text"
+            },{
+            "type": "text",
+            "id": "small_text",
+            "label": "Small Text"
+            },{
+                "type": "header",
+                "content": "Side Text"
+            },{
+            "type": "text",
+            "id": "s_deco_text",
+            "label": "Decoration Text"
+            },{
+            "type": "text",
+            "id": "s_rest_text",
+            "label": "Rest of The Text"
+            },{
+            "type": "richtext",
+            "id": "s_small_text",
+            "label": "Small Text"
+            }
+            
+        ],
+        "presets": [
+        {
+            "name": "Image Text block"
+        }
+      ]
+    }
+{% endschema %}

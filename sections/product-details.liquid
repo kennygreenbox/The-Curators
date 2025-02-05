@@ -1,0 +1,109 @@
+
+    {% assign item_with_text = product.metafields.custom.item_with_text.value %}
+    {% assign background_col = item_with_text.background_colour %}
+    {% assign text_colour = item_with_text.text_colour %}
+    <style>
+        #shopify-section-{{ section.id }} section { 
+        {% if background_col != blank %}
+            background-color: {{ background_col }};
+        {% endif %}
+        {% if text_colour != blank %}
+            color: {{ text_colour }};
+        {% endif %}
+        }
+    </style>
+    {% if item_with_text != blank %}
+        <section class="pos-relative section padding-section animate-rotate-trigger product-detailed-overview product-detailed-overview__wrapper">
+        <div class="page-container common-wrap clear">
+            <div class="fadeIn  padding-y-xxl lg:padding-y-default grid-container lg:grid-container-three gutter">
+                <div class="flex flex-col flex-x-align grid-item">
+                    {% assign left_text = item_with_text.left_column %}
+                    {% for item in left_text.value %}
+                        <div class="txt-ctr padding-x-xl grid-inner-item">
+                            {{ item.text | metafield_tag }}
+                        </div>
+                        
+                    {% endfor %}
+                </div>
+                <div class="desk flex flex-col flex-x-align grid-item">
+                    <figure>
+                        {% comment %} {% render 'responsive-image', image: item_with_text.item_image, image_class: 'bg-img' %} {% endcomment %}
+                        <img src="{{ item_with_text.item_image |  image_url }}" alt="" class="bg-img">
+                    </figure>
+                </div>
+                <div class="flex flex-col flex-x-align grid-xxl grid-item">
+                {% assign right_text = item_with_text.right_column %}
+                {% for item in right_text.value %}
+                    <div class="txt-ctr padding-x-xl grid-inner-item">
+                        {{ item.text | metafield_tag }}
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% assign floating_image_1 = item_with_text.floating_image_1 %}
+        {% assign floating_image_2 = item_with_text.floating_image_2 %}
+
+        <div class="flex flex-col pos-absolute parallax-puffs puffs-left">
+            {% if floating_image_1 != blank %}
+                <div class="animate-rotate custom__animate-rotate-looping">
+                    <figure>
+                        {% render 'responsive-img' with image:floating_image_1  %}
+                        {% comment %} <img src="{{'Puff-bacon-light.png' | asset_url }}" alt=""> {% endcomment %}
+                    </figure>
+                </div>
+            {% endif %}
+            {% if floating_image_1 != blank %}
+            <div class="animate-rotate custom__animate-rotate-looping">
+                <figure>
+                    {% render 'responsive-img' with image:floating_image_1  %}
+                </figure>
+            </div>
+            {% endif %}
+            {% if floating_image_2 != blank %}
+            <div class="animate-rotate custom__animate-rotate-looping">
+                <figure>
+                    {% render 'responsive-img' with image:floating_image_2  %}
+                </figure>
+            </div>
+            {% endif %}
+        </div>
+        <div class="pos-absolute parallax-puffs puffs-right">
+            {% if floating_image_2 != blank %}
+            <div class="desk animate-rotate custom__animate-rotate-looping">
+                <figure>
+                    {% render 'responsive-img' with image:floating_image_2  %}
+                </figure>
+            </div>
+            {% endif %}
+            {% if floating_image_2 != blank %}
+            <div class="animate-rotate custom__animate-rotate-looping">
+                <figure>
+                    {% render 'responsive-img' with image:floating_image_2  %}
+                </figure>
+            </div>
+            {% endif %}
+            {% if floating_image_1 != blank %}
+            <div class="animate-rotate custom__animate-rotate-looping">
+                <figure>
+                    {% render 'responsive-img' with image:floating_image_1  %}
+                </figure>
+            </div>
+            {% endif %}
+        </div>  
+        </section>      
+    {% endif %}
+
+
+{% schema %}
+    {
+        "name": "Product Details",
+        "settings": [
+        ],
+        "presets": [
+        {
+            "name": "Product Details"
+        }
+      ]
+    }
+{% endschema %}

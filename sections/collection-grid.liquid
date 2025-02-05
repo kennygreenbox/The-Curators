@@ -1,0 +1,92 @@
+{% assign s = section.settings %}
+
+<div class="shop__inner">
+  <div class="page-width-fluid ">
+    
+  <hr class="filter-top-border">
+  <div class="shop-filter-trigger mobi">
+    Filter <span class="filter-count"></span>
+  </div>
+    <div class="shop__content-wrap">
+      <div class="shop__left">
+        <div class="shop__left-top">
+          <div class="shop__filter-title">Filters <span class="filter-count"></span></div>
+          <div class="shop__filter-reset desk">Reset</div>
+          <div class="shop__filter-close mobi">
+            <img src="{{'close-big.svg' | asset_url}}" alt="">
+          </div>
+        </div>
+  
+        {% render 'filter' %}
+
+        <div class="shop__filter-bottom mobi">
+          <div class="btn btn_filter-apply">Apply</div>
+          <div class="btn shop__filter-clear">clear filters</div>
+        </div>
+  
+      </div>
+  
+      <div class="shop__right">
+        <div class="shop__right-top">
+          <div class="shop__right-top-item">
+            <div class="shop__right-top-item-label">Sort by: </div>
+            <div class="select">
+            <select name="sort_by" class="select__select filters__input" id="SortBy-mobile" aria-describedby="a11y-refresh-page-message">
+              {%- for option in collection.sort_options -%}
+                <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+              {%- endfor -%}
+            </select>
+            <div class="select-arrow">
+              <img src="{{'arrow-down.svg' | asset_url}}" alt="">
+            </div>
+          </div>
+          </div>
+        </div>
+        {% paginate collection.products by 1000 %}
+        <div class="shop-products">
+            {% for product in collection.products %}
+              {% render 'product-card' with product:product %}
+            {% endfor %}
+          </div>
+        {% endpaginate %}
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Collection grid",
+    "tag": "section",
+    "class": "shop",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title",
+        "default": "farer favourites"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select a product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection grid"
+      }
+    ]
+  }
+{% endschema %}

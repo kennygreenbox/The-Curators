@@ -1,0 +1,191 @@
+{% liquid
+    assign s = section.settings 
+    assign image_position = s.image_position
+    assign image_position_mobi = s.image_position_mobi
+    assign image_fit = s.image_fit
+    assign image_fit_mobi = s.image_fit_mobi
+%}
+{%- capture imageClass -%}
+    {%- if image_position != blank -%} img-pos-desk-{{ image_position }} {%- endif -%}
+    {%- if image_position_mobi != blank -%} img-pos-mobi-{{ image_position_mobi }} {%- endif -%}
+    {%- if image_fit != blank -%} img-fit-desk-{{ image_fit }} {%- endif -%}
+    {%- if image_fit_mobi != blank -%} img-fit-mobi-{{ image_fit_mobi }} {%- endif -%}
+{%- endcapture -%}
+    <div class="page-container common-wrap clear ">
+        <div class="grid-container md-lg:grid-container-full gutter">
+            <div class="grid-item grid-five">
+                <div class="fadeIn flex flex-col content-wrap padding-right-s pos-relative">
+                    <div class="zig-zag-visual pos-absolute ">
+                        <figure>
+                            <img src="{{'zig-zag.svg' |  asset_url  }}" alt="">
+                        </figure>
+                    </div>
+                    {% if s.top_heading != blank %}
+                        <div class="heading-wrap multi-font-heading">
+                            <h2 class="h1 ">
+                                <span class="font-alt">{{ s.top_heading }}</span><br>
+                                <span class="pos-relative ">{{ s.decoration_heading }}<span class="pos-absolute underline-animation"><img src="{{'unerline-yellow.svg' |  asset_url }}" alt=""></span></span></h2>
+                        </div>  
+                        
+                        {% comment %} {{ s.heading }} {% endcomment %}
+                    {% endif %}
+                    
+                    {{ s.text  |  replace: '<p', '<p class="h6 padding-y-xs"' }}
+
+                    {% if s.btn_label != blank %}
+                        <div class="btn-wrap">
+                            <a href="{{ s.btn_url }}" class="button button--stroke btn btn-primary btn-large" data-block="button">
+                                <span class="button__flair"></span>
+                                <span class="button__label">{{ s.btn_label }}</span>
+                            </a>
+                        </div>
+                        
+                    {% endif %}
+                </div>
+            </div>
+            <div class="call-to-action-visual md-lg:pos-absolute {{ imageClass }}">
+                
+                <div class="desktopOnly parallax-mid">
+                {% render 'smart-image', image: s.image_desk, image_mob: s.image_mobi, image_class: 'bg-img lazyload' %}                    
+                </div>
+            </div>
+            <div class="pos-absolute sticker founded-sticker animationTrigger">
+                <figure class="staggerItem">
+                    <img src="{{'founded-sticker.svg' |  asset_url}}" alt="">
+                </figure>
+            </div>
+            <div class="desk pos-absolute parallax-chips">
+                <div class="animate-down-mid">
+                    <figure>
+                        <img src="{{'chip-top.png' |  asset_url }}" alt="">
+                    </figure>
+                </div>
+                <div class="animate-down-mid">
+                    <figure>
+                        <img src="{{'chip-left.png' |  asset_url }}" alt="">
+                    </figure>
+                </div>
+                <div class="animate-down-mid">
+                    <figure>
+                        <img src="{{'chip-btm.png' |  asset_url }}" alt="">
+                    </figure>
+                </div>
+                <!-- <div class="paralllax-img-b"></div>
+                <div class="paralllax-img-c"></div> -->
+            </div>
+        </div>
+    </div>
+
+
+{% schema %}
+    {
+        "name": "Image Text",
+        "tag": "section",
+        "class": "section parallax-trigger padding-section padding-bottom-none has-blue-background pos-relative call-to-action-section",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image_desk",
+            "label": "Desktop Image"
+            },{
+            "type": "image_picker",
+            "id": "image_mobi",
+            "label": "Mobile Image"
+            },{
+                "type": "select",
+                "id": "image_position",
+                "label": "Image Position Desktop",
+                "options": [
+                  {
+                    "value": "top",
+                    "label": "Top"
+                  },
+                  {
+                    "value": "middle",
+                    "label": "Middle"
+                  },
+                  {
+                    "value": "bottom",
+                    "label": "Bottom"
+                  }
+                ],
+                "default": "top"
+              },{
+                "type": "select",
+                "id": "image_position_mobi",
+                "label": "Image Position Mobile",
+                "options": [
+                  {
+                    "value": "top",
+                    "label": "Top"
+                  },
+                  {
+                    "value": "middle",
+                    "label": "Middle"
+                  },
+                  {
+                    "value": "bottom",
+                    "label": "Bottom"
+                  }
+                ],
+                "default": "middle"
+              },{
+                "type": "select",
+                "id": "image_fit",
+                "label": "Image Fit Desktop",
+                "options": [
+                  {
+                    "value": "cover",
+                    "label": "Cover"
+                  },
+                  {
+                    "value": "contain",
+                    "label": "Contain"
+                  }
+                ],
+                "default": "cover"
+              },{
+                "type": "select",
+                "id": "image_fit_mobi",
+                "label": "Image Fit Mobile",
+                "options": [
+                  {
+                    "value": "cover",
+                    "label": "Cover"
+                  },
+                  {
+                    "value": "contain",
+                    "label": "Contain"
+                  }
+                ],
+                "default": "cover"
+              },
+            {
+            "type": "text",
+            "id": "top_heading",
+            "label": "Top Heading"
+            },{
+            "type": "text",
+            "id": "decoration_heading",
+            "label": "Heading With Decoration"
+            },{
+            "type": "richtext",
+            "id": "text",
+            "label": "Section text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],
+        "presets": [
+        {
+            "name": "Image Text"
+        }
+      ]
+    }
+{% endschema %}

@@ -1,0 +1,106 @@
+{% assign s = section.settings %}
+           
+           <div class="page-header-visual">
+                <figure>
+                    {% render 'responsive-image', image: s.image, image_class: 'bg-img lazyload', above_fold: true %}
+                </figure>
+            </div>
+            <div class="page-header-content">
+                <div class="page-container common-wrap clear">
+                    <div class="page-header-inner grid-container grid-container-one lg:grid-container-full flex-bottom-align lg:flex-content-align gutter">
+	                    
+                        <div class="txt-ctr md-lg:txt-l grid-five flex flex-col content "  >
+                            <div class="fadeIn  flex flex-y-align  trustpilot-wrapper">
+                                <img src="{{'Trustpilot_ratings_5star-RGB.png' |  asset_url }}" alt="Trustpilot img">
+                                <p>Loved by 500+ snackers</p>
+                            </div>
+                            
+                                <div class="fadeIn flex flex-col content-wrap">
+                                    {% comment %} {{ s.text |  replace: '<h2', '<h2 class="h5"' |  replace: '<strong>', '<span class="pos-relative">' |  replace: '</strong>', '</span>' |  replace: '<em>', '<span class="pos-absolute underline-animation"><img src="{{ 'Underline.svg' |  asset_url}}" alt="">' |  replace: '</em>', '</span>'  }} {% endcomment %}
+
+
+                                    <h1><span class="pos-relative">{{ s.deco_text }}
+                                        <span class="pos-absolute underline-animation"><img src="{{'Underline.svg' |  asset_url}}" alt=""></span>
+                                        </span>
+                                        <br>
+                                        <span class="font-alt">{{ s.rest_text }}</span>
+                                    </h1>
+                                    <h2 class="h5">{{ s.text }}</h2>
+                                </div>  
+
+                            {% if s.btn_label != blank %}
+                                <div class="fadeIn btn-wrap">
+                                    <a href="{{ s.btn_url }}" class="button button--stroke btn-primary btn-large btn" data-block="button">
+                                        <span class="button__flair"></span>
+                                        <span class="button__label">{{ s.btn_label }}</span>
+                                    </a>
+                                </div>                                
+                            {% endif %}
+
+	                        <div class="flex flex-y-align benefit-wrapper ">
+                                {% for block in section.blocks %}
+                                    <div class="flex flex-y-align pos-relative list-item staggerItem">
+                                        <p class="h6">{{ block.settings.text }}</p>
+                                    </div>                                    
+                                {% endfor %}
+	                        </div>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        {% schema %}
+            {
+                "name": "Hero",
+                "tag": "section",
+                "class": "has-yellow-background pos-relative flex flex-y-align section page-header page-header-section animationTrigger",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image for desktop"
+                    },
+                    {
+                    "type": "text",
+                    "id": "deco_text",
+                    "label": "Decoration text"
+                    },{
+                    "type": "text",
+                    "id": "rest_text",
+                    "label": "Rest of the text"
+                    },{
+                    "type": "text",
+                    "id": "text",
+                    "label": "Small text"
+                    },{
+                    "type": "text",
+                    "id": "btn_label",
+                    "label": "Button Label"
+                    },{
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button URL"
+                    }
+                ],"blocks": [
+                    {
+                        "type": "item",
+                        "name": "Text Block",
+                        "settings": [
+                            {
+                            "type": "text",
+                            "id": "text",
+                            "label": "Text"
+                            }
+                        ]
+                    }
+                ],
+                "presets": [
+                {
+                    "name": "Hero"
+                }
+              ]
+            }
+        {% endschema %}

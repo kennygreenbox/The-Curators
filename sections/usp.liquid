@@ -1,0 +1,110 @@
+{% assign s = section.settings %}
+
+<div class="usp__inner" id="new_best_friend">
+  <div class="common-wrap">
+    <div class="usp__header">
+      <div class="usp__subtitle">{{ s.subtitle }}</div>
+      <h2 class="usp__title">{{ s.title }}</h2>
+    </div>
+    <div class="usp__content">
+      <div class="usp__items">
+        {% for block in section.blocks %}
+          {% assign b = block.settings %}
+          {%- capture thecycle -%}
+            {% cycle 'odd', 'even' %}{%- endcapture -%}
+          {% if thecycle == 'odd' %}
+            <div class="usp__item">
+              <div class="usp__item-image">
+                <img src="{{b.image | img_url: 'master'}}" alt="">
+              </div>
+              <div class="usp__item-title">{{ b.title }}</div>
+              <div class="usp__item-text">{{ b.text }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="usp__image">
+        <img src="{{s.image | img_url: 'master'}}" alt="">
+      </div>
+      <div class="usp__items">
+        {% for block in section.blocks %}
+          {% assign b = block.settings %}
+          {%- capture thecycle -%}
+            {% cycle 'odd', 'even' %}{%- endcapture -%}
+          {% if thecycle == 'even' %}
+            <div class="usp__item">
+              <div class="usp__item-image">
+                <img src="{{b.image | img_url: 'master'}}" alt="">
+              </div>
+              <div class="usp__item-title">{{ b.title }}</div>
+              <div class="usp__item-text">{{ b.text }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="usp__items usp__items_mob">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <div class="usp__item">
+          <div class="usp__item-image">
+            <img src="{{b.image | img_url: 'master'}}" alt="">
+          </div>
+          <div class="usp__item-title">{{ b.title }}</div>
+          <div class="usp__item-text">{{ b.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "USP",
+    "tag": "section",
+    "class": "usp",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Small title"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "USP"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    {% render 'meta-tags' %}
+    {{ content_for_header }}
+    {% comment %} {{ 'theme.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {{ 'selectric.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'contact.css' | asset_url | stylesheet_tag }}
+    {{ 'other.css' | asset_url | stylesheet_tag }}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
+    {{ 'product.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="temp-{{template.name}}">
+
+    {% section 'header' %}
+    
+    <main class="section main-wrap">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'instagram' %}
+    {% section 'footer' %}
+
+    {%  section 'cart-drawer' %} 
+
+    
+    
+    {% comment %} {{ 'theme.min.js' | asset_url | script_tag }} {% endcomment %}
+    {{ 'theme.min.js' | asset_url | script_tag }}
+    {% comment %} {{ 'slick.min.js' | asset_url | script_tag }} {% endcomment %}
+    {{ 'imagesloaded.pkgd.min.js' | asset_url | script_tag }}
+    {{ 'headroom.js' | asset_url | script_tag }}
+    <script type="text/javascript" src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+    {{ 'jquery.selectric.min.js' | asset_url | script_tag }}
+    {{ 'ScrollTrigger.min.js' | asset_url | script_tag }}
+    {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+    {{ 'scripts.js' | asset_url | script_tag }}
+    {{ 'main.js' | asset_url | script_tag }}
+    {{ 'custom.js' | asset_url | script_tag }}
+    {% comment %} <script type="text/javascript" src="assets/js/jquery-3.7.1.min.js"></script> {% endcomment %}
+    <!-- <script type="text/javascript" src="assets/js/lenis.min.js"></script> -->
+    
+    <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+    <script type="text/javascript">
+      KlaviyoSubscribe.attachToForms('#email_signup', {
+          hide_form_on_success: true,
+          success_message: "<h5>THANKS FOR SUBSCRIBING</h5><p>Please check your email for a confirmation message.</p>",
+        extra_properties: {
+          $source: 'Web Footer Form',
+          $method_type: "Klaviyo Form",
+          $method_id: 'embed',
+        }
+      });
+    </script>
+  </body>
+</html>

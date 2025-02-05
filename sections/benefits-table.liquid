@@ -1,0 +1,270 @@
+{% assign s = section.settings %}
+{% if s.title != blank %}
+    <div class="fadeIn pos-absolute desk quick-cta-section">
+        <div class="page-container common-wrap clear">
+            <div class="flex flex-y-align quick-cta br-10x">
+                <div class="quick-thumb">
+                    <figure>
+                        {% render 'responsive-image', image: s.image %}
+                    </figure>
+                </div>
+                <div class="quick-cta-content">
+                    <div class="content-wrap">
+                        {{ s.title |  replace: '<h4>', '<span class="h4">' |  replace: '</h4>', '</span>' }}
+                        <div class="btn-wrap margin-top-xs">
+                            <a href="{{ s.btn_url }}" class="btn-link">{{ s.btn_label }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+{% endif %}
+
+
+<div class="padding-section parallax-trigger pos-relative has-yellow-background container-inner {% if template.name=='product' %} benefit__wrapper {% endif %}">
+    <div class="page-container common-wrap clear">
+        <div class="benefit-table-container fadeIn">
+        <div class="pos-relative txt-ctr lg-container content-wrap">
+            {{ s.t_heading }}
+        </div>
+        <div class="margin-top-xl flex flex-y-align flex-col benefit-table pos-relative">
+            <table>
+                <thead>
+                    <tr>
+                    <th>
+                        <h5>{{ s.table_title }}</h5>
+                    </th>
+                    <th>
+                        <img src="{{ s.table_image |  image_url }}" alt="">
+                    </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for block in section.blocks %}
+                        {% assign b = block.settings %}
+                        {% if block.type == 'table' %}
+                            <tr>
+                        <td>
+                            <div class="flex flex-y-align">
+                                <img src="{{'cross.svg' |  asset_url }}" alt="">
+                                <h6>{{ b.f_text }}</h6>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex flex-y-align">
+                                <img src="{{'check-tbl.svg' | asset_url }}" alt="">
+                                <h6>{{ b.s_text }}</h6>
+                            </div>
+                        </td>
+                    </tr>
+                        {% endif %}
+                        
+                    {% endfor %}                    
+                </tbody>
+            
+            </table>
+            {% if s.t_btn_label != blank %}
+                <div class="margin-top-xl btn-wrap">
+                    <a href="{{ s.t_btn_url }}" class="button button--stroke btn btn-primary btn-medium" data-block="button">
+                        <span class="button__flair"></span>
+                        <span class="button__label">{{ s.t_btn_label }}</span>
+                    </a>
+                </div>                
+            {% endif %}
+        </div>
+        </div>
+       
+     
+        {% assign image_right_1 = s.image_right_1 %}
+        {% assign image_right_2 = s.image_right_2 %}
+        {% assign image_right_3 = s.image_right_3 %}
+        <div class="desk pos-absolute parallax-chips">
+            <div class="chip">
+                <figure>
+                    {% render 'responsive-image' with image: image_right_1 %}
+                </figure>
+            </div>
+            <div class="chip">
+                <figure>
+                    {% render 'responsive-image' with image: image_right_2 %}
+                </figure>
+            </div>
+            <div class="chip">
+                <figure>
+                    {% render 'responsive-image' with image: image_right_3 %}
+                </figure>
+            </div>
+        </div>
+    
+        {% assign image_left_1 = s.image_left_1 %}
+        {% assign image_left_2 = s.image_left_2 %}
+        {% assign image_left_3 = s.image_left_3 %}
+        <div class="desk pos-absolute parallax-puffs">
+            <div class="animate-down">
+                <figure>
+                    {% render 'responsive-image' with image: image_left_1 %}
+                </figure>
+            </div>
+            <div class="animate-down">
+                <figure>
+                    {% render 'responsive-image' with image: image_left_2 %}
+                </figure>
+            </div>
+            <div class="animate-down">
+                <figure>
+                    {% render 'responsive-image' with image: image_left_3 %}
+                </figure>
+            </div>
+        </div>
+        {% comment %}
+        <div class="desk pos-absolute sticker protein-sticker">
+            <div class="pos-relative sticker-container">
+                <div class="inner-sticker">
+                    <figure>
+                        <img src="{{ 'protein-inner.svg' | asset_url }}" alt="">
+                    </figure>
+                </div>
+                <div class="rotate outer-sticker pos-absolute">
+                    <figure>
+                        <img src="{{ 'protein-outer.svg' | asset_url }}" alt="">
+                    </figure>
+                </div>
+            </div>
+        </div>
+        {% endcomment %}  
+    </div>
+</div>
+<div class="has-black-background flex flex-y-align scroll-fixed-marquee benefit-marque">
+    {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        {% if block.type == 'marquee' %}
+            <div class="scroll-item">
+                <h6>{{ b.text }}</h6>
+            </div>            
+        {% endif %}        
+    {% endfor %}
+    
+</div>
+
+
+
+
+
+
+
+        {% schema %}
+            {
+                "name": "Benefits Table",
+                "tag": "section",
+                "class": "section pos-relative benefits-table-section",
+                "settings": [
+                    {
+                    "type": "header",
+                    "content": "Top"
+                    },{
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                    },{
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Title"
+                    },{
+                    "type": "text",
+                    "id": "btn_label",
+                    "label": "Button Label"
+                    },{
+                    "type": "url",
+                    "id": "btn_url",
+                    "label": "Button URL"
+                    },{
+                    "type": "header",
+                    "content": "Table"
+                    },
+                    {
+                    "type": "richtext",
+                    "id": "t_heading",
+                    "label": "Table Heading"
+                    },{
+                    "type": "text",
+                    "id": "table_title",
+                    "label": "Table Title"
+                    },{
+                    "type": "image_picker",
+                    "id": "table_image",
+                    "label": "Table Image"
+                    },{
+                    "type": "text",
+                    "id": "t_btn_label",
+                    "label": "Button Label"
+                    },{
+                    "type": "url",
+                    "id": "t_btn_url",
+                    "label": "Button URL"
+                    },{
+                        "type": "header",
+                        "content": "Images (Left)"
+                    },{
+                        "type": "image_picker",
+                        "id": "image_left_1",
+                        "label": "Image Left 1"
+                    },{
+                        "type": "image_picker",
+                        "id": "image_left_2",
+                        "label": "Image Left 2"
+                    },{
+                        "type": "image_picker",
+                        "id": "image_left_3",
+                        "label": "Image Left 3"
+                    },{
+                        "type": "header",
+                        "content": "Images (Right)"
+                    },{
+                        "type": "image_picker",
+                        "id": "image_right_1",
+                        "label": "Image Right 1"
+                    },{
+                        "type": "image_picker",
+                        "id": "image_right_2",
+                        "label": "Image Right 2"
+                    },{
+                        "type": "image_picker",
+                        "id": "image_right_3",
+                        "label": "Image Right 3"
+                    }
+                ],"blocks": [
+                    {
+                        "type": "table",
+                        "name": "Table Text",
+                        "settings": [
+                            {
+                            "type": "text",
+                            "id": "f_text",
+                            "label": "First Text"
+                            },{
+                            "type": "text",
+                            "id": "s_text",
+                            "label": "Second Text"
+                            }
+                        ]
+                    },{
+                        "type": "marquee",
+                        "name": "Marquee Text",
+                        "settings": [
+                            {
+                            "type": "text",
+                            "id": "text",
+                            "label": "First Text"
+                            }
+                        ]
+                    }
+                ],
+                "presets": [
+                {
+                    "name": "Benefits Table"
+                }
+              ]
+            }
+        {% endschema %}

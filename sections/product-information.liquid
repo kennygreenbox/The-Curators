@@ -1,0 +1,130 @@
+{% assign product_info = product.metafields.custom.product_info.value %}
+
+
+
+{% if product_info.heading != blank %}
+    <section class="fadeIn  pos-relative parallax-trigger section padding-section product-information-list-section has-modal">
+        <div class="padding-container section-heading">
+            <div class="page-container common-wrap clear">
+                <div class="lg-container">
+                    <div class="content-wrap txt-ctr">
+                        {{ product.metafields.custom.product_info.value.heading |  metafield_tag |  replace: '<h6>', '<span class="h6 margin-bottom-xl">' |  replace: '</h6>', '</span>' }}
+                      
+                        <div class="margin-top-xl fadeIn grid flex-box flex-x-align btn-wrap">
+
+
+{% if product_info.product_info_buttons.value != blank %}
+    {% for button in product_info.product_info_buttons.value %}
+        
+        {% if button.button_label != blank %}
+            {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+            <a href="#modal-{{ forloop.index }}" class="button button--stroke {% if thecycle == 'odd' %}btn-secondary{% else %}btn-outline{% endif %} btn-large btn ModalTrigger" data-block="button">
+                <span class="button__flair"></span>
+                <span class="button__label">{{button.button_label}}</span>
+            </a>           
+        {% endif %}
+    {% endfor %}
+{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    
+        <div class="pos-absolute parallax-puffs">
+            <div class="animate-up">
+                <figure>
+                    <img src="{{'yellow-border-puff-top.png' |  asset_url }}" alt="">
+                </figure>
+            </div>
+            <div class="animate-up">
+                <figure>
+                    <img src="{{'yellow-border-puff-btm.png' |  asset_url }}" alt="">
+                </figure>
+            </div>
+        </div>
+    
+    </section>    
+{% endif %}
+
+{% if product_info.product_info_buttons.value != blank %}
+    {% for button in product_info.product_info_buttons.value %}
+        {% if button.button_label != blank and button.nutritional_info_tabs.value != blank %}
+        {% comment %} IF NUTRITIONAL INFO {% endcomment %}
+        <div class="modal-container" id="modal-{{ forloop.index }}">
+            <div class="page-container flex flex-y-align sml-container  common-wrap clear">
+                <div class="has-neutral-background br-20x modal-inner modal__wrapper">
+                    <div class="padding-m has-white-background pos-relative modal-header">
+                        <div class="padding-default-sml modal-close "><img src="{{'close.svg' |  asset_url }}" alt=""></div>
+                        {% if button.title != blank %}
+                            <h5>{{ button.title }}</h5>                        
+                        {% endif %}
+                    </div>
+                    <div class="padding-m padding-right-default padding-bottom-xl modal-content">
+                        <div class="tab-wrap">
+                            <div class="margin-bottom-m flex tab-list br-10x">
+                                {% for tab in button.nutritional_info_tabs.value %}
+                                <a href="#mtab-{{ forloop.index }}" class="padding-y-default-sml tab-title {% if forloop.first %}active{% endif %} txt-ctr">{{ tab.tab_title }}</a>
+                            {% endfor %}
+                            </div>
+                            <div class="tab-inner-wrap">
+                                {% for tab in button.nutritional_info_tabs.value %}
+                                    <div class="{% if forloop.first %}active{% endif %} tab-item" id="mtab-{{ forloop.index }}">
+                                    {% for details in tab.nutritional_info_items.value %}
+                                        <div class="padding-y-s row flex border-btm">
+                                            <div class="row-item ">
+                                                {{ details.title | metafield_tag | replace: '<h6', '<h6 class="margin-bottom-s"' }}
+                                            </div>
+                                            <div class="row-item txt-r">
+                                                {{ details.quantity |  metafield_tag |  replace: '<h6', '<h6 class="margin-bottom-s"' }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        {% elsif button.button_label != blank and button.text != blank %}
+        {% comment %} IF INGREDIENTS {% endcomment %}
+        <div class="modal-container" id="modal-{{ forloop.index }}">
+            <div class="page-container flex flex-y-align xs-container  common-wrap clear">
+                <div class="has-neutral-background br-20x modal-inner">
+                    <div class="padding-base padding-left-m padding-right-m has-white-background pos-relative modal-header modal__wrapper">
+                        <div class="padding-default-sml modal-close"><img src="{{'close.svg' |  asset_url }}" alt=""></div>
+                        <h3 class="h5">{{ button.title }}</h3>
+                    </div>
+                    <div class="padding-m padding-bottom-xl modal-content flex flex-col grid-m">
+        
+                    {{ button.text |  metafield_tag |  replace: '<div class="metafield-rich_text_field">', '' |  replace: '</div>', ''  }}
+                    </div>
+                </div>
+            </div>
+        </div>  
+        {% endif %}
+    {% endfor %}   
+{% endif %}
+
+
+
+
+
+
+{% schema %}
+    {
+        "name": "Product data",
+        "settings": [
+            
+        ],
+        "presets": [
+        {
+            "name": "Product data"
+        }
+      ]
+    }
+{% endschema %}

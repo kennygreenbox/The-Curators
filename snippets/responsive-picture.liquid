@@ -1,0 +1,39 @@
+{% if minW == blank %}
+    {% assign minW = '769px' %}
+{% endif %}
+{% if maxW == blank %}
+    {% assign maxW = '991px' %}
+{% endif %}
+
+{%- assign image_widths = '180,360,540,720,900,1080,1296,1512,1728,1944,2160,2376,2592,2808,3024' | split: ',' -%}
+{% if above_fold != blank or above_fold == true %}
+    {% if image_mobi != blank %}
+        <picture {% if class != blank %}class="{{class}}"{% endif %}>
+            {% capture image_mobi_srcset %}{%- for width in image_widths -%}{%- assign width_num = width | plus: 0 | round -%}{% capture widthNumX %}{{ width_num }}x{% endcapture %}{%- if image_mobi.width >= width_num -%}{% assign img_url = image_mobi | img_url: widthNumX %}{% if img_url != blank %}{% if forloop.first == false %}, {% endif %}{{ img_url }} {{width}}w{% endif %}{% endif %}{%- endfor -%}{% endcapture %}
+            <source media="(max-width: {{maxW}})" srcset="{% if image_mobi_srcset != blank %}{{image_mobi_srcset | strip }}{% else %}{{'i-feel-empty-inside.gif' | asset_url }}{% endif %}" sizes="auto" width="{{image_mobi.width}}" height="{{image_mobi.height}}">
+            {% capture image_srcset %}{%- for width in image_widths -%}{%- assign width_num = width | plus: 0 | round -%}{% capture widthNumX -%}{{ width_num }}x{% endcapture %}{%- if image.width >= width_num -%}{% assign img_url = image | img_url: widthNumX %}{% if img_url != blank %}{% if forloop.first == false %}, {% endif %}{{ img_url }} {{width}}w{% endif %}{% endif %}{%- endfor -%}{% endcapture %}
+            <source media="(min-width: {{minW}})" srcset="{% if image_srcset != blank %}{{image_srcset | strip }}{% else %}{{'i-feel-empty-inside.gif' | asset_url }}{% endif %}" sizes="auto" width="{{image.width}}" height="{{image.height}}">
+            <img src="{{image | img_url: '450x' }}" srcset="{{image_srcset | strip }}" class="lazyload" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}" sizes="auto"> 
+        </picture>
+    {% else %}
+        <figure {% if class != blank %}class="{{class}}"{% endif %}>
+            {% capture image_srcset %}{%- for width in image_widths -%}{%- assign width_num = width | plus: 0 | round -%}{% capture widthNumX %}{{ width_num }}x{% endcapture %}{%- if image.width >= width_num -%}{% assign img_url = image | img_url: widthNumX %}{% if img_url != blank %}{% if forloop.first == false %}, {% endif %}{{ img_url }} {{width}}w{% endif %}{% endif %}{%- endfor -%}{% endcapture%}
+            <img src="{{image | img_url: '450x' }}" srcset="{{image_srcset | strip }}" class="lazyload" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}" sizes="auto">
+        </figure>
+    {% endif %}
+{% else %}
+    {% if image_mobi != blank %}
+        <picture {% if class != blank %}class="{{class}}"{% endif %}>
+            {% capture image_mobi_srcset %}{%- for width in image_widths -%}{%- assign width_num = width | plus: 0 | round -%}{% capture widthNumX %}{{ width_num }}x{% endcapture %}{%- if image_mobi.width >= width_num -%}{% assign img_url = image_mobi | img_url: widthNumX %}{% if img_url != blank %}{% if forloop.first == false %}, {% endif %}{{ img_url }} {{width}}w{% endif %}{% endif %}{%- endfor -%}{% endcapture %}
+            <source media="(max-width: {{maxW}})" data-srcset="{% if image_mobi_srcset != blank %}{{image_mobi_srcset | strip }}{% else %}{{'i-feel-empty-inside.gif' | asset_url }}{% endif %}" sizes="auto" width="{{image_mobi.width}}" height="{{image_mobi.height}}">
+            {% capture image_srcset %}{%- for width in image_widths -%}{%- assign width_num = width | plus: 0 | round -%}{% capture widthNumX -%}{{ width_num }}x{% endcapture %}{%- if image.width >= width_num -%}{% assign img_url = image | img_url: widthNumX %}{% if img_url != blank %}{% if forloop.first == false %}, {% endif %}{{ img_url }} {{width}}w{% endif %}{% endif %}{%- endfor -%}{% endcapture %}
+            <source media="(min-width: {{minW}})" data-srcset="{% if image_srcset != blank %}{{image_srcset | strip }}{% else %}{{'i-feel-empty-inside.gif' | asset_url }}{% endif %}" sizes="auto" width="{{image.width}}" height="{{image.height}}">
+            <img data-src="{{image | img_url: '450x' }}" data-srcset="{{image_srcset | strip }}" class="lazyload" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}" sizes="auto"> 
+        </picture>
+    {% else %}
+        <figure {% if class != blank %}class="{{class}}"{% endif %}>
+            {% capture image_srcset %}{%- for width in image_widths -%}{%- assign width_num = width | plus: 0 | round -%}{% capture widthNumX %}{{ width_num }}x{% endcapture %}{%- if image.width >= width_num -%}{% assign img_url = image | img_url: widthNumX %}{% if img_url != blank %}{% if forloop.first == false %}, {% endif %}{{ img_url }} {{width}}w{% endif %}{% endif %}{%- endfor -%}{% endcapture%}
+            <img data-src="{{image | img_url: '450x' }}" data-srcset="{{image_srcset | strip }}" class="lazyload" alt="{{image.alt}}" width="{{image.width}}" height="{{image.height}}" sizes="auto">
+        </figure>
+    {% endif %}
+{% endif %}

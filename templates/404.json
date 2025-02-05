@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "section_txt": "<h2>404<\/h2><p>Oops! Looks like you’ve bitten off more than we can chew. But don’t worry, we’ll help you snack your way back on track!<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

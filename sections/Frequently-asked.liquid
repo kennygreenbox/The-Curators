@@ -1,0 +1,111 @@
+{% assign s = section.settings %}
+
+
+<div class="desk pos-absolute puffs-visual">
+    <div class="animate-up">
+        <figure>
+            <img src="{{'Puff-bacon-light-yellow.png' |  asset_url }}" alt="">
+        </figure>
+    </div>
+    <div class="animate-up">
+        <figure>
+            <img src="{{'Puff-small-bacon-lightt-yellow.png' |  asset_url}}" alt="">
+        </figure>
+    </div>
+    <div class="animate-up">
+        <figure>
+            <img src="{{'Puff-bacon-light-yellow.png' | asset_url}}" alt="">
+        </figure>
+    </div>
+    <div class="animate-up">
+        <figure>
+            <img src="{{'Puff-small-bacon-lightt-yellow.png' | asset_url}}" alt="">
+        </figure>
+    </div>
+    <div class="animate-up">
+        <figure>
+            <img src="{{'Puff-bacon-light-yellow.png' | asset_url}}" alt="">
+        </figure>
+    </div>
+    <div class="animate-up">
+        <figure>
+            <img src="{{'Puff-small-bacon-lightt-yellow.png' | asset_url}}" alt="">
+        </figure>
+    </div>
+    
+</div>
+<div class="page-container common-wrap clear">
+    <div class="content-wrap padding-top-default padding-bottom-xl">
+        <div class="txt-ctr">
+            {{ s.heading  }}
+        </div>
+    </div>
+    <div class="med-container accordion-container lg:padding-bottom-3xl padding-bottom-xl">
+        <div class="accordion">
+            {% for block in section.blocks %}
+                {% assign b = block.settings %}
+                {%  if block.type == 'item' %}
+                <div class="padding-y-l border-btm accordion-item {% if forloop.first %} active-item{% endif %}" >
+                    <div class="accordion-title"><h5>{{ b.title }}</h5></div>
+                    <div class="padding-top-xl accordion-content">
+                        <div class="lead-text">
+                            {{ b.content }}
+                        </div>
+                    </div>
+                </div>     
+                {% elsif block.type == 'heading' %}
+                    <div class="accordion-heading border-cnt">
+                        <h4>{{ b.title }}</h4>
+                        <div class="accordion-heading-deco"></div>
+                    </div>
+                {% endif %}                       
+            {% endfor %}
+        </div>
+    </div>
+</div>	
+
+{% schema %}
+    {
+        "name": "FAQ",
+        "tag": "section",
+        "class": "pos-relative section has-yellow-background padding-section accordion-section",
+        "settings": [{
+            "type": "richtext",
+            "id": "heading",
+            "label": "Heading"
+            }
+        ],"blocks": [
+            {
+                "type": "heading",
+                "name": "Heading",
+                "settings": [
+                    {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                    }
+                ]
+            },
+            {
+                "type": "item",
+                "name": "FAQ Item",
+                "settings": [
+                    {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                    },{
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+            "name": "FAQ"
+        }
+        ]
+    }
+{% endschema %}

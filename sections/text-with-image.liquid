@@ -1,0 +1,95 @@
+{% assign s = section.settings %}
+    <div class="page-container common-wrap clear">
+        <div class="grid-container lg:grid-container-two gutter">
+            <div class="grid-item grid-container grid-container-one lg:grid-container-six">
+                <div class="grid-five">
+                    <div class="fadeIn flex flex-col content-wrap pos-relative">
+                        {% if s.heading != blank %}
+                            <div class="heading-wrap multi-font-heading">
+                                {{ s.heading |  replace: '<em>', '<span class="font-alt">' |  replace: '</em>', '</span>' }}
+                            </div>                            
+                        {% endif %}
+                        {{ s.text |  replace: '<p', '<p class="h6"' }}                        
+                        <div class="btn-wrap">
+                            {% if s.txt_above_btn != blank %}
+                                <h6 class="margin-bottom-default-sml"><strong>{{ s.txt_above_btn }}</strong></h6>                                
+                            {% endif %}
+                            {% if s.btn_label != blank %}
+                                <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                                    <span class="button__flair"></span>
+                                    <span class="button__label">{{ s.btn_label }}</span>
+                                </a>                                
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pos-relative grid-item">
+                <div class="br-15x main-visual">
+                    <div class="parallax-top">
+                        <figure>
+                            {% render 'responsive-image', image: s.image, image_class: 'bg-img' %}
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="pos-absolute sticker discount-sticker">
+                    <div class="pos-relative sticker-container">
+                        <div class="inner-sticker">
+                            <figure>
+                                <img src="{{'15off-inner.svg' |  asset_url }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="rotate outer-sticker pos-absolute">
+                            <figure>
+                                <img src="{{'15off-outer.svg' |  asset_url}}" alt="">
+                            </figure>
+                        </div>
+                </div>
+                </div>
+            </div>	
+        </div>
+    </div>
+
+
+
+{% schema %}
+    {
+        "name": "Image With Text",
+        "tag": "section",
+        "class": "section padding-section parallax-trigger text-img-parallax-section",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+            },
+            {
+            "type": "richtext",
+            "id": "heading",
+            "label": "Section Heading"
+            },{
+            "type": "richtext",
+            "id": "text",
+            "label": "Section text"
+            },{
+            "type": "text",
+            "id": "txt_above_btn",
+            "label": "Text Above Button"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],
+        "presets": [
+        {
+            "name": "Image With Text"
+        }
+      ]
+    }
+{% endschema %}

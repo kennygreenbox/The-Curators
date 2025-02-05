@@ -1,0 +1,17 @@
+{%- assign social_accounts = ' Facebook, Instagram, Tiktok, Twitter, Linkedin, Pinterest, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+  <ul class="flex flex-y-align">
+    {% for social in social_accounts %}
+      {%- assign social_handle = social | handleize -%}
+      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+      {% capture social_icon %}{{ social_handle }}.svg{% endcapture %}
+
+      {% if settings[social_link] != blank %}
+        <li>
+          <a href="{{ settings[social_link] }}" target="_blank">
+            <img src="{{ social_icon |  asset_url }}" alt="">
+          </a>
+        </li>
+      {% endif %}
+
+    {% endfor %}
+  </ul>

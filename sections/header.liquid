@@ -1,0 +1,334 @@
+
+		{% assign s = section.settings %}
+
+
+    {% if s.announcement != blank %}      
+      <div class="txt-ctr padding-y-default-sml lg:padding-y-xs promo-tob-bar">
+        {{ s.announcement }}
+      </div>
+    {% endif %}
+         <div class="page-container common-wrap clear header-fixed">
+            <div class="flex flex-y-align header-inner">
+                <div class="flex flex-col phone-nav">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+				
+            	<div class="flex flex-col lg:flex-row flex-space-between main-nav nav-wrap nav-wrap-left">
+                {% if s.menu.links.size > 0 %}
+                  <nav class="main-nav desk">                    
+                    <ul>
+                      {% for link in s.menu.links %}
+                        <li class="padding-y-m {% if link.title contains 'megamenu' %}has-sub-menu-item{% endif %} "><a href="{{ link.url }}">{% if link.title contains 'badge_' %}<span class="upsell-text">{{ link.title |  split: 'badge_' | slice: 1,2 }}</span>{% endif %}{{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}</a>
+                          {% if link.title contains 'megamenu' %}
+                            <ul class="page-container sub-menu">
+                                <div class="padding-bottom-default-sml sub-menu-wrapper">
+                                  <div class="grid-container grid-row-auto lg:grid-container-full gutter">
+                                    <div class="grid-four menu-column flex flex-col grid-base">	
+                                      {% for block in section.blocks %}  
+                                        {% assign b = block.settings %}                                      
+                                        <li class="mega-menu-item"><a href="{% if b.url != blank %}{{b.url}}{% else %}/collections/all-products{% endif %}">{{ b.menu_name }} {% if b.new %}<span class="upsell-text">NEW</span>{% endif %}</a></li>
+                                      {% endfor %}
+                                      {% if s.mega_btn_label != blank %}
+                                        <li class="mega-menu-link"><a href="{{ s.mega_btn_url }}">{{ s.mega_btn_label }}</a></li>                                        
+                                      {% endif %}
+                                    </div>	
+                                    <ul class="grid-eight menu-column pos-relative ">	
+                                      {% for block in section.blocks %}
+                                        {% assign b = block.settings %}
+                                        <li class="grid-container grid-row-auto lg:grid-container-four mega-menu-item-child {% if forloop.first %}active{% endif %}">
+                                          {% if b.product1 != blank %}
+                                            <a href="{{ b.product1.url}}">
+                                              <div class="flex flex-col grid-m">
+                                                <div class="icon-container br-10x">
+                                                  {% assign grid_card = b.product1.metafields.custom.grid_card.value %}
+
+                                                  {% if grid_card.grid_image != blank %}
+                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% else %}     
+                                                      {% render 'responsive-img' with image:b.product1.featured_image, above_fold:true, class:'bg-img' %}
+                                                  {% endif %}
+
+
+                                                </div>
+                                                <span class="menu-page-title ">
+                                                  <h6><strong>{% if grid_card.title != blank %}{{grid_card.title}}{% else %}{{ b.product1.title }}{% endif %}</strong></h6>
+                                                </span>
+                                              </div>
+                                            </a>	
+                                          {% endif %}
+                                          {% if b.product2 != blank %}
+                                            <a href="{{ b.product2.url }}">
+                                              <div class="flex flex-col grid-m">
+                                                <div class="icon-container br-10x">
+                                                  {% assign grid_card = b.product2.metafields.custom.grid_card.value %}
+
+                                                  {% if grid_card.grid_image != blank %}
+                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% else %}     
+                                                      {% render 'responsive-img' with image:b.product2.featured_image, above_fold:true, class:'bg-img' %}
+                                                  {% endif %}
+                                                </div>
+                                                <span class="menu-page-title ">
+                                                  <h6><strong>{% if grid_card.title != blank %}{{grid_card.title}}{% else %}{{ b.product2.title }}{% endif %}</strong></h6>
+                                                </span>
+                                              </div>
+                                            </a>	
+                                          {% endif %}
+                                          {% if b.product3 != blank %}
+                                            <a href="{{ b.product3.url }}">
+                                              <div class="flex flex-col grid-m">
+                                                <div class="icon-container br-10x">
+                                                  {% assign grid_card = b.product3.metafields.custom.grid_card.value %}
+
+                                                  {% if grid_card.grid_image != blank %}
+                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% else %}     
+                                                      {% render 'responsive-img' with image:b.product3.featured_image, above_fold:true, class:'bg-img' %}
+                                                  {% endif %}
+                                                </div>
+                                                <span class="menu-page-title ">
+                                                  <h6><strong>{% if grid_card.title != blank %}{{grid_card.title}}{% else %}{{ b.product3.title }}{% endif %}</strong></h6>
+                                                </span>
+                                              </div>
+                                            </a>	
+                                          {% endif %}
+                                          {% if b.product4 != blank %}
+                                            <a href="{{ b.product4.url }}">
+                                              <div class="flex flex-col grid-m">
+                                                <div class="icon-container br-10x">
+                                                  {% assign grid_card = b.product4.metafields.custom.grid_card.value %}
+
+                                                  {% if grid_card.grid_image != blank %}
+                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% else %}     
+                                                      {% render 'responsive-img' with image:b.product4.featured_image, above_fold:true, class:'bg-img' %}
+                                                  {% endif %}
+                                                </div>
+                                                <span class="menu-page-title ">
+                                                  <h6><strong>{% if grid_card.title != blank %}{{grid_card.title}}{% else %}{{ b.product4.title }}{% endif %}</strong></h6>
+                                                </span>
+                                              </div>
+                                            </a>	
+                                          {% endif %}
+                                        </li>                                        
+                                      {% endfor %}
+                                    </ul>
+                                  </div>
+                                </div>                                    
+                            </ul>
+                          {% endif %}
+                                </li>
+                        {% comment %} <li class="padding-y-m"><a href="shop.html">Cheesies!</a></li>
+                        <li class="padding-y-m"><a href="shop.html">Packs & Bundles</a></li> {% endcomment %}
+                        
+                      {% endfor %}
+                    </ul>
+                  </nav>
+                  {% endif %}
+                {% if s.menu_mobi.links.size > 0 %}
+                  <nav class="mobile-menu page-container mobi tablet">              
+                    <ul class="flex flex-col">
+                      {% for link in s.menu_mobi.links %}
+                        
+                        <li class="{% if link.links.size > 0 %}has-sub-menu-item{% endif %}"><a href="{{ link.url }}">{{ link.title }}</a>                                    
+                                    {% if  link.links.size > 0 %}                                      
+                                      <ul class="sub-menu">
+                                        {% for child_link in link.links %}
+                                          <li><a href="{{ child_link.url }}">{{ child_link.title |  remove: 'badge_NEW'  }}{% if child_link.title contains 'badge_' %}<span class="upsell-text">{{ child_link.title |  split: 'badge_' | slice: 1,2 }}</span>{% endif %} </a></li>                                          
+                                        {% endfor %}
+                                      </ul>
+                                    {% endif %}
+                                </li>
+                      {% endfor %}
+                          </ul>
+                  </nav>
+                {% endif %}
+            	</div>
+            	
+                <div class="centre-xy logo-container">
+                	<div class="main-logo">
+                      {% if s.logo_animation != blank%}
+                        <a href="/">
+                        <dotlottie-player
+                          id="nav-logo-reveal"
+                          src="{{s.logo_animation}}"
+                        >
+                        </dotlottie-player>
+                        </a>
+                      {% else %}
+	                	<a href="/">
+	                	<img src="{{ 'Logo2.svg' |  asset_url }}" alt="">
+	                	</a>
+                      {% endif %}
+	                </div>
+                </div>
+                <div class="flex-box nav-wrap nav-wrap-right">
+                    <nav class="main-nav desk">
+                      {% if s.menu_r.links.size > 0 %}
+                        <ul>       
+                          {% for link in s.menu_r.links %}                            
+                            <li class="padding-y-m"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                          {% endfor %}               
+                        </ul>
+                    {% endif %}
+            		</nav>
+                	<div class="flex flex-y-align user-nav">
+                        <a href="/account" class="header__login flex"><img src="{{  'User.svg' |  asset_url }}" alt=""></a>
+                        <a href="#" class="pos-relative nav__cart flex showCart"><img src="{{  'Cart2.svg' |  asset_url }}" alt="Cart Icon"><span class="cart-trigger">{{ cart.item_count }}</span></a>
+                    </div>  
+            	</div>
+            </div>
+         </div>
+
+
+
+
+{% comment %} <ul class="nav">
+    {% for link in linklists[section.settings.menu].links %}
+      <li class="nav__item {% if link.links.size >= 1 %}has-megamenu has-sub-nav{% endif %}">
+        <a href="{{link.url}}" class="nav__url">{{ link.title }}</a>
+        {% if link.links.size >= 1 %}
+          <div class="nav__dropdown megamenu">
+            <div class="megamenu__inner">
+              {% for childlink in link.links %}
+                <div class="megamenu__item">
+                  <a href="{{childlink.object.url}}" class="megamenu__url">
+                    <div class="megamenu__image">
+                      <img src="{{childlink.object.featured_image | img_url: 'master'}}" alt="">
+                    </div>
+                    <div class="megamenu__title">{{ childlink.title }}</div>
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul> {% endcomment %}
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      "logo": {{ section.settings.logo | image_url: width: section.settings.logo.width | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Header",
+    "tag": "header",
+    "class": "header-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo_animation",
+        "label": "Logo Animation JSON Link"
+      },
+      {
+        "type": "richtext",
+        "id": "announcement",
+        "label": "Announcement Text"
+      },{
+        "type": "link_list",
+        "id": "menu",
+        "label": "Menu left"
+      }, 
+      {
+        "type": "link_list",
+        "id": "menu_r",
+        "label": "Menu right"
+      }, 
+      {
+        "type": "link_list",
+        "id": "menu_mobi",
+        "label": "Mobile Menu"
+      }, 
+      {
+        "type": "text",
+        "id": "mega_btn_label",
+        "label": "Mega Menu Button Label"
+      }, 
+      {
+        "type": "url",
+        "id": "mega_btn_url",
+        "label": "Mega Menu Button URL"
+      }
+    ],"blocks": [
+  {
+    "type": "item",
+    "name": "Menu Blocks",
+    "settings": [
+      {
+        "type": "text",
+        "id": "menu_name",
+        "label": "Title"
+      },{
+        "type": "url",
+        "id": "url",
+        "label": "Link"
+      },{
+        "type": "checkbox",
+        "id": "new",
+        "label": "Want To Add New Badge?"
+      },{
+        "type": "product",
+        "id": "product1",
+        "label": "First Product"
+      },{
+        "type": "product",
+        "id": "product2",
+        "label": "Second Product"
+      },{
+        "type": "product",
+        "id": "product3",
+        "label": "Third Product"
+      },{
+        "type": "product",
+        "id": "product4",
+        "label": "Forth Product"
+      }
+    ]
+  }
+]
+
+  }
+{% endschema %}
+

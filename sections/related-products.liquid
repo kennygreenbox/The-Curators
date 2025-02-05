@@ -1,0 +1,100 @@
+{% assign product_handle = product.handle %}
+{% assign product_limit = 0 %}
+{% assign product_count = 0 %}
+{% if product.id != blank %}
+  {% assign thisId = product.id %}
+{% endif %}
+{% assign shownProducts = '' %}
+{% assign s = section.settings %}
+
+
+  <div class="padding-y-base container-inner">
+    <div class="page-container common-wrap clear">
+      <div class="fadeIn margin-bottom-base flex-box flex-y-align flex-space-between flex-bottom-align content-wrap">
+        {% if s.title != blank %}
+          <h2>{{ s.title }}</h2>          
+        {% endif %}
+
+        {% if s.btn_label != blank %}
+          <div class="btn-wrap">
+            <a href="{{ product.collections[0].url }}" class="button button--stroke btn btn-secondary btn-medium desk" data-block="button">
+              <span class="button__flair"></span>
+              <span class="button__label">{{ s.btn_label }}</span>
+            </a>
+            <a href="{{ product.collections[0].url }}" class="btn btn-secondary btn-medium mobi ">Shop All</a>
+          </div>
+          
+        {% endif %}
+      </div>
+      <div class="fadeIn margin-top-xl featured-product-wrap">
+        <div class="product-item-wrapper product-slider swiper-container ">
+          <div class="swiper-wrapper">
+            {% for collection in product.collections %}
+              {% for product in collection.products %}
+                {% unless product.handle == product_handle %}
+                  {% assign product_count = product_count | plus: 1 %}
+                  {% if product_count <= 4 %}
+                    {% unless shownProducts contains product.id %}
+                      {% assign shownProducts = shownProducts | append: ', ' | append: product.id %}
+
+                       {%  render 'product-card',product:product %} 
+
+                    {% endunless %}
+                  {% endif %}
+                {% endunless %}
+              {% endfor %}
+            {% endfor %}
+          </div>
+          <div class="desk btn-animation">
+            <div class=" swiper-button-prev">
+              <div  class="button button--stroke btn btn-primary btn-large" data-block="button">
+                <span class="button__flair"></span>
+                <span class="button__label btn-arrow"></span>
+              </div>
+            </div>
+            <div class="swiper-button-next">
+              <div  class="button button--stroke btn btn-primary btn-large" data-block="button">
+                <span class="button__flair"></span>
+                <span class="button__label btn-arrow"></span>
+              </div>
+            </div>
+
+            
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Related products",
+    "tag": "section",
+    "class": "section padding-section featured-products-slider",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "title",
+        "default": "Section Title"
+      },{
+        "type": "text",
+        "label": "Button Label",
+        "id": "btn_label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Related products",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

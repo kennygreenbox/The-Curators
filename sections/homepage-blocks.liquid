@@ -1,0 +1,119 @@
+{% assign s = section.settings %}
+<div class="h-blocks__inner">
+  <div class="common-wrap">
+    <div class="h-blocks__items">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <div class="h-blocks__item h-blocks__item_{{forloop.index}}">
+          <a href="{{b.url}}" class="h-blocks__item-url">
+            <div class="h-blocks__item-image">
+              {% render 'responsive-image' with image:b.image %}
+            </div>
+            <div class="h-blocks__item-title">{{b.title}}</div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<style>
+  @media (min-width:1024px) {
+    {% for block in section.blocks %}
+      {% assign b = block.settings %}
+      .h-blocks__item_{{forloop.index}}{
+        width:{{b.width}};
+        margin-left: {{b.ml}};
+        float: {{b.align}};
+      }
+      .h-blocks__item_{{forloop.index}} a{
+        display: flex;
+        flex-flow: column;
+        justify-content: {{b.align_v}};
+        height: 100%;
+      }
+    {% endfor %}
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Homepage blocks",
+    "tag": "section",
+    "class": "h-blocks",
+    "settings": [
+      
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "url",
+            "id": "url",
+            "label": "URL"
+          }, {
+            "type": "header",
+            "content": "Card style for desktop"
+          }, {
+            "type": "text",
+            "id": "width",
+            "label": "Width"
+          },
+          {
+            "type": "text",
+            "id": "ml",
+            "label": "Margin left"
+          },
+          {
+            "type": "select",
+            "id": "align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "left",
+            "label": "Horizontal alignment"
+          },
+          {
+            "type": "select",
+            "id": "align_v",
+            "options": [
+              {
+                "value": "flex-start",
+                "label": "Top"
+              },
+              {
+                "value": "flex-end",
+                "label": "Bottom"
+              }
+            ],
+            "default": "flex-start",
+            "label": "Vertical alignment"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Homepage blocks"
+      }
+    ]
+  }
+{% endschema %}

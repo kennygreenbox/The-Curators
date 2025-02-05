@@ -1,0 +1,910 @@
+{% liquid
+
+  assign button_details = product.metafields.custom.button_details.value
+  assign enable_button_variation = button_details.enable_button_variation
+  assign button_label = button_details.button_label
+  assign subtext = button_details.subtext
+  assign firstVar = product.selected_or_first_available_variant
+%}
+
+<div class="page-container common-wrap clear">
+  <div class=" flex flex-col lg:flex-row lg:flex-nowrap product-header-wrapper grid-l">
+    <div class="page-header-product-visual">
+      <div class="page-header-product-container">
+        <div class="br-10x product-featured-images swiper swiper-container">
+          <div class="swiper-wrapper">
+            {% for image in product.images %}
+              <div class="br-10x swiper-slide">
+                <figure>
+                  {% render 'responsive-img', image: image, above_fold:true, class: 'bg-img' %}
+                </figure>
+              </div>                    
+            {% endfor %}
+          </div>
+
+          
+        </div>
+        <div class="lg:margin-top-default margin-top-default-sml product-image-thumbnails swiper swiper-container">
+          <div class="swiper-wrapper">
+            {% for image in product.images %}
+            <div class="br-5x swiper-slide">
+              <figure>
+                {% render 'responsive-image', image: image, image_class: 'bg-img lazyload' %}
+              </figure>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    {% form 'product', product, class:"single__product-form" %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+      <div class="padding-y-default  product-page-header-content">
+        <div class="lg:padding-x-xxl page-header-inner flex-box">
+          <div class="content-wrap flex flex-col grid border-btm padding-bottom-default"  >
+            <h1 class="h4">{{ product.title }}</h1>
+            <div class="flex flex-y-align rating margin-bottom-xs">
+              {% comment %} <div class="flex star-wrap margin-right-base">
+                <img src="{{'star-red.svg' |  asset_url}}" alt="">
+                <img src="{{'star-red.svg' | asset_url}}" alt="">
+                <img src="{{'star-red.svg' | asset_url}}" alt="">
+                <img src="{{'star-red.svg' | asset_url}}" alt="">
+                <img src="{{'star-red.svg' | asset_url}}" alt="">
+              </div>
+              <p>65 Reviews</p> {% endcomment %}
+              <!-- Start of Judge.me code --> 
+                <div class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'> 
+                  {{ product.metafields.judgeme.badge }} 
+                </div> 
+              <!-- End of Judge.me code -->
+
+            </div>
+            <div class="flex-box badge-wrapper">
+              {% for item in product.metafields.custom.badge.value %}
+                <div class="badge">
+                    {{ item.text |  metafield_tag |  replace: '<p>', '<div>' |  replace: '</p>', '</div>' |  replace: '<em>', '<span class="unit">' |  replace: '</em>', '</span>' }}
+                </div>                      
+              {% endfor %}  
+            </div>
+            <div class="product-excerpt">
+              {{ product.metafields.custom.description |  metafield_tag |  replace: '<p>', '<p class="h6">' |  replace: '</p>', '</p>' }}	                        
+            </div>
+            <div class="flex flex-y-align lg:flex-bottom-align product-price">
+              <div class="price">
+                <h5>{{ product.price | money }}</h5>
+              </div>
+              <div class="lead-text price-details margin-left-s">
+                <p>{% unless product.has_only_default_variant %}{{product.selected_or_first_available_variant.title}}{% endunless %}</p>
+              </div>
+            </div>
+            {% assign custom_message = product.metafields.custom.custom_message %}
+            {% if custom_message != blank %}
+            <div class="custom-message has-turquoise-background br-20x call-to-action-sml-wrapper">
+              {{ custom_message | metafield_tag }}
+            </div>
+            {% endif %}
+          
+          </div>
+          <div class="flex flex-col grid product-options-wrapper border-btm padding-bottom-default">
+            <div class="padding-top-default product-size">
+              {% unless product.has_only_default_variant %}
+                      {% for option in product.options_with_values %}
+                            <div class="lead-text">
+                            <p><strong>{{ option.name  }}:</strong></p>
+                          </div>
+                          <div class="flex-box product-options">
+                            {% for value in option.values %}
+                            <div class="product__variant-radio-btn">
+                              <input  name="{{ option.name }}" type="radio" value="{{ value.name  }}" {% if option.selected_value == value %} checked {% endif %}  id="{{ forloop.index }}">
+                              <label class=" btn product__variant-label-btn active" for="{{ forloop.index }}">
+                                {{ value.name }}
+                              </label>
+                            </div>
+                          {% endfor %}
+                            {% comment %} {% for value in option.values %}
+                              <button class="btn product-size-item {% if forloop.index == 1 %} active {% endif %}">{{ value.name  }}</button>
+                            {% endfor %} {% endcomment %}
+                          
+                            {% comment %} <button class="btn product-size-item">75g</button> {% endcomment %}
+                          </div>
+                          <select name="id" class="select__variant" hidden>
+                            {% for variant in product.variants %}
+                              {% assign unit_qty = variant.metafields.custom.variant_unit_quantity %}
+                              {% if unit_qty  != blank %}
+                                {% assign unit_price = product.price | divided_by: unit_qty | money %}
+                              {% endif %}
+                              {% if variant.selling_plan_allocations[0].price != blank%}
+                                {% assign sub_unit_price = variant.selling_plan_allocations[0].price | divided_by: unit_qty | money %}
+                              {% endif %}
+
+                              <option value="{{ variant.id }}" data-variant-price="{{ variant.price |  money }}" data-variant-sub-price="{% if variant.selling_plan_allocations[0].price != blank%}{{ variant.selling_plan_allocations[0].price | money }}{% endif %}" data-available="{{ variant.available }}" variant-title="{{ variant.title }}" data-unit-price="{% if unit_price != blank %}{{ unit_price }}{% else %}false{% endif %}" data-sub-unit-price="{% if sub_unit_price != blank %}{{ sub_unit_price }}{% else %}false{% endif %}">
+                                {{ variant.title }}
+                              </option>
+                            {% endfor %}
+                          </select>
+
+
+                      {% endfor %}
+              {% endunless %}
+            </div>
+            {% assign prodVars = product.metafields.custom.product_groups.value %}
+            {% if prodVars != blank %}
+              {% assign product__handle = product.handle %}
+              <div class="product-variations">
+                <div class="lead-text">
+                  <p><strong>{% if prodVars.variation_title != blank %}{{ prodVars.variation_title | upcase }}:{% endif %}</strong></p>
+                </div>
+                <div class="flex-box product-options">
+                  {% for prod in prodVars.variable_products.value %}
+                    {% assign selected__product_handle = prod.handle %}
+                    <a href="{{ prod.url }}" class="flex btn product-type-item {% if selected__product_handle == product__handle %} active {% endif %}">
+                      <figure>
+                        {% render 'responsive-image', image: prod.featured_image %}
+                        </figure>
+                      <span class="var-btn-title">{% if prod.metafields.custom.flavour_label != blank %}{{ prod.metafields.custom.flavour_label }}{% else %}{{ prod.title |  remove: 'PORK PUFFS'  }}{% endif %}</span>
+                    </a>
+                  {% endfor %}
+
+
+                  {% comment %} <button class="flex btn product-type-item active">
+                    <figure><img src="assets/img/product-type-2.png" alt=""></figure>
+                    SMOKY<br>BACON</button>
+                  <button class="flex btn product-type-item ">
+                    <figure><img src="assets/img/product-type-3.png" alt=""></figure>
+                    CHEESE</button>
+                  <button class="flex btn product-type-item "> 
+                    <figure><img src="assets/img/product-type-4.png" alt=""></figure>
+                    SEA SALT &<br>CIDER VINEGAR</button>{% endcomment %}
+                </div>
+              </div>
+            {% endif %}
+            <!-- Quantity -->
+            <div class="product-qty">
+              <div class="lead-text"><p><strong>QUANTITY:</strong></p></div>
+              <div class="quantity-selector">
+                <button type="button" class="qty-btn qty-btn-decrease" id="decrease-quantity">-</button>
+                <input type="number" name="quantity" id="quantity-input" value="1" min="1" class="quantity-input">
+                <button type="button" class="qty-btn qty-btn-increase" id="increase-quantity">+</button>
+              </div>
+            </div>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const decreaseButton = document.getElementById('decrease-quantity');
+                const increaseButton = document.getElementById('increase-quantity');
+                const quantityInput = document.getElementById('quantity-input');
+
+                decreaseButton.addEventListener('click', function() {
+                  let currentValue = parseInt(quantityInput.value);
+                  if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                  }
+                });
+
+                increaseButton.addEventListener('click', function() {
+                  let currentValue = parseInt(quantityInput.value);
+                  quantityInput.value = currentValue + 1;
+                });
+              });
+            </script>
+          </div>
+          <div class="padding-top-m flex flex-col grid product-purchase-options">
+            <div class="flex product-purchase-text">
+              <div class="lead-text">
+                <p><strong>DELIVERY:</strong> <span>One time purchase</span></p>
+              </div>
+            </div>
+            <div class="product-purchase-option padding-x-default  br-10x">
+              <div class="flex-box flex-space-between flex-y-align purchase-price-overview">
+                <div class="input-radio-wrapper">
+                  <input type="radio" id="oneTime" name="purchase" checked class="single-product__radio-input">
+                  <label for="oneTime">One time purchase</label>
+                </div>
+                <div class="flex flex-col flex-justify-end  txt-r">
+                  <span class="h6"><strong class="one__time-bundle-price">{{ product.price | money }}</strong></span>
+                  {% if unit_qty != blank %}<span class="price-per-item ot-price-p-item">{{ unit_price }} per bag</span>{% endif %}
+                </div>
+              </div>
+                        <div class="button button--stroke on__time-purchase btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__to-cart" data-block="button">
+                          <span class="button__flair"></span>
+                          <span class="button__label">
+                            <span>{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}</span>&nbsp;-&nbsp;<span class="product__variant-price">{{ product.price | money }}</span>
+                          </span>
+                        </div> 
+                        {% if subtext != blank and enable_button_variation == true %}<span class="caption txt-ctr">{{ subtext }}</span>{% endif %}
+
+            </div> 
+                {% if product.selling_plan_groups.size > 0 %}
+                    <div class="product-purchase-option padding-x-default flex flex-col active br-10x subscription-purchase-option">
+                        <div class="flex-box flex-space-between flex-y-align purchase-price-overview">
+                          <div class="flex flex-y-align input-radio-wrapper">
+                            <input type="radio" id="subscribe"  name="purchase" class="single-product__radio-input">
+                            <label for="subscribe">Subscribe</label>
+                              {% if product.selling_plan_groups.size > 0 %}
+                                {% assign original_price = product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value %}
+                                <div class="br-5x tag discount-tag">Save {{ original_price }}%</div>
+                              {% endif %}
+                           
+                            <div class="br-5x tag value-tag">Best value</div>
+                          </div>
+                          <div class="flex flex-col flex-justify-end txt-r">
+
+                                  {% assign first_group = product.selling_plan_groups[0] %}
+                                  {% if first_group.selling_plans.size > 0 %}
+                                    {% assign first_plan = first_group.selling_plans[0] %}
+                                    {% assign adjustment = first_plan.price_adjustments[0] %}
+                                    {% assign discount_type = adjustment.value_type %}
+                                    {% assign discount_value = adjustment.value | float %}
+                                    {% assign base_price = product.price | float %}
+
+                                    {% if discount_type == 'percentage' %}
+                                      {% assign discount_amount = base_price | times: discount_value | divided_by: 100 %}
+                                      {% assign selling_price = base_price | minus: discount_amount %}
+                                    {% elsif discount_type == 'fixed_amount' %}
+                                      {% assign selling_price = base_price | minus: discount_value %}
+                                    {% endif %}
+                                     <span class="h6"><strong>{{ selling_price | money }}</strong></span>
+                                  {% endif %}
+                                  {% if unit_qty  != blank %}<span class="price-per-item sub-price-p-item">{{ selling_price | divided_by: unit_qty | money }} per bag</span>{% endif %}
+                          </div>
+                        </div>
+                        <div class="wrap__selling-plan">
+                          <div class="dropdown delivery-frequency">
+                            <select name="selling_plan" id="" class="product__selling-plan-select">
+                              {% for group in product.selling_plan_groups %}
+                                {% for selling_plan in group.selling_plans %}
+                                  {% assign adjustment = selling_plan.price_adjustments[0] %}
+                                  <option data-selling-price="{{ adjustment.adjusted_price | money }}" value="{{ selling_plan.id }}" data-selling-plan-name="{{ selling_plan.name }}">{{ selling_plan.name }}</option>
+                                {% endfor %}
+                              {% endfor %}
+                            </select>
+                            
+                          </div>
+                          <input type="hidden" class="selling__plan-set-value" value={{ product.selling_plan_groups[0].selling_plans[0].id }} name="">
+                          {% comment %} {% form 'product', product %}
+                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> {% endcomment %}
+                              <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__to-cart" data-block="button">
+                                <span class="button__flair"></span>
+                                <span class="button__label">
+                                  <span>{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}</span>&nbsp;-&nbsp;<span clsss="subscription-price-display">{{ selling_price | money }}</span>
+                                </span>
+                              </div>
+                        {% comment %} {% endform %} {% endcomment %}
+                        {% if subtext != blank and enable_button_variation == true %}<span class="caption txt-ctr">{{ subtext }}</span>{% endif %}
+                      <span class="caption txt-ctr">Swap, skip, or cancel anytime</span>
+                        </div>
+
+                    </div>  
+                {% endif %}
+          </div>
+
+
+         
+
+
+
+          {% if  product.metafields.custom.loyalty_member.value.text != blank %}
+            <div class="loyalty-member-section flex flex-y-align grid-l margin-top-default">
+              <div class="discount-sticker">
+                <figure>
+                  <img src="{{ product.metafields.custom.loyalty_member.value.image |  image_url }}" alt="">
+                </figure>
+              </div>
+              <div class="flex flex-col discount-txt">
+                {{ product.metafields.custom.loyalty_member.value.text |  metafield_tag |  replace: '<p', '<p class="caption"' |  replace: '<h6>', '<p class="h6">' |  replace: '</h6>', '</p>' }}									
+              </div>
+            </div>                  
+          {% endif %}
+          
+          <div class="padding-y-l tab-wrap">
+            <div class="flex grid tab-list margin-bottom-default">
+                
+              {% if product.description != blank %}
+                <a href="#tab-a" class="txt-ctr lg:txt-l padding-y-default-sml tab-title active">DESCRIPTION</a>                      
+              {% endif %}
+
+              {% for item in product.metafields.custom.description_tab.value %}
+                <a href="#tab-{{ forloop.index  }}" class="txt-ctr lg:txt-l padding-y-default-sml tab-title">{{ item.tab_title }}</a>
+                
+              {% endfor %}
+            </div>
+            <div class="tab-inner-wrap">
+
+              {% if product.description != blank %}
+                <div class="active tab-item lead-text" id="tab-a">
+                  {{ product.description }}
+                </div>                      
+              {% endif %}
+
+              {% for item in product.metafields.custom.description_tab.value %}
+                <div class="tab-item lead-text" id="tab-{{ forloop.index }}">
+                  {{ item.tab_text | metafield_tag }}
+                  {% if item.html != blank %}
+                    {{ item.html }}
+                  {% endif %}
+                </div>
+            {% endfor %}
+            
+            </div>
+          </div>
+
+          {% if product.metafields.custom.taster_pack.value.text != blank %}
+            <div class="quick-cta-section">
+              <a href="{{ product.metafields.custom.taster_pack.value.link }}"  class="flex flex-col lg:flex-row lg:flex-nowrap lg:flex-y-align quick-cta br-10x padding-default lg:padding-none">
+                <div class="quick-thumb">
+                  <figure>
+                    <img src="{{ product.metafields.custom.taster_pack.value.image |  image_url }}" alt="">
+                    {% comment %} {% render 'responsive-image', image: product.metafields.custom.taster_pack.value.image %} {% endcomment %}
+                  </figure>
+
+                </div>
+                <div class="quick-cta-content lg:padding-right-default">
+                  <div class="content-wrap">
+                    {{ product.metafields.custom.taster_pack.value.text |  metafield_tag |  replace: '<h6>', '<span class="h6">' |  replace: '</h6>', '</span>' | replace: '<p', '<span class="p"' }}
+                    {% comment %} <span class="h6"><strong>TRY OUR PORK PUFF TASTER PACK</strong></span>
+                    <span class="p">Want to give the other flavours a go? We’ve got 4 tasty flavours to sample</span> {% endcomment %}
+                    
+                  </div>
+                </div>
+              </a>
+            </div>                  
+          {% endif %}
+        </div>
+          
+    </div>
+   {% endform %}
+    
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+function isIE() {
+  const ua = window.navigator.userAgent;
+  const msie = ua.indexOf('MSIE ');
+  const trident = ua.indexOf('Trident/');
+
+  return (msie > 0 || trident > 0);
+}
+
+if (!isIE()) return;
+const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+const noScriptInputWrapper = document.createElement('div');
+const variantSwitcher = document.querySelector('variant-radios[data-section="{{ section.id }}"]') || document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+noScriptInputWrapper.innerHTML = document.querySelector('.product-form__noscript-wrapper-{{ section.id }}').textContent;
+variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+
+document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function(event) {
+  hiddenInput.value = event.currentTarget.value;
+});
+});
+</script>
+
+{%- liquid
+if product.selected_or_first_available_variant.featured_media
+assign seo_media = product.selected_or_first_available_variant.featured_media
+else
+assign seo_media = product.featured_media
+endif
+-%}
+
+<script type="application/ld+json">
+{
+"@context": "http://schema.org/",
+"@type": "Product",
+"name": {{ product.title | json }},
+"url": {{ request.origin | append: product.url | json }},
+{% if seo_media -%}
+  "image": [
+    {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
+  ],
+{%- endif %}
+"description": {{ product.description | strip_html | json }},
+{% if product.selected_or_first_available_variant.sku != blank -%}
+  "sku": {{ product.selected_or_first_available_variant.sku | json }},
+{%- endif %}
+"brand": {
+  "@type": "Thing",
+  "name": {{ product.vendor | json }}
+},
+"offers": [
+  {%- for variant in product.variants -%}
+    {
+      "@type" : "Offer",
+      {%- if variant.sku != blank -%}
+        "sku": {{ variant.sku | json }},
+      {%- endif -%}
+      "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+      "price" : {{ variant.price | divided_by: 100.00 | json }},
+      "priceCurrency" : {{ cart.currency.iso_code | json }},
+      "url" : {{ request.origin | append: variant.url | json }}
+    }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+]
+}
+</script>
+
+{% schema %}
+{
+"name": "t:sections.main-product.name",
+"tag": "section",
+"class": "section page-header-product-section",
+"blocks": [
+{
+"type": "@app"
+},
+{
+"type": "text",
+"name": "t:sections.main-product.blocks.text.name",
+"settings": [
+  {
+    "type": "text",
+    "id": "text",
+    "default": "Text block",
+    "label": "t:sections.main-product.blocks.text.settings.text.label"
+  },
+  {
+    "type": "select",
+    "id": "text_style",
+    "options": [
+      {
+        "value": "body",
+        "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
+      },
+      {
+        "value": "subtitle",
+        "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
+      },
+      {
+        "value": "uppercase",
+        "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
+      }
+    ],
+    "default": "body",
+    "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+  }
+]
+},
+{
+"type": "title",
+"name": "t:sections.main-product.blocks.title.name",
+"limit": 1
+},
+{
+"type": "price",
+"name": "t:sections.main-product.blocks.price.name",
+"limit": 1
+},
+{
+"type": "quantity_selector",
+"name": "t:sections.main-product.blocks.quantity_selector.name",
+"limit": 1
+},
+{
+"type": "variant_picker",
+"name": "t:sections.main-product.blocks.variant_picker.name",
+"limit": 1,
+"settings": [
+  {
+    "type": "select",
+    "id": "picker_type",
+    "options": [
+      {
+        "value": "dropdown",
+        "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+      },
+      {
+        "value": "button",
+        "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+      }
+    ],
+    "default": "button",
+    "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+  }
+]
+},
+{
+"type": "buy_buttons",
+"name": "t:sections.main-product.blocks.buy_buttons.name",
+"limit": 1,
+"settings": [
+  {
+    "type": "checkbox",
+    "id": "show_dynamic_checkout",
+    "default": true,
+    "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+    "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+  }
+]
+},
+{
+"type": "description",
+"name": "t:sections.main-product.blocks.description.name",
+"limit": 1
+},
+{
+"type": "share",
+"name": "t:sections.main-product.blocks.share.name",
+"limit": 1,
+"settings": [
+  {
+    "type": "text",
+    "id": "share_label",
+    "label": "t:sections.main-product.blocks.share.settings.text.label",
+    "default": "Share"
+  },
+  {
+    "type": "paragraph",
+    "content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
+  },
+  {
+    "type": "paragraph",
+    "content": "t:sections.main-product.blocks.share.settings.title_info.content"
+  }
+]
+},
+{
+"type": "custom_liquid",
+"name": "t:sections.main-product.blocks.custom_liquid.name",
+"settings": [
+  {
+    "type": "liquid",
+    "id": "custom_liquid",
+    "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label",
+    "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
+  }
+]
+},
+{
+"type": "collapsible_tab",
+"name": "t:sections.main-product.blocks.collapsible_tab.name",
+"settings": [
+  {
+    "type": "text",
+    "id": "heading",
+    "default": "Collapsible row",
+    "info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
+    "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
+  },
+  {
+    "type": "select",
+    "id": "icon",
+    "options": [
+      {
+        "value": "none",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+      },
+      {
+        "value": "apple",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+      },
+      {
+        "value": "banana",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+      },
+      {
+        "value": "bottle",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+      },
+      {
+        "value": "box",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+      },
+      {
+        "value": "carrot",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+      },
+      {
+        "value": "chat_bubble",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+      },
+      {
+        "value": "check_mark",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+      },
+      {
+        "value": "clipboard",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+      },
+      {
+        "value": "dairy",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+      },
+      {
+        "value": "dairy_free",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+      },
+      {
+        "value": "dryer",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+      },
+      {
+        "value": "eye",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+      },
+      {
+        "value": "fire",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+      },
+      {
+        "value": "gluten_free",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+      },
+      {
+        "value": "heart",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+      },
+      {
+        "value": "iron",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+      },
+      {
+        "value": "leaf",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+      },
+      {
+        "value": "leather",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+      },
+      {
+        "value": "lightning_bolt",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+      },
+      {
+        "value": "lipstick",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+      },
+      {
+        "value": "lock",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+      },
+      {
+        "value": "map_pin",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+      },
+      {
+        "value": "nut_free",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+      },
+      {
+        "value": "pants",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+      },
+      {
+        "value": "paw_print",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+      },
+      {
+        "value": "pepper",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+      },
+      {
+        "value": "perfume",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+      },
+      {
+        "value": "plane",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+      },
+      {
+        "value": "plant",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+      },
+      {
+        "value": "price_tag",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+      },
+      {
+        "value": "question_mark",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+      },
+      {
+        "value": "recycle",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+      },
+      {
+        "value": "return",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+      },
+      {
+        "value": "ruler",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+      },
+      {
+        "value": "serving_dish",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+      },
+      {
+        "value": "shirt",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+      },
+      {
+        "value": "shoe",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+      },
+      {
+        "value": "silhouette",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+      },
+      {
+        "value": "snowflake",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+      },
+      {
+        "value": "star",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+      },
+      {
+        "value": "stopwatch",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+      },
+      {
+        "value": "truck",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+      },
+      {
+        "value": "washing",
+        "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+      }
+    ],
+    "default": "check_mark",
+    "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+  },
+  {
+    "type": "richtext",
+    "id": "content",
+    "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+  },
+  {
+    "type": "page",
+    "id": "page",
+    "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+  }
+]
+},
+{
+"type": "popup",
+"name": "t:sections.main-product.blocks.popup.name",
+"settings": [
+  {
+    "type": "text",
+    "id": "text",
+    "default": "Pop-up link text",
+    "label": "t:sections.main-product.blocks.popup.settings.link_label.label"
+  },
+  {
+    "id": "page",
+    "type": "page",
+    "label": "t:sections.main-product.blocks.popup.settings.page.label"
+  }
+]
+},
+{
+"type": "rating",
+"name": "t:sections.main-product.blocks.rating.name",
+"limit": 1,
+"settings": [
+  {
+    "type": "paragraph",
+    "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+  }
+]
+}
+],
+"settings": [
+{
+"type": "checkbox",
+"id": "enable_sticky_info",
+"default": true,
+"label": "t:sections.main-product.settings.enable_sticky_info.label"
+},
+{
+"type": "header",
+"content": "t:sections.main-product.settings.header.content",
+"info": "t:sections.main-product.settings.header.info"
+},
+{
+"type": "select",
+"id": "gallery_layout",
+"options": [
+  {
+    "value": "stacked",
+    "label": "t:sections.main-product.settings.gallery_layout.options__1.label"
+  },
+  {
+    "value": "thumbnail",
+    "label": "t:sections.main-product.settings.gallery_layout.options__2.label"
+  },
+  {
+    "value": "thumbnail_slider",
+    "label": "t:sections.main-product.settings.gallery_layout.options__3.label"
+  }
+],
+"default": "stacked",
+"label": "t:sections.main-product.settings.gallery_layout.label"
+},
+{
+"type": "select",
+"id": "media_size",
+"options": [
+  {
+    "value": "small",
+    "label": "t:sections.main-product.settings.media_size.options__1.label"
+  },
+  {
+    "value": "medium",
+    "label": "t:sections.main-product.settings.media_size.options__2.label"
+  },
+  {
+    "value": "large",
+    "label": "t:sections.main-product.settings.media_size.options__3.label"
+  }
+],
+"default": "large",
+"label": "t:sections.main-product.settings.media_size.label",
+"info": "t:sections.main-product.settings.media_size.info"
+},
+{
+"type": "select",
+"id": "mobile_thumbnails",
+"options": [
+  {
+    "value": "show",
+    "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"
+  },
+  {
+    "value": "hide",
+    "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"
+  }
+],
+"default": "hide",
+"label": "t:sections.main-product.settings.mobile_thumbnails.label"
+},
+{
+"type": "checkbox",
+"id": "hide_variants",
+"default": false,
+"label": "t:sections.main-product.settings.hide_variants.label"
+},
+{
+"type": "checkbox",
+"id": "enable_video_looping",
+"default": false,
+"label": "t:sections.main-product.settings.enable_video_looping.label"
+},
+{
+"type": "header",
+"content": "t:sections.all.padding.section_padding_heading"
+},
+{
+"type": "range",
+"id": "padding_top",
+"min": 0,
+"max": 100,
+"step": 4,
+"unit": "px",
+"label": "t:sections.all.padding.padding_top",
+"default": 36
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"min": 0,
+"max": 100,
+"step": 4,
+"unit": "px",
+"label": "t:sections.all.padding.padding_bottom",
+"default": 36
+}
+]
+}
+{% endschema %}
