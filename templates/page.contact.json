@@ -1,1 +1,24 @@
-{"sections":{"main":{"type":"contact","settings":{"section_txt":"<h2><em>Fancy<\/em> getting in touch?<\/h2><p>Whether there's a question on your mind or you're just hungry for more, we want to hear it. Email: <a href=\"http:\/\/127.0.0.1:5500\/contact.html#\">hello@wearethecurators.com<\/a><\/p>","bot_text":"<p>Or check our epic <a href=\"https:\/\/wearethecurators.com\/pages\/faqs\" title=\"https:\/\/wearethecurators.com\/pages\/faqs\">FAQs<\/a> page to find out more.<\/p>","form_text":"Crisp Communication: We'll get back to you within 48 hours."}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "contact",
+      "settings": {
+        "section_txt": "<h2><em>Fancy getting</em> in touch?</h2><p>Whether there's a question on your mind or you're just hungry for more, we want to hear it. Email: <a href=\"http://127.0.0.1:5500/contact.html#\">hello@wearethecurators.com</a></p><p>Or check our epic <a href=\"https://wearethecurators.com/pages/faqs\" title=\"https://wearethecurators.com/pages/faqs\">FAQs</a> page to find out more.</p>",
+        "bot_text": "",
+        "form_text": "Crisp Communication: We'll get back to you within 48 hours."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
