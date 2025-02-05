@@ -759,7 +759,7 @@ body.navShown{overflow-y: hidden}
 .trustpilot-wrapper img{margin-right: var(--space-default-sml); max-height: 22px;}
 .trustpilot-wrapper p{line-height: 1;}
 
-.page-header-contained{overflow: unset; min-height: 580px;}
+.page-header-contained{overflow: unset; min-height: 580px; display:flex; align-items: stretch; }
 .page-header-contained .container-inner{min-height: 505px;}
 /* .page-header-contained .container-inner{height:calc(100dvh - 108px)} */
 .page-header-contained .container-inner .common-wrap, .page-header-contained .container-inner .grid-container{height: 100%;;}
@@ -2085,7 +2085,7 @@ object-fit: contain;
      .trustpilot-wrapper p{font-size: 18px;}
 
 
-     .puffs-visual-header div:nth-child(1){right: 41%;width: 10.34722222%; top: 8%;}
+     .puffs-visual-header div:nth-child(1){right: 51%;width: 10.34722222%; top: 8%;}
       .puffs-visual-header div:nth-child(2){left: 10.5%;width: 8.333333333%; bottom: 8.5%;}
       .puffs-visual-header div:nth-child(3){left: 20%;width: 10.06944444%; bottom: -12%;}
 
