@@ -69,20 +69,18 @@ $(document).ready(function() {
       var price = $(this).find('option:selected').data('quantity-price');
   
       $(this).closest('.shopify-product-form').find(".card__product-price").text(price);
-    
+      var findBtn = $(this).closest('.shopify-product-form').find(".add__card-product");
+      console.log('running check')
       if(!availableQuantity){
-        var findBtn = $(this).closest('.shopify-product-form').find(".add__card-product");
-                findBtn.addClass("btn__disable");
-                var fin_collectiondBtn = $(this).closest('.shopify-product-form').find(".add__cart-collection-product");
-              
-                 fin_collectiondBtn.addClass("btn__disable");
-      }
-      else{
-        var findBtn = $(this).closest('.shopify-product-form').find(".add__card-product");
+        findBtn.addClass("btn__disable");
+        findBtn.find('span.btn-txt').text('Sold Out');
+        // var fin_collectiondBtn = $(this).closest('.shopify-product-form').find(".add__cart-collection-product");
+        // fin_collectiondBtn.addClass("btn__disable");
+      } else{
         findBtn.removeClass("btn__disable");
-        var fin_collectiondBtn = $(this).closest('.shopify-product-form').find(".add__cart-collection-product");
-              
-        fin_collectiondBtn.removeClass("btn__disable");
+        findBtn.find('span.btn-txt').text('Add to Cart');
+        // var fin_collectiondBtn = $(this).closest('.shopify-product-form').find(".add__cart-collection-product");
+        // fin_collectiondBtn.removeClass("btn__disable");
       }
     //   console.log("Selected Variant ID: " + selectedValue);
   

@@ -354,16 +354,17 @@ $(document).ready(function () {
        
 
         var available_check = $(this).attr("data-available");
-        console.log(typeof available_check);
+        var findBtn = $(this).closest('.shopify-product-form').find(".add__card-product");
+console.log('available_check',available_check)
         if (available_check == 'false') {
-          $(".add__to-cart").addClass("btn__disable");
+          findBtn.addClass("btn__disable");
+          findBtn.find("span.btn-txt").text('Sold Out');
         } else {
-          $(".add__to-cart").removeClass("btn__disable");
+          findBtn.removeClass("btn__disable");
+          findBtn.find('span.btn-txt').text('Add to Cart');
         }
-
         return true;
       }
-
 
     });
   }

@@ -159,10 +159,11 @@
                                             assign enable_button_variation = button_details.enable_button_variation
                                             assign button_label = button_details.button_label
                                             %}
-                                        <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__cart-collection-product" data-block="button">
+                                        <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__card-product add__cart-collection-product" data-block="button">
                                             <span class="button__flair"></span>
                                             <span class="button__label">
-                                                <span>{% if enable_button_variation == true and button_label != blank %}{{ button_label }}{% else %}Add to Cart{% endif %}</span>&nbsp;-&nbsp;<span class="card__product-price">{{ product.price |  money }}</span>
+                                             
+                                                <span class="btn-txt">{% if product.available %}{% if enable_button_variation == true and button_label != blank %}{{ button_label }}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT{% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price card__product-price">{{ product.price |  money }}</span>
                                             </span>
                                         </div>
                                     </div>
