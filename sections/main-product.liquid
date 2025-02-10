@@ -40,7 +40,7 @@
     
 
 
-    {% form 'product', product, class:"single__product-form" %}
+    {% form 'product', product, class:"single__product-form shopify-product-form" %}
       <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
       <div class="padding-y-default  product-page-header-content">
@@ -209,10 +209,10 @@
                   {% if unit_qty != blank %}<span class="price-per-item ot-price-p-item">{{ unit_price }} per bag</span>{% endif %}
                 </div>
               </div>
-                        <div class="button button--stroke on__time-purchase btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__to-cart" data-block="button">
+                        <div class="button button--stroke on__time-purchase btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__card-product add__to-cart" data-block="button">
                           <span class="button__flair"></span>
                           <span class="button__label">
-                            <span>{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}</span>&nbsp;-&nbsp;<span class="product__variant-price">{{ product.price | money }}</span>
+                            <span class="btn-txt">{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price product__variant-price">{{ product.price | money }}</span>
                           </span>
                         </div> 
                         {% if subtext != blank and enable_button_variation == true %}<span class="caption txt-ctr">{{ subtext }}</span>{% endif %}
@@ -267,10 +267,10 @@
                           <input type="hidden" class="selling__plan-set-value" value={{ product.selling_plan_groups[0].selling_plans[0].id }} name="">
                           {% comment %} {% form 'product', product %}
                             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> {% endcomment %}
-                              <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__to-cart" data-block="button">
+                              <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__card-product add__to-cart" data-block="button">
                                 <span class="button__flair"></span>
                                 <span class="button__label">
-                                  <span>{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}</span>&nbsp;-&nbsp;<span clsss="subscription-price-display">{{ selling_price | money }}</span>
+                                  <span class="btn-txt">{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price subscription-price-display">{{ selling_price | money }}</span>
                                 </span>
                               </div>
                         {% comment %} {% endform %} {% endcomment %}

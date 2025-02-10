@@ -89,6 +89,9 @@ function rendering() {
 
       var render__html = $(".shipping__goal", cart__html);
       $(".shipping__goal").replaceWith(render__html);
+
+      var render__html = $(".total-protein-cart", cart__html);
+      $(".total-protein-cart").replaceWith(render__html);
       upsellProductGrid()
 
     });
@@ -110,7 +113,7 @@ function addUpsell_porduct($this, event) {
 
     },
     error: function (err) {
-      console.log("Error adding products:", err);
+      // console.log("Error adding products:", err);
     },
   });
 
@@ -122,8 +125,8 @@ function removeItem(event, el) {
 
   event.preventDefault();
   var data_line = $(el).attr("data-line");
-  console.log(data_line)
-  console.log(data_line)
+  // console.log(data_line)
+  // console.log(data_line)
   var deleteData = {
     "line": data_line,
     "quantity": 0
@@ -135,7 +138,7 @@ function removeItem(event, el) {
     dataType: "json",
     data: deleteData,
     success: function (data) {
-      console.log(data)
+      // console.log(data)
       rendering();
     }
   })
@@ -146,7 +149,7 @@ function removeItem(event, el) {
 
 function increment(el) {
   var input = el.previousElementSibling;
-  console.log(el)
+  // console.log(el)
   var value = parseInt(input.value);
 
   value = isNaN(value) ? 0 : value
@@ -157,7 +160,7 @@ function increment(el) {
 
 function decrement(el) {
   var input = el.nextElementSibling;
-  console.log(input)
+  // console.log(input)
   var value = parseInt(input.value);
   if (value > 0) {
     value = isNaN(value) ? 0 : value;
@@ -171,7 +174,7 @@ function changeQuantity(input) {
 
   var quantity = $(input).val();
   var data_line = $(input).attr("data-line");
-  console.log(data_line)
+  // console.log(data_line)
   var data = {
     "line": data_line,
     "quantity": quantity
@@ -182,11 +185,11 @@ function changeQuantity(input) {
     dataType: "json",
     data: data,
     success: function (data) {
-      console.log(data);
+      // console.log(data);
       rendering();
     },
     error: function (err) {
-      console.log("Error from quantity update")
+      // console.log("Error from quantity update")
     }
   })
 
@@ -297,7 +300,7 @@ $(document).ready(function () {
 
       },
       error: function (err) {
-        console.log(err);
+        // console.log(err);
       },
     });
 
@@ -351,16 +354,16 @@ $(document).ready(function () {
        
 
         var available_check = $(this).attr("data-available");
-        console.log(typeof available_check);
+        var findBtn = $(this).closest('.shopify-product-form').find(".add__card-product");
         if (available_check == 'false') {
-          $(".add__to-cart").addClass("btn__disable");
+          findBtn.addClass("btn__disable");
+          findBtn.find("span.btn-txt").text('Sold Out');
         } else {
-          $(".add__to-cart").removeClass("btn__disable");
+          findBtn.removeClass("btn__disable");
+          findBtn.find('span.btn-txt').text('Add to Cart');
         }
-
         return true;
       }
-
 
     });
   }
