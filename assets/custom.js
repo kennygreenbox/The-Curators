@@ -22,7 +22,7 @@ $(document).on("click", ".cart__btn", function (e) {
         dataType: "json",
         data: formData,
         success: function (data) {
-            console.log(data);
+            // console.log(data);
             
             rendering();
             $("body").addClass("cartShown cartPopulated");
@@ -30,7 +30,7 @@ $(document).on("click", ".cart__btn", function (e) {
             // $(".body-wrap").addClass("active-cart");
         },
         error: function (err) {
-            console.log(err);
+            // console.log(err);
         },
     });
 });
@@ -45,7 +45,7 @@ $(document).on("click", ".add__cart-collection-product", function (e) {
         dataType: "json",
         data: formData,
         success: function (data) {
-            console.log(data);
+            // console.log(data);
             
             rendering();
             $("body").addClass("cartShown cartPopulated");
@@ -53,7 +53,7 @@ $(document).on("click", ".add__cart-collection-product", function (e) {
             // $(".body-wrap").addClass("active-cart");
         },
         error: function (err) {
-            console.log(err);
+            // console.log(err);
         },
     });
 });
@@ -70,7 +70,6 @@ $(document).ready(function() {
   
       $(this).closest('.shopify-product-form').find(".card__product-price").text(price);
       var findBtn = $(this).closest('.shopify-product-form').find(".add__card-product");
-      console.log('running check')
       if(!availableQuantity){
         findBtn.addClass("btn__disable");
         findBtn.find('span.btn-txt').text('Sold Out');
