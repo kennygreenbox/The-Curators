@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -59,11 +68,16 @@
         "title": "",
         "btn_label": "",
         "btn_url": "",
-        "t_heading": "<h4>EMBARRASSING OTHER SNACKS SINCE 2018<\/h4>",
+        "t_heading": "<h4>EMBARRASSING OTHER SNACKS SINCE 2018</h4>",
         "table_title": "Average Crisps",
-        "table_image": "shopify:\/\/shop_images\/curators-table-logo.svg",
+        "table_image": "shopify://shop_images/curators-table-logo.svg",
         "t_btn_label": "",
-        "t_btn_url": ""
+        "t_btn_url": "",
+        "image_left_1": "shopify://shop_images/1_26afecfd-4562-4e35-962a-018429e07ce9.png",
+        "image_left_2": "shopify://shop_images/2_79329d14-744e-4cec-8144-427f81e4fdb1.png",
+        "image_right_1": "shopify://shop_images/protein-chip4.webp",
+        "image_right_2": "shopify://shop_images/protein-chip2.webp",
+        "image_right_3": "shopify://shop_images/protein-chip3.webp"
       }
     },
     "review_image_V79qqT": {
@@ -72,13 +86,13 @@
         "img_wKGhWh": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_3904.webp"
+            "image": "shopify://shop_images/Frame_3904.webp"
           }
         },
         "text_dABLFV": {
           "type": "text",
           "settings": {
-            "text": "<h5>“THESE TASTE JUST LIKE FRAZZLES, BUT PROTEIN PACKED.”<\/h5><p><strong>– Emily, London<\/strong><\/p>",
+            "text": "<h5>“THESE TASTE JUST LIKE FRAZZLES, BUT PROTEIN PACKED.”</h5><p><strong>– Emily, London</strong></p>",
             "color": "#9c2143",
             "bg_color": "#f8ced7"
           }
@@ -86,13 +100,13 @@
         "img_KBLmnB": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_3906.webp"
+            "image": "shopify://shop_images/Frame_3906.webp"
           }
         },
         "text_XwTggy": {
           "type": "text",
           "settings": {
-            "text": "<h5>“THE PERFECT OPTION FOR KETO, DIABETIC OR LOW CARB SNACKERS”<\/h5><p><strong>– Jason, Newcastle<\/strong><\/p>",
+            "text": "<h5>“THE PERFECT OPTION FOR KETO, DIABETIC OR LOW CARB SNACKERS”</h5><p><strong>– Jason, Newcastle</strong></p>",
             "color": "#000000",
             "bg_color": "#ffd750"
           }
@@ -100,13 +114,13 @@
         "img_CCTpGH": {
           "type": "img",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_3908.webp"
+            "image": "shopify://shop_images/Frame_3908.webp"
           }
         },
         "text_XYJeaq": {
           "type": "text",
           "settings": {
-            "text": "<h5>“19G PROTEIN AND 0G CARBS? REAL INGREDIENTS? THESE MACROS BLEW MY MIND.”<\/h5><p><strong>– Eleanor, Glasgow<\/strong><\/p>",
+            "text": "<h5>“19G PROTEIN AND 0G CARBS? REAL INGREDIENTS? THESE MACROS BLEW MY MIND.”</h5><p><strong>– Eleanor, Glasgow</strong></p>",
             "color": "#000000",
             "bg_color": "#00c1de"
           }
@@ -136,36 +150,36 @@
           "type": "text",
           "settings": {
             "text_inside_img": "L",
-            "text_under_img": "<p><strong>LIZ<\/strong><\/p><p><em>Review of Smoky Bacon Pork Puffs<\/em><\/p>",
+            "text_under_img": "<p><strong>LIZ</strong></p><p><em>Review of Smoky Bacon Pork Puffs</em></p>",
             "review_caption": "FILLING AND TASTY",
-            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!<\/p>"
+            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!</p>"
           }
         },
         "image_mLE37U": {
           "type": "image",
           "settings": {
-            "img": "shopify:\/\/shop_images\/review-author-thumb.png",
-            "text_under_img": "<p><strong>JULIAN<\/strong><\/p><p><em>Review of Smoky Bacon Pork Puffs<\/em><\/p>",
+            "img": "shopify://shop_images/review-author-thumb.png",
+            "text_under_img": "<p><strong>JULIAN</strong></p><p><em>Review of Smoky Bacon Pork Puffs</em></p>",
             "review_caption": "FILLING AND TASTY",
-            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!<\/p>"
+            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!</p>"
           }
         },
         "text_NCYKfD": {
           "type": "text",
           "settings": {
             "text_inside_img": "L",
-            "text_under_img": "<p><strong>LIZ<\/strong><\/p><p><em>Review of Smoky Bacon Pork Puffs<\/em><\/p>",
+            "text_under_img": "<p><strong>LIZ</strong></p><p><em>Review of Smoky Bacon Pork Puffs</em></p>",
             "review_caption": "FILLING AND TASTY",
-            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!<\/p>"
+            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!</p>"
           }
         },
         "image_8FAaD7": {
           "type": "image",
           "settings": {
-            "img": "shopify:\/\/shop_images\/review-author-thumb.png",
-            "text_under_img": "<p><strong>JULIAN<\/strong><\/p><p><em>Review of Smoky Bacon Pork Puffs<\/em><\/p>",
+            "img": "shopify://shop_images/review-author-thumb.png",
+            "text_under_img": "<p><strong>JULIAN</strong></p><p><em>Review of Smoky Bacon Pork Puffs</em></p>",
             "review_caption": "FILLING AND TASTY",
-            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!<\/p>"
+            "review": "<p>I love them! They are my go to snack & fit in with my carnivore way of eating which is a lifesaver! Actually can’t decide on my favourite flavour as I love them all! Keep up the good work!</p>"
           }
         }
       },
@@ -176,7 +190,7 @@
         "image_8FAaD7"
       ],
       "settings": {
-        "section_heading": "<h2>CUSTOMER Reviews<\/h2>",
+        "section_heading": "<h2>CUSTOMER Reviews</h2>",
         "btn_label": "WRITE A REVIEW",
         "btn_url": ""
       }
