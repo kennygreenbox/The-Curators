@@ -73,8 +73,9 @@
         "table_image": "shopify://shop_images/curators-table-logo.svg",
         "t_btn_label": "",
         "t_btn_url": "",
-        "image_left_1": "shopify://shop_images/1_26afecfd-4562-4e35-962a-018429e07ce9.png",
-        "image_left_2": "shopify://shop_images/2_79329d14-744e-4cec-8144-427f81e4fdb1.png",
+        "image_left_1": "shopify://shop_images/puffs-red-btm.png",
+        "image_left_2": "shopify://shop_images/puffs-red-top.png",
+        "image_left_3": "shopify://shop_images/puffs-red-left.png",
         "image_right_1": "shopify://shop_images/protein-chip4.webp",
         "image_right_2": "shopify://shop_images/protein-chip2.webp",
         "image_right_3": "shopify://shop_images/protein-chip3.webp"
