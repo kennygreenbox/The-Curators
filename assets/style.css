@@ -1527,7 +1527,7 @@ object-fit: contain;
   .review-item{flex-flow: column-reverse; gap: var(--space-l);}
 
   /* Cart */
-  .cart-footer{position: fixed; bottom: 0; right: 0; width: 100%;}
+  .cart-footer{/*position: fixed; bottom: 0; right: 0; */width: 100%;}
   
   
 
