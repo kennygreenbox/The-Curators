@@ -20,55 +20,6 @@
                         {% for block in section.blocks %}
                             {% assign b = block.settings %}
                             {% assign product = b.product %}
-                            {% comment %} <div class="flex flex-col product-item swiper-slide">
-                                <a href="{{ product.url }}" class="pos-relative br-10x flex flex-bottom-align product-item-container">
-                                    <div class="flex-box badge-wrapper">
-                                        {% for item in product.metafields.custom.badge.value  limit: 2%}
-                                            <div class="badge">
-                                                {{ item.text |  metafield_tag |  replace: '<p>', '<div>' |  replace: '</p>', '</div>' |  replace: '<em>', '<span class="unit">' |  replace: '</em>', '</span>' }}
-                                            </div>
-                                            
-                                        {% endfor %}                                  
-                                    </div>                                
-                                    <div class="pos-absolute bg-visual product-img">
-                                        <figure>
-                                            {% if b.image != blank %}
-                                                {% render 'responsive-image', image: b.image, image_class: 'bg-img' %}   
-                                                {% else %}
-                                                {% render 'responsive-image', image: product.featured_image, image_class: 'bg-img' %}                                                
-                                            {% endif %}
-                                        </figure>
-                                    </div>
-                                </a>
-
-                                <div class="padding-top-m card-content">
-                                    <div class="flex flex-col card-footer">
-                                        <h5>{{ product.title }}</h5>
-                                        {{ product.metafields.custom.description |  metafield_tag }}
-                                        <div class="flex-box flex-col lg:flex-row lg:flex-no flex-space-between btn-wrap ">
-                                            <div class="dropdown product_options">
-                                                <select class="product-select">
-                                                    {% for variant in product.variants %}
-                                                        <option value="{{ variant.id }}">{{ variant.title }}</option>                                                        
-                                                    {% endfor %}
-                                                </select>
-                                            </div>
-                                            <div class="button button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align margin-top-default-sml lg:margin-top-none showCart" data-block="button">
-                                                {% form 'product', product %}
-                                                <span class="button__flair"></span>
-                                                <span class="button__label">
-                                                    <span>Add to Cart</span>&nbsp;-&nbsp;<span>{{ product.price | money }}</span>
-                                                </span>
-
-                                                    <input type="hidden" name="id">
-                                                {% endform %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>                             {% endcomment %}
-
 
                           {% render 'product-card', product: product %}
 

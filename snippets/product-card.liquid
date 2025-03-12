@@ -23,7 +23,7 @@ assign button_label = button_details.button_label
                     </div>
                     </a>
     
-            
+            {% assign currrent_variant = product.selected_or_first_available_variant %}
                      <div class="padding-top-m card-content">
                             <div class="flex flex-col card-footer">
                                 <h5>{{ product.title }}</h5>
@@ -33,10 +33,12 @@ assign button_label = button_details.button_label
                                      {% endcomment %}
                                         <div class="flex-box flex-col lg:flex-row lg:flex-no flex-space-between btn-wrap ">
                                                 <div class="dropdown product_options">
-                                                
                                                     <select class="cart__product-select" name="id">
                                                     {% for variant in product.variants %}
-                                                        <option data-quantity-available="{{ variant.available }}" data-quantity-price="{{ variant.price |  money }}"  value="{{ variant.id }}">{{ variant.title }}</option>                                                        
+                                                        <option data-quantity-available="{{ variant.available }}" 
+                                                        data-quantity-price="{{ variant.price |  money }}"  
+                                                        value="{{ variant.id }}"
+                                                    {% if currrent_variant.id == variant.id %}selected="selected"{% endif %}>{{ variant.title }}</option>                                                        
                                                     {% endfor %}
                                                     </select>
                                                 </div>

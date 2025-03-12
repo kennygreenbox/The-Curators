@@ -97,6 +97,7 @@
                         {% endif %}
                     </div>
                 </section>
+                
                 <section class="margin-top-l shop-products">
 
                     <div class="grid-container lg:grid-container-three gutter product-item-wrapper">
@@ -148,9 +149,13 @@
                                     
                                     <div class="flex-box flex-col flex-space-between grid-default-sml btn-wrap ">
                                         <div class="dropdown product_options">
-                                            <select class="cart__collection-product-select cart__product-select" name="id">
+                                            {% assign currrent_variant = product.selected_or_first_available_variant %}    
+                                        <select class="cart__collection-product-select cart__product-select" name="id">
                                               {% for variant in product.variants %}
-                                                <option data-quantity-available="{{ variant.available }}" data-quantity-price="{{ variant.price |  money }}" value="{{ variant.id }}">{{ variant.title }}</option>                                                        
+                                                <option data-quantity-available="{{ variant.available }}" 
+                                                data-quantity-price="{{ variant.price |  money }}" 
+                                                value="{{ variant.id }}"
+                                            {% if currrent_variant.id == variant.id %}selected="selected"{% endif %}>{{ variant.title }}</option>                                                        
                                             {% endfor %}
                                             </select>
                                         </div>

@@ -118,22 +118,29 @@
                 </figure>
             </div>
         </div>
-        {% comment %}
+        {% assign roundel_bg = s.roundel_bg %}
+        {% assign spinning_roundel = s.spinning_roundel %}
+        {% if roundel_bg != blank or spinning_roundel != blank%}
         <div class="desk pos-absolute sticker protein-sticker">
             <div class="pos-relative sticker-container">
-                <div class="inner-sticker">
-                    <figure>
-                        <img src="{{ 'protein-inner.svg' | asset_url }}" alt="">
-                    </figure>
-                </div>
-                <div class="rotate outer-sticker pos-absolute">
-                    <figure>
-                        <img src="{{ 'protein-outer.svg' | asset_url }}" alt="">
-                    </figure>
-                </div>
+                {% if roundel_bg != blank %}
+                    <div class="inner-sticker">
+                        <figure>
+                            {% render 'responsive-image' with image:roundel_bg %}
+                        </figure>
+                    </div>
+                {% endif %}
+                {% if spinning_roundel != blank %}
+                    <div class="rotate outer-sticker pos-absolute">
+                        <figure>
+                            {% render 'responsive-image' with image:spinning_roundel %}
+                        </figure>
+                    </div>
+                {% endif %}
             </div>
         </div>
-        {% endcomment %}  
+        {% endif %}
+
     </div>
 </div>
 <div class="has-black-background flex flex-y-align scroll-fixed-marquee benefit-marque">
@@ -233,6 +240,17 @@
                         "type": "image_picker",
                         "id": "image_right_3",
                         "label": "Image Right 3"
+                    },{
+                        "type": "header",
+                        "content": "Roundel Images"
+                    },{
+                        "type": "image_picker",
+                        "id": "roundel_bg",
+                        "label": "Roundel Background"
+                    },{
+                        "type": "image_picker",
+                        "id": "spinning_roundel",
+                        "label": "Spinning Roundel"
                     }
                 ],"blocks": [
                     {
