@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -16,7 +25,7 @@
           "type": "item",
           "settings": {
             "title": "BEST SELLERS",
-            "url": "shopify:\/\/collections\/best-sellers",
+            "url": "shopify://collections/best-sellers",
             "link": ""
           }
         },
@@ -32,7 +41,7 @@
           "type": "item",
           "settings": {
             "title": "PACKS & BUNDLES",
-            "url": "shopify:\/\/collections\/bundles",
+            "url": "shopify://collections/bundles",
             "link": ""
           }
         }
@@ -43,10 +52,10 @@
         "item_Mfzjgy"
       ],
       "settings": {
-        "desk_img": "shopify:\/\/shop_images\/Untitled_design_89.png",
-        "mobi_img": "shopify:\/\/shop_images\/Untitled_design_88.png",
+        "desk_img": "shopify://shop_images/Untitled_design_-_2025-03-19T094344.067.png",
+        "mobi_img": "shopify://shop_images/Untitled_design_88.png",
         "collection_title": "All products",
-        "collection_text": "<p>Light, crispy, and full of flavour, these protein packed Pork Puffs are a perfect crisp alternative.<\/p>",
+        "collection_text": "<p>Light, crispy, and full of flavour, these protein packed Pork Puffs are a perfect crisp alternative.</p>",
         "sidebar_title": "SHOP THE CURATORS"
       }
     }
