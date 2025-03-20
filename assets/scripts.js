@@ -177,7 +177,7 @@
               loop: true,
               slidesPerView: 1.23,
               spaceBetween: 16,
-              shortSwipes:false,
+              shortSwipes:true,
               pagination: {
                 el: ".swiper-pagination",
               }

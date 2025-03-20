@@ -22,18 +22,32 @@ function upsellProductGrid() {
     });
   }
 
-  if ($('.upsell-slider').length) {
-    var upsellSlider = new Swiper('.upsell-slider', {
-      loop: true,
-      slidesPerView: 1.23,
-      spaceBetween: 16,
-      allowTouchMove: true,
-      shortSwipes:false,
-      pagination: {
-        el: ".swiper-pagination",
-      }
-    });
-  }
+  // if ($('.upsell-slider').length) {
+  //         var upselltSlider = new Swiper('.upsell-slider', {
+  //             loop: true,
+  //             slidesPerView: 1.23,
+  //             spaceBetween: 16,
+  //             shortSwipes:false,
+  //             pagination: {
+  //               el: ".swiper-pagination",
+  //             }
+  //         });
+  //       }
+
+  // if ($('.upsell-slider').length) {
+  //   var upsellSlider = new Swiper('.upsell-slider', {
+  //     loop: true,
+  //     slidesPerView: 1.23,
+  //     spaceBetween: 16,
+  //     allowTouchMove: true,
+  //     shortSwipes:true,
+  //     pagination: {
+  //       el: ".swiper-pagination-bullets",
+  //       type: 'progressbar',
+  //       clickable: true,
+  //     }
+  //   });
+  // }
 
 
   if ($(window).width() < 991) {
@@ -93,6 +107,16 @@ function rendering() {
       var render__html = $(".total-protein-cart", cart__html);
       $(".total-protein-cart").replaceWith(render__html);
       upsellProductGrid()
+
+      var upselltSlider = new Swiper('.upsell-slider', {
+        loop: true,
+        slidesPerView: 1.23,
+        spaceBetween: 16,
+        shortSwipes:true,
+        pagination: {
+          el: ".swiper-pagination",
+        }
+    });
 
     });
   

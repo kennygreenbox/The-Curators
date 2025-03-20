@@ -56,60 +56,88 @@
         </div>        
     {% endfor %}
 
+    {% assign block_count = 0 %}
+    {% assign display_blocked = 0 %}
+    {% for block in section.blocks %}
+        {% if block.type == 'upsell' %}
+            {% assign b = block.settings %}
+            {% assign product = all_products[b.product] %}
+            {% assign display_block = true %}
+            {% assign block_count = block_count | plus: 1 %}
+            {% for item in cart.items %}
+                {% assign item_id = item.product.id %}
+                {% if product.id == item_id %}
+                    {% assign display_block = false %}
+                    {% assign display_blocked = display_blocked | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
 
+    {% unless block_count == display_blocked %}
         <div class="padding-default padding-top-base padding-bottom-base padding-right-none has-neutral-background upsell-items">
             <div class="upsell-heading">
                 <p><strong>{{ s.upsell_title  }}</strong></p>
             </div>
-            <div class="margin-top-base upsell-slider swiper swiper-container ">
+            <div class="margin-top-base upsell-slider swiper swiper-container">
                 <div class="swiper-wrapper">
                     {% for block in section.blocks %}
                         {% if block.type == 'upsell' %}
                             {% assign b = block.settings %}
                             {% assign product = all_products[b.product] %}
-                            <div class="slide-item  br-10x swiper-slide">
-                        <div class="has-white-background padding-default-sml upsell-item">
-                            <div class="flex grid upsell-product">
-                                <div class="br-10x upsell-thumb">
-                                    <figure>
-                                        {% render 'responsive-img' with image:product.featured_image, class:"bg-img" %}
-                                        {% comment %} <img src="{{ product.featured_image |  image_url }}" alt="" class="bg-img lazyload"> {% endcomment %}
-                                    </figure>
-                                </div>
-                                <div class="flex flex-col flex-x-align upsell-product-details padding-right-s">
-                                    <div class="flex flex-space-between product-title-price">
-                                        <h6><strong>{{ product.title }}</strong></h6>
-                                        <div class="flex grid-s item-total">
-                                            {% if product.compare_at_price > product.price %}
-                                                <span class="h6 discounted"><strong>{{ product.compare_at_price |  money  }}</strong></span>
-                                            {% endif %}
-                                          
-                                            <span class="h6"><strong>{{ product.price |  money }}</strong></span>
+                            {% assign display_block = true %}
+                            {% for item in cart.items %}
+                                {% assign item_id = item.product.id %}
+                                {% if product.id == item_id %}
+                                    {% assign display_block = false %}
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% if display_block %}
+                                <div class="slide-item  br-10x swiper-slide">
+                                    <div class="has-white-background padding-default-sml upsell-item">
+                                        <div class="flex grid upsell-product">
+                                            <div class="br-10x upsell-thumb">
+                                                <figure>
+                                                    {% render 'responsive-img' with image:product.featured_image, class:"bg-img" %}
+                                                    {% comment %} <img src="{{ product.featured_image |  image_url }}" alt="" class="bg-img lazyload"> {% endcomment %}
+                                                </figure>
+                                            </div>
+                                            <div class="flex flex-col flex-x-align upsell-product-details padding-right-s">
+                                                <div class="flex flex-space-between product-title-price">
+                                                    <h6><strong>{{ product.title }}</strong></h6>
+                                                    <div class="flex grid-s item-total">
+                                                        {% if product.compare_at_price > product.price %}
+                                                            <span class="h6 discounted"><strong>{{ product.compare_at_price |  money  }}</strong></span>
+                                                        {% endif %}
+                                                    
+                                                        <span class="h6"><strong>{{ product.price |  money }}</strong></span>
+                                                    </div>
+                                                </div>
+                                                {% comment %} {{ b.caption |  replace: '<p>','<p class="caption">' |  replace: '</p>','</p>'   }} {% endcomment %}
+                                                {% assign grid_card = product.metafields.custom.grid_card.value %}
+                                                {% if grid_card.description %}<p>{{ grid_card.description | newline_to_br }}</p>{% else %}{{ product.metafields.custom.description |  metafield_tag }}{% endif %}
+                                                {% comment %} <p class="caption">2x Pork Puffs, 2x Protein Puffs, 2x Cheesies, 2x Biltong</p> {% endcomment %}
+                                                
+                                            </div>
+
+                                        
+                                        </div>
+                                        <div class="margin-top-base btn-wrap">
+                                            {% form 'product', product, class: "upsell_product" %}
+                                                <input
+                                                type="hidden"
+                                                name="id"
+                                                value="{{ product.selected_or_first_available_variant.id }}">
+                                            <a href="#" onclick="addUpsell_porduct(this,event)" class="button button--stroke btn-secondary btn-large btn" data-block="button">
+                                                <span class="button__flair"></span>
+                                                <span class="button__label" >Add</span>
+                                            </a>
+                                        {% endform %}
                                         </div>
                                     </div>
-                                    {% comment %} {{ b.caption |  replace: '<p>','<p class="caption">' |  replace: '</p>','</p>'   }} {% endcomment %}
-                                    {% assign grid_card = product.metafields.custom.grid_card.value %}
-                                    {% if grid_card.description %}<p>{{ grid_card.description | newline_to_br }}</p>{% else %}{{ product.metafields.custom.description |  metafield_tag }}{% endif %}
-                                    {% comment %} <p class="caption">2x Pork Puffs, 2x Protein Puffs, 2x Cheesies, 2x Biltong</p> {% endcomment %}
-                                    
                                 </div>
-
-                              
-                            </div>
-                            <div class="margin-top-base btn-wrap">
-                                {% form 'product', product, class: "upsell_product" %}
-                                    <input
-                                      type="hidden"
-                                      name="id"
-                                      value="{{ product.selected_or_first_available_variant.id }}">
-                                <a href="#" onclick="addUpsell_porduct(this,event)" class="button button--stroke btn-secondary btn-large btn" data-block="button">
-                                    <span class="button__flair"></span>
-                                       <span class="button__label" >Add</span>
-                                </a>
-                            {% endform %}
-                            </div>
-                        </div>
-                    </div>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                
@@ -117,6 +145,9 @@
                 <div class="margin-top-base swiper-pagination"></div>
             </div>
         </div>
+    {% endunless %}
+
+        
     </div>
     
     <div class="border-top cart-footer">
