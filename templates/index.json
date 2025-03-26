@@ -374,9 +374,7 @@
         "t_btn_url": "shopify://collections/all-products",
         "image_left_2": "shopify://shop_images/Pork_Puffs_4_2_1.webp",
         "image_right_1": "shopify://shop_images/protein-chip4.webp",
-        "image_right_2": "shopify://shop_images/protein-chip3.webp",
-        "roundel_bg": "shopify://shop_images/protein-inner_ab8e4183-a877-4658-963d-a63a9c5205af.svg",
-        "spinning_roundel": "shopify://shop_images/protein-outer_af5690f6-e81e-4954-91dc-ee0a8d73ddaa.svg"
+        "image_right_2": "shopify://shop_images/protein-chip3.webp"
       }
     },
     "featured_products_Lh4Hba": {
@@ -449,7 +447,7 @@
         "image_mobi": "shopify://shop_images/Puffs_Hero.webp",
         "heading_deco": "NEW PROTEIN CHIPS",
         "heading_rest": "ARE HERE",
-        "text": "<p>Seriously tasty, crunchy triangles of protein perfection. Bringing you real snacking satisfaction. We've dialled the crunch up to 11 and maxed out on superior flavour, our protein tortilla chips deliver everything the other guys can't.</p><p>Look out for two different protein packed flavours coming soon!</p>",
+        "text": "<p>Seriously tasty, crunchy triangles of protein perfection. Bringing you real snacking satisfaction. We've dialled the crunch up to 11 and maxed out on superior flavour, our protein tortilla chips deliver everything the other guys can't.</p><p>Try our Tangy Cheese and Thai Sweet Chilli Flavours Now ⬇️</p>",
         "btn_label": "SHOP NOW",
         "btn_url": "shopify://collections/protein-chips",
         "roundel_text": "18g",
