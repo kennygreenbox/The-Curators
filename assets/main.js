@@ -113,8 +113,10 @@ function rendering() {
         slidesPerView: 1.23,
         spaceBetween: 16,
         shortSwipes:true,
+        paginationClickable: true,
         pagination: {
           el: ".swiper-pagination",
+          clickable: true
         }
     });
 

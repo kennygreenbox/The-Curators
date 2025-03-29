@@ -295,7 +295,10 @@ cursor: pointer;
   /* .product-header-wrapper form {
     width: calc(100% - 792px);
   } */
-
+.swiper-pagination-bullet{
+  cursor: pointer;
+  pointer-events: all !important;
+}
  
 
 

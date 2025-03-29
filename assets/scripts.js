@@ -174,12 +174,19 @@
 
         if ($('.upsell-slider').length) {
           var upselltSlider = new Swiper('.upsell-slider', {
+            // 'onInit': function(){
+            //     if ( mySwiper.slides.length > 2 ) {
+            //       this.loop = false
+            //     }
+            //   },
               loop: true,
               slidesPerView: 1.23,
               spaceBetween: 16,
               shortSwipes:true,
+              paginationClickable: true,
               pagination: {
-                el: ".swiper-pagination",
+              el: ".swiper-pagination",
+              clickable: true
               }
           });
         }
