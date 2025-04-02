@@ -226,6 +226,12 @@ cursor: pointer;
 .user-customer{
   margin-top: 190px;
 }
+.upsell-slider_disable .swiper-wrapper{
+  transform: translate3d(0px, 0, 0) !important;
+}
+.upsell-slider_disable .slide-item{
+  width: calc(100% - 16px) !important;
+}
 
 
 

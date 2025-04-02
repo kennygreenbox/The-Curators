@@ -174,12 +174,12 @@
 
         if ($('.upsell-slider').length) {
           var upselltSlider = new Swiper('.upsell-slider', {
-            // 'onInit': function(){
-            //     if ( mySwiper.slides.length > 2 ) {
-            //       this.loop = false
-            //     }
-            //   },
-              loop: true,
+            'onInit': function(){
+                if ( upselltSlider.slides.length > 2 ) {
+                  this.loop = false
+                }
+              },
+              loop: false,
               slidesPerView: 1.23,
               spaceBetween: 16,
               shortSwipes:true,
