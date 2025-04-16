@@ -36,7 +36,8 @@
 
 
 .benefits-table-section .parallax-puffs {
-  bottom: 29%;
+  bottom: 27%;
+  transform: scale(1.2);
 }
 
 .benefits-table-section .parallax-puffs .animate-down:nth-child(2) {
@@ -54,7 +55,7 @@
 .benefits-table-section .parallax-chips {
   width: 25%;
   right: 5.5%;
-  bottom: -14%;
+  bottom: -5%;
   left: auto;
 }
 
@@ -68,6 +69,9 @@
   width: 58%;
   float: right;
   margin-top: -42px;
+}
+.benefit-table th {
+  text-align: center;
 }
 
 
@@ -222,6 +226,12 @@ cursor: pointer;
 .user-customer{
   margin-top: 190px;
 }
+.upsell-slider_disable .swiper-wrapper{
+  transform: translate3d(0px, 0, 0) !important;
+}
+.upsell-slider_disable .slide-item{
+  width: calc(100% - 16px) !important;
+}
 
 
 
@@ -291,6 +301,11 @@ cursor: pointer;
   /* .product-header-wrapper form {
     width: calc(100% - 792px);
   } */
+.swiper-pagination-bullet{
+  cursor: pointer;
+  pointer-events: all !important;
+}
+ 
 
 
 }

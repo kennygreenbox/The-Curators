@@ -372,9 +372,12 @@
         "table_image": "shopify://shop_images/curators-table-logo.svg",
         "t_btn_label": "Shop snacks",
         "t_btn_url": "shopify://collections/all-products",
-        "image_left_2": "shopify://shop_images/Pork_Puffs_4_2_1.webp",
-        "image_right_1": "shopify://shop_images/protein-chip4.webp",
-        "image_right_2": "shopify://shop_images/protein-chip3.webp"
+        "image_left_1": "shopify://shop_images/puffs-red-top_b913727c-9bf7-4a82-8396-33c4f5202f59.png",
+        "image_left_2": "shopify://shop_images/puffs-red-left_03d9dce7-bd84-4d2a-bd2a-953a1a105326.png",
+        "image_left_3": "shopify://shop_images/puffs-red-btm_88f50881-996a-4eba-9c66-70ac39234c24.png",
+        "image_right_1": "shopify://shop_images/chips-red-top.png",
+        "image_right_2": "shopify://shop_images/chips-red-left.png",
+        "image_right_3": "shopify://shop_images/chips-red-btm.png"
       }
     },
     "featured_products_Lh4Hba": {

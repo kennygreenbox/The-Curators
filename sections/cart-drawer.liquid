@@ -73,13 +73,15 @@
             {% endfor %}
         {% endif %}
     {% endfor %}
+    {% assign show_status = block_count | minus: 1 %}
+    
 
     {% unless block_count == display_blocked %}
-        <div class="padding-default padding-top-base padding-bottom-base padding-right-none has-neutral-background upsell-items">
+        <div class="padding-default padding-top-base padding-bottom-base padding-right-none has-neutral-background upsell-items ">
             <div class="upsell-heading">
                 <p><strong>{{ s.upsell_title  }}</strong></p>
             </div>
-            <div class="margin-top-base upsell-slider swiper swiper-container">
+            <div class="margin-top-base upsell-slider swiper swiper-container {% if display_blocked >= show_status  %}upsell-slider_disable{% endif %}">
                 <div class="swiper-wrapper">
                     {% for block in section.blocks %}
                         {% if block.type == 'upsell' %}
@@ -144,6 +146,12 @@
                 </div>
                 <div class="margin-top-base swiper-pagination"></div>
             </div>
+
+        {% comment %} {% if display_blocked < show_status  %}
+        <script>
+            upselltSlider.destroy(true, true);
+        </script>
+        {% endif %} {% endcomment %}
         </div>
     {% endunless %}
 

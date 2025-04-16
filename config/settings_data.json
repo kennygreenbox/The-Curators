@@ -111,7 +111,7 @@
           "text": "Join our newsletter to save 20% on your first order and enjoy exclusive perks.",
           "copyright_text": "Curators of Flavour Ltd. All rights reserved.",
           "bot_menu": "refund-menu",
-          "fixed_btn_label": "Rewards Coming Soon",
+          "fixed_btn_label": "",
           "fixed_btn_url": "shopify://collections/all-products"
         }
       },
@@ -182,12 +182,19 @@
             "settings": {
               "product": "mixed-pork-puffs"
             }
+          },
+          "upsell_d87YJq": {
+            "type": "upsell",
+            "settings": {
+              "product": "the-taster-box"
+            }
           }
         },
         "block_order": [
           "upsell_NgQaEq",
           "upsell_fiGjhN",
-          "upsell_QpLhNy"
+          "upsell_QpLhNy",
+          "upsell_d87YJq"
         ],
         "settings": {
           "upsell_title": "WE THINK YOU’LL LOVE:",
