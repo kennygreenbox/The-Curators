@@ -165,6 +165,12 @@
       "cart-drawer": {
         "type": "cart-drawer",
         "blocks": {
+          "upsell_QpLhNy": {
+            "type": "upsell",
+            "settings": {
+              "product": "mixed-pork-puffs"
+            }
+          },
           "upsell_NgQaEq": {
             "type": "upsell",
             "settings": {
@@ -177,12 +183,6 @@
               "product": "gouda-cheesies"
             }
           },
-          "upsell_QpLhNy": {
-            "type": "upsell",
-            "settings": {
-              "product": "mixed-pork-puffs"
-            }
-          },
           "upsell_d87YJq": {
             "type": "upsell",
             "settings": {
@@ -191,9 +191,9 @@
           }
         },
         "block_order": [
+          "upsell_QpLhNy",
           "upsell_NgQaEq",
           "upsell_fiGjhN",
-          "upsell_QpLhNy",
           "upsell_d87YJq"
         ],
         "settings": {
