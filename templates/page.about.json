@@ -144,15 +144,25 @@
     "snack_with_impact_64PTCz": {
       "type": "snack-with-impact",
       "blocks": {
+        "button_c36JkX": {
+          "type": "button",
+          "settings": {
+            "btn_color": "btn-secondary",
+            "btn_label": "Explore Our B-Corp Impact Report",
+            "btn_url": "https://cdn.shopify.com/s/files/1/0428/9236/1896/files/TC-IR-2024-v2_4.pdf?v=1710943155"
+          }
+        },
         "button_n89Utq": {
           "type": "button",
           "settings": {
+            "btn_color": "btn-primary",
             "btn_label": "2024 IMPACT REPORT",
             "btn_url": "shopify://collections/all"
           }
         }
       },
       "block_order": [
+        "button_c36JkX",
         "button_n89Utq"
       ],
       "settings": {
@@ -160,7 +170,7 @@
         "deco_text": "SNack with",
         "rest_text": "impact",
         "text": "<p>At The Curators, a core part of our mission is to #SNACKWITHIMPACT. We're incredibly proud of our B-Corp status! Dive into the heart of who we are as a business and the remarkable journey we've embarked upon in the past few years 🌍<br/><br/>B-Corps are businesses that meet the highest standards of verified social and environmental performance, public transparency and legal accountability to balance profit and purpose.<br/><br/>Together, we're not just shaping the future of our business, but also leaving a lasting imprint on the world around us.</p>",
-        "btn_label": "Explore Our B-Corp Impact Report",
+        "btn_label": "",
         "btn_url": "https://cdn.shopify.com/s/files/1/0428/9236/1896/files/TC-IR-2024-v2_4.pdf?v=1710943155"
       }
     }
