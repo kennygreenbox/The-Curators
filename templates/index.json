@@ -427,6 +427,15 @@
         "btn_url": "shopify://collections/all-products"
       }
     },
+    "html_content_ijKDye": {
+      "type": "html-content",
+      "name": "HTML Content",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "html": "<!-- TrustBox widget - Slider -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"240px\" data-style-width=\"100%\" data-stars=\"4,5\" data-review-languages=\"en\" data-text-color=\"#000000\">\n  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
+      }
+    },
     "call_to_action_f4QPFP": {
       "type": "call-to-action",
       "blocks": {
@@ -695,6 +704,7 @@
     "favourite_products_tTLB7t",
     "benefits_table_DHkVBW",
     "featured_products_Lh4Hba",
+    "html_content_ijKDye",
     "call_to_action_f4QPFP",
     "testimonial_9V8jBE",
     "text_with_image_wYLeLd",
