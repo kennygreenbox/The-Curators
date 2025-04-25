@@ -1073,8 +1073,8 @@ h3 .underline-animation, .h3 .underline-animation{bottom: -1px;}
 .benefit-table tbody div{gap: 7.5px;}
 .benefit-table tbody img{max-height: 20px;}
 
-.benefit-table tbody tr:first-child td{padding-top: 17px;}
-.benefit-table tbody tr:last-child td{padding-bottom: 39px;}
+/* .benefit-table tbody tr:first-child td{padding-top: 17px;}
+.benefit-table tbody tr:last-child td{padding-bottom: 39px;} */
 
 .benefits-table-section .parallax-puffs{width: 18.95833333%; left: 7.5%; bottom: 18%}
 .benefits-table-section .parallax-chips{width: 25%; right: 5.5%; bottom: -14%; left: auto;}

@@ -4,6 +4,9 @@
     assign image_position_mobi = s.image_position_mobi
     assign image_fit = s.image_fit
     assign image_fit_mobi = s.image_fit_mobi
+    assign image_1 = s.image_1
+    assign image_2 = s.image_2
+    assign image_3 = s.image_3
 %}
 {%- capture imageClass -%}
     {%- if image_position != blank -%} img-pos-desk-{{ image_position }} {%- endif -%}
@@ -54,25 +57,33 @@
                     <img src="{{'founded-sticker.svg' |  asset_url}}" alt="">
                 </figure>
             </div>
+            {% if image_1 != blank or image_2 != blank or image_3 != blank  %}
             <div class="desk pos-absolute parallax-chips">
-                <div class="animate-down-mid">
-                    <figure>
-                        <img src="{{'chip-top.png' |  asset_url }}" alt="">
-                    </figure>
-                </div>
-                <div class="animate-down-mid">
-                    <figure>
-                        <img src="{{'chip-left.png' |  asset_url }}" alt="">
-                    </figure>
-                </div>
-                <div class="animate-down-mid">
-                    <figure>
-                        <img src="{{'chip-btm.png' |  asset_url }}" alt="">
-                    </figure>
-                </div>
+                {% if image_1 != blank %}
+                  <div class="animate-down-mid">
+                      <figure>
+                        {% render 'responsive-image' with image: image_1 %}
+                      </figure>
+                  </div>
+                {% endif %}
+                {% if image_2 != blank %}
+                  <div class="animate-down-mid">
+                      <figure>
+                        {% render 'responsive-image' with image: image_2 %}
+                      </figure>
+                  </div>
+                {% endif %}
+                {% if image_3 != blank %}
+                  <div class="animate-down-mid">
+                      <figure>
+                        {% render 'responsive-image' with image: image_3 %}
+                      </figure>
+                  </div>
+                {% endif %}
                 <!-- <div class="paralllax-img-b"></div>
                 <div class="paralllax-img-c"></div> -->
             </div>
+            {% endif %}
         </div>
     </div>
 
@@ -180,7 +191,22 @@
             "type": "url",
             "id": "btn_url",
             "label": "Button URL"
-            }
+            },{
+              "type": "header",
+              "content": "Floating Images"
+          },{
+              "type": "image_picker",
+              "id": "image_1",
+              "label": "Image 1"
+          },{
+              "type": "image_picker",
+              "id": "image_2",
+              "label": "Image 2"
+          },{
+              "type": "image_picker",
+              "id": "image_3",
+              "label": "Image 3"
+          }
         ],
         "presets": [
         {

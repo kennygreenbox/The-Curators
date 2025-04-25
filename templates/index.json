@@ -627,7 +627,10 @@
         "decoration_heading": "FOUNDERS",
         "text": "<p>Hey, we're Max & Ed - founders of The Curators. Back in 2018, we had a vision to disrupt the savoury snacking world and build a snack brand of healthy, nutritional alternatives to your unhealthy crisps, inspiring people to be more active and giving them the fuel to do it. <br/><br/>Inspired by our travels and desire to offer naturally protein-rich snack options for active, modern snackers, we've since expanded the range to include Pork Puffs, Protein Chips, Biltong and our NEW Cheesies range.</p>",
         "btn_label": "Our Story",
-        "btn_url": "shopify://pages/about-us"
+        "btn_url": "shopify://pages/about-us",
+        "image_1": "shopify://shop_images/protein-chip.webp",
+        "image_2": "shopify://shop_images/protein-chip4.webp",
+        "image_3": "shopify://shop_images/protein-chip3.webp"
       }
     },
     "instagram_fAjLc9": {
