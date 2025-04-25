@@ -151,19 +151,10 @@
             "btn_label": "Explore Our B-Corp Impact Report",
             "btn_url": "https://cdn.shopify.com/s/files/1/0428/9236/1896/files/TC-IR-2024-v2_4.pdf?v=1710943155"
           }
-        },
-        "button_n89Utq": {
-          "type": "button",
-          "settings": {
-            "btn_color": "btn-primary",
-            "btn_label": "2024 IMPACT REPORT",
-            "btn_url": "shopify://collections/all"
-          }
         }
       },
       "block_order": [
-        "button_c36JkX",
-        "button_n89Utq"
+        "button_c36JkX"
       ],
       "settings": {
         "image": "shopify://shop_images/b-corp.webp",
