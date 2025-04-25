@@ -13,10 +13,12 @@
                         {{ s.text |  replace: '<p', '<p class="h6"' }}
                         {% if s.btn_label != blank %}
                             <div class="btn-wrap">
-                                <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
-                                    <span class="button__flair"></span>
-                                    <span class="button__label">{{ s.btn_label }}</span>
-                                </a>
+                                {% if s.btn_label != blank and s.btn_url != blank %}
+                                    <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                                        <span class="button__flair"></span>
+                                        <span class="button__label">{{ s.btn_label }}</span>
+                                    </a>
+                                {% endif %}
                                 {% for block in section.blocks %}
                                     {% assign b = block.settings %}
                                     {% if block.type == 'button' and b.btn_label != blank and b.btn_url != blank %}
