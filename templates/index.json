@@ -377,7 +377,9 @@
         "image_left_3": "shopify://shop_images/puffs-red-btm_88f50881-996a-4eba-9c66-70ac39234c24.png",
         "image_right_1": "shopify://shop_images/chips-red-top.png",
         "image_right_2": "shopify://shop_images/chips-red-left.png",
-        "image_right_3": "shopify://shop_images/chips-red-btm.png"
+        "image_right_3": "shopify://shop_images/chips-red-btm.png",
+        "roundel_bg": "shopify://shop_images/10g_roundel.webp",
+        "spinning_roundel": "shopify://shop_images/protein-outer_af5690f6-e81e-4954-91dc-ee0a8d73ddaa.svg"
       }
     },
     "featured_products_Lh4Hba": {
