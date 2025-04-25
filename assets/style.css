@@ -422,6 +422,11 @@ button:focus{outline: none;}
 .btn{font-family: var(--font-family);text-align: center;border-radius: 12px; text-transform: uppercase; font-size: 18px; line-height: 1;  font-weight: var(--font-bold);font-family: var(--font-family);align-items: center; cursor: pointer;display: inline-flex; gap: 0.363636em; justify-content: center; overflow: hidden; position: relative;text-decoration: none;word-break: break-word;text-decoration: none;}
 .btn-large{padding: 14px var(--space-xl);}
 .btn-medium{padding: 13px var(--space-xl);}
+.btn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 .btn-primary{background-color: var(--white); color: var(--black); }
 .btn-secondary{background-color: var(--yellow); color: var(--black); }
 
