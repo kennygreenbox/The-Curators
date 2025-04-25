@@ -33,6 +33,32 @@
                     </div>
                 </div>
 
+
+
+                {% assign roundel_bg = s.roundel_bg %}
+                {% assign spinning_roundel = s.spinning_roundel %}
+                {% if roundel_bg != blank or spinning_roundel != blank%}
+                    <div class="pos-absolute sticker discount-sticker">
+                        <div class="pos-relative sticker-container">
+                            {% if roundel_bg != blank %}
+                                <div class="inner-sticker">
+                                    <figure>
+                                        {% render 'responsive-image' with image:roundel_bg %}
+                                    </figure>
+                                </div>
+                            {% endif %}
+                            {% if spinning_roundel != blank %}
+                                <div class="rotate outer-sticker pos-absolute">
+                                    <figure>
+                                        {% render 'responsive-image' with image:spinning_roundel %}
+                                    </figure>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% comment %}
                 <div class="pos-absolute sticker discount-sticker">
                     <div class="pos-relative sticker-container">
                         <div class="inner-sticker">
@@ -45,8 +71,9 @@
                                 <img src="{{'15off-outer.svg' |  asset_url}}" alt="">
                             </figure>
                         </div>
+                    </div>
                 </div>
-                </div>
+                {% endcomment %}
             </div>	
         </div>
     </div>
@@ -84,6 +111,17 @@
             "type": "url",
             "id": "btn_url",
             "label": "Button URL"
+            },{
+                "type": "header",
+                "content": "Roundel Images"
+            },{
+                "type": "image_picker",
+                "id": "roundel_bg",
+                "label": "Roundel Background"
+            },{
+                "type": "image_picker",
+                "id": "spinning_roundel",
+                "label": "Spinning Roundel"
             }
         ],
         "presets": [
