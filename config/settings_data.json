@@ -198,9 +198,10 @@
         ],
         "settings": {
           "upsell_title": "WE THINK YOU’LL LOVE:",
-          "shipping_price": "35",
+          "shipping_price": "0",
           "shipping_left": "SPEND ANOTHER",
           "shipping_right": "AND GET SHIPPING FREE!",
+          "shipping_done": "FREE SHIPPING ON ALL ORDERS THIS MONTH",
           "deco_text": "",
           "rest_text": "",
           "text": "",
