@@ -8,7 +8,7 @@
         {% if cart.total_price < shipping_price %}
             <div class="has-turquoise-alt-background shipping-text padding-y-default-sml txt-ctr shipping__goal"><p><strong>{{ s.shipping_left }} {{ shipping_price | minus: cart.total_price | money }} {{ s.shipping_right  }}</strong></p></div>
             {% else %}
-            <div class="has-turquoise-alt-background shipping-text padding-y-default-sml txt-ctr shipping__goal"><p><strong>You have got free shipping</strong></p></div>
+            <div class="has-turquoise-alt-background shipping-text padding-y-default-sml txt-ctr shipping__goal"><p><strong>{{ s.shipping_done }}</strong></p></div>
         {% endif %}
        
     </div>
@@ -231,6 +231,11 @@
             "type": "text",
             "id": "shipping_right",
             "label": "Shipping right text"
+            },
+          {
+            "type": "text",
+            "id": "shipping_done",
+            "label": "Free shipping message"
             },
             {
             "type": "image_picker",
