@@ -11,6 +11,7 @@
       <div class="customer__title h2">Heya, {{ customer.first_name }}</div>
       <div class="customer__message">
         <p>Welcome to your account. Check out previous orders and get delivery updates all in one place.</p>
+        <p>You have <span data-lion-points="approved"></span> points to spend.
       </div>
       <a href="{{ routes.account_logout_url }}" class="customer__button btn btn_primary mobi">Sign out</a>
     </div>
@@ -37,7 +38,7 @@
               class="customer__nav-url">Manage Subscriptions</a>
           </div>
           <div class="customer__nav-item">
-            <a href="/tools/recurring/login" class="customer__nav-url">Loyalty Points</a>
+            <a href="/pages/rewards" class="customer__nav-url">Loyalty Points</a>
           </div>
           <a href="{{ routes.account_logout_url }}" class="customer__button btn btn_primary desk">Sign out</a>
           <!-- <div class="customer__nav-item">

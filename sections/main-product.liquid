@@ -82,8 +82,9 @@
                 <p>{% unless product.has_only_default_variant %}{{product.selected_or_first_available_variant.title}}{% endunless %}</p>
               </div>
             </div>
-            <div>
-              Earn <span data-lion-points-for-product-id="{{ product.id }}"></span> points
+            <div class="flex flex-y-align product-points">
+              
+            <div class="points-block"><span class="h6" data-lion-points-for-product-id="{{ product.id }}"></span></div><p class="h6">Points you'll earn. <a href="/pages/rewards">Find out more about our points here.</a></p>
             </div>
             {% assign custom_message = product.metafields.custom.custom_message %}
             {% if custom_message != blank %}
