@@ -167,7 +167,8 @@
                 <div class="flex-box nav-wrap nav-wrap-right">
                     <nav class="main-nav desk">
                       {% if s.menu_r.links.size > 0 %}
-                        <ul>       
+                        <ul>     
+                          <li class="padding-y-m"><a href="/pages/rewards">Rewards</a></li>  
                           {% for link in s.menu_r.links %}                            
                             <li class="padding-y-m"><a href="{{ link.url }}">{{ link.title }}</a></li>
                           {% endfor %}               
