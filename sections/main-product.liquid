@@ -75,11 +75,15 @@
             </div>
             <div class="flex flex-y-align lg:flex-bottom-align product-price">
               <div class="price">
-                <h5>{{ product.price | money }}</h5>
+                <h5 data-lion-price-for-product-id="{{ product.id }}">{{ product.price | money }}</h5>
               </div>
+              
               <div class="lead-text price-details margin-left-s">
                 <p>{% unless product.has_only_default_variant %}{{product.selected_or_first_available_variant.title}}{% endunless %}</p>
               </div>
+            </div>
+            <div>
+              Earn <span data-lion-points-for-product-id="{{ product.id }}"></span> points
             </div>
             {% assign custom_message = product.metafields.custom.custom_message %}
             {% if custom_message != blank %}
