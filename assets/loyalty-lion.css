@@ -1,7 +1,13 @@
 .hiw {
     padding-top: 100px;
 }
-
+.main-wrap #loyaltylion .lion-header__join-today::before {
+    text-transform: uppercase;
+}
+.main-wrap #loyaltylion .lion-integrated-page--guest .lion-header {
+    justify-content: center;
+    align-items: center;
+}
 .main-wrap #loyaltylion .lion-header {
     aspect-ratio: auto 7 / 3; 
 }
@@ -46,6 +52,16 @@
 }
 .main-wrap #loyaltylion .lion-reward-item__title,.main-wrap #loyaltylion .lion-rule-item__title {
     color:#000
+}
+.main-wrap .lion-rule-item__title,.main-wrap .lion-rule-item__points, .main-wrap .lion-reward-item__title, .main-wrap .lion-reward-item__meta, .main-wrap .lion-faq-list__question-header, .main-wrap .lion-faq-list__question-answer,
+.main-wrap  #loyaltylion .lion-reward-item__title, .main-wrap #loyaltylion .lion-rule-item__title {
+    font-family: var(--font-family) !important;
+    font-size: 18px;
+}
+.main-wrap #loyaltylion .lion-faq-list__question-header {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--black);
 }
 @media screen and (max-width: 768px) {
     .main-wrap #loyaltylion .lion-header {
