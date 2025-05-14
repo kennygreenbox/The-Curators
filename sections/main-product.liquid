@@ -84,7 +84,11 @@
             </div>
             <div class="flex flex-y-align product-points">
               
-            <div class="points-block"><span class="h6" data-lion-points-for-product-id="{{ product.id }}"></span></div><p class="h6">Points you'll earn. <a href="/pages/rewards">Find out more about our points here.</a></p>
+              <div class="points-block">
+                <p class="h3"><span data-lion-points-for-product-id="{{ product.id }}"></span><span class="unit">pts</span></p>
+                <p class="h6">YOU'LL EARN</p>
+            </div>
+              <p class="h6"><a href="/pages/rewards">Find out more about our points here.</a></p>
             </div>
             {% assign custom_message = product.metafields.custom.custom_message %}
             {% if custom_message != blank %}

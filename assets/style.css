@@ -1120,15 +1120,24 @@ h3 .underline-animation, .h3 .underline-animation{bottom: -1px;}
   text-decoration: underline;
 }
 .product-points {
-  gap:6px
+  gap:10px;
+  background-color: var(--yellow);
+  border-radius: 10px;
+  padding:10px;
+  max-width: 410px;
 }
 .points-block { background: #000;
-  padding: 0px 5px;
-  border-radius: 10px; }
-.points-block span {
-    color:#fff;
-    font-weight: bold;
-  }
+  padding: 10px 5px;
+  border-radius: 10px; 
+  color:var(--white);
+  text-align: center;
+}
+.points-block p {
+  line-height: 1;
+  font-weight: bold;
+  color:#fff;
+}
+
 .product-page-header-content .h4{line-height: 1; margin-bottom: -4px;}
 .price h5, .price-details p, .product-price, .discount-txt .h6, .discount-txt .caption{line-height: 1;}
 .product-options-wrapper{width: 100%;}
