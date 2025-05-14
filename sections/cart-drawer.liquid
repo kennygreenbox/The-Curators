@@ -160,8 +160,13 @@
     
     <div class="border-top cart-footer">
         {% if totalCartProtein > 0 %}
-        <div class="flex flex-y-align flex-space-between total-protein-cart padding-default border-btm">
-            <h6>TOTAL PROTEIN IN YOUR CART</h6><h6>{{totalCartProtein}}g</h6>
+        <div class=" total-protein-cart padding-default border-btm">
+            <div class="flex flex-y-align flex-space-between">
+                <h6>TOTAL PROTEIN IN YOUR CART</h6><h6>{{totalCartProtein}}g</h6>
+            </div>
+            <div class="flex flex-y-align flex-space-between">
+                <h6>TOTAL POINTS</h6><h6><span data-lion-points-for="{{ cart.total_price }}"></span></h6>
+            </div>
         </div>
         {% endif %}
         {% comment %}
