@@ -107,7 +107,7 @@ function rendering() {
       var render__html = $(".total-protein-cart", cart__html);
       $(".total-protein-cart").replaceWith(render__html);
       upsellProductGrid()
-
+      window.loyaltylion.ui.refresh();
       var upselltSlider = new Swiper('.upsell-slider', {
         loop: true,
         slidesPerView: 1.23,
