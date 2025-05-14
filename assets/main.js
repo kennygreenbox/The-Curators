@@ -121,7 +121,7 @@ function rendering() {
     });
 
     });
-  
+    window.loyaltylion.ui.refresh();
 }
 
 
