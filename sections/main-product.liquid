@@ -75,7 +75,7 @@
             </div>
             <div class="flex flex-y-align lg:flex-bottom-align product-price">
               <div class="price">
-                <h5 data-lion-price-for-product-id="{{ product.id }}">{{ product.price | money }}</h5>
+                <h5 >{{ product.selected_or_first_available_variant.price | money }}</h5>
               </div>
               
               <div class="lead-text price-details margin-left-s">
@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="flex flex-y-align product-points">
-              
+              <div class="loyalty-lion-price-target" style="display:none;" data-lion-price-for-product-id="{{ product.id }}">{{ product.selected_or_first_available_variant.price | money }}</div>
               <div class="points-block">
                 <p class="h3"><span data-lion-points-for-product-id="{{ product.id }}"></span><span class="unit">pts</span></p>
                 <p class="h6">YOU'LL EARN</p>
@@ -120,11 +120,11 @@
                           
                             {% comment %} <button class="btn product-size-item">75g</button> {% endcomment %}
                           </div>
-                          <select name="id" class="select__variant" hidden>
+                          <select name="id" class="select__variant" hidden >
                             {% for variant in product.variants %}
-                              {% assign unit_qty = variant.metafields.custom.variant_unit_quantity %}
+                              {% assign unit_qty = variant.metafields.custom.variant_unit_quantity | times: 1.0 %}
                               {% if unit_qty  != blank %}
-                                {% assign unit_price = product.price | divided_by: unit_qty | money %}
+                                {% assign unit_price = variant.price | divided_by: unit_qty | money %}
                               {% endif %}
                               {% if variant.selling_plan_allocations[0].price != blank%}
                                 {% assign sub_unit_price = variant.selling_plan_allocations[0].price | divided_by: unit_qty | money %}
@@ -180,7 +180,7 @@
                 <button type="button" class="qty-btn qty-btn-increase" id="increase-quantity">+</button>
               </div>
             </div>
-
+            {% comment %}             
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                 const decreaseButton = document.getElementById('decrease-quantity');
@@ -199,7 +199,8 @@
                   quantityInput.value = currentValue + 1;
                 });
               });
-            </script>
+            </script> {% endcomment %}
+
           </div>
           <div class="padding-top-m flex flex-col grid product-purchase-options">
             <div class="flex product-purchase-text">
@@ -214,14 +215,14 @@
                   <label for="oneTime">One time purchase</label>
                 </div>
                 <div class="flex flex-col flex-justify-end  txt-r">
-                  <span class="h6"><strong class="one__time-bundle-price">{{ product.price | money }}</strong></span>
+                  <span class="h6"><strong class="one__time-bundle-price">{{ product.selected_or_first_available_variant.price | money }}</strong></span>
                   {% if unit_qty != blank %}<span class="price-per-item ot-price-p-item">{{ unit_price }} per bag</span>{% endif %}
                 </div>
               </div>
                         <div class="button button--stroke on__time-purchase btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__card-product add__to-cart" data-block="button">
                           <span class="button__flair"></span>
                           <span class="button__label">
-                            <span class="btn-txt">{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price product__variant-price">{{ product.price | money }}</span>
+                            <span class="btn-txt">{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price product__variant-price">{{ product.selected_or_first_available_variant.price | money }}</span>
                           </span>
                         </div> 
                         {% if subtext != blank and enable_button_variation == true %}<span class="caption txt-ctr">{{ subtext }}</span>{% endif %}
@@ -256,7 +257,7 @@
                                     {% elsif discount_type == 'fixed_amount' %}
                                       {% assign selling_price = base_price | minus: discount_value %}
                                     {% endif %}
-                                     <span class="h6"><strong>{{ selling_price | money }}</strong></span>
+                                     <span class="h6"><strong class="subscription__bundle-price">{{ selling_price | money }}</strong></span>
                                   {% endif %}
                                   {% if unit_qty  != blank %}<span class="price-per-item sub-price-p-item">{{ selling_price | divided_by: unit_qty | money }} per bag</span>{% endif %}
                           </div>

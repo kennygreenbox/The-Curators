@@ -61,7 +61,7 @@
 
     {%  section 'cart-drawer' %} 
 
-    
+    <script>const shopifyCurrencySymbol = '{{ cart.currency.symbol }}';</script>
     
     {% comment %} {{ 'theme.min.js' | asset_url | script_tag }} {% endcomment %}
     {{ 'theme.min.js' | asset_url | script_tag }}
