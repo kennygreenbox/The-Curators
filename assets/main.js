@@ -121,7 +121,7 @@ function rendering() {
     });
 
     });
-    window.loyaltylion && window.loyaltylion.ui.refresh()
+  
 }
 
 
@@ -136,7 +136,7 @@ function addUpsell_porduct($this, event) {
     data: formData,
     success: function (data) {
       rendering();
-
+      window.loyaltylion && window.loyaltylion.ui.refresh()
     },
     error: function (err) {
       // console.log("Error adding products:", err);
@@ -166,6 +166,7 @@ function removeItem(event, el) {
     success: function (data) {
       // console.log(data)
       rendering();
+      window.loyaltylion && window.loyaltylion.ui.refresh()
     }
   })
 }
@@ -213,6 +214,7 @@ function changeQuantity(input) {
     success: function (data) {
       // console.log(data);
       rendering();
+      window.loyaltylion && window.loyaltylion.ui.refresh()
     },
     error: function (err) {
       // console.log("Error from quantity update")
@@ -323,6 +325,7 @@ $(document).ready(function () {
       success: function (data) {
         $("body").addClass("cartShown cartPopulated");
         rendering();
+        window.loyaltylion && window.loyaltylion.ui.refresh()
 
       },
       error: function (err) {
