@@ -209,7 +209,7 @@
         "product_x3pYXA": {
           "type": "product",
           "settings": {
-            "image": "shopify://shop_images/beef-biltong_1.webp",
+            "image": "shopify://shop_images/Untitled_design_-_2025-05-19T155447.832.png",
             "product": "smoky-bacon-pork-puffs",
             "new": false,
             "title": "SHOP BEEF BILTONG",
@@ -274,73 +274,73 @@
         "marquee_MKxJRW": {
           "type": "marquee",
           "settings": {
-            "text": "JOIN OUR LOYALTY PROGRAMME TODAY!"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_DgyDbM": {
           "type": "marquee",
           "settings": {
-            "text": "SUBSCRIBERS GET 10% OFF"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_8f3tmr": {
           "type": "marquee",
           "settings": {
-            "text": "FREE DELIVERY OVER £35"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_PPEjmK": {
           "type": "marquee",
           "settings": {
-            "text": "JOIN OUR LOYALTY PROGRAMME TODAY!"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_cHWBWj": {
           "type": "marquee",
           "settings": {
-            "text": "SUBSCRIBERS GET 10% OFF"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_hVJrWB": {
           "type": "marquee",
           "settings": {
-            "text": "FREE DELIVERY OVER £35"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_kLj6M7": {
           "type": "marquee",
           "settings": {
-            "text": "JOIN OUR LOYALTY PROGRAMME TODAY!"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_pExJkf": {
           "type": "marquee",
           "settings": {
-            "text": "SUBSCRIBERS GET 10% OFF"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_aNT6zD": {
           "type": "marquee",
           "settings": {
-            "text": "FREE DELIVERY OVER £35"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_QY46Q9": {
           "type": "marquee",
           "settings": {
-            "text": "JOIN OUR LOYALTY PROGRAMME TODAY!"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_i7mUeh": {
           "type": "marquee",
           "settings": {
-            "text": "SUBSCRIBERS GET 10% OFF"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         },
         "marquee_cg4qcC": {
           "type": "marquee",
           "settings": {
-            "text": "FREE DELIVERY OVER £35"
+            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
           }
         }
       },
@@ -429,6 +429,7 @@
     },
     "html_content_8jbyTM": {
       "type": "html-content",
+      "disabled": true,
       "name": "HTML Content",
       "settings": {
         "heading": "<h2>WHAT THEY SAYING ABOUT US</h2>",

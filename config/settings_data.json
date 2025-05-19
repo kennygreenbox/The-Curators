@@ -76,7 +76,7 @@
         ],
         "settings": {
           "logo_animation": "https://cdn.shopify.com/s/files/1/0859/1265/0061/files/data_b9d48530-64c3-488c-8e25-d4cf0494da71.json?v=1734423701",
-          "announcement": "<p>⚡️ Protein Packed Super Snacks⚡️ FREE DELIVERY OVER £35</p>",
+          "announcement": "<p>⚡️ FREE SHIPPING ON ALL ORDERS THIS MONTH⚡️</p>",
           "menu": "menu-left",
           "menu_r": "menu-right",
           "menu_mobi": "mobile-menu",
@@ -198,9 +198,10 @@
         ],
         "settings": {
           "upsell_title": "WE THINK YOU’LL LOVE:",
-          "shipping_price": "35",
+          "shipping_price": "0",
           "shipping_left": "SPEND ANOTHER",
           "shipping_right": "AND GET SHIPPING FREE!",
+          "shipping_done": "FREE SHIPPING ON ALL ORDERS THIS MONTH",
           "deco_text": "",
           "rest_text": "",
           "text": "",
