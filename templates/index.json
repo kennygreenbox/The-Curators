@@ -429,6 +429,7 @@
     },
     "html_content_8jbyTM": {
       "type": "html-content",
+      "disabled": true,
       "name": "HTML Content",
       "settings": {
         "heading": "<h2>WHAT THEY SAYING ABOUT US</h2>",
