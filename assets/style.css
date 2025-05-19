@@ -962,7 +962,12 @@ body.navShown{overflow-y: hidden}
 .instagram-feed .font-alt h2{font-size: 85px; font-family: inherit;}
 .social-marquee-slider .slide-item{max-width: 270px; aspect-ratio: 1 / 1 ;}
 .social-marquee-slider .slide-item img{height: 100%;}
-
+.instagram-feed .btn-wrap { 
+  
+  justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 .instagram-social-wrap .flex {
   justify-content: center;
 }
@@ -1111,6 +1116,28 @@ h3 .underline-animation, .h3 .underline-animation{bottom: -1px;}
 
 .page-header-product-section .badge-wrapper{position: relative; right: auto; top: auto; left: auto;}
 .product-page-header-content .content-wrap{gap: var(--space-default);}
+.product-page-header-content .content-wrap a {
+  text-decoration: underline;
+}
+.product-points {
+  gap:10px;
+  background-color: var(--yellow);
+  border-radius: 10px;
+  padding:10px;
+  max-width: 410px;
+}
+.points-block { background: #000;
+  padding: 10px 5px;
+  border-radius: 10px; 
+  color:var(--white);
+  text-align: center;
+}
+.points-block p {
+  line-height: 1;
+  font-weight: bold;
+  color:#fff;
+}
+
 .product-page-header-content .h4{line-height: 1; margin-bottom: -4px;}
 .price h5, .price-details p, .product-price, .discount-txt .h6, .discount-txt .caption{line-height: 1;}
 .product-options-wrapper{width: 100%;}

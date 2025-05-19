@@ -1,0 +1,71 @@
+.hiw {
+    padding-top: 100px;
+}
+.main-wrap #loyaltylion .lion-header__join-today::before {
+    text-transform: uppercase;
+}
+.main-wrap #loyaltylion .lion-integrated-page--guest .lion-header {
+    justify-content: center;
+    align-items: center;
+}
+.main-wrap #loyaltylion .lion-header {
+    aspect-ratio: auto 7 / 3; 
+}
+.main-wrap #loyaltylion .lion-action-button{
+    background-color: var(--yellow);
+    color: var(--black);
+    font-size: 22px;
+    padding: 13px var(--space-xl);
+    text-align: center;
+    border-radius: 12px;
+    text-transform: uppercase;
+
+    line-height: 1;
+    font-weight: var(--font-bold);
+    font-family: var(--font-family);
+    align-items: center;
+    cursor: pointer;
+    gap: .363636em;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    word-break: break-word;
+    text-decoration: none;
+    border:none
+}
+.main-wrap #loyaltylion .lion-action-button--tile.lion-action-button--completed,.main-wrap  #loyaltylion .lion-action-button--tile.lion-action-button--disabled {
+    color:#fff;
+    background-color: #000;
+}
+.main-wrap #loyaltylion .lion-rule-item__completed:before {
+    background-color: #fff;
+}
+.main-wrap .hiw_section p {
+    font-size: 18px;
+}
+.main-wrap .hiw_section p.hiw_section-subheader {
+    font-size: 22px;
+    font-weight: bold;
+}
+.main-wrap #loyaltylion .lion-reward-item__content,.main-wrap  #loyaltylion .lion-rule-item__content {
+    padding:30px 10px;
+}
+.main-wrap #loyaltylion .lion-reward-item__title,.main-wrap #loyaltylion .lion-rule-item__title {
+    color:#000
+}
+.main-wrap .lion-rule-item__title,.main-wrap .lion-rule-item__points, .main-wrap .lion-reward-item__title, .main-wrap .lion-reward-item__meta, .main-wrap .lion-faq-list__question-header, .main-wrap .lion-faq-list__question-answer,
+.main-wrap  #loyaltylion .lion-reward-item__title, .main-wrap #loyaltylion .lion-rule-item__title {
+    font-family: var(--font-family) !important;
+    font-size: 18px;
+}
+.main-wrap #loyaltylion .lion-faq-list__question-header {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--black);
+}
+@media screen and (max-width: 768px) {
+    .main-wrap #loyaltylion .lion-header {
+        aspect-ratio: auto 1 / 1; 
+    }
+    
+}
