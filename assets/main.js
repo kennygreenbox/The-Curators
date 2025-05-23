@@ -359,14 +359,14 @@ $(document).ready(function () {
     var variant__price = selectedVariant.attr("data-variant-price"),
     variant__sub_price = selectedVariant.attr("data-variant-sub-price"),
     ot_unit_price = selectedVariant.attr("data-unit-price"),
-    quantity = qty ? $('#quantity-input').val() : $('#quantity-input').val(),
-    ot_total_price = parseFloat(variant__price.replace(/[^0-9.-]+/g, "")) * quantity;
+    quantity = qty ? qty : $('#quantity-input').val(),
+    ot_total_price = (parseFloat(variant__price.replace(/[^0-9.-]+/g, "")) * quantity).toFixed(2);
     $(".product__variant-price").text(shopifyCurrencySymbol+ot_total_price);
     $(".product-price .price h5").html(variant__price);
     $(".one__time-bundle-price").text(shopifyCurrencySymbol + ot_total_price);
     $('.ot-price-p-item').text(ot_unit_price + ' per bag');
     if(variant__sub_price.length > 0) {
-      var sub_total_price = parseFloat(variant__sub_price.replace(/[^0-9.-]+/g, "")) * quantity;
+      var sub_total_price = (parseFloat(variant__sub_price.replace(/[^0-9.-]+/g, "")) * quantity).toFixed(2);
       var sub_unit_price = selectedVariant.attr("data-sub-unit-price");
       $(".subscription__bundle-price").text(shopifyCurrencySymbol+sub_total_price);
       $(".subscription-purchase-option .subscription-price-display").text(shopifyCurrencySymbol+sub_total_price);

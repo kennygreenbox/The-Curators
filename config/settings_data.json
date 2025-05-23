@@ -111,7 +111,7 @@
           "text": "Join our newsletter to save 20% on your first order and enjoy exclusive perks.",
           "copyright_text": "Curators of Flavour Ltd. All rights reserved.",
           "bot_menu": "refund-menu",
-          "fixed_btn_label": "",
+          "fixed_btn_label": "https://www.bcorporation.net/en-us/find-a-b-corp/company/the-curators/",
           "fixed_btn_url": "shopify://collections/all-products"
         }
       },
@@ -239,7 +239,7 @@
       },
       "4291333794791649201": {
         "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "disableBundledCSS": false,
           "disableBundledFonts": false,
