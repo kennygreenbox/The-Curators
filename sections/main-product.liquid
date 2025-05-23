@@ -48,6 +48,19 @@
           <div class="content-wrap flex flex-col grid border-btm padding-bottom-default"  >
             <h1 class="h4">{{ product.title }}</h1>
             <div class="flex flex-y-align rating margin-bottom-xs">
+            {%- capture skus -%}
+              {%- if product.variants.size > 1 -%}
+                  {%- for var in product.variants -%}
+                      {%- if var.sku != blank -%}{{ var.sku }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+                  {%- endfor -%}
+              {%- else -%}{{ currentVariant.sku }}{%- endif -%}
+            {%- endcapture -%}
+<!-- TrustBox widget - Product Mini -->
+<div class="trustpilot-widget" data-locale="en-GB" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="63bbd816acde6c1b254abed2" data-style-height="24px" data-style-width="100%" data-sku="{{ skus }}" data-star-color="#FFD750" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="left">
+  <a href="https://uk.trustpilot.com/review/wearethecurators.com" target="_blank" rel="noopener">Trustpilot</a>
+</div>
+<!-- End TrustBox widget -->
+
               {% comment %} <div class="flex star-wrap margin-right-base">
                 <img src="{{'star-red.svg' |  asset_url}}" alt="">
                 <img src="{{'star-red.svg' | asset_url}}" alt="">
@@ -55,13 +68,13 @@
                 <img src="{{'star-red.svg' | asset_url}}" alt="">
                 <img src="{{'star-red.svg' | asset_url}}" alt="">
               </div>
-              <p>65 Reviews</p> {% endcomment %}
+              <p>65 Reviews</p> 
               <!-- Start of Judge.me code --> 
                 <div class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'> 
                   {{ product.metafields.judgeme.badge }} 
                 </div> 
               <!-- End of Judge.me code -->
-
+{% endcomment %}
             </div>
             <div class="flex-box badge-wrapper">
               {% for item in product.metafields.custom.badge.value %}
