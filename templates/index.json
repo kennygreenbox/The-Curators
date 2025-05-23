@@ -433,7 +433,7 @@
       "settings": {
         "heading": "<h2>WHAT THEY SAYING ABOUT US</h2>",
         "text": "",
-        "html": "<!-- TrustBox widget - Product Reviews -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"544a426205dc0a09088833c6\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"700px\" data-style-width=\"100%\" data-sku=\"[]\" data-review-languages=\"en\" data-no-reviews=\"hide\" data-fullwidth=\"true\">\n  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
+        "html": "<!-- TrustBox widget - Slider --><div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"240px\" data-style-width=\"100%\" data-stars=\"4,5\" data-review-languages=\"en\" data-text-color=\"#000000\">  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div><!-- End TrustBox widget -->"
       }
     },
     "call_to_action_f4QPFP": {
