@@ -143,6 +143,15 @@
       "type": "product-details",
       "settings": {}
     },
+    "html_content_d748cz": {
+      "type": "html-content",
+      "name": "HTML Content",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "html": "<!-- TrustBox widget - Product Reviews -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"544a426205dc0a09088833c6\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"700px\" data-style-width=\"100%\" data-sku=\"TCPPMIXECOM\" data-review-languages=\"en\" data-star-color=\"#FFD750\" data-no-reviews=\"hide\" data-fullwidth=\"true\">\n  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
+      }
+    },
     "customer_reviews_9napzc": {
       "type": "customer-reviews",
       "blocks": {
@@ -209,6 +218,7 @@
     "benefits_table_k7Tmez",
     "review_image_V79qqT",
     "product_details_WitzhN",
+    "html_content_d748cz",
     "customer_reviews_9napzc",
     "related_products_8WkHHA"
   ]
