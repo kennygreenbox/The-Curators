@@ -72,7 +72,14 @@
             {% endfor %}
             {% if icon != blank %}
               {% if icon_url != blank %}
-                <a href="{{ icon_url }}" class="grid-one footer-logo-partners lg:txt-r">
+                {% assign is_external = false %}
+                {% if icon_url contains '://' %}
+                  {% assign shop_domain = shop.domain | prepend: '://' %}
+                  {% unless icon_url contains shop_domain %}
+                    {% assign is_external = true %}
+                  {% endunless %}
+                {% endif %}
+                <a href="{{ icon_url }}" {% if is_external %}target="_blank"{% endif %} class="grid-one footer-logo-partners lg:txt-r">
               {% else %}
 	              <div class="grid-one footer-logo-partners lg:txt-r">
               {% endif %}
