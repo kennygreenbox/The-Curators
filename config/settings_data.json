@@ -111,7 +111,7 @@
           "text": "Join our newsletter to save 20% on your first order and enjoy exclusive perks.",
           "copyright_text": "Curators of Flavour Ltd. All rights reserved.",
           "bot_menu": "refund-menu",
-          "fixed_btn_label": "https://www.bcorporation.net/en-us/find-a-b-corp/company/the-curators/",
+          "fixed_btn_label": "",
           "fixed_btn_url": "shopify://collections/all-products"
         }
       },
