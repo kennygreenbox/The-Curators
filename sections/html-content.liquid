@@ -2,6 +2,7 @@
     assign s = section.settings 
     assign max-width = s.max-width
 %}
+
 <div class="padding-y-base padding-top-none container-inner" id="section-{{ section.id }}">
     <div class="page-container common-wrap clear">
         <div class="lg:txt-ctr lg-container flex flex-col content-wrap fadeIn">
@@ -13,7 +14,19 @@
             {% endif %}
         </div>
         <div class="margin-top-xxl featured-product-wrap ">
-            {{ section.settings.html }}
+            {% if section.settings.html contains '[product-skus]' %}
+                {%- capture skus -%}
+                    {%- if product.variants.size > 1 -%}
+                        {%- for var in product.variants -%}
+                            {%- if var.sku != blank -%}{{ var.sku }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+                        {%- endfor -%}
+                    {%- else -%}{{ currentVariant.sku }}{%- endif -%}
+                {%- endcapture -%}
+                   {{ section.settings.html | replace: '[product-skus]', skus }}
+            {% else %}
+                   {{ section.settings.html }}
+            {% endif %}
+         
         </div>
     </div>
 </div>
@@ -42,7 +55,8 @@
             },{
                 "type":"html",
                 "id": "html",
-                "label": "HTML Content"
+                "label": "HTML Content",
+                "info": "Use [product-skus] to display the product SKUs. This will be replaced with the current product's SKU if available."
             },{
                 "type":"number",
                 "id": "max-width",
