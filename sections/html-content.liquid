@@ -1,5 +1,8 @@
-{% assign s = section.settings %}
-<div class="padding-y-base padding-top-none container-inner">
+{% liquid 
+    assign s = section.settings 
+    assign max-width = s.max-width
+%}
+<div class="padding-y-base padding-top-none container-inner" id="section-{{ section.id }}">
     <div class="page-container common-wrap clear">
         <div class="lg:txt-ctr lg-container flex flex-col content-wrap fadeIn">
             {{ s.heading }}
@@ -14,7 +17,13 @@
         </div>
     </div>
 </div>
-
+{% if max-width != 0 and max-width != blank %}
+<style>
+    #section-{{ section.id }} .page-container {
+        max-width: {{ max-width }}px;
+    }   
+</style>
+{% endif %}
 
 {% schema %}
     {
@@ -34,6 +43,11 @@
                 "type":"html",
                 "id": "html",
                 "label": "HTML Content"
+            },{
+                "type":"number",
+                "id": "max-width",
+                "label": "Max Width",
+                "info": "Set the max width of the section. Default is 1200px."
             }
         ],
         "presets": [
