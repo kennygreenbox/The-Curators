@@ -55,8 +55,9 @@
                   {%- endfor -%}
               {%- else -%}{{ currentVariant.sku }}{%- endif -%}
             {%- endcapture -%}
+            {% comment %} data-star-color="#FFD750" {% endcomment %}
 <!-- TrustBox widget - Product Mini -->
-<div class="trustpilot-widget" data-locale="en-GB" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="63bbd816acde6c1b254abed2" data-style-height="24px" data-style-width="100%" data-sku="{{ skus }}" data-star-color="#FFD750" data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="left">
+<div class="trustpilot-widget" data-locale="en-GB" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="63bbd816acde6c1b254abed2" data-style-height="24px" data-style-width="100%" data-sku="{{ skus }}"  data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="left">
   <a href="https://uk.trustpilot.com/review/wearethecurators.com" target="_blank" rel="noopener">Trustpilot</a>
 </div>
 <!-- End TrustBox widget -->
