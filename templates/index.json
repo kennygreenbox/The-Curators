@@ -431,7 +431,7 @@
       "type": "html-content",
       "name": "HTML Content",
       "settings": {
-        "heading": "<h2>WHAT THEY SAYING ABOUT US</h2>",
+        "heading": "<h2>WHAT THEY'RE SAYING ABOUT US</h2>",
         "text": "",
         "html": "<!-- TrustBox widget - Slider --><div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"240px\" data-style-width=\"100%\" data-stars=\"4,5\" data-review-languages=\"en\" data-text-color=\"#000000\">  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div><!-- End TrustBox widget -->"
       }
