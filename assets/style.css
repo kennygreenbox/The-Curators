@@ -679,8 +679,9 @@ span.btn{display: inline-block;}
 .header-section nav ul li:last-child{padding-right: 0;}
 .header-section nav > ul > li > a{color: var(--black); font-family: var(--font-family); font-size: 20px; line-height:140%; -webkit-transition: all .4s ease-in-out; -moz-transition: all .4s ease-in-out; transition: all .4s ease-in-out; font-weight: var(--font-light); display: flex; align-items: center;}
 .upsell-text{background-color: var(--red); padding: 2px 3px 1px; text-transform: uppercase; border-radius: 3px; color: var(--white); margin-right: var(--space-s); font-size: 14px; line-height: 1; font-weight: var(--font-light); display: inline-flex; justify-content: center; align-items: center; }
-.sub-menu .upsell-text {margin-left: var(--space-s); margin-top: 5px; margin-right: 0;}
 
+.header-section .mobile-menu .upsell-text {margin-left: var(--space-s); margin-top: 0px; margin-right: 0;}
+.header-section .mobile-menu .sub-menu .upsell-text {margin-left: var(--space-s); margin-top: 5px; margin-right: 0;}
 
 .nav-wrap-right{margin-left: auto}
 .user-nav{margin-left: 32px; gap: var(--space-base); }
