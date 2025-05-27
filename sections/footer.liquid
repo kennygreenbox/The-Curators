@@ -1,4 +1,8 @@
-{% assign s = section.settings %}
+{% liquid 
+  assign s = section.settings
+  assign icon = s.icon
+  assign icon_url = s.icon_url
+ %}
     
 		<div class="section page-container common-wrap clear">
 			{% comment %} <div class="squigle-line-animate">
@@ -66,9 +70,26 @@
                 </nav>
               </div>              
             {% endfor %}
-						<div class="grid-one footer-logo-partners lg:txt-r">
-								<img src="{{'BCORP-PENDING.svg' |  asset_url }}" alt="">
-						</div>
+            {% if icon != blank %}
+              {% if icon_url != blank %}
+                {% assign is_external = false %}
+                {% if icon_url contains '://' %}
+                  {% assign shop_domain = shop.domain | prepend: '://' %}
+                  {% unless icon_url contains shop_domain %}
+                    {% assign is_external = true %}
+                  {% endunless %}
+                {% endif %}
+                <a href="{{ icon_url }}" {% if is_external %}target="_blank"{% endif %} class="grid-one footer-logo-partners lg:txt-r">
+              {% else %}
+	              <div class="grid-one footer-logo-partners lg:txt-r">
+              {% endif %}
+                {% render 'responsive-img' with image: icon %}
+              {% if icon_url != blank %}
+                </a>
+              {% else %}
+                </div>
+              {% endif %}
+            {% endif %}
 					</div>
             	</div>
             	
@@ -150,6 +171,14 @@
         "type": "link_list",
         "id": "bot_menu",
         "label": "Bottom Menu"
+      },{
+        "type":"image_picker",
+        "id": "icon",
+        "label": "Icon"
+      },{
+        "type":"url",
+        "id": "icon_url",
+        "label": "Icon URL"
       },{
         "type": "text",
         "id": "fixed_btn_label",

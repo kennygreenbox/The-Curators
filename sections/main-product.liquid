@@ -48,6 +48,22 @@
           <div class="content-wrap flex flex-col grid border-btm padding-bottom-default"  >
             <h1 class="h4">{{ product.title }}</h1>
             <div class="flex flex-y-align rating margin-bottom-xs">
+{% comment %} 
+            {%- capture skus -%}
+              {%- if product.variants.size > 1 -%}
+                  {%- for var in product.variants -%}
+                      {%- if var.sku != blank -%}{{ var.sku }}{%- unless forloop.last -%},{%- endunless -%}{%- endif -%}
+                  {%- endfor -%}
+              {%- else -%}{{ currentVariant.sku }}{%- endif -%}
+            {%- endcapture -%}
+         
+            <!-- TrustBox widget - Product Mini data-star-color="#FFD750" -->
+            <div class="trustpilot-widget" data-locale="en-GB" data-template-id="54d39695764ea907c0f34825" data-businessunit-id="63bbd816acde6c1b254abed2" data-style-height="24px" data-style-width="100%" data-sku="{{ skus }}"  data-no-reviews="hide" data-scroll-to-list="true" data-style-alignment="left">
+              <a href="https://uk.trustpilot.com/review/wearethecurators.com" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+            <!-- End TrustBox widget -->
+{% endcomment %}
+
               {% comment %} <div class="flex star-wrap margin-right-base">
                 <img src="{{'star-red.svg' |  asset_url}}" alt="">
                 <img src="{{'star-red.svg' | asset_url}}" alt="">
@@ -55,13 +71,23 @@
                 <img src="{{'star-red.svg' | asset_url}}" alt="">
                 <img src="{{'star-red.svg' | asset_url}}" alt="">
               </div>
-              <p>65 Reviews</p> {% endcomment %}
+              <p>65 Reviews</p> 
+              {% endcomment %}
               <!-- Start of Judge.me code --> 
                 <div class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'> 
                   {{ product.metafields.judgeme.badge }} 
                 </div> 
               <!-- End of Judge.me code -->
-
+<!-- TrustBox widget - Micro TrustScore -->
+<div class="trustpilot-widget" data-locale="en-US" data-template-id="5419b637fa0340045cd0c936" data-businessunit-id="63bbd816acde6c1b254abed2" data-style-height="20px" data-style-width="100%">
+  <a href="https://www.trustpilot.com/review/wearethecurators.com" target="_blank" rel="noopener">Trustpilot</a>
+</div>
+<!-- End TrustBox widget -->
+<!-- TrustBox widget - Flex 
+<div class="trustpilot-widget" data-locale="en-US" data-template-id="54197383fd9dceac42a68694" data-businessunit-id="63bbd816acde6c1b254abed2"  data-style-width="100%" data-style-size="XS" data-headline="star" data-external-elements-color="dark">
+  <a href="https://www.trustpilot.com/review/wearethecurators.com" target="_blank" rel="noopener">Trustpilot</a>
+</div>
+End TrustBox widget -->
             </div>
             <div class="flex-box badge-wrapper">
               {% for item in product.metafields.custom.badge.value %}

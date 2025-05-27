@@ -1,3 +1,6 @@
+.main-wrap #loyaltylion {
+    padding-top: 60px;
+}
 .hiw {
     padding-top: 100px;
 }
@@ -64,8 +67,25 @@
     color: var(--black);
 }
 @media screen and (max-width: 768px) {
+
     .main-wrap #loyaltylion .lion-header {
-        aspect-ratio: auto 1 / 1; 
+        aspect-ratio: auto 3 / 4; 
+        padding: 5dvh 0;
     }
-    
+    .main-wrap #loyaltylion .lion-header__join-today::before {line-height: 1.2 !important;}
+    .main-wrap #loyaltylion .lion-integrated-page--guest .lion-header {
+        padding:0;
+    }
+    .main-wrap #loyaltylion .lion-header__join-today,  .main-wrap #loyaltylion .lion-header__join-buttons {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .main-wrap #loyaltylion .lion-header__join-buttons {
+        flex-wrap: wrap;
+        gap:10px
+    }
+     .main-wrap #loyaltylion .lion-header__join-buttons .lion-action-button {width: 100%;}
+    .main-wrap #loyaltylion .lion-header__join-buttons .lion-action-button:first-child {
+        margin-right: 0;
+    }
 }
