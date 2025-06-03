@@ -5,7 +5,7 @@
             <div class="cart-close"><img src="{{'close.svg' |  asset_url }}" alt=""></div>
         </div>
         {% assign shipping_price = s.shipping_price |  times: 100 %}
-        {% if shipping_price != blank %}
+        {% if s.shipping_price != blank %}
           {% if cart.total_price < shipping_price %}
               <div class="has-turquoise-alt-background shipping-text padding-y-default-sml txt-ctr shipping__goal"><p><strong>{{ s.shipping_left }} {{ shipping_price | minus: cart.total_price | money }} {{ s.shipping_right  }}</strong></p></div>
               {% else %}
