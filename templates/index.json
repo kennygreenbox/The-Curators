@@ -545,9 +545,9 @@
         "image": "shopify://shop_images/Rewards.webp",
         "heading": "<h2><em><strong>REWARDS FOR</strong></em><strong><br/></strong>your high protein snacking</h2>",
         "text": "<p>Our loyalty program rewards you for fueling your day with high-protein snacks! Every time you purchase our products, you’ll earn points that can be redeemed for exclusive discounts, free snacks, and special perks. The more you snack, the more you save! As a member, you'll also get early access to new flavors, limited edition products, and special promotions.</p>",
-        "txt_above_btn": "COMING SOON",
-        "btn_label": "",
-        "btn_url": "#"
+        "txt_above_btn": "",
+        "btn_label": "REWARDS",
+        "btn_url": "https://wearethecurators.com/pages/rewards"
       }
     },
     "hero_box_KK7e9x": {
