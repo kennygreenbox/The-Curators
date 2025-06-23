@@ -357,6 +357,7 @@ $(document).ready(function () {
 
   function pdpPriceChange(selectedVariant, qty) {
     var variant__price = selectedVariant.attr("data-variant-price"),
+    variant__compare_price = selectedVariant.attr("data-variant-compare-at-price"),
     variant__sub_price = selectedVariant.attr("data-variant-sub-price"),
     ot_unit_price = selectedVariant.attr("data-unit-price"),
     quantity = qty ? qty : $('#quantity-input').val(),
@@ -365,6 +366,14 @@ $(document).ready(function () {
     $(".product-price .price h5").html(variant__price);
     $(".one__time-bundle-price").text(shopifyCurrencySymbol + ot_total_price);
     $('.ot-price-p-item').text(ot_unit_price + ' per bag');
+console.log('variant__compare_price',variant__compare_price)
+    if(variant__compare_price.length > 0) {
+      var variant__compare_total_price = (parseFloat(variant__compare_price.replace(/[^0-9.-]+/g, "")) * quantity).toFixed(2);
+
+      $(".product-price .price h5").append('<em>'+shopifyCurrencySymbol+variant__compare_total_price+'</em>');
+      console.log(variant__compare_total_price);
+    }
+
     if(variant__sub_price.length > 0) {
       var sub_total_price = (parseFloat(variant__sub_price.replace(/[^0-9.-]+/g, "")) * quantity).toFixed(2);
       var sub_unit_price = selectedVariant.attr("data-sub-unit-price");

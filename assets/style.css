@@ -1141,6 +1141,7 @@ h3 .underline-animation, .h3 .underline-animation{bottom: -1px;}
 
 .product-page-header-content .h4{line-height: 1; margin-bottom: -4px;}
 .price h5, .price-details p, .product-price, .discount-txt .h6, .discount-txt .caption{line-height: 1;}
+.price h5 em {text-decoration: line-through; padding-left: 10px; opacity: .5;}
 .product-options-wrapper{width: 100%;}
 .product-options{gap: 10px;}
 .product__variant-label-btn{background-color: var(--white);border: 1px solid rgba(0, 0, 0, 0.10); padding: 10px 20px; border-radius: 10px; height: 54px; min-width: 92px;}

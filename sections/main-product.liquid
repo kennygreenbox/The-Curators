@@ -101,7 +101,7 @@ End TrustBox widget -->
             </div>
             <div class="flex flex-y-align lg:flex-bottom-align product-price">
               <div class="price">
-                <h5 >{{ product.selected_or_first_available_variant.price | money }}</h5>
+                <h5 >{{ product.selected_or_first_available_variant.price | money }}{% if product.selected_or_first_available_variant.compare_at_price != blank and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price%}<em>{{ product.selected_or_first_available_variant.compare_at_price | money }}</em>{% endif %}</h5>
               </div>
               
               <div class="lead-text price-details margin-left-s">
@@ -156,7 +156,7 @@ End TrustBox widget -->
                                 {% assign sub_unit_price = variant.selling_plan_allocations[0].price | divided_by: unit_qty | money %}
                               {% endif %}
 
-                              <option value="{{ variant.id }}" data-variant-price="{{ variant.price |  money }}" data-variant-sub-price="{% if variant.selling_plan_allocations[0].price != blank%}{{ variant.selling_plan_allocations[0].price | money }}{% endif %}" data-available="{{ variant.available }}" variant-title="{{ variant.title }}" data-unit-price="{% if unit_price != blank %}{{ unit_price }}{% else %}false{% endif %}" data-sub-unit-price="{% if sub_unit_price != blank %}{{ sub_unit_price }}{% else %}false{% endif %}">
+                              <option value="{{ variant.id }}" data-variant-price="{{ variant.price |  money }}" data-variant-compare-at-price="{{ variant.compare_at_price | money }}" data-variant-sub-price="{% if variant.selling_plan_allocations[0].price != blank%}{{ variant.selling_plan_allocations[0].price | money }}{% endif %}" data-available="{{ variant.available }}" variant-title="{{ variant.title }}" data-unit-price="{% if unit_price != blank %}{{ unit_price }}{% else %}false{% endif %}" data-sub-unit-price="{% if sub_unit_price != blank %}{{ sub_unit_price }}{% else %}false{% endif %}">
                                 {{ variant.title }}
                               </option>
                             {% endfor %}
