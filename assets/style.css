@@ -1831,7 +1831,7 @@ object-fit: contain;
     /* ======================= Text Properties End ======================= */
 
 
-    .page-header-visual{position: absolute;right: 0;height: 126%; width: 66%; bottom: 0;}
+    .page-header-visual{position: absolute;right: 0;height: 90%; width: 66%; bottom: 0;}
 
 
     .call-to-action-sml-wrapper .content-wrap{gap: 12px; width: 36%;}
