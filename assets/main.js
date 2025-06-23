@@ -280,7 +280,7 @@ function changeQuantity(input) {
 // });
 
 // function selectedUpdated($this) {
-//     console.log($this); 
+// ($this); 
 
 //     var selectedValue = $($this).val();
 //     console.log("Selected variant ID: " + selectedValue);
@@ -366,7 +366,7 @@ $(document).ready(function () {
     $(".product-price .price h5").html(variant__price);
     $(".one__time-bundle-price").text(shopifyCurrencySymbol + ot_total_price);
     $('.ot-price-p-item').text(ot_unit_price + ' per bag');
-console.log('variant__compare_price',variant__compare_price)
+// console.log('variant__compare_price',variant__compare_price)
     if(variant__compare_price.length > 0) {
       var variant__compare_total_price = (parseFloat(variant__compare_price.replace(/[^0-9.-]+/g, "")) * quantity).toFixed(2);
 
@@ -431,7 +431,8 @@ console.log('variant__compare_price',variant__compare_price)
           findBtn.find("span.btn-txt").text('Sold Out');
         } else {
           findBtn.removeClass("btn__disable");
-          findBtn.find('span.btn-txt').text('Add to Cart');
+          var btnLabel = findBtn.find('span.btn-txt').data('btn-text').length > 0 ? findBtn.find('span.btn-txt').data('btn-text') : 'Add to Cart';
+          findBtn.find('span.btn-txt').text(btnLabel);
         }
         return true;
       }

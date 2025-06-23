@@ -77,7 +77,8 @@ $(document).ready(function() {
         // fin_collectiondBtn.addClass("btn__disable");
       } else{
         findBtn.removeClass("btn__disable");
-        findBtn.find('span.btn-txt').text('Add to Cart');
+         var btnLabel = findBtn.find('span.btn-txt').data('btn-text').length > 0 ? findBtn.find('span.btn-txt').data('btn-text') : 'Add to Cart';
+        findBtn.find('span.btn-txt').text(btnLabel);
         // var fin_collectiondBtn = $(this).closest('.shopify-product-form').find(".add__cart-collection-product");
         // fin_collectiondBtn.removeClass("btn__disable");
       }
