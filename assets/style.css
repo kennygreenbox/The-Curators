@@ -1832,6 +1832,7 @@ object-fit: contain;
 
 
     .page-header-visual{position: absolute;right: 0;height: 90%; width: 66%; bottom: 0;}
+    .page-header-visual .bg-img {overflow: visible;}
 
 
     .call-to-action-sml-wrapper .content-wrap{gap: 12px; width: 36%;}
