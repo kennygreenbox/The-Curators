@@ -936,7 +936,7 @@ body.navShown{overflow-y: hidden}
 .protein-sticker{max-width: 140px; bottom: 28px;}
 
 .font-alt{font-family: var(--font-family-alt); -moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;}
-
+.page-header-content .content-wrap h1 .font-alt{font-size: 70px;}
 /* .multi-font-heading .h1{font-family: var(--font-family); } */
 .multi-font-heading .h1 span{ font-size: 50px; line-height: 85%;}
 .multi-font-heading span.font-alt {font-family: var(--font-family-alt);font-size: 60px; line-height: 80%; }
@@ -2127,7 +2127,7 @@ object-fit: contain;
      .page-header-contained .zig-zag-visual { right: 8.5%;top: -11px;}
      
      /* .page-header-content .content-wrap h1{font-size: 85px;} */
-     .page-header-content .content-wrap h1 .font-alt{font-size: 100px; line-height: 79%;}
+     .page-header-content .content-wrap h1 .font-alt{font-size: 116px; line-height: 79%;}
      .benefit-wrapper .h6{font-size: 20px;}
      .trustpilot-wrapper p{font-size: 18px;}
 
