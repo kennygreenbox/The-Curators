@@ -36,7 +36,7 @@
             "settings": {
               "menu_name": "PROTEIN CHIPS",
               "url": "shopify://collections/protein-chips",
-              "new": true,
+              "new": false,
               "product1": "tangy-cheese-protein-chips-35g",
               "product2": "thai-sweet-chilli-protein-chips-35g",
               "product3": "mixed-protein-chips-20-x-35g",
