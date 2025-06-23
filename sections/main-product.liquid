@@ -108,6 +108,12 @@ End TrustBox widget -->
                 <p>{% unless product.has_only_default_variant %}{{product.selected_or_first_available_variant.title}}{% endunless %}</p>
               </div>
             </div>
+            {% assign custom_message = product.metafields.custom.custom_message %}
+            {% if custom_message != blank %}
+            <div class="custom-message has-turquoise-background br-20x call-to-action-sml-wrapper">
+              {{ custom_message | metafield_tag }}
+            </div>
+            {% endif %}
             <div class="flex flex-y-align product-points">
               <div class="loyalty-lion-price-target" style="display:none;" data-lion-price-for-product-id="{{ product.id }}">{{ product.selected_or_first_available_variant.price | money }}</div>
               <div class="points-block">
@@ -116,12 +122,7 @@ End TrustBox widget -->
             </div>
               <p class="h6"><a href="/pages/rewards">Find out more about our points here.</a></p>
             </div>
-            {% assign custom_message = product.metafields.custom.custom_message %}
-            {% if custom_message != blank %}
-            <div class="custom-message has-turquoise-background br-20x call-to-action-sml-wrapper">
-              {{ custom_message | metafield_tag }}
-            </div>
-            {% endif %}
+            
           
           </div>
           <div class="flex flex-col grid product-options-wrapper border-btm padding-bottom-default">
