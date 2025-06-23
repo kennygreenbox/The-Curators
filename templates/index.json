@@ -39,9 +39,9 @@
       "settings": {
         "image": "shopify://shop_images/homepage_tajin.webp",
         "deco_text": "PROTEIN PACKED",
-        "rest_text": "SUPER SNACKS",
-        "text": "Knock-Out Flavour Meets Power-Packed Nutrition.",
-        "btn_label": "Shop Protein Snacks",
+        "rest_text": "TAJÍN SNACKS",
+        "text": "Are you ready for a Hot Snack Summer?",
+        "btn_label": "PRE ORDER NOW",
         "btn_url": "shopify://collections/all-products"
       }
     },
