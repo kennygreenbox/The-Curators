@@ -25,10 +25,10 @@
               "menu_name": "PORK PUFFS",
               "url": "shopify://collections/pork-puffs",
               "new": false,
-              "product1": "original-salted-pork-puffs-25g-x-20",
-              "product2": "smoky-bacon-pork-puffs-25g-x-20",
-              "product3": "salt-vinegar-pork-puffs-25g-x-20",
-              "product4": "cheese-pork-puffs-23g-x-20"
+              "product1": "tajin-pork-puffs",
+              "product2": "original-salted-pork-puffs-25g-x-20",
+              "product3": "smoky-bacon-pork-puffs-25g-x-20",
+              "product4": "salt-vinegar-pork-puffs-25g-x-20"
             }
           },
           "item_hmkbdT": {
@@ -36,7 +36,7 @@
             "settings": {
               "menu_name": "PROTEIN CHIPS",
               "url": "shopify://collections/protein-chips",
-              "new": true,
+              "new": false,
               "product1": "tangy-cheese-protein-chips-35g",
               "product2": "thai-sweet-chilli-protein-chips-35g",
               "product3": "mixed-protein-chips-20-x-35g",

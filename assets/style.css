@@ -936,7 +936,7 @@ body.navShown{overflow-y: hidden}
 .protein-sticker{max-width: 140px; bottom: 28px;}
 
 .font-alt{font-family: var(--font-family-alt); -moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;}
-
+.page-header-content .content-wrap h1 .font-alt{font-size: 70px;}
 /* .multi-font-heading .h1{font-family: var(--font-family); } */
 .multi-font-heading .h1 span{ font-size: 50px; line-height: 85%;}
 .multi-font-heading span.font-alt {font-family: var(--font-family-alt);font-size: 60px; line-height: 80%; }
@@ -1141,6 +1141,7 @@ h3 .underline-animation, .h3 .underline-animation{bottom: -1px;}
 
 .product-page-header-content .h4{line-height: 1; margin-bottom: -4px;}
 .price h5, .price-details p, .product-price, .discount-txt .h6, .discount-txt .caption{line-height: 1;}
+.price h5 em {text-decoration: line-through; padding-left: 10px; opacity: .5;}
 .product-options-wrapper{width: 100%;}
 .product-options{gap: 10px;}
 .product__variant-label-btn{background-color: var(--white);border: 1px solid rgba(0, 0, 0, 0.10); padding: 10px 20px; border-radius: 10px; height: 54px; min-width: 92px;}
@@ -1830,7 +1831,8 @@ object-fit: contain;
     /* ======================= Text Properties End ======================= */
 
 
-    .page-header-visual{position: absolute;right: 0;height: 126%; width: 66%; bottom: 0;}
+    .page-header-visual{position: absolute;right: 0;height: 90%; width: 66%; bottom: 0;}
+    .page-header-visual .bg-img {overflow: visible;}
 
 
     .call-to-action-sml-wrapper .content-wrap{gap: 12px; width: 36%;}
@@ -2125,7 +2127,7 @@ object-fit: contain;
      .page-header-contained .zig-zag-visual { right: 8.5%;top: -11px;}
      
      /* .page-header-content .content-wrap h1{font-size: 85px;} */
-     .page-header-content .content-wrap h1 .font-alt{font-size: 100px; line-height: 79%;}
+     .page-header-content .content-wrap h1 .font-alt{font-size: 116px; line-height: 79%;}
      .benefit-wrapper .h6{font-size: 20px;}
      .trustpilot-wrapper p{font-size: 18px;}
 

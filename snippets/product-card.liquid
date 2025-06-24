@@ -45,7 +45,7 @@ assign button_label = button_details.button_label
                                                 <div class="button cart__btn button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align margin-top-default-sml lg:margin-top-none showCart add__card-product" data-block="button">
                                                     <span class="button__flair"></span>
                                                     <span class="button__label">
-                                                    <span class="btn-txt">{% if product.available %}{% if enable_button_variation == true and button_label != blank %}{{ button_label }}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT{% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price card__product-price">{{ currrent_variant.price | money }}</span>
+                                                    <span class="btn-txt" data-btn-text="{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}">{% if product.available %}{% if enable_button_variation == true and button_label != blank %}{{ button_label }}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT{% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price card__product-price">{{ currrent_variant.price | money }}</span>
                                                     </span>
                                                 </div>
                                         </div>

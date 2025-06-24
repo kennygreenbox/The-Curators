@@ -101,13 +101,19 @@ End TrustBox widget -->
             </div>
             <div class="flex flex-y-align lg:flex-bottom-align product-price">
               <div class="price">
-                <h5 >{{ product.selected_or_first_available_variant.price | money }}</h5>
+                <h5 >{{ product.selected_or_first_available_variant.price | money }}{% if product.selected_or_first_available_variant.compare_at_price != blank and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price%}<em>{{ product.selected_or_first_available_variant.compare_at_price | money }}</em>{% endif %}</h5>
               </div>
               
               <div class="lead-text price-details margin-left-s">
                 <p>{% unless product.has_only_default_variant %}{{product.selected_or_first_available_variant.title}}{% endunless %}</p>
               </div>
             </div>
+            {% assign custom_message = product.metafields.custom.custom_message %}
+            {% if custom_message != blank %}
+            <div class="custom-message has-turquoise-background br-20x call-to-action-sml-wrapper">
+              {{ custom_message | metafield_tag }}
+            </div>
+            {% endif %}
             <div class="flex flex-y-align product-points">
               <div class="loyalty-lion-price-target" style="display:none;" data-lion-price-for-product-id="{{ product.id }}">{{ product.selected_or_first_available_variant.price | money }}</div>
               <div class="points-block">
@@ -116,12 +122,7 @@ End TrustBox widget -->
             </div>
               <p class="h6"><a href="/pages/rewards">Find out more about our points here.</a></p>
             </div>
-            {% assign custom_message = product.metafields.custom.custom_message %}
-            {% if custom_message != blank %}
-            <div class="custom-message has-turquoise-background br-20x call-to-action-sml-wrapper">
-              {{ custom_message | metafield_tag }}
-            </div>
-            {% endif %}
+            
           
           </div>
           <div class="flex flex-col grid product-options-wrapper border-btm padding-bottom-default">
@@ -156,7 +157,7 @@ End TrustBox widget -->
                                 {% assign sub_unit_price = variant.selling_plan_allocations[0].price | divided_by: unit_qty | money %}
                               {% endif %}
 
-                              <option value="{{ variant.id }}" data-variant-price="{{ variant.price |  money }}" data-variant-sub-price="{% if variant.selling_plan_allocations[0].price != blank%}{{ variant.selling_plan_allocations[0].price | money }}{% endif %}" data-available="{{ variant.available }}" variant-title="{{ variant.title }}" data-unit-price="{% if unit_price != blank %}{{ unit_price }}{% else %}false{% endif %}" data-sub-unit-price="{% if sub_unit_price != blank %}{{ sub_unit_price }}{% else %}false{% endif %}">
+                              <option value="{{ variant.id }}" data-variant-price="{{ variant.price |  money }}" data-variant-compare-at-price="{{ variant.compare_at_price | money }}" data-variant-sub-price="{% if variant.selling_plan_allocations[0].price != blank%}{{ variant.selling_plan_allocations[0].price | money }}{% endif %}" data-available="{{ variant.available }}" variant-title="{{ variant.title }}" data-unit-price="{% if unit_price != blank %}{{ unit_price }}{% else %}false{% endif %}" data-sub-unit-price="{% if sub_unit_price != blank %}{{ sub_unit_price }}{% else %}false{% endif %}">
                                 {{ variant.title }}
                               </option>
                             {% endfor %}
@@ -248,7 +249,7 @@ End TrustBox widget -->
                         <div class="button button--stroke on__time-purchase btn btn-secondary btn-medium flex flex-x-align flex-y-align showCart add__card-product add__to-cart" data-block="button">
                           <span class="button__flair"></span>
                           <span class="button__label">
-                            <span class="btn-txt">{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price product__variant-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+                            <span class="btn-txt" data-btn-text="{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}">{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}</span>&nbsp;-&nbsp;<span class="btn-display-price product__variant-price">{{ product.selected_or_first_available_variant.price | money }}</span>
                           </span>
                         </div> 
                         {% if subtext != blank and enable_button_variation == true %}<span class="caption txt-ctr">{{ subtext }}</span>{% endif %}
