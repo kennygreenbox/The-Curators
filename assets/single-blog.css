@@ -192,8 +192,10 @@ ul li {
 .article-related-btn {
     font-size: 22px;
     padding: 14px 60px;
+    background-color: #000;
+    color: #fff;
 }
-
+ 
 
 .article-related__button.fadeIn.btn-wrap{
     justify-content: center;
