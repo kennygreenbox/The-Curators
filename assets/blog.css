@@ -239,7 +239,7 @@
     /* blog list starts */
 
     .blog-list__inner {
-        padding: 69px 0 164px;
+        padding: 69px 0 0px;
     }
 
     .blog-list__items {
