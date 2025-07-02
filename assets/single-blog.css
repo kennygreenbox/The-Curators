@@ -178,7 +178,9 @@ ul li {
     font-size: 20px;
     line-height: 120%;
     color: var(--black);
-}
+    text-transform: uppercase;
+    font-weight: 700;
+} 
 
 .article-related__button {
     position: absolute;
@@ -188,7 +190,7 @@ ul li {
     width: 100%;
     text-align: center;
 }
-
+ 
 .article-related-btn {
     font-size: 22px;
     padding: 14px 60px;
@@ -297,9 +299,11 @@ ul li {
     }
 
 
+.article-related__item-text h6{
+    font-size: 22px;
+}
 
-
-
+ 
 }
 
 
