@@ -26,7 +26,7 @@
   <div class="page-container common-wrap">
     <div class="blog-list__wrapper">
       <div class="blog-list__items">
-          {% paginate blog.articles by 3 %}
+          {% paginate blog.articles by 9 %}
             {% for article in blog.articles %}
               {% unless article.handle == s.article.handle %}
               <div class="blog-list__item fadeIn">
