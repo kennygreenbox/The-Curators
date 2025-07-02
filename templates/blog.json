@@ -12,13 +12,8 @@
     "main": {
       "type": "main-blog",
       "settings": {
-        "layout": "collage",
-        "show_image": true,
-        "image_height": "medium",
-        "show_date": true,
-        "show_author": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "article": "news/it-is-a-long-established-fact-that-a-reader-will-be-distracted-by-the-readable",
+        "sub_title": "Featured articles"
       }
     }
   },
