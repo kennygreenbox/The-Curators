@@ -46,8 +46,8 @@
 }
 
 .blog-hero__texts-readmore a {
-    font-size: 16px;
-    line-height: 120%;
+    font-size: 20px;
+    line-height: 140%;
     font-weight: 600;
 
 }
@@ -108,8 +108,8 @@
 
 .blog-list__item-duration {
     margin-bottom: 10px;
-    line-height: 120%;
-    font-size: 16px;
+    line-height: 140%;
+    font-size: 20px;
     letter-spacing: 0.16px;
     color: var(--blac);
 }
