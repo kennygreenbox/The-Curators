@@ -937,6 +937,7 @@ body.navShown{overflow-y: hidden}
 
 .font-alt{font-family: var(--font-family-alt); -moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;}
 .page-header-content .content-wrap h1 .font-alt{font-size: 70px;}
+.page-header-content .inline-img {max-height:100px; display: inline;}
 /* .multi-font-heading .h1{font-family: var(--font-family); } */
 .multi-font-heading .h1 span{ font-size: 50px; line-height: 85%;}
 .multi-font-heading span.font-alt {font-family: var(--font-family-alt);font-size: 60px; line-height: 80%; }
@@ -1493,7 +1494,7 @@ object-fit: contain;
 @media only screen and (max-width: 767px) {
   .headroom--not-top.slideup + .main-wrap  .shop-filter-container { top: 0px;}
     input[type="text"],input[type="email"],input[type="tel"],input[type="search"],input[type="number"],input[type="submit"],input[type="password"],select,textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
-
+.page-header-content .inline-img {max-height:70px;}
     /*    Default Layout Start
     -------------------------------------------------------------------------------
     */

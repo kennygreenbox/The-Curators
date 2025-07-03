@@ -1,0 +1,80 @@
+{% assign s = section.settings %}
+<div class="article-related__inner">
+  <div class="common-wrap">
+    <div class="article-related__wrapper">
+
+      {% if s.title != blank %}
+        <div class="article-related__title fadeIn">
+          <h2>{{ s.title }}</h2>
+        </div>
+      {% endif %}
+
+      <div class="article-related__items">
+        {% assign current_handle = article.handle %}
+        {% assign article_count = 0 %}
+
+        {% for related_article in blog.articles %}
+          {% if related_article.handle != current_handle %}
+            {% assign article_count = article_count | plus: 1 %}
+            {% if article_count <= 2 %}
+              <div class="article-related__item fadeIn">
+                <a href="{{ related_article.url }}">
+                  <div class="article-related__item-image">
+                    {% render 'responsive-image', image: related_article.image %}
+                  </div>
+                  <div class="article-related__item-text">
+                    {% assign read__time = related_article.metafields.custom.read_time %}
+                    {%  if read__time != blank %} 
+                      <div class="article-related__item-duration">{{read__time}}</div>
+                     {% endif %} 
+                    <h6>{{ related_article.title }}</h6>
+                  </div>
+                </a>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="article-related__button fadeIn btn-wrap">
+        <a class="article-related-btn button button--stroke btn btn-secondary btn-large" href="{{ blog.url }}" data-block="button">
+            <span class="button__flair"></span>
+            <span class="button__label">All articles</span>
+            </a>
+      </div>
+
+{% comment %} <div class="fadeIn btn-wrap">
+                                    <a href="{{ s.btn_url }}" class="button button--stroke btn-primary btn-large btn" data-block="button">
+                                        <span class="button__flair"></span>
+                                        <span class="button__label">{{ s.btn_label }}</span>
+                                    </a>
+                                </div>   {% endcomment %}
+
+
+
+    </div>
+  </div>
+</div>
+
+
+ 
+{% schema %}
+{
+  "name": "Related Article",
+  "tag": "section",
+  "class": "blog-list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Related Articles"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related article"
+    }
+  ]
+}
+{% endschema %}

@@ -37,9 +37,10 @@
         "item_YX7L97"
       ],
       "settings": {
-        "image": "shopify://shop_images/homepage_tajin_2.webp",
+        "image": "shopify://shop_images/homepage_tajin_3.webp",
         "deco_text": "PROTEIN PACKED",
-        "rest_text": "TAJìN SNACKS",
+        "rest_text": "[image] SNACKS",
+        "image_insert": "shopify://shop_images/Logo_Tajin_white_bg.svg",
         "text": "Are you ready for a Hot Snack Summer?",
         "btn_label": "ORDER NOW",
         "btn_url": "shopify://products/tajin-pork-puffs"

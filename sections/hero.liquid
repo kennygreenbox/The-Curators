@@ -18,13 +18,13 @@
                             
                                 <div class="fadeIn flex flex-col content-wrap">
                                     {% comment %} {{ s.text |  replace: '<h2', '<h2 class="h5"' |  replace: '<strong>', '<span class="pos-relative">' |  replace: '</strong>', '</span>' |  replace: '<em>', '<span class="pos-absolute underline-animation"><img src="{{ 'Underline.svg' |  asset_url}}" alt="">' |  replace: '</em>', '</span>'  }} {% endcomment %}
-
-
-                                    <h1><span class="pos-relative">{{ s.deco_text }}
+                                    {% assign image_insert = s.image_insert %}
+                                    {%- capture image -%}{% render 'responsive-img' with image:image_insert, class:'inline-img' %}{%- endcapture -%}
+                                    <h1><span class="pos-relative">{{ s.deco_text | replace: '[image]', image }}
                                         <span class="pos-absolute underline-animation"><img src="{{'Underline.svg' |  asset_url}}" alt=""></span>
                                         </span>
                                         <br>
-                                        <span class="font-alt">{{ s.rest_text }}</span>
+                                        <span class="font-alt">{{ s.rest_text  | replace: '[image]', image}}</span>
                                     </h1>
                                     <h2 class="h5">{{ s.text }}</h2>
                                 </div>  
@@ -72,6 +72,11 @@
                     "type": "text",
                     "id": "rest_text",
                     "label": "Rest of the text"
+                    },{
+                        "type":"image_picker",
+                        "id": "image_insert",
+                        "label": "Image Insert",
+                        "info": "Use [image] to insert image in the text."
                     },{
                     "type": "text",
                     "id": "text",
