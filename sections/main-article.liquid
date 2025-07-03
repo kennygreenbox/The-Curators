@@ -3,7 +3,7 @@
        <div class="page-container common-wrap">
          <div class="article-hero__wrapper">
            <div class="article-hero__text scroll-animation">
-             <a href="{{ blog.url }}">
+             {% comment %} <a href="{{ blog.url }}"> {% endcomment %}
               {% assign read__time = article.metafields.custom.read_time %}
               {% if read__time != blank %}
                 <div class="article-hero__text-duration">{{ read__time }}</div>
@@ -11,7 +11,7 @@
                <div class="article-hero__text-title fadeIn">
                  <h2> {{ article.title }} </h2>
                </div>
-             </a>
+             {% comment %} </a> {% endcomment %}
            </div>
          </div>
        </div>
