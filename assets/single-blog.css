@@ -20,8 +20,8 @@
 }
 
 .article-hero__text-title h2 {
-    font-size: 32px;
-    line-height: 120%;
+    /* font-size: 32px;
+    line-height: 120%; */
     color: var(--black);
 }
 
@@ -230,12 +230,12 @@ ul li {
     }
 
     .article-hero__text {
-        max-width: 629px;
+        max-width: 900px;
         margin: 0 auto;
     }
 
     .article-hero__text-title h2 {
-        font-size: 40px;
+        /* font-size: 40px; */
     }
 
     .article__inner {
