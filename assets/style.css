@@ -1832,7 +1832,7 @@ object-fit: contain;
     /* ======================= Text Properties End ======================= */
 
 
-    .page-header-visual{position: absolute;right: 0;height: 90%; width: 66%; bottom: 0;}
+    .page-header-visual{position: absolute;right: 0;height: 90%; width: 60%; bottom: 0;}
     .page-header-visual .bg-img {overflow: visible;}
 
 
@@ -2250,7 +2250,9 @@ object-fit: contain;
 }
 
 
-
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .page-header-visual { width: 40%;}
+}
 
 
 
