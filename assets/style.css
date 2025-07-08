@@ -482,7 +482,6 @@ span.btn{display: inline-block;}
   opacity: .4;
   font-style: italic;
   /* font-weight: 400; */
-  font-size: 18px;
 }
 
 .button--stroke:hover .button__label {
