@@ -476,6 +476,15 @@ span.btn{display: inline-block;}
   transition: color 50ms var(--ease-in-out-quart);
 }
 
+.button__label .line-through {
+  text-decoration: line-through;
+  padding-left: 7px;
+  opacity: .4;
+  font-style: italic;
+  /* font-weight: 400; */
+  font-size: 18px;
+}
+
 .button--stroke:hover .button__label {
   transition: color 0.15s var(--ease-in-out-quart);
 }
