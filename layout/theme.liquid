@@ -29,12 +29,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
     {% render 'meta-tags' %}
-
     {{ content_for_header }}
     {% comment %} {{ 'theme.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
     {{ 'slick.css' | asset_url | stylesheet_tag }}
