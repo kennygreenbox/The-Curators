@@ -29,22 +29,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
     {% render 'meta-tags' %}
-<!-- Reddit Pixel -->
-
-<script>
-
-!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_h6nhcwop3fzn');rdt('track', 'PageVisit');
-
-</script>
-
-<!-- DO NOT MODIFY UNLESS TO REPLACE A USER IDENTIFIER -->
-
-<!-- End Reddit Pixel -->
     {{ content_for_header }}
     {% comment %} {{ 'theme.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
     {{ 'slick.css' | asset_url | stylesheet_tag }}
