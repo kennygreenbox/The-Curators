@@ -275,73 +275,31 @@
         "marquee_MKxJRW": {
           "type": "marquee",
           "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
+            "text": "FREE SHIPPING ON ORDERS OVER £35!"
           }
         },
         "marquee_DgyDbM": {
           "type": "marquee",
           "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
+            "text": "FREE SHIPPING ON ORDERS OVER £35!"
           }
         },
         "marquee_8f3tmr": {
           "type": "marquee",
           "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
+            "text": "FREE SHIPPING ON ORDERS OVER £35!"
           }
         },
         "marquee_PPEjmK": {
           "type": "marquee",
           "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
+            "text": "FREE SHIPPING ON ORDERS OVER £35!"
           }
         },
         "marquee_cHWBWj": {
           "type": "marquee",
           "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_hVJrWB": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_kLj6M7": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_pExJkf": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_aNT6zD": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_QY46Q9": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_i7mUeh": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
-          }
-        },
-        "marquee_cg4qcC": {
-          "type": "marquee",
-          "settings": {
-            "text": "MAY MADNESS - FREE SHIPPING ON ALL ORDERS!"
+            "text": "FREE SHIPPING ON ORDERS OVER £35!"
           }
         }
       },
@@ -354,14 +312,7 @@
         "marquee_DgyDbM",
         "marquee_8f3tmr",
         "marquee_PPEjmK",
-        "marquee_cHWBWj",
-        "marquee_hVJrWB",
-        "marquee_kLj6M7",
-        "marquee_pExJkf",
-        "marquee_aNT6zD",
-        "marquee_QY46Q9",
-        "marquee_i7mUeh",
-        "marquee_cg4qcC"
+        "marquee_cHWBWj"
       ],
       "settings": {
         "image": "shopify://shop_images/Untitled_design_90.png",
