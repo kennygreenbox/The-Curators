@@ -232,7 +232,9 @@ cursor: pointer;
 .upsell-slider_disable .slide-item{
   width: calc(100% - 16px) !important;
 }
-
+.article__content img{
+  width: revert-layer;
+}
 
 
 
