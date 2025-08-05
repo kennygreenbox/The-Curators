@@ -19,7 +19,8 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "loyalty_points_text": "<h6><a href=\"/pages/rewards\" title=\"Loyalty Points\">Find out more about our points here.</a></h6>"
       }
     },
     "product_information_pa9aTC": {
