@@ -78,22 +78,29 @@
                     </picture>
                       {% endif %}                    
                       </div>
-                    <div class="collection-banner-content">
-                        {% if banner_img.collection_logo != blank %}
-                            {% render 'smart-image', image: banner_img.collection_logo, image_mob: banner_img.collection_logo, image_class: 'collection-logo lazyload' %}       
-                        {% elsif collection.title != "Products" %}
-                            <h2>{{ collection.title }}</h2> 
-                            {% else %}
-                                <h2>{{ s.collection_title }}</h2>                           
-                        {% endif %}
-                        {% if collection.description != blank %}
-                            <div class="lead-text">
-                                {{ collection.description }}
+                      <div class="collection-banner-content-wrapper">
+                        <div class="collection-banner-content">
+                            {% if banner_img.collection_logo != blank %}
+                                {% render 'smart-image', image: banner_img.collection_logo, image_mob: banner_img.collection_logo, image_class: 'collection-logo lazyload' %}       
+                            {% elsif collection.title != "Products" %}
+                                <h2>{{ collection.title }}</h2> 
+                                {% else %}
+                                    <h2>{{ s.collection_title }}</h2>                           
+                            {% endif %}
+                            {% if collection.description != blank %}
+                                <div class="lead-text">
+                                    {{ collection.description }}
+                                </div>
+                                {% else %}
+                                <div class="lead-text">
+                                    {{ s.collection_text }}
+                                </div>                       
+                            {% endif %}
+                        </div>
+                        {% if banner_img.secondary_badge != blank %}
+                            <div class="secondary-badge"{% if banner_img.secondary_badge_size != blank %}style="max-width: {{ banner_img.secondary_badge_size }}px;"{% endif %}>
+                                {% render 'responsive-img' with image: banner_img.secondary_badge %}
                             </div>
-                            {% else %}
-                            <div class="lead-text">
-                                {{ s.collection_text }}
-                            </div>                       
                         {% endif %}
                     </div>
                 </section>

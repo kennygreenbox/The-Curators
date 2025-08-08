@@ -1422,10 +1422,11 @@ object-fit: contain;
 .collection-banner-img picture, .collection-banner-img img{height: 100%; width: 100%;}
 .banner-overlay:after {position: absolute; content:''; width: 100%; height: 100%; top: 0; left:0;  background: var(--black); opacity: 0; z-index: 1;}
 .collection-logo { margin-bottom: 10px; max-width: 235px;}
+.collection-banner-content-wrapper {width:100%; display:flex; flex-direction: row; align-items: flex-end; justify-content: space-between; }
 .collection-banner-content{max-width: 310px;}
 .shop-products .product-item-container{aspect-ratio: 1 / 1;}
 .shop-products .product-item p{line-height: 140%;}
-
+.secondary-badge{ max-width: 180px;}
 
 .shop-filter h4{line-height: 1;}
 .filter-option ul li{line-height: 1;}
