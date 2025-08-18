@@ -240,6 +240,19 @@
         "text": "<p>We make protein packed super snacks that deliver a double punch of high protein and unbeatable flavour.</p>"
       }
     },
+    "call_top_action_banner_t89dez": {
+      "type": "call-top-action-banner",
+      "name": "Call To Action Banner",
+      "settings": {
+        "box_img": "shopify://shop_images/cheesies-fringe.webp",
+        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
+        "first_text": "OFFICIAL SNACK OF THE EDINBURGH",
+        "deco_text": "FRINGE,",
+        "last_text": "NOT THE FRIDGE",
+        "btn_label": "MEET CHEESIES",
+        "btn_url": "shopify://collections/cheesies"
+      }
+    },
     "benefits_table_DHkVBW": {
       "type": "benefits-table",
       "blocks": {
@@ -653,6 +666,7 @@
     "hero_Jh7JJQ",
     "partner_Re77b3",
     "favourite_products_tTLB7t",
+    "call_top_action_banner_t89dez",
     "benefits_table_DHkVBW",
     "featured_products_Lh4Hba",
     "html_content_8jbyTM",
