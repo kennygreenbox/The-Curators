@@ -240,6 +240,19 @@
         "text": "<p>We make protein packed super snacks that deliver a double punch of high protein and unbeatable flavour.</p>"
       }
     },
+    "call_top_action_banner_t89dez": {
+      "type": "call-top-action-banner",
+      "name": "Call To Action Banner",
+      "settings": {
+        "box_img": "shopify://shop_images/cheesies-fringe.webp",
+        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
+        "first_text": "OFFICIAL SNACK OF THE EDINBURGH",
+        "deco_text": "FRINGE,",
+        "last_text": "NOT THE FRIDGE",
+        "btn_label": "MEET CHEESIES",
+        "btn_url": "shopify://collections/cheesies"
+      }
+    },
     "benefits_table_DHkVBW": {
       "type": "benefits-table",
       "blocks": {
@@ -534,13 +547,11 @@
       "settings": {
         "bg_img": "shopify://shop_images/bg-texture.jpg",
         "text": "<h2>Get MORE from your everyday snacks</h2><h6>We believe in savoury snacking with no compromise between flavour and nutrition, where YOU can easily find tasty A.F. alternatives to your fave classic crisps, supercharged with a big hit of protein to support a balanced diet.<br/></h6>",
-        "box_img": "shopify://shop_images/cheesies_7d75f506-1bb3-4a82-98c8-a3cf4512d105.png",
-        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
-        "first_text": "ARE YOU",
-        "deco_text": "CHEESE",
-        "last_text": "OBSESSED?",
-        "btn_label": "MEET CHEESIES",
-        "btn_url": "shopify://collections/cheesies"
+        "first_text": "",
+        "deco_text": "",
+        "last_text": "",
+        "btn_label": "",
+        "btn_url": ""
       }
     },
     "logo_bar_7YCmkP": {
@@ -653,6 +664,7 @@
     "hero_Jh7JJQ",
     "partner_Re77b3",
     "favourite_products_tTLB7t",
+    "call_top_action_banner_t89dez",
     "benefits_table_DHkVBW",
     "featured_products_Lh4Hba",
     "html_content_8jbyTM",
