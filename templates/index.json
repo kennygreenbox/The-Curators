@@ -39,8 +39,7 @@
       "settings": {
         "image": "shopify://shop_images/homepage_tajin_3.webp",
         "deco_text": "PROTEIN PACKED",
-        "rest_text": "[image] SNACKS",
-        "image_insert": "shopify://shop_images/Logo_Tajin_white_bg.svg",
+        "rest_text": "SUPER SNACKS",
         "text": "PS: GET DOUBLE POINTS ON EVERY PURCHASE THIS MONTH ⚡️",
         "btn_label": "ORDER NOW",
         "btn_url": "shopify://products/tajin-pork-puffs"
