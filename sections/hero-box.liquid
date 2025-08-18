@@ -1,5 +1,10 @@
 {% assign s = section.settings %}
-    <div class="container-inner pos-relative padding-section">
+{% if s.box_img != blank or s.box_bg_img != blank %}
+    {% assign show_cta = true %}
+{% else %}
+    {% assign show_cta = false %}
+{% endif %}
+    <div class="{% if show_cta %}container-inner{% endif %} pos-relative padding-section">
         <div class="padding-y-l ">
             <div class="pos-absolute bg-visual">
                 <figure>
@@ -35,7 +40,7 @@
             </div>
         </div>
     </div>
-    {% if s.box_img != blank or s.box_bg_img != blank %}
+    {% if show_cta %}
         <div class="margin-bottom-m parallax-trigger call-to-action-sml-section">
             <div class="page-container xl-container common-wrap clear">
                 <div class="pos-relative br-30x has-turquoise-background call-to-action-sml-wrapper lg:padding-left-xl lg:padding-right-xl flex-box flex-space-between" >
