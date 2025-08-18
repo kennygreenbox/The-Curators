@@ -1,0 +1,91 @@
+{% liquid
+    assign s = section.settings 
+  
+%}
+
+       <div class="margin-bottom-m parallax-trigger call-to-action-sml-section">
+        <div class="page-container xl-container common-wrap clear">
+            <div class="pos-relative br-30x has-turquoise-background call-to-action-sml-wrapper lg:padding-left-xl lg:padding-right-xl flex-box flex-space-between" >
+                <div class="flex flex-col padding-y-l padding-left-default padding-right-default lg:padding-y-default lg:padding-left-xs lg:padding-right-xs content-wrap">
+                    <h2>{{ s.first_text }} <span class="pos-relative">{{ s.deco_text }}<span class="pos-absolute underline-animation"><img src="{{'underline-med.svg' |  asset_url}}" alt=""></span></span> <br>{{ s.last_text }}</h2>
+                    {% comment %} {{ s.box_text }} {% endcomment %}
+                      {% if s.btn_label != blank %}
+                        <div class="btn-wrap">
+                            <a href="{{ s.btn_url }}" class="button button--stroke btn btn-secondary btn-large" data-block="button">
+                                <span class="button__flair"></span>
+                                <span class="button__label">{{ s.btn_label }}</span>
+                            </a>
+                        </div>
+                        
+                      {% endif %}
+                </div>
+                <div class="pos-absolute bg-visual ">
+                    <div class="parallax-top">
+
+                        {% assign box_bg_img = s.box_bg_img %}
+                        {% if box_bg_img != blank %}
+                        <figure>
+                            {% render 'responsive-image' with image: box_bg_img %}
+                        </figure>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if s.box_img != blank %}
+                    <div class="cta-visual">
+                        <figure>
+                            <img src="{{ s.box_img |  image_url }}" alt="">
+                        </figure>
+                    </div>                    
+                {% endif %}
+                
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+{% schema %}
+    {
+        "name": "Call To Action Banner",
+        "tag": "section",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "box_img",
+            "label": "Box Image"
+            },{
+                "type": "image_picker",
+                "id": "box_bg_img",
+                "label": "Background Image"
+            },{
+            "type": "text",
+            "id": "first_text",
+            "label": "First text"
+            },{
+            "type": "text",
+            "id": "deco_text",
+            "label": "Decoration text"
+            },{
+            "type": "text",
+            "id": "last_text",
+            "label": "Last text"
+            },{
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label"
+            },{
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button URL"
+            }
+        ],
+        "presets": [
+        {
+            "name": "Call To Action Banner"
+        }
+      ]
+    }
+{% endschema %}
+
+
