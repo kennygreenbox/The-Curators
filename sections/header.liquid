@@ -20,7 +20,15 @@
                   <nav class="main-nav desk">                    
                     <ul>
                       {% for link in s.menu.links %}
-                        <li class="padding-y-m {% if link.title contains 'megamenu' %}has-sub-menu-item{% endif %} "><a href="{{ link.url }}">{% if link.title contains 'badge_' %}<span class="upsell-text">{{ link.title |  split: 'badge_' | slice: 1,2 }}</span>{% endif %}{{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}</a>
+                        <li class="padding-y-m {% if link.title contains 'megamenu' %}has-sub-menu-item{% endif %} "><a href="{{ link.url }}">
+                          {% if link.title contains 'badge_' %}
+                            {% assign link_title = link.title |  split: 'badge_' %}
+                            <span class="upsell-text">{{ link_title[1] }}</span>
+                            {{ link_title[0] | remove: 'megamenu' }}</a>
+                          {% else %}
+                            {{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
+                          {% endif %}
+                          </a>
                           {% if link.title contains 'megamenu' %}
                             <ul class="page-container sub-menu">
                                 <div class="padding-bottom-default-sml sub-menu-wrapper">
@@ -132,11 +140,27 @@
                     <ul class="flex flex-col">
                       {% for link in s.menu_mobi.links %}
                         
-                        <li class="{% if link.links.size > 0 %}has-sub-menu-item{% endif %}"><a href="{{ link.url }}">{{ link.title |  remove: 'badge_NEW'  }}{% if link.title contains 'badge_' %}<span class="upsell-text">{{ link.title |  split: 'badge_' | slice: 1,2 }}</span>{% endif %}</a>                                    
+                        <li class="{% if link.links.size > 0 %}has-sub-menu-item{% endif %}"><a href="{{ link.url }}">
+                          {% if link.title contains 'badge_' %}
+                            {% assign link_title = link.title | split: 'badge_' %}
+                            {{ link_title[0] | remove: 'megamenu' }}
+                            <span class="upsell-text">{{ link_title[1] }}</span>
+                          {% else %}
+                            {{ link.title }}
+                          {% endif %}
+                         </a>                                    
                                     {% if  link.links.size > 0 %}                                      
                                       <ul class="sub-menu">
                                         {% for child_link in link.links %}
-                                          <li><a href="{{ child_link.url }}">{{ child_link.title |  remove: 'badge_NEW'  }}{% if child_link.title contains 'badge_' %}<span class="upsell-text">{{ child_link.title |  split: 'badge_' | slice: 1,2 }}</span>{% endif %} </a></li>                                          
+                                          <li><a href="{{ child_link.url }}">
+                                            {% if child_link.title contains 'badge_' %}
+                                              {% assign child_link_title = child_link.title | split: 'badge_' %}
+                                              {{ child_link_title[0] | remove: 'megamenu' }}
+                                              <span class="upsell-text">{{ child_link_title[1] }}</span>
+                                            {% else %}
+                                              {{ child_link.title }}
+                                            {% endif %}
+                                          </a></li>                                          
                                         {% endfor %}
                                       </ul>
                                     {% endif %}
@@ -170,7 +194,15 @@
                         <ul>     
                           <!-- <li class="padding-y-m"><a href="/pages/rewards"><span class="upsell-text">NEW</span>Rewards</a></li>   -->
                           {% for link in s.menu_r.links %}                            
-                            <li class="padding-y-m"><a href="{{ link.url }}">{% if link.title contains 'badge_' %}<span class="upsell-text">{{ link.title |  split: 'badge_' | slice: 1,2 }}</span>{% endif %}{{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}</a></li>
+                            <li class="padding-y-m"><a href="{{ link.url }}">
+                              {% if link.title contains 'badge_' %}
+                                {% assign link_title = link.title | split: 'badge_' %}
+                                <span class="upsell-text">{{ link_title[1] }}</span>
+                                {{ link_title[0] | remove: 'megamenu' }}
+                              {% else %}
+                                {{ link.title | remove: 'megamenu' }}
+                              {% endif %}
+                            </a></li>
                           {% endfor %}               
                         </ul>
                     {% endif %}
@@ -209,7 +241,7 @@
       </li>
     {% endfor %}
   </ul> {% endcomment %}
-
+                    
 
 
 <script type="application/ld+json">
