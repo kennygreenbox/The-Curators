@@ -1,0 +1,179 @@
+{% if section.settings.collection != blank %}
+  {% assign coll = collections[section.settings.collection] %}
+  {% if coll and coll.products_count > 0 %}
+    <div class="more-collection__inner">
+      <div class="page-container common-wrap">
+        <div class="more-collection__wrapper">
+          <div class="more-collection__headding">
+            <h2>{{ section.settings.heading }}</h2>
+          </div>
+
+          <div class="more-collection__wrap">
+            {%- for product in coll.products limit: section.settings.products_limit -%}
+              {% assign first_variant = product.variants.first %}
+              <div class="flex flex-col product-item">
+                <a href="{{ product.url }}" class="pos-relative br-10x flex flex-bottom-align product-item-container">
+
+                  <div class="flex-box badge-wrapper">
+                    {%- if product.compare_at_price_max > product.price -%}
+                      <div class="product-item__badge product-item__badge_color-black">
+                        SAVE
+                        {{
+                          product.compare_at_price_max
+                          | minus: product.price
+                          | times: 100
+                          | divided_by: product.compare_at_price_max
+                          | round
+                        }}%
+                      </div>
+                    {%- endif -%}
+
+                    {%- if product.metafields.custom.top_badges and product.metafields.custom.top_badges.value != blank -%}
+                      {%- for badge_text in product.metafields.custom.top_badges.value -%}
+                        <div class="product-item__badge product-item__badge_color-white">
+                          {{ badge_text }}
+                        </div>
+                      {%- endfor -%}
+                    {%- endif -%}
+                  </div>
+
+                  <div class="pos-absolute bg-visual product-img">
+                    <figure>
+                      {% if product.featured_image %}
+                        <img
+                          src="{{ product.featured_image | image_url: width: 600 }}"
+                          alt="{{ product.featured_image.alt | escape }}"
+                          class="bg-img"
+                          loading="lazy">
+                      {% endif %}
+                    </figure>
+                  </div>
+                </a>
+
+                <div class="padding-top-m card-content">
+                  <div class="flex flex-col grid-default-sml card-footer">
+                    <h5>{{ product.title }}</h5>
+
+                    {% comment %} <div class="product-item__star-wrap">
+                      <div class="product-item__star">
+                        <img src="{{ 'star.svg' | asset_url }}" alt="Rating" loading="lazy">
+                      </div>
+                      <div class="product-item__star-text">
+                        {{ product.metafields.reviews.count | default: 'No reviews' }}
+                      </div>
+                    </div> {% endcomment %}
+
+                    {% if product.metafields.custom.description != blank %}
+                      {{ product.metafields.custom.description |  metafield_tag }}
+                    {% endif %}
+
+                    {% assign current_variant = product.selected_or_first_available_variant %}
+                    {% if current_variant.metafields.custom.variant_unit_quantity != blank %}
+                        {% assign unit_qty = current_variant.metafields.custom.variant_unit_quantity | times: 1.0 %}
+                        {% else %}
+                        {% assign unit_qty = 1 %}
+                    {% endif %}
+                    
+                    {% assign price_per_unit = current_variant.price | divided_by: unit_qty %}
+
+                    <div class="product-item__price-wrap">
+                      <div class="product-item__price">
+                        {% if current_variant.compare_at_price_max > current_variant.price %}
+                          <del>{{ current_variant.compare_at_price_max | money }}</del>
+                        {% endif %}
+                        {{ current_variant.price | money }}
+                      </div>
+
+                      
+                      {% if current_variant.metafields.custom.variant_unit_quantity != blank %}
+                        <div class="product-item__price-badge">
+                          {{price_per_unit | money}} {{ section.settings.price_badge_text }}
+                        </div>
+                      {% endif %}
+                    </div>
+
+                    {% form 'product', product, class: 'shopify-product-form' %}
+                                    {% comment %} <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> 
+                                     {% endcomment %}
+                        <div class="flex-box flex-col lg:flex-row lg:flex-no flex-space-between btn-wrap grid-default-sml">
+                                <div class="dropdown product_options">
+                                    <select class="cart__product-select" name="id">
+                                    {% for variant in product.variants %}
+                                        <option data-quantity-available="{{ variant.available }}" 
+                                        data-quantity-price="{{ variant.price |  money }}"  
+                                        value="{{ variant.id }}"
+                                    {% if currrent_variant.id == variant.id %}selected="selected"{% endif %}>{{ variant.title }}</option>                                                        
+                                    {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="button cart__btn button--stroke btn btn-secondary btn-medium flex flex-x-align flex-y-align margin-top-default-sml lg:margin-top-none showCart add__card-product" data-block="button">
+                                    <span class="button__flair"></span>
+                                    <span class="button__label">
+                                    <span class="btn-txt" data-btn-text="{% if product.available %}{% if button_details != blank and enable_button_variation == true %}{{button_label}}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT {% endif %}">{% if product.available %}{% if enable_button_variation == true and button_label != blank %}{{ button_label }}{% else %}Add to Cart{% endif %}{% else %}SOLD OUT{% endif %}</span>
+                                    </span>
+                                </div>
+                        </div>
+                    {% endform %}  
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "More collection",
+  "tag": "section",
+  "class": "more-collection",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MORE BLACK <br> FRIDAY DEALS"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Number of products",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price_badge",
+      "label": "Show price badge (per bag)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "price_badge_text",
+      "label": "Price badge text",
+      "default": "per bag"
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to cart text",
+      "default": "Add to Cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "More collection"
+    }
+  ]
+}
+{% endschema %}

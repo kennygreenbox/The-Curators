@@ -58,6 +58,24 @@ $(document).on("click", ".add__cart-collection-product", function (e) {
     });
 });
 
+$(document).on("click", ".deal-add-to-cart", function (e) {
+    e.preventDefault();
+  
+    var formData = $('.deal-form').serialize();
+    $.ajax({
+        type: "POST",
+        url: "/cart/add.js",
+        dataType: "json",
+        data: formData,
+        success: function (data) {
+            rendering();
+            $("body").addClass("cartShown cartPopulated");
+        },
+        error: function (err) {
+        },
+    });
+});
+
 
 
 
@@ -87,6 +105,35 @@ $(document).ready(function() {
       
     });
   });
+
+
+
+  $(function () {
+    const $dropdown = $('#new-collection__dropdown');
+    const $selected = $('#selected');
+    const $btn = $dropdown.find('.new-collection__dropdown__btn');
+    const $items = $dropdown.find('.new-collection__dropdown__menu li');
+
+    $btn.on('click', function (e) {
+        e.stopPropagation();
+        $dropdown.toggleClass('active');
+    });
+
+    $items.on('click', function (e) {
+        e.stopPropagation();
+        $selected.text($(this).text());
+        $dropdown.removeClass('active');
+    });
+
+    $(window).on('click', function (e) {
+        if (!$(e.target).closest($dropdown).length) {
+            $dropdown.removeClass('active');
+        }
+    });
+});
+
+
+
   
 
 

@@ -1,0 +1,217 @@
+{% if section.settings.product != blank %}
+  {% assign product = all_products[section.settings.product] %}
+  {% if product %}
+    <div class="new-collection__inner">
+      <div class="page-container common-wrap">
+        <div class="new-collection__wrapper">
+          <div class="new-collection__img">
+            {% if product.featured_image %}
+              <img
+                src="{{ product.featured_image | image_url }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy">
+            {% endif %}
+          </div>
+
+          <div class="new-collection__text">
+            <div class="new__collection-badge">
+              {% if section.settings.flavour_text != blank %}
+                <div class="new__collection-flavour">
+                  <img src="{{ 'new-collection-star.svg' | asset_url }}" alt="" loading="lazy"> {{ section.settings.flavour_text }}
+                </div>
+              {% endif %}
+              
+              {% if section.settings.show_daily_deal %}
+                <div class="new__collection-daily-deal">
+                  {{ section.settings.daily_deal_text }}
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="new-collection__title">
+              <h2>{{product.title}}</h2>
+              {{ product.metafields.custom.description |  metafield_tag }}
+            </div>
+
+            <div class="new-collection__info-wrap">
+              {%- if product.metafields.custom.badge and product.metafields.custom.badge.value != blank -%}
+                {%- for b in product.metafields.custom.badge.value -%}
+                  <div class="new-collection__info-item">
+                    {% assign badge = b.text | metafield_tag | split: '</p>' %}
+                    <h5>{{badge[0] | strip_html}}</h5>
+                    <p>{{badge[1] | strip_html}}</p>
+                  </div>
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+
+            {% assign first_variant = product.selected_or_first_available_variant %}
+            <div class="new-collection__progress-wrap">
+              <div class="new-collection__price-wrap">
+                <div class="new-collection__price">
+                  <del>{{ first_variant.compare_at_price | money }}</del>
+                  <h4>
+                    {%- if first_variant -%}
+                      {{ first_variant.price | money }}
+                    {%- endif -%}
+                  </h4>
+                </div>
+
+                
+                {% if first_variant.metafields.custom.variant_unit_quantity != blank %}
+                    {% assign unit_qty = first_variant.metafields.custom.variant_unit_quantity | times: 1.0 %}
+                    {% else %}
+                    {% assign unit_qty = 1 %}
+                {% endif %}
+                {% assign price_per_unit = first_variant.price | divided_by: unit_qty %}
+
+                <div class="new-collection__permeal">
+                  <p>{{price_per_unit | money}} {{ section.settings.per_unit_text }}</p>
+                </div>
+              </div>
+
+              <div class="new-collection__progress">
+                <div class="new-collection-progress-title">
+                  <p>{{ section.settings.stock_label }} <em>{{ section.settings.stock_left }}</em></p>
+                </div>
+                <div class="new-collection-progress-bars">
+                  <div class="new-collection-progress-bar" style="width: {{ section.settings.stock_progress | default: 50 }}%;"></div>
+                </div>
+              </div>
+
+              <div class="new-collection__btn-wrap">
+                <div class="new-collection__dropdown" id="new-collection__dropdown"
+                     data-product-id="{{ product.id }}">
+                  <div class="new-collection__dropdown__btn">
+                    <p id="selected">
+                      {%- if first_variant -%}{{ first_variant.title }}{%- endif -%}
+                    </p>
+                  </div>
+                  <ul class="new-collection__dropdown__menu">
+                    {%- for v in product.variants -%}
+                      <li class="var-class" data-value="{{ v.id }}" data-price="{{ v.price | money }}">{{ v.title }}</li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+
+                <div class="new-collection__addtocart-btn">
+                  <a href="#"
+                     class="button button--stroke btn btn-secondary btn-medium deal-add-to-cart"
+                     data-block="button"
+                     data-product-handle="{{ product.handle }}"
+                     data-variant-id="{% if first_variant %}{{ first_variant.id }}{% endif %}">
+                    <span class="button__flair"></span>
+                    <span class="button__label">
+                        <span class="btn-txt" data-btn-text="{% if product.available %}Add to Cart{% else %}SOLD OUT {% endif %}">{% if product.available %}Add to Cart - {{first_variant.price | money}}{% else %}SOLD OUT{% endif %}</span>
+                    </span>
+                    
+                  </a>
+                </div>
+              </div>
+              {% form 'product', product, class:'deal-form' %}
+                <input type="hidden" name="id" value="{{ first_variant.id }}">
+              {% endform %}
+
+              <div class="new-collection__free-shiping">
+                <p>{{ section.settings.shipping_note }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% comment %} <div class="new-collection__deal-times">
+          <div class="new-collection-deal-left">
+            <p>{{ section.settings.deal_left_text }}</p>
+          </div>
+          <div class="new-collection-deal-time">
+            <img src="{{ 'black-watch.svg' | asset_url }}" alt="" class="new-collection__deal-watch-icon" loading="lazy">
+            <div class="new-collection__deal-timedigit">
+              <p>{{ section.settings.deal_time_text }}</p>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product deal",
+  "tag": "section",
+  "class": "new-collection",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "flavour_text",
+      "label": "Flavour badge text",
+      "default": "NEW FLAVOUR"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_daily_deal",
+      "label": "Show daily deal badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "daily_deal_text",
+      "label": "Daily deal text",
+      "default": "DAILY DEAL"
+    },
+    {
+      "type": "text",
+      "id": "per_unit_text",
+      "label": "Per-unit text",
+      "default": "£1.47 per bag"
+    },
+    {
+      "type": "text",
+      "id": "stock_label",
+      "label": "Stock label",
+      "default": "Limited Stock Remaining"
+    },
+    {
+      "type": "text",
+      "id": "stock_left",
+      "label": "Stock left",
+      "default": "11 left"
+    },
+    {
+      "type": "range",
+      "id": "stock_progress",
+      "label": "Progress bar %",
+      "min": 0, "max": 100, "step": 1,
+      "default": 65
+    },
+    {
+      "type": "text",
+      "id": "add_to_cart_label",
+      "label": "Add to cart label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "shipping_note",
+      "label": "Shipping note",
+      "default": "30-day money-back guarantee • Free shipping over £30"
+    },
+    {
+      "type": "text",
+      "id": "deal_left_text",
+      "label": "Deal left text",
+      "default": "New daily deal drops tomorrow"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product deal"
+    }
+  ]
+}
+{% endschema %}

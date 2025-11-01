@@ -1,0 +1,121 @@
+
+
+
+  <div class="landing-hero__inner">
+    <div class="landing-hero__wrapper">
+      <div class="page-container common-wrap">
+        <div class="landing-hero__content">
+          <div class="landing-hero__times-wrap"
+               {% if section.settings.end_date != blank and section.settings.end_time != blank %}
+                 data-end-date="{{ section.settings.end_date | escape }}"
+                 data-end-time="{{ section.settings.end_time | escape }}"
+               {% endif %}>
+            <img src="{{ 'clock.svg' | asset_url }}" alt="Countdown clock icon" loading="lazy">
+            <p>Ends in: <span class="countdown-text">02h 14m</span></p>
+          </div>
+
+          <div class="landing-hero__title">
+            {{ section.settings.text_block }}
+          </div>
+
+          <div class="landing-hero__btn">
+            <a class="button button--stroke btn btn-secondary btn-large" 
+            href="{{ section.settings.button_link | default: '#' }}" data-block="button">
+              <span class="button__flair"></span>
+              <span class="button__label">{{ section.settings.button_label }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const wrap = document.querySelector('.landing-hero__times-wrap');
+  if (!wrap) return;
+
+  const span = wrap.querySelector('.countdown-text');
+  const endDate = wrap.getAttribute('data-end-date');
+  const endTime = wrap.getAttribute('data-end-time');
+  if (!endDate || !endTime) return;
+
+  const iso = `${endDate}T${endTime.length === 5 ? endTime + ':00' : endTime}`;
+  const target = new Date(iso);
+  if (isNaN(target)) return;
+
+  function pad(n){ return n < 10 ? '0' + n : n; }
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = target.getTime() - now;
+
+    if (diff <= 0) {
+      span.textContent = '00h 00m';
+      clearInterval(interval);
+      return;
+    }
+
+    const dayMs = 24 * 60 * 60 * 1000;
+    const hrMs  = 60 * 60 * 1000;
+    const minMs = 60 * 1000;
+
+    const days = Math.floor(diff / dayMs);
+    const hours = Math.floor((diff % dayMs) / hrMs);
+    const minutes = Math.floor((diff % hrMs) / minMs);
+
+    if (days > 0) {
+      span.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m`;
+    } else {
+      span.textContent = `${pad(hours)}h ${pad(minutes)}m`;
+    }
+  }
+
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Landing hero",
+  "tag": "section",
+  "class": "landing-hero",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text_block",
+      "label": "Title & subtitle block",
+      "default": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED <br> PRODUCTS</p>"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End date (YYYY-MM-DD)",
+      "default": "2025-11-30"
+    },
+    {
+      "type": "text",
+      "id": "end_time",
+      "label": "End time (HH:MM or HH:MM:SS, 24h)",
+      "default": "23:59"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop All Deals"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing hero"
+    }
+  ]
+}
+{% endschema %}

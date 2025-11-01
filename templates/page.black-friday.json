@@ -1,15 +1,77 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "black_hero_dg6DHC": {
+      "type": "black-hero",
+      "name": "Landing hero",
+      "settings": {
+        "text_block": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+        "end_date": "2025-11-30",
+        "end_time": "23:59",
+        "button_label": "Shop All Deals",
+        "button_link": ""
+      }
+    },
+    "product_deal_BHAn4F": {
+      "type": "product-deal",
+      "name": "Product deal",
+      "settings": {
+        "product": "the-taster-box",
+        "flavour_text": "MONTHLY DEAL",
+        "show_daily_deal": false,
+        "daily_deal_text": "DAILY DEAL",
+        "per_unit_text": "per bag",
+        "stock_label": "Limited Stock Remaining",
+        "stock_left": "11 left",
+        "stock_progress": 40,
+        "add_to_cart_label": "Add to cart",
+        "shipping_note": "30-day money-back guarantee •  Free shipping",
+        "deal_left_text": "New daily deal drops tomorrow"
+      }
+    },
+    "collection_deal_JEDhPM": {
+      "type": "collection-deal",
+      "name": "More collection",
+      "settings": {
+        "collection": "black-friday",
+        "heading": "THIS WEEKS DEALS, CHECK IN NEXT WEEK FOR MORE DEALS",
+        "products_limit": 20,
+        "show_price_badge": true,
+        "price_badge_text": "per bag",
+        "add_to_cart_text": "Add to Cart"
+      }
+    },
+    "html_content_U9LBpk": {
+      "type": "html-content",
+      "name": "HTML Content",
+      "settings": {
+        "heading": "<h2>WHAT THEY'RE SAYING ABOUT US</h2>",
+        "text": "",
+        "html": "<!-- TrustBox widget - Slider --><div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"240px\" data-style-width=\"100%\" data-stars=\"4,5\" data-review-languages=\"en\" data-text-color=\"#000000\">  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div><!-- End TrustBox widget -->"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "black_hero_dg6DHC",
+    "product_deal_BHAn4F",
+    "collection_deal_JEDhPM",
+    "html_content_U9LBpk"
   ]
 }
