@@ -28,7 +28,7 @@
                             {{ link_title[0] | remove: 'megamenu' }}</a>
                           {% else %}
                           {% if link_title_1 contains 'black_friday' %}
-                            🔥{{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
+                            🔥{{ link.title }}
                             {% else %}
                               {{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
                           {% endif %}
