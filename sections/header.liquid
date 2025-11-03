@@ -20,13 +20,19 @@
                   <nav class="main-nav desk">                    
                     <ul>
                       {% for link in s.menu.links %}
+                        {% assign link_title = link.title | handleize %}
                         <li class="padding-y-m {% if link.title contains 'megamenu' %}has-sub-menu-item{% endif %} "><a href="{{ link.url }}">
                           {% if link.title contains 'badge_' %}
                             {% assign link_title = link.title |  split: 'badge_' %}
                             <span class="upsell-text">{{ link_title[1] }}</span>
                             {{ link_title[0] | remove: 'megamenu' }}</a>
                           {% else %}
-                            {{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
+                          {% if link_title contains 'black_friday' %}
+                            🔥{{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
+                            {% else %}
+                              {{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
+                          {% endif %}
+                            
                           {% endif %}
                           </a>
                           {% if link.title contains 'megamenu' %}
