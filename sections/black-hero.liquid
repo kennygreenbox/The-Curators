@@ -18,13 +18,13 @@
             {{ section.settings.text_block }}
           </div>
 
-          <div class="landing-hero__btn">
+          {% comment %} <div class="landing-hero__btn">
             <a class="button button--stroke btn btn-secondary btn-large" 
             href="{{ section.settings.button_link | default: '#' }}" data-block="button">
               <span class="button__flair"></span>
               <span class="button__label">{{ section.settings.button_label }}</span>
             </a>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
     </div>
