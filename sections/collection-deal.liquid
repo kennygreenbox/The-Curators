@@ -81,8 +81,8 @@
 
                     <div class="product-item__price-wrap">
                       <div class="product-item__price">
-                        {% if current_variant.compare_at_price_max > current_variant.price %}
-                          <del>{{ current_variant.compare_at_price_max | money }}</del>
+                        {% if current_variant.compare_at_price > current_variant.price %}
+                          <del>{{ current_variant.compare_at_price | money }}</del>
                         {% endif %}
                         {{ current_variant.price | money }}
                       </div>
