@@ -27,7 +27,7 @@
                             <span class="upsell-text">{{ link_title[1] }}</span>
                             {{ link_title[0] | remove: 'megamenu' }}</a>
                           {% else %}
-                          {% if link_title_1 contains 'black_friday' %}
+                          {% if link_title_1 contains 'black-friday' %}
                             🔥{{ link.title }}
                             {% else %}
                               {{ link.title |  remove: 'badge_NEW' |  remove: 'megamenu'   }}
