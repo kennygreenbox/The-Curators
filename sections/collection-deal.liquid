@@ -13,9 +13,8 @@
               {% assign first_variant = product.variants.first %}
               <div class="flex flex-col product-item">
                 <a href="{{ product.url }}" class="pos-relative br-10x flex flex-bottom-align product-item-container">
-
-                  <div class="flex-box badge-wrapper">
-                    {%- if product.compare_at_price_max > product.price -%}
+                    <div class="new-badges">
+                      {%- if product.compare_at_price_max > product.price -%}
                       <div class="product-item__badge product-item__badge_color-black">
                         SAVE
                         {{
@@ -27,7 +26,7 @@
                         }}%
                       </div>
                     {%- endif -%}
-
+                    
                     {%- if product.metafields.custom.top_badges and product.metafields.custom.top_badges.value != blank -%}
                       {%- for badge_text in product.metafields.custom.top_badges.value -%}
                         <div class="product-item__badge product-item__badge_color-white">
@@ -35,6 +34,10 @@
                         </div>
                       {%- endfor -%}
                     {%- endif -%}
+                    </div>
+
+                  <div class="flex-box badge-wrapper">
+                    
                   </div>
 
                   <div class="pos-absolute bg-visual product-img">

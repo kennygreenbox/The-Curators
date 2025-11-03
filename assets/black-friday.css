@@ -635,10 +635,24 @@
 .template-black-friday .landing-hero{
     margin-top: 72px;
 }
-
+.new-badges {
+    position: absolute;
+    z-index: 9;
+    left: 15px;
+    top: 15px;
+    display: flex;
+    gap: 0 5px;
+}
 
 
 /* ---------------MOBILE END-------------- */
+
+
+
+
+
+
+
 
 
 
