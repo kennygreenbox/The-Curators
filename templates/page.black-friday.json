@@ -25,7 +25,7 @@
         "end_date": "2025-11-30",
         "end_time": "23:59",
         "button_label": "Shop All Deals",
-        "button_link": ""
+        "button_link": "shopify://collections/all-products"
       }
     },
     "product_deal_BHAn4F": {
