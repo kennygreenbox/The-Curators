@@ -66,26 +66,13 @@
               "product3": "gouda-cheesies",
               "product4": "red-leicester-cheesies"
             }
-          },
-          "item_mNwx4r": {
-            "type": "item",
-            "settings": {
-              "menu_name": "Packs & Bundles",
-              "url": "shopify://collections/bundles",
-              "new": false,
-              "product1": "",
-              "product2": "",
-              "product3": "",
-              "product4": ""
-            }
           }
         },
         "block_order": [
           "item_HF7iTL",
           "item_hmkbdT",
           "item_zGUHdQ",
-          "item_iA7RWm",
-          "item_mNwx4r"
+          "item_iA7RWm"
         ],
         "settings": {
           "logo_animation": "https://cdn.shopify.com/s/files/1/0859/1265/0061/files/data_b9d48530-64c3-488c-8e25-d4cf0494da71.json?v=1734423701",
@@ -94,7 +81,9 @@
           "menu_r": "menu-right",
           "menu_mobi": "mobile-menu",
           "mega_btn_label": "Shop all",
-          "mega_btn_url": "shopify://collections/all-products"
+          "mega_btn_url": "shopify://collections/all-products",
+          "btn_label": "Packs & Bundles",
+          "btn_url": "shopify://collections/bundles"
         }
       },
       "footer": {
