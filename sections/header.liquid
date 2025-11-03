@@ -41,6 +41,9 @@
                                       {% if s.mega_btn_label != blank %}
                                         <li class="mega-menu-link"><a href="{{ s.mega_btn_url }}">{{ s.mega_btn_label }}</a></li>                                        
                                       {% endif %}
+                                      {% if s.btn_label != blank %}
+                                        <li class="mega-menu-link"><a href="{{ s.s.btn_url }}">{{ s.btn_label }}</a></li> 
+                                      {% endif %}
                                     </div>	
                                     <ul class="grid-eight menu-column pos-relative ">	
                                       {% for block in section.blocks %}
@@ -323,6 +326,16 @@
         "type": "url",
         "id": "mega_btn_url",
         "label": "Mega Menu Button URL"
+      }, 
+      {
+        "type": "text",
+        "id": "btn_label",
+        "label": "Last link Label"
+      }, 
+      {
+        "type": "url",
+        "id": "btn_url",
+        "label": "Last link URL"
       }
     ],"blocks": [
   {
