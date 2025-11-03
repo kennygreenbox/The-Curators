@@ -112,7 +112,31 @@
                         {% assign grid_card = product.metafields.custom.grid_card.value %}
                         <div class="flex flex-col product-item">
                             <a href="{{ product.url }}" class="pos-relative br-10x flex flex-bottom-align product-item-container">
-                                <div class="flex-box badge-wrapper">
+                            
+                            <div class="new-badges">
+                                {%- if product.compare_at_price_max > product.price -%}
+                                <div class="product-item__badge product-item__badge_color-black">
+                                SAVE
+                                {{
+                                    product.compare_at_price_max
+                                    | minus: product.price
+                                    | times: 100
+                                    | divided_by: product.compare_at_price_max
+                                    | round
+                                }}%
+                                </div>
+                            {%- endif -%}
+                            
+                            {%- if product.metafields.custom.top_badges and product.metafields.custom.top_badges.value != blank -%}
+                                {%- for badge_text in product.metafields.custom.top_badges.value -%}
+                                <div class="product-item__badge product-item__badge_color-white">
+                                    {{ badge_text }}
+                                </div>
+                                {%- endfor -%}
+                            {%- endif -%}
+                            </div>
+                            
+                            <div class="flex-box badge-wrapper">
                                 {% if grid_card.badges.value != blank %}
                                     {% for item in grid_card.badges.value %}
                                         <div class="badge">
