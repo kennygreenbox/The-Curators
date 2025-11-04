@@ -38,8 +38,8 @@
         "daily_deal_text": "DAILY DEAL",
         "per_unit_text": "per bag",
         "stock_label": "Limited Stock Remaining",
-        "stock_left": "11 left",
-        "stock_progress": 40,
+        "stock_left": "0 left",
+        "stock_progress": 0,
         "add_to_cart_label": "Add to cart",
         "shipping_note": "30-day money-back guarantee •  Free shipping",
         "deal_left_text": "New daily deal drops tomorrow"
