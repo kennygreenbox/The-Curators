@@ -643,6 +643,9 @@
     display: flex;
     gap: 0 5px;
 }
+.hero-btn-wrap{
+    justify-content: center;
+}
 
 
 /* ---------------MOBILE END-------------- */
