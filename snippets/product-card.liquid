@@ -8,14 +8,15 @@ assign button_label = button_details.button_label
     <a href="{{ product.url }}" class="pos-relative br-10x flex flex-bottom-align product-item-container">
     
     <div class="new-badges">
-        {%- if product.compare_at_price_max > product.price -%}
+        {% assign cur_var = product.selected_or_first_available_variant %}
+        {%- if cur_var.compare_at_price > cur_var.price -%}
         <div class="product-item__badge product-item__badge_color-black">
         SAVE
         {{
-            product.compare_at_price_max
-            | minus: product.price
+            cur_var.compare_at_price
+            | minus: cur_var.price
             | times: 100
-            | divided_by: product.compare_at_price_max
+            | divided_by: cur_var.compare_at_price
             | round
         }}%
         </div>
