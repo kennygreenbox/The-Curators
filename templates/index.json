@@ -38,11 +38,11 @@
       ],
       "settings": {
         "image": "shopify://shop_images/TC_Website_Image_Nov25.png",
-        "deco_text": "BLACK FRIDAY",
-        "rest_text": "IS HERE!",
-        "text": "UP TO 25% OFF!",
-        "btn_label": "SHOP DEALS",
-        "btn_url": "shopify://pages/black-friday"
+        "deco_text": "PROTEIN PACKED",
+        "rest_text": "SUPER SNACKS",
+        "text": "Knock-Out Flavour Meets Power-Packed Nutrition.",
+        "btn_label": "SHOP NOW",
+        "btn_url": "shopify://collections/all-products"
       }
     },
     "partner_Re77b3": {
