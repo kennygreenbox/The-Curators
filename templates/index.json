@@ -38,11 +38,11 @@
       ],
       "settings": {
         "image": "shopify://shop_images/TC_Website_Image_Nov25.png",
-        "deco_text": "PROTEIN PACKED",
-        "rest_text": "SUPER SNACKS",
-        "text": "Knock-Out Flavour Meets Protein-Packed Nutrition",
+        "deco_text": "SAVE NOW ON CHEESIES",
+        "rest_text": "LARGE VARIETY PACK",
+        "text": "It's 100% Cheese and literally nothing else",
         "btn_label": "SHOP NOW",
-        "btn_url": "shopify://collections/all-products"
+        "btn_url": "shopify://products/cheesies-big-variety-pack"
       }
     },
     "partner_Re77b3": {
