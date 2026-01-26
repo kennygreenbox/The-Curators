@@ -32,7 +32,7 @@
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>Black Friday Sale<em>🔥</em></h1>",
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
             "text_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": "50px 0"
