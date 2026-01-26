@@ -23,10 +23,10 @@
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED PRODUCTS</p>",
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1>",
             "text_color": "#ffffff",
-            "padding_desktop": "",
-            "padding_mobile": ""
+            "padding_desktop": "20px 0",
+            "padding_mobile": "50px 0"
           }
         },
         "image_fzAQxk": {
@@ -50,10 +50,10 @@
           "settings": {
             "button_label": "Shop All Deals",
             "button_link": "#",
-            "button_color": "#ffffff",
+            "button_color": "#fffb00",
             "button_text_color": "#000000",
-            "padding_desktop": "",
-            "padding_mobile": ""
+            "padding_desktop": "20px 0",
+            "padding_mobile": "50px 0"
           }
         }
       },
@@ -65,8 +65,8 @@
       "name": "Landing hero",
       "settings": {
         "content_alignment": "center",
-        "background_color": "#000000",
-        "padding_desktop": "",
+        "background_color": "#cf4c4c",
+        "padding_desktop": "40px 20px",
         "padding_mobile": ""
       }
     },
