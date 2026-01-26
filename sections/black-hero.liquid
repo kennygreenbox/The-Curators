@@ -4,6 +4,10 @@
     assign s = section.settings
     assign background_color = s.background_color
 
+    assign contain_component = s.contain_component
+    if contain_component == true
+      assign content_width = s.content_width
+    endif
     assign padding_desktop = s.padding_desktop
     assign padding_mobile = s.padding_mobile
     assign content_alignment = s.content_alignment | default: 'center'
@@ -14,6 +18,11 @@
     padding:{{ padding_desktop }};
     background-color: {{ background_color }};
   }
+  {% if contain_component == true and content_width != blank %}    
+    #section-{{ section.id }} .page-container {
+      max-width: {{ content_width }};
+    }
+  {% endif %}
   #section-{{ section.id }} .landing-hero__content {
     text-align: {{ content_alignment }};
   }
@@ -43,6 +52,8 @@
       {% when 'countdown' %}
         #{{ block.id }} {
           padding: {{ block.settings.padding_desktop }};
+          position: relative;
+          z-index: 1;
         }
       {% when 'image' %}
         {% assign position_type = block.settings.position_type %}
@@ -54,38 +65,38 @@
          #{{ block.id }} {
           {% if position_type == 'absolute' %}
             position: absolute;
-            z-index: -1;
+            z-index: 0;
             {% if vertical_position != 'center' %}
               {{vertical_position}}: {{ vertical_position_value }};
               {% else %}
-                {{vertical_position}}: 50%;
+                left: 50%;
             {% endif %}
             {% if horizontal_position != 'center' %}
               {{horizontal_position}}: {{ horizontal_position_value }};
             {% else %}
-              {{horizontal_position}}: 50%;
+              right: 50%;
             {% endif %}
             {% if horizontal_position == 'center' and vertical_position == 'center' %}
               transform: translate(-50%, -50%);
-            {% elsif horizontal_position == 'left' %}
+            {% elsif horizontal_position == 'center' %}
                 transform: translateX(-50%);
-            {% elsif horizontal_position == 'right' %}
-                transform: translateX(50%);
-            {% elsif vertical_position == 'top' %}
+            {% elsif vertical_position == 'center' %}
                 transform: translateY(-50%);
-            {% elsif vertical_position == 'bottom' %}
-                transform: translateY(50%);
             {% endif %}
           {% endif %}
           padding: {{ block.settings.padding_desktop }};
         }
       {% when 'text' %}
          #{{ block.id }} {
+          position: relative;
+          z-index: 1;
           padding: {{ block.settings.padding_desktop }};
           color: {{ block.settings.text_color }};
         }
       {% when 'button' %}
          #{{ block.id }} {
+          position: relative;
+          z-index: 1;
           padding: {{ block.settings.padding_desktop }};
         }
         #{{ block.id }} a {
@@ -125,60 +136,58 @@
   }
 </style>
   <div class="landing-hero__inner" id="section-{{ section.id }}">
-    <div class="landing-hero__wrapper">
-      <div class="page-container common-wrap">
-        <div class="landing-hero__content">
-       
-          
-          {% for block in section.blocks %}
-            {% case block.type %}
-              {% when 'image' %}
-                <div id="{{ block.id }}" class="hero-block hero-block__image-wrapper" {{ block.shopify_attributes }}>
-                  {% if block.settings.image != blank %}
-                    {% assign image_alignment = block.settings.image_alignment | default: content_alignment %}
-                    {% if block.settings.image_link != blank %}
-                      <a href="{{ block.settings.image_link }}">
-                    {% endif %}
-                    <img 
-                      src="{{ block.settings.image | image_url: width: block.settings.image_width }}"
-                      alt="{{ block.settings.image.alt | default: block.settings.image_alt }}"
-                      class="hero-block__image hero-block__image--{{ image_alignment }}"
-                      loading="lazy"
-                      width="{{ block.settings.image_width | default: 1200 }}"
-                      style="{% if block.settings.image_max_width != blank %}max-width: {{ block.settings.image_max_width }};{% endif %}"
-                    >
-                    {% if block.settings.image_link != blank %}
-                      </a>
-                    {% endif %}
+    {% if contain_component == true %}<div class="page-container common-wrap">{% endif %}
+      <div class="landing-hero__content">
+      
+        
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'image' %}
+              <div id="{{ block.id }}" class="hero-block hero-block__image-wrapper" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {% assign image_alignment = block.settings.image_alignment | default: content_alignment %}
+                  {% if block.settings.image_link != blank %}
+                    <a href="{{ block.settings.image_link }}">
                   {% endif %}
-                </div>
-              {% when 'countdown' %}
-                {% if section.settings.end_date != blank and section.settings.end_time != blank %}
-                  <div id="{{ block.id }}" class="landing-hero__times-wrap hero-block" data-end-date="{{ section.settings.end_date | escape }}" data-end-time="{{ section.settings.end_time | escape }}">
-                    <img src="{{ 'clock.svg' | asset_url }}" alt="Countdown clock icon" loading="lazy">
-                    <p>Ends in: <span class="countdown-text">02h 14m</span></p>
-                  </div>
-                {% endif %}
-              {% when 'text' %}
-                <div id="{{ block.id }}" class="hero-block hero-block__text" {{ block.shopify_attributes }}>
-                  {{ block.settings.text }}
-                </div>
-              
-              {% when 'button' %}
-                {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-                  <div id="{{ block.id }}" class="hero-block hero-block__button-wrapper landing-hero__btn" {{ block.shopify_attributes }}>
-                    <a class="button button--stroke btn btn-secondary btn-large" 
-                    href="{{ block.settings.button_link | default: '#' }}" data-block="button">
-                      <span class="button__flair"></span>
-                      <span class="button__label">{{ block.settings.button_label }}</span>
+                  <img 
+                    src="{{ block.settings.image | image_url: width: block.settings.image_width }}"
+                    alt="{{ block.settings.image.alt | default: block.settings.image_alt }}"
+                    class="hero-block__image hero-block__image--{{ image_alignment }}"
+                    loading="lazy"
+                    width="{{ block.settings.image_width | default: 1200 }}"
+                    style="{% if block.settings.image_max_width != blank %}max-width: {{ block.settings.image_max_width }};{% endif %}"
+                  >
+                  {% if block.settings.image_link != blank %}
                     </a>
-                  </div>
+                  {% endif %}
                 {% endif %}
-            {% endcase %}
-          {% endfor %}
-        </div>
+              </div>
+            {% when 'countdown' %}
+              {% if section.settings.end_date != blank and section.settings.end_time != blank %}
+                <div id="{{ block.id }}" class="landing-hero__times-wrap hero-block" data-end-date="{{ section.settings.end_date | escape }}" data-end-time="{{ section.settings.end_time | escape }}">
+                  <img src="{{ 'clock.svg' | asset_url }}" alt="Countdown clock icon" loading="lazy">
+                  <p>Ends in: <span class="countdown-text">02h 14m</span></p>
+                </div>
+              {% endif %}
+            {% when 'text' %}
+              <div id="{{ block.id }}" class="hero-block hero-block__text" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+            
+            {% when 'button' %}
+              {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                <div id="{{ block.id }}" class="hero-block hero-block__button-wrapper landing-hero__btn" {{ block.shopify_attributes }}>
+                  <a class="button button--stroke btn btn-secondary btn-large" 
+                  href="{{ block.settings.button_link | default: '#' }}" data-block="button">
+                    <span class="button__flair"></span>
+                    <span class="button__label">{{ block.settings.button_label }}</span>
+                  </a>
+                </div>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
       </div>
-    </div>
+    {% if contain_component == true %}</div>{% endif %}
   </div>
 {% if section.settings.end_date != blank and section.settings.end_time != blank %}
   <script>
@@ -254,9 +263,17 @@
       ],
       "default": "center"
     },
+    { "type": "checkbox",
+      "id": "contain_component",
+      "label": "Contain component",
+      "default": true
+    },
     {
-      "type": "header",
-      "content": "Styling"
+      "type": "text",
+      "id": "content_width",
+      "label": "Content max width",
+      "info": "Content width eg: 1200px, 100%, 80vw",
+      "visible_if": "{{section.settings.contain_component == true}}"
     },
     {
       "type": "color",
