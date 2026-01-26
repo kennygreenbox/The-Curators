@@ -50,7 +50,7 @@
       "type": "collection-deal",
       "name": "More collection",
       "settings": {
-        "collection": "all-products",
+        "collection": "discount-landing",
         "heading": "THIS WEEKS DEALS, CHECK IN NEXT WEEK FOR MORE DEALS",
         "products_limit": 20,
         "show_price_badge": true,
