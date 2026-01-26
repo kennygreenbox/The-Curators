@@ -217,24 +217,8 @@
       "label": "Background color",
       "default": "#000"
     },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "button_color",
-      "label": "Button color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button text color",
-      "default": "#000"
-    },
+    
+   
     {
       "type": "text",
       "id": "padding_desktop",
@@ -264,6 +248,16 @@
           "id": "end_time",
           "label": "End time (HH:MM or HH:MM:SS, 24h)",
           "default": "23:59"
+        },{
+          "type": "text",
+          "id": "padding_desktop",
+          "label": "Padding desktop",
+          "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
+        },{
+          "type": "text",
+          "id": "padding_mobile",
+          "label": "Padding mobile",
+          "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
         }
       ]
     },
@@ -308,15 +302,13 @@
           ],
           "default": "center",
           "info": "Overrides section alignment for this image"
-        },
-        {
+        },{
           "type": "text",
           "id": "image_width",
           "label": "Image width (px)",
           "default": "1200",
           "info": "Maximum width for image"
-        },
-        {
+        },{
           "type": "text",
           "id": "image_max_width",
           "label": "Max width CSS",
@@ -333,6 +325,21 @@
           "id": "text",
           "label": "Text content",
           "default": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED <br> PRODUCTS</p>"
+        },{
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#fff"
+        },{
+          "type": "text",
+          "id": "padding_desktop",
+          "label": "Padding desktop",
+          "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
+        },{
+          "type": "text",
+          "id": "padding_mobile",
+          "label": "Padding mobile",
+          "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
         }
       ]
     },
@@ -345,11 +352,30 @@
           "id": "button_label",
           "label": "Button label",
           "default": "Shop All Deals"
-        },
-        {
+        },{
           "type": "url",
           "id": "button_link",
           "label": "Button link"
+        },{
+          "type": "color",
+          "id": "button_color",
+          "label": "Button color",
+          "default": "#fff"
+        },{
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#000"
+        },{
+          "type": "text",
+          "id": "padding_desktop",
+          "label": "Padding desktop",
+          "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
+        },{
+          "type": "text",
+          "id": "padding_mobile",
+          "label": "Padding mobile",
+          "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
         }
       ]
     }
