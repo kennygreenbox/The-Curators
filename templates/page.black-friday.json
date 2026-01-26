@@ -19,8 +19,39 @@
     },
     "black_hero_dg6DHC": {
       "type": "black-hero",
+      "blocks": {
+        "countdown_JYb6xr": {
+          "type": "countdown",
+          "settings": {
+            "end_date": "2025-11-30",
+            "end_time": "23:59",
+            "padding_desktop": "",
+            "padding_mobile": ""
+          }
+        },
+        "text_DHqKiF": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+            "text_color": "#ffffff",
+            "padding_desktop": "",
+            "padding_mobile": ""
+          }
+        }
+      },
+      "block_order": [
+        "countdown_JYb6xr",
+        "text_DHqKiF"
+      ],
       "name": "Landing hero",
-      "settings": {}
+      "settings": {
+        "content_alignment": "center",
+        "contain_component": true,
+        "content_width": "",
+        "background_color": "#000000",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
     },
     "product_deal_BHAn4F": {
       "type": "product-deal",
