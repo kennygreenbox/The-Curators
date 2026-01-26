@@ -200,7 +200,7 @@ dfn,  address{font-style: normal;}
 label,  input[type="submit"]{cursor: pointer;}
 button:focus{outline: none;}
 
-
+.strikethrough{text-decoration: line-through;}
 
 /* ======================= Global style End ======================= */
 
