@@ -54,6 +54,14 @@
           padding: {{ block.settings.padding_desktop }};
           position: relative;
           z-index: 1;
+          {% if content_alignment == 'left' %}
+            justify-content: flex-start;
+          {% elsif content_alignment == 'center' %}
+            justify-content: center;
+          {% elsif content_alignment == 'right' %}
+            justify-content: flex-end;
+          {% endif %}
+
         }
       {% when 'image' %}
         {% assign position_type = block.settings.position_type %}
@@ -92,12 +100,14 @@
           z-index: 1;
           padding: {{ block.settings.padding_desktop }};
           color: {{ block.settings.text_color }};
+          text-align: {{ content_alignment }};
         }
       {% when 'button' %}
          #{{ block.id }} {
           position: relative;
           z-index: 1;
           padding: {{ block.settings.padding_desktop }};
+          text-align: {{ content_alignment }};
         }
         #{{ block.id }} a {
           background-color: {{ block.settings.button_color }};
@@ -163,9 +173,9 @@
                 {% endif %}
               </div>
             {% when 'countdown' %}
-              {% if section.settings.end_date != blank and section.settings.end_time != blank %}
-                <div id="{{ block.id }}" class="landing-hero__times-wrap hero-block" data-end-date="{{ section.settings.end_date | escape }}" data-end-time="{{ section.settings.end_time | escape }}">
-                  <img src="{{ 'clock.svg' | asset_url }}" alt="Countdown clock icon" loading="lazy">
+              {% if block.settings.end_date != blank and block.settings.end_time != blank %}
+                <div id="{{ block.id }}" class="landing-hero__times-wrap hero-block" data-end-date="{{ block.settings.end_date | escape }}" data-end-time="{{ block.settings.end_time | escape }}">
+                  {% render 'icon-clock' %}
                   <p>Ends in: <span class="countdown-text">02h 14m</span></p>
                 </div>
               {% endif %}
@@ -189,7 +199,8 @@
       </div>
     {% if contain_component == true %}</div>{% endif %}
   </div>
-{% if section.settings.end_date != blank and section.settings.end_time != blank %}
+{% for block in section.blocks %}
+  {% if block.type == 'countdown' and block.settings.end_date != blank and block.settings.end_time != blank %}
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     const wrap = document.querySelector('.landing-hero__times-wrap');
@@ -236,6 +247,7 @@
   });
   </script>
 {% endif %}
+{% endfor %}
 {% schema %}
 {
   "name": "Landing hero",
@@ -300,6 +312,7 @@
     {
       "type": "countdown",
       "name": "Countdown",
+      "limit": 1,
       "settings": [
         {
           "type": "text",
