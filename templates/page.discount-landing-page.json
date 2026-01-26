@@ -25,6 +25,7 @@
           "settings": {
             "end_date": "2026-11-30",
             "end_time": "23:59",
+            "countdown_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": ""
           }
@@ -47,7 +48,7 @@
             "image_alignment": "center",
             "image_width": "300",
             "image_max_width": "",
-            "position_type": "absolute",
+            "position_type": "relative",
             "vertical_position": "center",
             "vertical_position_value": "0",
             "horizontal_position": "center",
@@ -74,7 +75,7 @@
       ],
       "name": "Landing hero",
       "settings": {
-        "content_alignment": "left",
+        "content_alignment": "center",
         "contain_component": true,
         "content_width": "",
         "background_color": "#cf4c4c",
