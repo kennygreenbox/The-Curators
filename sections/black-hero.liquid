@@ -1,120 +1,376 @@
 
+{%  liquid 
 
-
-  <div class="landing-hero__inner">
+    assign s = section.settings
+    assign background_color = s.background_color
+    assign text_color = s.text_color
+    assign button_color = s.button_color
+    assign button_text_color = s.button_text_color
+    assign padding_desktop = s.padding_desktop
+    assign padding_mobile = s.padding_mobile
+    assign content_alignment = s.content_alignment | default: 'center'
+%}
+<style>
+  #section-{{ section.id }} {
+    padding:{{ padding_desktop }};
+    background-color: {{ background_color }};
+    color: {{ text_color }};
+  }
+  #section-{{ section.id }} .landing-hero__content {
+    text-align: {{ content_alignment }};
+  }
+  #section-{{ section.id }} .landing-hero__btn a {
+    background-color: {{ button_color }};
+    color: {{ button_text_color }};
+  }
+  #section-{{ section.id }} .landing-hero__btn a:hover {
+    background-color: {{ button_color }};
+    color: {{ button_text_color }};
+  }
+  /* Block Styles */
+  #section-{{ section.id }} .hero-block {
+    margin-bottom: 1.5rem;
+  }
+  #section-{{ section.id }} .hero-block:last-child {
+    margin-bottom: 0;
+  }
+  #section-{{ section.id }} .hero-block__image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  #section-{{ section.id }} .hero-block__image--left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  #section-{{ section.id }} .hero-block__image--right {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  #section-{{ section.id }} .hero-block__text {
+    line-height: 1.6;
+  }
+  #section-{{ section.id }} .hero-block__text h1,
+  #section-{{ section.id }} .hero-block__text h2,
+  #section-{{ section.id }} .hero-block__text h3,
+  #section-{{ section.id }} .hero-block__text h4,
+  #section-{{ section.id }} .hero-block__text h5,
+  #section-{{ section.id }} .hero-block__text h6 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  #section-{{ section.id }} .hero-block__text p {
+    margin-bottom: 1rem;
+  }
+  #section-{{ section.id }} .hero-block__text p:last-child {
+    margin-bottom: 0;
+  }
+  #section-{{ section.id }} .hero-block__button {
+    display: inline-block;
+  }
+  @media (max-width: 767px) {
+    #section-{{ section.id }} {
+      padding: {{ padding_mobile }};
+    }
+    #section-{{ section.id }} .hero-block {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+  <div class="landing-hero__inner" id="section-{{ section.id }}">
     <div class="landing-hero__wrapper">
       <div class="page-container common-wrap">
         <div class="landing-hero__content">
-          <div class="landing-hero__times-wrap"
-               {% if section.settings.end_date != blank and section.settings.end_time != blank %}
-                 data-end-date="{{ section.settings.end_date | escape }}"
-                 data-end-time="{{ section.settings.end_time | escape }}"
-               {% endif %}>
+          {% if section.settings.end_date != blank and section.settings.end_time != blank %}
+          <div class="landing-hero__times-wrap hero-block" data-end-date="{{ section.settings.end_date | escape }}" data-end-time="{{ section.settings.end_time | escape }}">
             <img src="{{ 'clock.svg' | asset_url }}" alt="Countdown clock icon" loading="lazy">
             <p>Ends in: <span class="countdown-text">02h 14m</span></p>
           </div>
-
-          <div class="landing-hero__title">
-            {{ section.settings.text_block }}
-          </div>
-
-          {% comment %} <div class="landing-hero__btn">
-            <a class="button button--stroke btn btn-secondary btn-large" 
-            href="{{ section.settings.button_link | default: '#' }}" data-block="button">
-              <span class="button__flair"></span>
-              <span class="button__label">{{ section.settings.button_label }}</span>
-            </a>
-          </div> {% endcomment %}
+          {% endif %}
+          
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'image' %}
+                <div class="hero-block hero-block__image-wrapper" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    {% assign image_alignment = block.settings.image_alignment | default: content_alignment %}
+                    {% if block.settings.image_link != blank %}
+                      <a href="{{ block.settings.image_link }}">
+                    {% endif %}
+                    <img 
+                      src="{{ block.settings.image | image_url: width: block.settings.image_width }}"
+                      alt="{{ block.settings.image.alt | default: block.settings.image_alt }}"
+                      class="hero-block__image hero-block__image--{{ image_alignment }}"
+                      loading="lazy"
+                      width="{{ block.settings.image_width | default: 1200 }}"
+                      style="{% if block.settings.image_max_width != blank %}max-width: {{ block.settings.image_max_width }};{% endif %}"
+                    >
+                    {% if block.settings.image_link != blank %}
+                      </a>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              
+              {% when 'text' %}
+                <div class="hero-block hero-block__text" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </div>
+              
+              {% when 'button' %}
+                {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                  <div class="hero-block hero-block__button-wrapper landing-hero__btn" {{ block.shopify_attributes }}>
+                    <a class="button button--stroke btn btn-secondary btn-large" 
+                    href="{{ block.settings.button_link | default: '#' }}" data-block="button">
+                      <span class="button__flair"></span>
+                      <span class="button__label">{{ block.settings.button_label }}</span>
+                    </a>
+                  </div>
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
+{% if section.settings.end_date != blank and section.settings.end_time != blank %}
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wrap = document.querySelector('.landing-hero__times-wrap');
+    if (!wrap) return;
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const wrap = document.querySelector('.landing-hero__times-wrap');
-  if (!wrap) return;
+    const span = wrap.querySelector('.countdown-text');
+    const endDate = wrap.getAttribute('data-end-date');
+    const endTime = wrap.getAttribute('data-end-time');
+    if (!endDate || !endTime) return;
 
-  const span = wrap.querySelector('.countdown-text');
-  const endDate = wrap.getAttribute('data-end-date');
-  const endTime = wrap.getAttribute('data-end-time');
-  if (!endDate || !endTime) return;
+    const iso = `${endDate}T${endTime.length === 5 ? endTime + ':00' : endTime}`;
+    const target = new Date(iso);
+    if (isNaN(target)) return;
 
-  const iso = `${endDate}T${endTime.length === 5 ? endTime + ':00' : endTime}`;
-  const target = new Date(iso);
-  if (isNaN(target)) return;
+    function pad(n){ return n < 10 ? '0' + n : n; }
 
-  function pad(n){ return n < 10 ? '0' + n : n; }
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = target.getTime() - now;
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = target.getTime() - now;
+      if (diff <= 0) {
+        span.textContent = '00h 00m';
+        clearInterval(interval);
+        return;
+      }
 
-    if (diff <= 0) {
-      span.textContent = '00h 00m';
-      clearInterval(interval);
-      return;
+      const dayMs = 24 * 60 * 60 * 1000;
+      const hrMs  = 60 * 60 * 1000;
+      const minMs = 60 * 1000;
+
+      const days = Math.floor(diff / dayMs);
+      const hours = Math.floor((diff % dayMs) / hrMs);
+      const minutes = Math.floor((diff % hrMs) / minMs);
+
+      if (days > 0) {
+        span.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m`;
+      } else {
+        span.textContent = `${pad(hours)}h ${pad(minutes)}m`;
+      }
     }
 
-    const dayMs = 24 * 60 * 60 * 1000;
-    const hrMs  = 60 * 60 * 1000;
-    const minMs = 60 * 1000;
-
-    const days = Math.floor(diff / dayMs);
-    const hours = Math.floor((diff % dayMs) / hrMs);
-    const minutes = Math.floor((diff % hrMs) / minMs);
-
-    if (days > 0) {
-      span.textContent = `${days}d ${pad(hours)}h ${pad(minutes)}m`;
-    } else {
-      span.textContent = `${pad(hours)}h ${pad(minutes)}m`;
-    }
-  }
-
-  updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
-});
-</script>
-
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  });
+  </script>
+{% endif %}
 {% schema %}
 {
   "name": "Landing hero",
   "tag": "section",
   "class": "landing-hero",
   "settings": [
+   
     {
-      "type": "richtext",
-      "id": "text_block",
-      "label": "Title & subtitle block",
-      "default": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED <br> PRODUCTS</p>"
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#000"
     },
     {
       "type": "text",
-      "id": "end_date",
-      "label": "End date (YYYY-MM-DD)",
-      "default": "2025-11-30"
+      "id": "padding_desktop",
+      "label": "Padding desktop",
+      "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
     },
     {
       "type": "text",
-      "id": "end_time",
-      "label": "End time (HH:MM or HH:MM:SS, 24h)",
-      "default": "23:59"
+      "id": "padding_mobile",
+      "label": "Padding mobile",
+      "info": "Padding format top right bottom left eg: 20px 5% 10dvh 10vw"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "countdown",
+      "name": "Countdown",
+      "settings": [
+        {
+          "type": "text",
+          "id": "end_date",
+          "label": "End date (YYYY-MM-DD)",
+          "default": "2025-11-30"
+        },
+        {
+          "type": "text",
+          "id": "end_time",
+          "label": "End time (HH:MM or HH:MM:SS, 24h)",
+          "default": "23:59"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text",
+          "info": "Optional: Override default alt text"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "Image link",
+          "info": "Optional: Make image clickable"
+        },
+        {
+          "type": "select",
+          "id": "image_alignment",
+          "label": "Image alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center",
+          "info": "Overrides section alignment for this image"
+        },
+        {
+          "type": "text",
+          "id": "image_width",
+          "label": "Image width (px)",
+          "default": "1200",
+          "info": "Maximum width for image"
+        },
+        {
+          "type": "text",
+          "id": "image_max_width",
+          "label": "Max width CSS",
+          "info": "Optional: e.g., 500px, 50%, 80vw"
+        }
+      ]
     },
     {
       "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "Shop All Deals"
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text content",
+          "default": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED <br> PRODUCTS</p>"
+        }
+      ]
     },
     {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop All Deals"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Landing hero"
+      "name": "Landing hero",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED <br> PRODUCTS</p>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All Deals"
+          }
+        }
+      ]
     }
   ]
 }

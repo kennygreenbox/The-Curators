@@ -201,7 +201,9 @@ label,  input[type="submit"]{cursor: pointer;}
 button:focus{outline: none;}
 
 .strikethrough{text-decoration: line-through;}
-
+.template-discount-landing-page {
+  padding-top: 75px;
+}
 /* ======================= Global style End ======================= */
 
 /* ======================= Spacing Start ======================= */
