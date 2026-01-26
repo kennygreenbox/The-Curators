@@ -34,20 +34,20 @@
           "settings": {
             "text": "<h1>Black Friday Sale<em>🔥</em></h1>",
             "text_color": "#ffffff",
-            "padding_desktop": "20px 0",
+            "padding_desktop": "",
             "padding_mobile": "50px 0"
           }
         },
         "image_fzAQxk": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/TC_WebsiteImage_Jan26.png",
+            "image": "shopify://shop_images/cheesies-fringe.webp",
             "image_alt": "",
             "image_link": "",
-            "image_alignment": "right",
+            "image_alignment": "center",
             "image_width": "300",
             "image_max_width": "",
-            "position_type": "absolute",
+            "position_type": "relative",
             "vertical_position": "bottom",
             "vertical_position_value": "0",
             "horizontal_position": "left",
@@ -74,11 +74,11 @@
       ],
       "name": "Landing hero",
       "settings": {
-        "content_alignment": "right",
+        "content_alignment": "center",
         "contain_component": true,
         "content_width": "",
         "background_color": "#cf4c4c",
-        "padding_desktop": "40px 20px",
+        "padding_desktop": "60px 20px",
         "padding_mobile": ""
       }
     },
