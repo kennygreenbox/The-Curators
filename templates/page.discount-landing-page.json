@@ -30,6 +30,7 @@
     },
     "product_deal_BHAn4F": {
       "type": "product-deal",
+      "disabled": true,
       "name": "Product deal",
       "settings": {
         "product": "the-taster-box",
@@ -49,7 +50,7 @@
       "type": "collection-deal",
       "name": "More collection",
       "settings": {
-        "collection": "black-friday",
+        "collection": "all-products",
         "heading": "THIS WEEKS DEALS, CHECK IN NEXT WEEK FOR MORE DEALS",
         "products_limit": 20,
         "show_price_badge": true,
