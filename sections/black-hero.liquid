@@ -52,6 +52,7 @@
       {% when 'countdown' %}
         #{{ block.id }} {
           padding: {{ block.settings.padding_desktop }};
+          color: {{ block.settings.countdown_color }};
           position: relative;
           z-index: 1;
           {% if content_alignment == 'left' %}
@@ -62,6 +63,9 @@
             justify-content: flex-end;
           {% endif %}
 
+        }
+        #{{ block.id }} svg path {
+          stroke: {{ block.settings.countdown_color }};
         }
       {% when 'image' %}
         {% assign position_type = block.settings.position_type %}
@@ -86,13 +90,13 @@
             {% endif %}
             {% if horizontal_position == 'center' and vertical_position == 'center' %}
               transform: translate(-50%, -50%);
+              width: 100%;
             {% elsif horizontal_position == 'center' %}
                 transform: translateX(-50%);
             {% elsif vertical_position == 'center' %}
                 transform: translateY(-50%);
             {% endif %}
           {% endif %}
-          padding: {{ block.settings.padding_desktop }};
         }
       {% when 'text' %}
          #{{ block.id }} {
@@ -325,6 +329,11 @@
           "id": "end_time",
           "label": "End time (HH:MM or HH:MM:SS, 24h)",
           "default": "23:59"
+        },{
+          "type": "color",
+          "id": "countdown_color",
+          "label": "Countdown alignment",
+          "default": "#fff"
         },{
           "type": "text",
           "id": "padding_desktop",
