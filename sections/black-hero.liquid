@@ -429,7 +429,7 @@
           "id": "vertical_position_value",
           "label": "Vertical position value",
           "info": "Vertical position value eg: 10px",
-          "visible_if": "{{block.settings.vertical_position != 'center'}}"
+          "visible_if": "{{ block.settings.position_type == 'absolute' and block.settings.vertical_position != 'center'}}"
         },{
           "type": "select",
           "id": "horizontal_position",
@@ -454,7 +454,7 @@
           "id": "horizontal_position_value",
           "label": "Horizontal position value",
           "info": "Horizontal position value eg: 10px",
-          "visible_if": "{{block.settings.horizontal_position != 'center'}}"
+          "visible_if": "{{ block.settings.position_type == 'absolute' and block.settings.horizontal_position != 'center' }}"
         }
       ]
     },
