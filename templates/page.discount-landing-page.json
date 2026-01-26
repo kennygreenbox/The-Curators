@@ -19,13 +19,46 @@
     },
     "black_hero_dg6DHC": {
       "type": "black-hero",
+      "blocks": {
+        "text_Q4VtGT": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED PRODUCTS</p>"
+          }
+        },
+        "image_fzAQxk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/TC_WebsiteImage_Jan26.png",
+            "image_alt": "",
+            "image_link": "",
+            "image_alignment": "center",
+            "image_width": "200",
+            "image_max_width": ""
+          }
+        },
+        "button_qUMwF6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All Deals",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "text_Q4VtGT",
+        "image_fzAQxk",
+        "button_qUMwF6"
+      ],
       "name": "Landing hero",
       "settings": {
-        "text_block": "<h1><em>🔥</em>FIRE Sale<em>🔥</em></h1><p>20% OFF SELECTED PRODUCTS</p>",
-        "end_date": "",
-        "end_time": "",
-        "button_label": "Shop All Deals",
-        "button_link": "shopify://collections/all-products"
+        "content_alignment": "center",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "button_color": "#ffffff",
+        "button_text_color": "#000000",
+        "padding_desktop": "",
+        "padding_mobile": ""
       }
     },
     "product_deal_BHAn4F": {

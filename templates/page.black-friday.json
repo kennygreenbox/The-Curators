@@ -20,13 +20,7 @@
     "black_hero_dg6DHC": {
       "type": "black-hero",
       "name": "Landing hero",
-      "settings": {
-        "text_block": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
-        "end_date": "2025-11-30",
-        "end_time": "23:59",
-        "button_label": "Shop All Deals",
-        "button_link": "shopify://collections/all-products"
-      }
+      "settings": {}
     },
     "product_deal_BHAn4F": {
       "type": "product-deal",
