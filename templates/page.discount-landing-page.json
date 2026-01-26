@@ -23,7 +23,10 @@
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED PRODUCTS</p>"
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 40% OFF SELECTED PRODUCTS</p>",
+            "text_color": "#ffffff",
+            "padding_desktop": "",
+            "padding_mobile": ""
           }
         },
         "image_fzAQxk": {
@@ -34,14 +37,23 @@
             "image_link": "",
             "image_alignment": "center",
             "image_width": "200",
-            "image_max_width": ""
+            "image_max_width": "",
+            "position_type": "absolute",
+            "vertical_position": "top",
+            "vertical_position_value": "10px",
+            "horizontal_position": "left",
+            "horizontal_position_value": "0"
           }
         },
         "button_qUMwF6": {
           "type": "button",
           "settings": {
             "button_label": "Shop All Deals",
-            "button_link": "#"
+            "button_link": "#",
+            "button_color": "#ffffff",
+            "button_text_color": "#000000",
+            "padding_desktop": "",
+            "padding_mobile": ""
           }
         }
       },
@@ -54,9 +66,6 @@
       "settings": {
         "content_alignment": "center",
         "background_color": "#000000",
-        "text_color": "#ffffff",
-        "button_color": "#ffffff",
-        "button_text_color": "#000000",
         "padding_desktop": "",
         "padding_mobile": ""
       }
