@@ -47,10 +47,10 @@
             "image_alignment": "center",
             "image_width": "300",
             "image_max_width": "",
-            "position_type": "relative",
-            "vertical_position": "bottom",
+            "position_type": "absolute",
+            "vertical_position": "center",
             "vertical_position_value": "0",
-            "horizontal_position": "left",
+            "horizontal_position": "center",
             "horizontal_position_value": "20px"
           }
         },
@@ -74,7 +74,7 @@
       ],
       "name": "Landing hero",
       "settings": {
-        "content_alignment": "center",
+        "content_alignment": "left",
         "contain_component": true,
         "content_width": "",
         "background_color": "#cf4c4c",
