@@ -21,7 +21,7 @@
       "type": "black-hero",
       "name": "Landing hero",
       "settings": {
-        "text_block": "<h1>FIRE Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+        "text_block": "<h1><em>🔥</em>FIRE Sale<em>🔥</em></h1><p>20% OFF SELECTED PRODUCTS</p>",
         "end_date": "",
         "end_time": "",
         "button_label": "Shop All Deals",
