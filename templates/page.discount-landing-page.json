@@ -23,7 +23,7 @@
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>20% off</h1><h4>SELECTED PRODUCTS</h4>",
+            "text": "<h1>GET 20% off</h1><h4>SELECTED PRODUCTS</h4><p>DISCOUNT WILL AUTOMATICALLY APPLY AT CHECKOUT.</p>",
             "text_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": "50px 0"
@@ -83,7 +83,7 @@
       "name": "More collection",
       "settings": {
         "collection": "discount-landing",
-        "heading": "",
+        "heading": "Power-Packed Nutrition",
         "products_limit": 20,
         "show_price_badge": true,
         "price_badge_text": "per bag",
