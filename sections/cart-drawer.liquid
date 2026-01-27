@@ -55,19 +55,22 @@
             </div>
             <div class="flex flex-col flex-space-between cart-product-price txt-r">
                 <div class="item-total"><h6><strong>{{ item.line_price |  money }}</strong></h6>
-{{item.product.variants.size | json }}
                 {% if item.original_line_price != item.line_price %}
                     {% assign strikethrough_price = item.original_line_price %}
                 {% else %}
-                    {% if item.product.variants.size %}
-                        {% for variants in item.product.variants %}
+                    {% if item.product.variants.size > 0 %}
+                        {% for variant in item.product.variants %}
+                            {% if item.id == variant.id and variant.compare_at_price > 0 and variant.compare_at_price > item.line_price %}
+                                {% assign strikethrough_price = variant.compare_at_price %}
+                            {% endif %}
                         {% endfor %}
+                    {% else %}
+
                     {% endif %}
                 {% endif %}
-                {% if strikethrough_price != blank %}<p class="strikethrough">{{ strikethrough_price }}</p>{% endif %}</div>
+                {% if strikethrough_price != blank %}<p class="strikethrough">{{ strikethrough_price | money }}</p>{% endif %}</div>
             </div>
-        </div>     
-        {{ item.product | json }}   
+        </div>        
     {% endfor %}
 
     {% assign block_count = 0 %}
