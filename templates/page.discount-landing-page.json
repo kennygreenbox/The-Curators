@@ -48,10 +48,10 @@
             "image_alignment": "center",
             "image_width": "300",
             "image_max_width": "",
-            "position_type": "relative",
-            "vertical_position": "center",
+            "position_type": "absolute",
+            "vertical_position": "top",
             "vertical_position_value": "0",
-            "horizontal_position": "center",
+            "horizontal_position": "left",
             "horizontal_position_value": "20px"
           }
         },
