@@ -19,13 +19,68 @@
     },
     "black_hero_dg6DHC": {
       "type": "black-hero",
+      "blocks": {
+        "countdown_XXmGBT": {
+          "type": "countdown",
+          "settings": {
+            "end_date": "2026-11-30",
+            "end_time": "23:59",
+            "countdown_color": "#ffffff",
+            "padding_desktop": "",
+            "padding_mobile": ""
+          }
+        },
+        "text_Q4VtGT": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+            "text_color": "#ffffff",
+            "padding_desktop": "",
+            "padding_mobile": "50px 0"
+          }
+        },
+        "image_fzAQxk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cheesies-fringe.webp",
+            "image_alt": "",
+            "image_link": "",
+            "image_alignment": "center",
+            "image_width": "300",
+            "image_max_width": "",
+            "position_type": "absolute",
+            "vertical_position": "top",
+            "vertical_position_value": "0",
+            "horizontal_position": "left",
+            "horizontal_position_value": "20px"
+          }
+        },
+        "button_qUMwF6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All Deals",
+            "button_link": "#",
+            "button_color": "#fffb00",
+            "button_text_color": "#000000",
+            "padding_desktop": "20px 0",
+            "padding_mobile": "50px 0"
+          }
+        }
+      },
+      "block_order": [
+        "countdown_XXmGBT",
+        "text_Q4VtGT",
+        "image_fzAQxk",
+        "button_qUMwF6"
+      ],
       "name": "Landing hero",
       "settings": {
-        "text_block": "<h1><em>🔥</em>FIRE Sale<em>🔥</em></h1><p>20% OFF SELECTED PRODUCTS</p>",
-        "end_date": "",
-        "end_time": "",
-        "button_label": "Shop All Deals",
-        "button_link": "shopify://collections/all-products"
+        "content_alignment": "center",
+        "contain_component": true,
+        "content_width": "",
+        "background_color": "#cf4c4c",
+        "padding_desktop": "60px 20px",
+        "padding_mobile": ""
       }
     },
     "product_deal_BHAn4F": {

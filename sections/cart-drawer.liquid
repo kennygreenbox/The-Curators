@@ -54,7 +54,8 @@
                 </div>
             </div>
             <div class="flex flex-col flex-space-between cart-product-price txt-r">
-                <div class="item-total"><h6><strong>{{ item.line_price |  money }}</strong></h6></div>
+                <div class="item-total"><h6><strong>{{ item.line_price |  money }}</strong></h6>
+                {% if item.original_line_price != item.line_price %}<p class="strikethrough">{{ item.original_line_price |  money}}</p>{% endif %}</div>
             </div>
         </div>        
     {% endfor %}
