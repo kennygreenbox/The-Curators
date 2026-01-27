@@ -23,7 +23,7 @@
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>20% off selected items</h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+            "text": "<h1>20% off</h1><h4>SELECTED PRODUCTS</h4>",
             "text_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": "50px 0"
@@ -44,23 +44,11 @@
             "horizontal_position": "left",
             "horizontal_position_value": "20px"
           }
-        },
-        "button_qUMwF6": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop All Deals",
-            "button_link": "#",
-            "button_color": "#fffb00",
-            "button_text_color": "#000000",
-            "padding_desktop": "20px 0",
-            "padding_mobile": "50px 0"
-          }
         }
       },
       "block_order": [
         "text_Q4VtGT",
-        "image_fzAQxk",
-        "button_qUMwF6"
+        "image_fzAQxk"
       ],
       "name": "Landing hero",
       "settings": {
@@ -95,7 +83,7 @@
       "name": "More collection",
       "settings": {
         "collection": "discount-landing",
-        "heading": "THIS WEEKS DEALS, CHECK IN NEXT WEEK FOR MORE DEALS",
+        "heading": "",
         "products_limit": 20,
         "show_price_badge": true,
         "price_badge_text": "per bag",
