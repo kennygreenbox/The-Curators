@@ -20,20 +20,10 @@
     "black_hero_dg6DHC": {
       "type": "black-hero",
       "blocks": {
-        "countdown_XXmGBT": {
-          "type": "countdown",
-          "settings": {
-            "end_date": "2026-11-30",
-            "end_time": "23:59",
-            "countdown_color": "#ffffff",
-            "padding_desktop": "",
-            "padding_mobile": ""
-          }
-        },
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+            "text": "<h1>20% off selected items</h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
             "text_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": "50px 0"
@@ -68,7 +58,6 @@
         }
       },
       "block_order": [
-        "countdown_XXmGBT",
         "text_Q4VtGT",
         "image_fzAQxk",
         "button_qUMwF6"
