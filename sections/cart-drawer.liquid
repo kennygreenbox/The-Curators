@@ -57,7 +57,8 @@
                 <div class="item-total"><h6><strong>{{ item.line_price |  money }}</strong></h6>
                 {% if item.original_line_price != item.line_price %}<p class="strikethrough">{{ item.original_line_price |  money}}</p>{% endif %}</div>
             </div>
-        </div>        
+        </div>     
+        {{ item | json }}   
     {% endfor %}
 
     {% assign block_count = 0 %}
