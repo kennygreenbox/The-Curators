@@ -17,6 +17,13 @@
         "padding_bottom": 28
       }
     },
+    "apply_discount_N69XLN": {
+      "type": "apply-discount",
+      "name": "Apply Discount",
+      "settings": {
+        "discount_code": "ipad"
+      }
+    },
     "black_hero_dg6DHC": {
       "type": "black-hero",
       "blocks": {
@@ -102,6 +109,7 @@
   },
   "order": [
     "main",
+    "apply_discount_N69XLN",
     "black_hero_dg6DHC",
     "product_deal_BHAn4F",
     "collection_deal_JEDhPM",
