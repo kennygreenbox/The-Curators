@@ -1,19 +1,17 @@
 {% assign discount_code = section.settings.discount_code %}
+
+{{cart | json}}
+
+
+
 {% if discount_code != blank %}
     <script>
     (function() {
-      var discountCode = "{{ discount_code | url_encode }}";
-      var currentUrl = window.location.href;
-      var redirectUrl = "https://wearethecurators.com/discount/" + discountCode + "?redirect=" + encodeURIComponent(currentUrl);
-      //window.location.href = redirectUrl;
-
-    {% comment %} 
-      // Get the rest of the URL excluding the base URL
-      var baseUrl = window.location.origin;
-      var restOfUrl = window.location.href.substring(baseUrl.length);
-    {% endcomment %}
-
-
+      var discountCode = "discount/{{ discount_code | url_encode }}";
+      var firstPartOfUrl = window.location.origin + "/";
+      var lastPartOfUrl = window.location.pathname + window.location.search + window.location.hash;
+      var redirectUrl = firstPartOfUrl + discountCode + "?redirect=" + lastPartOfUrl;
+     // window.location.href = redirectUrl;
     })();
     </script>
 {% endif %}
