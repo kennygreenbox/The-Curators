@@ -5,7 +5,7 @@
       var discountCode = "{{ discount_code | url_encode }}";
       var currentUrl = window.location.href;
       var redirectUrl = "https://wearethecurators.com/discount/" + discountCode + "?redirect=" + encodeURIComponent(currentUrl);
-      window.location.href = redirectUrl;
+      //window.location.href = redirectUrl;
 
     {% comment %} 
       // Get the rest of the URL excluding the base URL
