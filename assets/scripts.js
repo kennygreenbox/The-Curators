@@ -62,7 +62,7 @@
           }
         });
 
-        if ($(window).width() > 991) {
+        if ($(window).width() > 1023) {
             $('.has-sub-menu-item').on('mouseenter', function() {
                 $(this).find('.sub-menu').stop(true, true).slideDown(300);
                 $('body').addClass('subMenuShown');
@@ -73,7 +73,7 @@
 
         }
 
-        if ($(window).width() < 991) {
+        if ($(window).width() < 1024) {
           if ($('.upsell-slider').length) {
               $(".filter-options").hide();
               
@@ -159,7 +159,7 @@
                       slidesPerView: 2,
                       spaceBetween: 20,
                   },
-                  991: {
+                  1024: {
                       slidesPerView: 3.03,
                       spaceBetween: 60,
                       shortSwipes:false,
@@ -192,7 +192,7 @@
         }
 
 
-        if ($(window).width() < 991) {
+        if ($(window).width() < 1024) {
 
           if ($('.mobile-marquee-slider').length) {
 
@@ -258,7 +258,7 @@
         if ($('.trust-marquee-slider').length) {
 
           function initializeTestimonialMarqueeSlider() {
-              if ($(window).width() < 991) {
+              if ($(window).width() < 1024) {
                   return new Swiper('.trust-marquee-slider', {
                       loop: true,
                       slidesPerView: 1,
@@ -418,7 +418,7 @@
         initParallaxEffect();
 
         // Define the mobile breakpoint width (adjust as needed)
-        const mobileBreakpoint = 991;
+        const mobileBreakpoint = 1024;
 
         $(window).on('resize', function() {
             // Re-run the parallax effect on window resize, if needed

@@ -9,7 +9,7 @@ function upsellProductGrid() {
           slidesPerView: 2,
           spaceBetween: 20,
         },
-        991: {
+        1024: {
           slidesPerView: 3.03,
           spaceBetween: 60,
           shortSwipes:false,
@@ -50,7 +50,7 @@ function upsellProductGrid() {
   // }
 
 
-  if ($(window).width() < 991) {
+  if ($(window).width() < 1024) {
 
     if ($('.mobile-marquee-slider').length) {
 

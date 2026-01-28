@@ -651,17 +651,18 @@
 /* ---------------MOBILE END-------------- */
 
 
-
-
-
-
-
-
-
-
-
-
-
+@media(min-width: 768px) {
+    .more-collection__wrap {
+        display: flex;
+        gap: 50px 30px;
+        flex-wrap: wrap;
+    }
+    .more-collection__wrap .product-item {
+        flex: 1 0 50%;
+        max-width: calc(100% / 2 - 15px);
+        margin-bottom: 0;
+    }
+}
 
 
 
@@ -672,7 +673,7 @@
 
 
 
-@media(min-width: 1024px) {
+@media(min-width: 1025px) {
 
 
 
@@ -870,7 +871,7 @@
 }
 
 
-@media (min-width: 767px) and (max-width: 1441px) {
+@media (min-width: 768px) and (max-width: 1441px) {
 
     .new-collection__wrapper {
         margin: 0 0 42px;
