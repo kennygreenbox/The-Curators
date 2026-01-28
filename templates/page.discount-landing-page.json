@@ -39,7 +39,7 @@
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1></h1><h1>GET UP TP 50% off</h1><h4>SELECTED PRODUCTS</h4><p>DISCOUNT WILL AUTOMATICALLY APPLY AT CHECKOUT.</p>",
+            "text": "<h1></h1><h1>GET UP TO 30% off</h1><h4>SELECTED PRODUCTS</h4><p>DISCOUNT WILL AUTOMATICALLY APPLY AT CHECKOUT.</p>",
             "text_color": "#000000",
             "padding_desktop": "",
             "padding_mobile": "50px 0"
