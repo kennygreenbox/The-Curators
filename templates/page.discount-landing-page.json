@@ -20,23 +20,40 @@
     "black_hero_dg6DHC": {
       "type": "black-hero",
       "blocks": {
+        "image_7cgdGV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6f71da9d-552c-4f36-8e1e-746b1c4e421f.jpg",
+            "image_alt": "",
+            "image_link": "",
+            "image_alignment": "center",
+            "image_width": "700",
+            "image_max_width": "",
+            "position_type": "relative",
+            "vertical_position": "top",
+            "vertical_position_value": "",
+            "horizontal_position": "left",
+            "horizontal_position_value": ""
+          }
+        },
         "text_Q4VtGT": {
           "type": "text",
           "settings": {
-            "text": "<h1>GET 20% off</h1><h4>SELECTED PRODUCTS</h4><p>DISCOUNT WILL AUTOMATICALLY APPLY AT CHECKOUT.</p>",
-            "text_color": "#ffffff",
+            "text": "<h1></h1><h1>GET UP TO 30% off</h1><h4>SELECTED PRODUCTS</h4><p>DISCOUNT WILL AUTOMATICALLY APPLY AT CHECKOUT.</p>",
+            "text_color": "#000000",
             "padding_desktop": "",
             "padding_mobile": "50px 0"
           }
         },
         "image_fzAQxk": {
           "type": "image",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/cheesies-fringe.webp",
+            "image": "shopify://shop_images/6f71da9d-552c-4f36-8e1e-746b1c4e421f.jpg",
             "image_alt": "",
             "image_link": "",
             "image_alignment": "center",
-            "image_width": "300",
+            "image_width": "500",
             "image_max_width": "",
             "position_type": "absolute",
             "vertical_position": "top",
@@ -47,6 +64,7 @@
         }
       },
       "block_order": [
+        "image_7cgdGV",
         "text_Q4VtGT",
         "image_fzAQxk"
       ],
@@ -55,7 +73,7 @@
         "content_alignment": "center",
         "contain_component": true,
         "content_width": "",
-        "background_color": "#cf4c4c",
+        "background_color": "#ffd750",
         "padding_desktop": "60px 20px",
         "padding_mobile": ""
       }
@@ -83,7 +101,7 @@
       "name": "More collection",
       "settings": {
         "collection": "discount-landing",
-        "heading": "Power-Packed Nutrition",
+        "heading": "PROTEIN-Packed Nutrition",
         "products_limit": 20,
         "show_price_badge": true,
         "price_badge_text": "per bag",
