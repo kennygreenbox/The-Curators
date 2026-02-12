@@ -87,13 +87,13 @@
         "img_wKGhWh": {
           "type": "img",
           "settings": {
-            "image": "shopify://shop_images/Frame_3904.webp"
+            "image": "shopify://shop_images/5.webp"
           }
         },
         "text_dABLFV": {
           "type": "text",
           "settings": {
-            "text": "<h5>“THESE TASTE JUST LIKE FRAZZLES, BUT PROTEIN PACKED.”</h5><p><strong>– Emily, London</strong></p>",
+            "text": "<h5>“LIKE DORITOS, BUT PROTEIN PACKED. A WIN-WIN.”</h5><p><strong>– Emily, London</strong></p>",
             "color": "#9c2143",
             "bg_color": "#f8ced7"
           }
@@ -101,13 +101,13 @@
         "img_KBLmnB": {
           "type": "img",
           "settings": {
-            "image": "shopify://shop_images/Frame_3906.webp"
+            "image": "shopify://shop_images/3_197d74eb-1e6f-42f8-b8d8-1881ad3f3c0a.png"
           }
         },
         "text_XwTggy": {
           "type": "text",
           "settings": {
-            "text": "<h5>“THE PERFECT OPTION FOR KETO, DIABETIC OR LOW CARB SNACKERS”</h5><p><strong>– Jason, Newcastle</strong></p>",
+            "text": "<h5>“IF YOU'RE LOOKING FOR HIGH FIBRE SNACKS THAT TASTE GOOD, THESE ARE IT.”</h5><p><strong>– Jason, Newcastle</strong></p>",
             "color": "#000000",
             "bg_color": "#ffd750"
           }
@@ -115,13 +115,13 @@
         "img_CCTpGH": {
           "type": "img",
           "settings": {
-            "image": "shopify://shop_images/Frame_3908.webp"
+            "image": "shopify://shop_images/5.png"
           }
         },
         "text_XYJeaq": {
           "type": "text",
           "settings": {
-            "text": "<h5>“19G PROTEIN AND 0G CARBS? REAL INGREDIENTS? THESE MACROS BLEW MY MIND.”</h5><p><strong>– Eleanor, Glasgow</strong></p>",
+            "text": "<h5>“10G PROTEIN AND THEY TASTE THIS GOOD???”</h5><p><strong>– Eleanor, Glasgow</strong></p>",
             "color": "#000000",
             "bg_color": "#00c1de"
           }

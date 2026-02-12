@@ -15,19 +15,19 @@
         "item_BijYp4": {
           "type": "item",
           "settings": {
-            "text": "High Protein"
+            "text": "HIGH PROTEIN"
           }
         },
         "item_DqgeHf": {
           "type": "item",
           "settings": {
-            "text": "Low Calories"
+            "text": "NATURAL INGREDIENTS"
           }
         },
         "item_YX7L97": {
           "type": "item",
           "settings": {
-            "text": "Great Taste"
+            "text": "GREAT TASTE"
           }
         }
       },
@@ -236,7 +236,7 @@
         "product_eAtTTw"
       ],
       "settings": {
-        "heading": "<h2>YOUR FAVOURITE SAVOURY SNACKS, SUPERCHARGED WITH PROTEIN.</h2>",
+        "heading": "<h2>KNOCKOUT SAVOURY SNACKS WITH A DOUBLE PUNCH OF FLAVOUR & PROTEIN.</h2>",
         "text": "<p>We make protein packed super snacks that deliver a double punch of high protein and unbeatable flavour.</p>"
       }
     },
@@ -260,28 +260,28 @@
           "type": "table",
           "settings": {
             "f_text": "Little to no protein",
-            "s_text": "High in good quality protein"
+            "s_text": "PACKED with protein"
           }
         },
         "table_Mrm9yX": {
           "type": "table",
           "settings": {
-            "f_text": "Fillers and preservatives",
-            "s_text": "No nasties added, natural ingredients"
+            "f_text": "Nasty preservatives",
+            "s_text": "All Natural Ingredients"
           }
         },
         "table_RXyqfX": {
           "type": "table",
           "settings": {
             "f_text": "Full of fat, sugar and salt",
-            "s_text": "No added sugar"
+            "s_text": "Zero Sugar"
           }
         },
         "table_VRqdRb": {
           "type": "table",
           "settings": {
             "f_text": "Extremely carb heavy",
-            "s_text": "Low carb"
+            "s_text": "Low to no carbs"
           }
         },
         "marquee_MKxJRW": {
@@ -331,8 +331,8 @@
         "title": "<h4>BE SNACK DAY READY</h4>",
         "btn_label": "Try our Packs & Bundles",
         "btn_url": "shopify://collections/snack-collections",
-        "t_heading": "<h2>EMBARRASSING OTHER SNACKS SINCE 2018</h2>",
-        "table_title": "Average Crisps",
+        "t_heading": "<h2>EMBARRASSING OTHER CRISPS SINCE 2018</h2>",
+        "table_title": "Standard Crisps",
         "table_image": "shopify://shop_images/curators-table-logo.svg",
         "t_btn_label": "Shop snacks",
         "t_btn_url": "shopify://collections/all-products",
@@ -423,9 +423,9 @@
       "settings": {
         "image_desk": "shopify://shop_images/Puffs_Hero.webp",
         "image_mobi": "shopify://shop_images/Puffs_Hero.webp",
-        "heading_deco": "NEW PROTEIN CHIPS",
+        "heading_deco": "PROTEIN CHIPS",
         "heading_rest": "ARE HERE",
-        "text": "<p>Seriously tasty, crunchy triangles of protein perfection. Bringing you real snacking satisfaction. We've dialled the crunch up to 11 and maxed out on superior flavour, our protein tortilla chips deliver everything the other guys can't.</p><p></p><p>Try our Tangy Cheese and Thai Sweet Chilli Flavours Now ⬇️</p>",
+        "text": "<h6><strong>Not your average crisps. </strong></h6><h6>Our <strong>Protein Chips</strong> were curated to give you <strong>everything you love about crisps</strong> - <strong>crunch</strong>, <strong>flavour </strong>and <strong>satisfaction</strong> - but <strong>supercharged with protein.</strong></h6><h6>Made with<strong> lentils</strong>, every bag delivers <strong>natural protein and fibre</strong>, helping you feel <strong>fuller for longer</strong>, without compromising on taste or texture.</h6>",
         "btn_label": "SHOP NOW",
         "btn_url": "shopify://collections/protein-chips",
         "roundel_text": "18g",
@@ -664,11 +664,11 @@
     "hero_Jh7JJQ",
     "partner_Re77b3",
     "favourite_products_tTLB7t",
-    "call_top_action_banner_t89dez",
+    "call_to_action_f4QPFP",
     "benefits_table_DHkVBW",
+    "call_top_action_banner_t89dez",
     "featured_products_Lh4Hba",
     "html_content_8jbyTM",
-    "call_to_action_f4QPFP",
     "testimonial_9V8jBE",
     "text_with_image_wYLeLd",
     "hero_box_KK7e9x",
