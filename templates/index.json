@@ -40,7 +40,7 @@
         "image": "shopify://shop_images/TC_WebsiteImage_Jan26.png",
         "deco_text": "CRISPS FOR RUNNERS",
         "rest_text": "NOT WALKERS",
-        "text": "Start 2026 off with a crunch",
+        "text": "FREE Shipping All Month",
         "btn_label": "SHOP NOW",
         "btn_url": "shopify://collections/all"
       }
@@ -240,17 +240,39 @@
         "text": "<p>We make protein packed super snacks that deliver a double punch of high protein and unbeatable flavour.</p>"
       }
     },
-    "call_top_action_banner_t89dez": {
-      "type": "call-top-action-banner",
-      "name": "Call To Action Banner",
+    "call_to_action_f4QPFP": {
+      "type": "call-to-action",
+      "blocks": {
+        "image_EaiTq8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/protein-chip-01_1.webp"
+          }
+        },
+        "image_KGABwJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/protein-chip-02_1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "image_EaiTq8",
+        "image_KGABwJ"
+      ],
       "settings": {
-        "box_img": "shopify://shop_images/cheesies-fringe.webp",
-        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
-        "first_text": "OFFICIAL SNACK OF THE EDINBURGH",
-        "deco_text": "FRINGE,",
-        "last_text": "NOT THE FRIDGE",
-        "btn_label": "MEET CHEESIES",
-        "btn_url": "shopify://collections/cheesies"
+        "image_desk": "shopify://shop_images/Puffs_Hero.webp",
+        "image_mobi": "shopify://shop_images/Puffs_Hero.webp",
+        "heading_deco": "PROTEIN CHIPS",
+        "heading_rest": "ARE HERE",
+        "text": "<h6><strong>Not your average crisps. </strong></h6><h6>Our <strong>Protein Chips</strong> were curated to give you <strong>everything you love about crisps</strong> - <strong>crunch</strong>, <strong>flavour </strong>and <strong>satisfaction</strong> - but <strong>supercharged with protein.</strong></h6><h6>Made with<strong> lentils</strong>, every bag delivers <strong>natural protein and fibre</strong>, helping you feel <strong>fuller for longer</strong>, without compromising on taste or texture.</h6>",
+        "btn_label": "SHOP NOW",
+        "btn_url": "shopify://collections/protein-chips",
+        "roundel_text": "18g",
+        "roundel_bg_image": "shopify://shop_images/10g_roundel.webp",
+        "roundel_image": "shopify://shop_images/protein-outer.svg",
+        "roundel_colour": "",
+        "roundel_text_colour": ""
       }
     },
     "benefits_table_DHkVBW": {
@@ -346,6 +368,19 @@
         "spinning_roundel": "shopify://shop_images/protein-outer_af5690f6-e81e-4954-91dc-ee0a8d73ddaa.svg"
       }
     },
+    "call_top_action_banner_t89dez": {
+      "type": "call-top-action-banner",
+      "name": "Call To Action Banner",
+      "settings": {
+        "box_img": "shopify://shop_images/cheesies-fringe.webp",
+        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
+        "first_text": "OFFICIAL SNACK OF THE EDINBURGH",
+        "deco_text": "FRINGE,",
+        "last_text": "NOT THE FRIDGE",
+        "btn_label": "MEET CHEESIES",
+        "btn_url": "shopify://collections/cheesies"
+      }
+    },
     "featured_products_Lh4Hba": {
       "type": "featured-products",
       "blocks": {
@@ -398,41 +433,6 @@
         "heading": "<h2>WHAT THEY'RE SAYING ABOUT US</h2>",
         "text": "",
         "html": "<!-- TrustBox widget - Slider --><div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"54ad5defc6454f065c28af8b\" data-businessunit-id=\"63bbd816acde6c1b254abed2\" data-style-height=\"240px\" data-style-width=\"100%\" data-stars=\"4,5\" data-review-languages=\"en\" data-text-color=\"#000000\">  <a href=\"https://uk.trustpilot.com/review/wearethecurators.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div><!-- End TrustBox widget -->"
-      }
-    },
-    "call_to_action_f4QPFP": {
-      "type": "call-to-action",
-      "blocks": {
-        "image_EaiTq8": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/protein-chip-01_1.webp"
-          }
-        },
-        "image_KGABwJ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/protein-chip-02_1.webp"
-          }
-        }
-      },
-      "block_order": [
-        "image_EaiTq8",
-        "image_KGABwJ"
-      ],
-      "settings": {
-        "image_desk": "shopify://shop_images/Puffs_Hero.webp",
-        "image_mobi": "shopify://shop_images/Puffs_Hero.webp",
-        "heading_deco": "PROTEIN CHIPS",
-        "heading_rest": "ARE HERE",
-        "text": "<h6><strong>Not your average crisps. </strong></h6><h6>Our <strong>Protein Chips</strong> were curated to give you <strong>everything you love about crisps</strong> - <strong>crunch</strong>, <strong>flavour </strong>and <strong>satisfaction</strong> - but <strong>supercharged with protein.</strong></h6><h6>Made with<strong> lentils</strong>, every bag delivers <strong>natural protein and fibre</strong>, helping you feel <strong>fuller for longer</strong>, without compromising on taste or texture.</h6>",
-        "btn_label": "SHOP NOW",
-        "btn_url": "shopify://collections/protein-chips",
-        "roundel_text": "18g",
-        "roundel_bg_image": "shopify://shop_images/10g_roundel.webp",
-        "roundel_image": "shopify://shop_images/protein-outer.svg",
-        "roundel_colour": "",
-        "roundel_text_colour": ""
       }
     },
     "testimonial_9V8jBE": {
