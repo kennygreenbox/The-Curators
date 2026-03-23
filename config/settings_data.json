@@ -19,6 +19,18 @@
       "header": {
         "type": "header",
         "blocks": {
+          "item_hmkbdT": {
+            "type": "item",
+            "settings": {
+              "menu_name": "PROTEIN CHIPS",
+              "url": "shopify://collections/protein-chips",
+              "new": false,
+              "product1": "classic-bbq-protein-chips-35g",
+              "product2": "thai-sweet-chilli-protein-chips-35g",
+              "product3": "tangy-cheese-protein-chips-35g",
+              "product4": "mixed-protein-chips-20-x-35g"
+            }
+          },
           "item_HF7iTL": {
             "type": "item",
             "settings": {
@@ -29,18 +41,6 @@
               "product2": "original-salted-pork-puffs-25g-x-20",
               "product3": "smoky-bacon-pork-puffs-25g-x-20",
               "product4": "salt-vinegar-pork-puffs-25g-x-20"
-            }
-          },
-          "item_hmkbdT": {
-            "type": "item",
-            "settings": {
-              "menu_name": "PROTEIN CHIPS",
-              "url": "shopify://collections/protein-chips",
-              "new": false,
-              "product1": "tangy-cheese-protein-chips-35g",
-              "product2": "thai-sweet-chilli-protein-chips-35g",
-              "product3": "classic-bbq-protein-chips-35g",
-              "product4": "mixed-protein-chips-20-x-35g"
             }
           },
           "item_zGUHdQ": {
@@ -69,8 +69,8 @@
           }
         },
         "block_order": [
-          "item_HF7iTL",
           "item_hmkbdT",
+          "item_HF7iTL",
           "item_zGUHdQ",
           "item_iA7RWm"
         ],
