@@ -9,15 +9,51 @@
  */
 {
   "sections": {
+    "black_hero_7D8BAe": {
+      "type": "black-hero",
+      "blocks": {
+        "text_9x4MaD": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Careers at the curators</h1>",
+            "text_color": "#000",
+            "padding_desktop": "5%",
+            "padding_mobile": "10%"
+          }
+        }
+      },
+      "block_order": [
+        "text_9x4MaD"
+      ],
+      "name": "Landing hero",
+      "settings": {
+        "content_alignment": "center",
+        "contain_component": true,
+        "content_width": "",
+        "background_color": "#ffd751",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
+    },
     "main": {
       "type": "main-blog",
+      "disabled": true,
       "settings": {
         "article": "news/it-is-a-long-established-fact-that-a-reader-will-be-distracted-by-the-readable-5",
         "sub_title": "Featured article"
       }
+    },
+    "related_article_mx4JJ3": {
+      "type": "related-article",
+      "name": "Related article",
+      "settings": {
+        "title": "Related Articles"
+      }
     }
   },
   "order": [
-    "main"
+    "black_hero_7D8BAe",
+    "main",
+    "related_article_mx4JJ3"
   ]
 }
