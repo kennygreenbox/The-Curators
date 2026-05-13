@@ -14,6 +14,7 @@
       "blocks": {
         "text_9x4MaD": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<h1>Careers at the curators</h1>",
             "text_color": "#000",
@@ -37,14 +38,14 @@
     },
     "main": {
       "type": "main-blog",
-      "disabled": true,
       "settings": {
-        "article": "news/it-is-a-long-established-fact-that-a-reader-will-be-distracted-by-the-readable-5",
+        "article": "careers/national-account-manager-foodservice",
         "sub_title": "Featured article"
       }
     },
     "related_article_mx4JJ3": {
       "type": "related-article",
+      "disabled": true,
       "name": "Related article",
       "settings": {
         "title": "Related Articles"
