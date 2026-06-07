@@ -38,8 +38,8 @@
       ],
       "settings": {
         "image": "shopify://shop_images/TC_WebsiteImage_March26.png",
-        "deco_text": "50% OFF",
-        "rest_text": "PROTEIN CHIPS",
+        "deco_text": "PROTEIN",
+        "rest_text": "CHIPS",
         "text": "Naturally protein-packed lentil chips.",
         "btn_label": "SHOP NOW",
         "btn_url": "shopify://collections/protein-chips"
