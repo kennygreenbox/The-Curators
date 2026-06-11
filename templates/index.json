@@ -406,6 +406,12 @@
             "product": "smoky-bacon-pork-puffs-75g"
           }
         },
+        "item_Me8zp4": {
+          "type": "item",
+          "settings": {
+            "product": "tajin-pork-puffs"
+          }
+        },
         "item_aWWUYX": {
           "type": "item",
           "settings": {
@@ -418,6 +424,7 @@
         "item_KQwWxM",
         "item_zLaBKX",
         "item_VRUFbx",
+        "item_Me8zp4",
         "item_aWWUYX"
       ],
       "settings": {
