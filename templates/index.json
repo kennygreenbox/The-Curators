@@ -400,6 +400,7 @@
         },
         "item_VRUFbx": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Smoky_Bacon_25g_website_images_2acec673-1c3b-42da-9aaf-673b55b9243e.png",
             "product": "smoky-bacon-pork-puffs-75g"
