@@ -1,0 +1,102 @@
+{% liquid
+  assign section_id = 'campaign-banner-' | append: section.id
+%}
+
+<section id="{{ section_id }}" class="campaign-banner">
+  <div class="campaign-banner__inner">
+    <div class="page-container common-wrap">
+      <div class="campaign-banner__wrapper">
+        <div class="campaign-banner__img fadeIn">
+          {% if section.settings.image != blank %}
+            {{
+              section.settings.image
+              | image_url: width: 2000
+              | image_tag:
+                widths: '375,550,750,1100,1500,2000',
+                sizes: '(min-width: 990px) 50vw, 100vw',
+                loading: 'lazy',
+                class: 'campaign-banner__image'
+            }}
+          {% endif %}
+        </div>
+
+        <div class="campaign-banner__content fadeIn">
+          <div class="campaign-banner__content-img">
+            {% if section.settings.content_image != blank %}
+              {{
+                section.settings.content_image
+                | image_url: width: 1200
+                | image_tag:
+                  widths: '375,550,750,900,1200',
+                  sizes: '(min-width: 990px) 30vw, 100vw',
+                  loading: 'lazy',
+                  class: 'campaign-banner__content-image'
+              }}
+            {% endif %}
+          </div>
+
+          <div class="campaign-banner__content-text">
+            {% if section.settings.content != blank %}
+              {{ section.settings.content }}
+            {% endif %}
+
+            {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+              <div class="campaign-banner__btn">
+                <a
+                  class="button button--stroke btn-primary btn-large btn campaign-banner__btn-url"
+                  href="{{ section.settings.button_url }}"
+                  data-block="button"
+                >
+                  <span class="button__flair"></span>
+                  <span class="button__label">{{ section.settings.button_label }}</span>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Campaign Banner",
+  "tag": "section",
+  "class": "campaign-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "content_image",
+      "label": "Content Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Try our NEW Protein Chips big bags with this <em>EXCLUSIVE 1/2 price offer</em>.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "CLAIM YOUR 50% OFF NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Campaign Banner"
+    }
+  ]
+}
+{% endschema %}
