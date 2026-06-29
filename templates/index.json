@@ -187,8 +187,8 @@
       "settings": {
         "image": "shopify://shop_images/campaign-banner-img.png",
         "content_image": "shopify://shop_images/campaign-banner-content-img.png",
-        "content": "<p>Try our NEW Protein Chips big bags with this <em>EXCLUSIVE 1/2 price offer</em>.</p>",
-        "button_label": "CLAIM YOUR 50% OFF NOW",
+        "content": "<p>Try our NEW Protein Chips for FREE - only in Waitrose.</p>",
+        "button_label": "CLAIM YOUR FREE PACK NOW",
         "button_url": "https://hashting.promo/thecuratorsproteinchips50lp/CHIPSWEB"
       }
     },
