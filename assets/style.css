@@ -1117,6 +1117,9 @@ h3 .underline-animation, .h3 .underline-animation{bottom: -1px;}
 .temp-product, .temp-collection {overflow: visible;}
 .temp-product, .temp-collection {overflow: visible;}
 .temp-product .page-header-product-section, .temp-collection .shop-product-section{margin-top: 78px;}
+/* .temp-product .page-header-product-section{
+  margin-top: 100px !important;
+} */
 
 .product-image-thumbnails .swiper-slide{max-width:41px;}
 .swiper-slide-thumb-active{border: 1px solid var(--black);}
@@ -1415,11 +1418,13 @@ object-fit: contain;
 
 
 
-
+.shop-products{
+  margin-top: 0;
+}
 .shop-product-section{margin-bottom: 130px;}
 /* .shop-filter{width: 23.359375%;}
 .shop-products-container{width: calc(76.640625% - 30px);} */
-.shop-collection-banner{min-height: 316px; width: 100%; color: var(--white);}
+.shop-collection-banner{min-height: 316px; width: 100%; color: var(--white); display: none;}
 .collection-banner-img{left: 0; width: 100%; height: 100%;z-index: -1; top: 0;}
 .collection-banner-img picture, .collection-banner-img img{height: 100%; width: 100%;}
 .banner-overlay:after {position: absolute; content:''; width: 100%; height: 100%; top: 0; left:0;  background: var(--black); opacity: 0; z-index: 1;}
@@ -2170,6 +2175,9 @@ object-fit: contain;
 
      /* Product page */
      .temp-product .page-header-product-section, .temp-collection .shop-product-section{margin-top: 126px;}
+     .temp-product .page-header-product-section{
+        margin-top: 100px !important;
+      }
      .product-image-thumbnails .swiper-slide{max-width: 54px;}
 
      .page-header-product-visual, .single__product-form {width: calc(50% - 15px);}
@@ -2208,9 +2216,11 @@ object-fit: contain;
       .shop-filter{width: 23.359375%;}
       .shop-filter-container{background-color: var(--yellow);}
       .shop-products-container{width: calc(76.640625% - 30px);}   
-      .shop-collection-banner{min-height: 244px; }
+      .shop-collection-banner{min-height: 244px; display: block}
       .shop-products .product-item-wrapper{gap: 70px var(--space-l) }
-
+      .shop-products{
+        margin-top: var(--space-l);
+      }
 
       /* About */
       .text-img-parallax-section .row-rev .grid-item:first-child .grid-five{grid-column-start: 2; grid-column-end: 7;}
