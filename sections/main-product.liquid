@@ -12,7 +12,7 @@
 <div class="breadcrumbs">
 	<ul class="breadcrumbs__lists">
 		<li class="breadcrumbs__list">
-			<a class="breadcrumbs__url" href="collections/all">
+			<a class="breadcrumbs__url" href="/collections/all-products">
 				SHOP
 			</a>
 		</li>
@@ -20,7 +20,7 @@
 		{% assign breadcrumb_collection = collection %}
 
 		{% if breadcrumb_collection == blank and product.collections.size > 0 %}
-			{% assign breadcrumb_collection = product.collections.first %}
+			{% assign breadcrumb_collection = product.collections[0] %}
 		{% endif %}
 
 		{% if breadcrumb_collection %}
