@@ -38,9 +38,9 @@
       ],
       "settings": {
         "image": "shopify://shop_images/TC_WebsiteImage_March26.png",
-        "deco_text": "PROTEIN",
-        "rest_text": "CHIPS",
-        "text": "Naturally protein-packed lentil chips.",
+        "deco_text": "Protein packed",
+        "rest_text": "Supersnacks",
+        "text": "Supercharge your snacks",
         "btn_label": "SHOP NOW",
         "btn_url": "shopify://collections/protein-chips"
       }
