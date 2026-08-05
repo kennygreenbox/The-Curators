@@ -183,6 +183,7 @@
     },
     "campaign_banner_qQNJET": {
       "type": "campaign-banner",
+      "disabled": true,
       "name": "Campaign Banner",
       "settings": {
         "image": "shopify://shop_images/campaign-banner-img.png",
