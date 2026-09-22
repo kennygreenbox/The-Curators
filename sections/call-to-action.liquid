@@ -46,7 +46,7 @@
                             {% if image != blank %}
                                 <div class="animate-up">
                                     <figure>
-                                        {% render 'responsive-img' with image: image %}
+                                        {% render 'responsive-img' with image, image: image %}
                                         {% comment %} <img src="{{'cheesies-singles_1.webp ' |  asset_url }}" alt=""> {% endcomment %}
                                     </figure>
                                 </div>
@@ -73,7 +73,7 @@
                     <div class="inner-sticker" {% if roundel_bg_image == blank %}style="background-color:{{roundel_colour}};"{% endif %}>
                         {% if roundel_bg_image != blank %}
                         <figure>
-                            {% render 'responsive-img' with image:roundel_bg_image %}
+                            {% render 'responsive-img' with image.roundel_bg_image, image: roundel_bg_image %}
                         </figure>
                         {% else %}
                             <span style=" color:{{ roundel_text_colour }}">{{ roundel_text }}</span>
@@ -82,7 +82,7 @@
                     {% if roundel_image != blank %}
                     <div class="rotate outer-sticker pos-absolute">
                         <figure>
-                            {% render 'responsive-img' with image:roundel_image %}
+                            {% render 'responsive-img' with image.roundel_image, image: roundel_image %}
                         </figure>
                     </div>
                     {% endif %}
@@ -179,3 +179,20 @@
 {% endschema %}
 
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-img' with image: image %}"
+  to: "{% render 'responsive-img' with image, image: image %}"
+  position: 2709..2763
+- from: "{% render 'responsive-img' with image:roundel_bg_image %}"
+  to: "{% render 'responsive-img' with image.roundel_bg_image, image: roundel_bg_image
+    %}"
+  position: 4249..4331
+- from: "{% render 'responsive-img' with image:roundel_image %}"
+  to: "{% render 'responsive-img' with image.roundel_image, image: roundel_image %}"
+  position: 4746..4822
+{% endcomment %}

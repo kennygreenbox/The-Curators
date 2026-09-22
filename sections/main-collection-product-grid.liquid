@@ -99,7 +99,7 @@
                         </div>
                         {% if banner_img.secondary_badge != blank %}
                             <div class="secondary-badge"{% if banner_img.secondary_badge_size != blank %}style="max-width: {{ banner_img.secondary_badge_size }}px;"{% endif %}>
-                                {% render 'responsive-img' with image: banner_img.secondary_badge %}
+                                {% render 'responsive-img' with image, image: banner_img.secondary_badge %}
                             </div>
                         {% endif %}
                     </div>
@@ -246,3 +246,13 @@
 }
 {% endschema %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-img' with image: banner_img.secondary_badge %}"
+  to: "{% render 'responsive-img' with image, image: banner_img.secondary_badge %}"
+  position: 7353..7428
+{% endcomment %}

@@ -19,7 +19,7 @@
                                 <div class="fadeIn flex flex-col content-wrap">
                                     {% comment %} {{ s.text |  replace: '<h2', '<h2 class="h5"' |  replace: '<strong>', '<span class="pos-relative">' |  replace: '</strong>', '</span>' |  replace: '<em>', '<span class="pos-absolute underline-animation"><img src="{{ 'Underline.svg' |  asset_url}}" alt="">' |  replace: '</em>', '</span>'  }} {% endcomment %}
                                     {% assign image_insert = s.image_insert %}
-                                    {%- capture image -%}{% render 'responsive-img' with image:image_insert, class:'inline-img' %}{%- endcapture -%}
+                                    {%- capture image -%}{% render 'responsive-img' with image.image_insert, image: image_insert, class: 'inline-img' %}{%- endcapture -%}
                                     <h1><span class="pos-relative">{{ s.deco_text | replace: '[image]', image }}
                                         <span class="pos-absolute underline-animation"><img src="{{'Underline.svg' |  asset_url}}" alt=""></span>
                                         </span>
@@ -109,4 +109,14 @@
                 }
               ]
             }
-        {% endschema %}
+        {% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-img' with image:image_insert, class:'inline-img' %}"
+  to: "{% render 'responsive-img' with image.image_insert, image: image_insert, class:
+    'inline-img' %}"
+  position: 1795..1890
+{%- endcomment -%}
