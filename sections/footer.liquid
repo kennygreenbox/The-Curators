@@ -83,7 +83,7 @@
               {% else %}
 	              <div class="grid-one footer-logo-partners lg:txt-r">
               {% endif %}
-                {% render 'responsive-img' with image: icon %}
+                {% render 'responsive-img' with image, image: icon %}
               {% if icon_url != blank %}
                 </a>
               {% else %}
@@ -206,4 +206,13 @@
   {% endschema %}
 
 
-  
+  {%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-img' with image: icon %}"
+  to: "{% render 'responsive-img' with image, image: icon %}"
+  position: 176330..176383
+{%- endcomment -%}

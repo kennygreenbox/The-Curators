@@ -23,7 +23,7 @@
                         {% assign box_bg_img = s.box_bg_img %}
                         {% if box_bg_img != blank %}
                         <figure>
-                            {% render 'responsive-image' with image: box_bg_img %}
+                            {% render 'responsive-image' with image, image: box_bg_img %}
                         </figure>
                         {% endif %}
                     </div>
@@ -87,3 +87,13 @@
 {% endschema %}
 
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-image' with image: box_bg_img %}"
+  to: "{% render 'responsive-image' with image, image: box_bg_img %}"
+  position: 1615..1676
+{% endcomment %}

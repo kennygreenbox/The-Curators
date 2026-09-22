@@ -62,9 +62,9 @@
                                                   {% assign grid_card = b.product1.metafields.custom.grid_card.value %}
 
                                                   {% if grid_card.grid_image != blank %}
-                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image, above_fold: true, class: 'bg-img' %}
                                                     {% else %}     
-                                                      {% render 'responsive-img' with image:b.product1.featured_image, above_fold:true, class:'bg-img' %}
+                                                      {% render 'responsive-img' with image.b.product1.featured_image, image: b.product1.featured_image, above_fold: true, class: 'bg-img' %}
                                                   {% endif %}
 
 
@@ -82,9 +82,9 @@
                                                   {% assign grid_card = b.product2.metafields.custom.grid_card.value %}
 
                                                   {% if grid_card.grid_image != blank %}
-                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image, above_fold: true, class: 'bg-img' %}
                                                     {% else %}     
-                                                      {% render 'responsive-img' with image:b.product2.featured_image, above_fold:true, class:'bg-img' %}
+                                                      {% render 'responsive-img' with image.b.product2.featured_image, image: b.product2.featured_image, above_fold: true, class: 'bg-img' %}
                                                   {% endif %}
                                                 </div>
                                                 <span class="menu-page-title ">
@@ -100,9 +100,9 @@
                                                   {% assign grid_card = b.product3.metafields.custom.grid_card.value %}
 
                                                   {% if grid_card.grid_image != blank %}
-                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image, above_fold: true, class: 'bg-img' %}
                                                     {% else %}     
-                                                      {% render 'responsive-img' with image:b.product3.featured_image, above_fold:true, class:'bg-img' %}
+                                                      {% render 'responsive-img' with image.b.product3.featured_image, image: b.product3.featured_image, above_fold: true, class: 'bg-img' %}
                                                   {% endif %}
                                                 </div>
                                                 <span class="menu-page-title ">
@@ -118,9 +118,9 @@
                                                   {% assign grid_card = b.product4.metafields.custom.grid_card.value %}
 
                                                   {% if grid_card.grid_image != blank %}
-                                                    {% render 'responsive-img' with image:grid_card.grid_image, above_fold:true, class:'bg-img' %}
+                                                    {% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image, above_fold: true, class: 'bg-img' %}
                                                     {% else %}     
-                                                      {% render 'responsive-img' with image:b.product4.featured_image, above_fold:true, class:'bg-img' %}
+                                                      {% render 'responsive-img' with image.b.product4.featured_image, image: b.product4.featured_image, above_fold: true, class: 'bg-img' %}
                                                   {% endif %}
                                                 </div>
                                                 <span class="menu-page-title ">
@@ -388,3 +388,50 @@
   }
 {% endschema %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-img' with image:grid_card.grid_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 4216..4341
+- from: "{% render 'responsive-img' with image:b.product1.featured_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.b.product1.featured_image, image: b.product1.featured_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 4464..4599
+- from: "{% render 'responsive-img' with image:grid_card.grid_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 5758..5883
+- from: "{% render 'responsive-img' with image:b.product2.featured_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.b.product2.featured_image, image: b.product2.featured_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 6006..6141
+- from: "{% render 'responsive-img' with image:grid_card.grid_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 7298..7423
+- from: "{% render 'responsive-img' with image:b.product3.featured_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.b.product3.featured_image, image: b.product3.featured_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 7546..7681
+- from: "{% render 'responsive-img' with image:grid_card.grid_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.grid_card.grid_image, image: grid_card.grid_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 8838..8963
+- from: "{% render 'responsive-img' with image:b.product4.featured_image, above_fold:true,
+    class:'bg-img' %}"
+  to: "{% render 'responsive-img' with image.b.product4.featured_image, image: b.product4.featured_image,
+    above_fold: true, class: 'bg-img' %}"
+  position: 9086..9221
+{% endcomment %}

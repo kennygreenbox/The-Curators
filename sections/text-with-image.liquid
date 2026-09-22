@@ -43,14 +43,14 @@
                             {% if roundel_bg != blank %}
                                 <div class="inner-sticker">
                                     <figure>
-                                        {% render 'responsive-image' with image:roundel_bg %}
+                                        {% render 'responsive-image' with image.roundel_bg, image: roundel_bg %}
                                     </figure>
                                 </div>
                             {% endif %}
                             {% if spinning_roundel != blank %}
                                 <div class="rotate outer-sticker pos-absolute">
                                     <figure>
-                                        {% render 'responsive-image' with image:spinning_roundel %}
+                                        {% render 'responsive-image' with image.spinning_roundel, image: spinning_roundel %}
                                     </figure>
                                 </div>
                             {% endif %}
@@ -130,4 +130,17 @@
         }
       ]
     }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-image' with image:roundel_bg %}"
+  to: "{% render 'responsive-image' with image.roundel_bg, image: roundel_bg %}"
+  position: 2571..2643
+- from: "{% render 'responsive-image' with image:spinning_roundel %}"
+  to: "{% render 'responsive-image' with image.spinning_roundel, image: spinning_roundel
+    %}"
+  position: 2997..3081
+{%- endcomment -%}
