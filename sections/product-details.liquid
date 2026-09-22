@@ -48,7 +48,7 @@
             {% if floating_image_1 != blank %}
                 <div class="animate-rotate custom__animate-rotate-looping">
                     <figure>
-                        {% render 'responsive-img' with image:floating_image_1  %}
+                        {% render 'responsive-img' with image.floating_image_1, image: floating_image_1 %}
                         {% comment %} <img src="{{'Puff-bacon-light.png' | asset_url }}" alt=""> {% endcomment %}
                     </figure>
                 </div>
@@ -56,14 +56,14 @@
             {% if floating_image_1 != blank %}
             <div class="animate-rotate custom__animate-rotate-looping">
                 <figure>
-                    {% render 'responsive-img' with image:floating_image_1  %}
+                    {% render 'responsive-img' with image.floating_image_1, image: floating_image_1 %}
                 </figure>
             </div>
             {% endif %}
             {% if floating_image_2 != blank %}
             <div class="animate-rotate custom__animate-rotate-looping">
                 <figure>
-                    {% render 'responsive-img' with image:floating_image_2  %}
+                    {% render 'responsive-img' with image.floating_image_2, image: floating_image_2 %}
                 </figure>
             </div>
             {% endif %}
@@ -72,21 +72,21 @@
             {% if floating_image_2 != blank %}
             <div class="desk animate-rotate custom__animate-rotate-looping">
                 <figure>
-                    {% render 'responsive-img' with image:floating_image_2  %}
+                    {% render 'responsive-img' with image.floating_image_2, image: floating_image_2 %}
                 </figure>
             </div>
             {% endif %}
             {% if floating_image_2 != blank %}
             <div class="animate-rotate custom__animate-rotate-looping">
                 <figure>
-                    {% render 'responsive-img' with image:floating_image_2  %}
+                    {% render 'responsive-img' with image.floating_image_2, image: floating_image_2 %}
                 </figure>
             </div>
             {% endif %}
             {% if floating_image_1 != blank %}
             <div class="animate-rotate custom__animate-rotate-looping">
                 <figure>
-                    {% render 'responsive-img' with image:floating_image_1  %}
+                    {% render 'responsive-img' with image.floating_image_1, image: floating_image_1 %}
                 </figure>
             </div>
             {% endif %}
@@ -106,4 +106,34 @@
         }
       ]
     }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-img' with image:floating_image_1  %}"
+  to: "{% render 'responsive-img' with image.floating_image_1, image: floating_image_1
+    %}"
+  position: 2532..2614
+- from: "{% render 'responsive-img' with image:floating_image_1  %}"
+  to: "{% render 'responsive-img' with image.floating_image_1, image: floating_image_1
+    %}"
+  position: 2970..3052
+- from: "{% render 'responsive-img' with image:floating_image_2  %}"
+  to: "{% render 'responsive-img' with image.floating_image_2, image: floating_image_2
+    %}"
+  position: 3286..3368
+- from: "{% render 'responsive-img' with image:floating_image_2  %}"
+  to: "{% render 'responsive-img' with image.floating_image_2, image: floating_image_2
+    %}"
+  position: 3684..3766
+- from: "{% render 'responsive-img' with image:floating_image_2  %}"
+  to: "{% render 'responsive-img' with image.floating_image_2, image: floating_image_2
+    %}"
+  position: 4000..4082
+- from: "{% render 'responsive-img' with image:floating_image_1  %}"
+  to: "{% render 'responsive-img' with image.floating_image_1, image: floating_image_1
+    %}"
+  position: 4316..4398
+{%- endcomment -%}

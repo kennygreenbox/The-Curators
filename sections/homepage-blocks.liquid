@@ -7,7 +7,7 @@
         <div class="h-blocks__item h-blocks__item_{{forloop.index}}">
           <a href="{{b.url}}" class="h-blocks__item-url">
             <div class="h-blocks__item-image">
-              {% render 'responsive-image' with image:b.image %}
+              {% render 'responsive-image' with image.b.image, image: b.image %}
             </div>
             <div class="h-blocks__item-title">{{b.title}}</div>
           </a>
@@ -116,4 +116,13 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-image' with image:b.image %}"
+  to: "{% render 'responsive-image' with image.b.image, image: b.image %}"
+  position: 395..461
+{%- endcomment -%}

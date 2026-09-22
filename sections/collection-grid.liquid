@@ -45,7 +45,7 @@
         {% paginate collection.products by 1000 %}
         <div class="shop-products">
             {% for product in collection.products %}
-              {% render 'product-card' with product:product %}
+              {% render 'product-card' with product.product, product: product %}
             {% endfor %}
           </div>
         {% endpaginate %}
@@ -89,4 +89,13 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-card' with product:product %}"
+  to: "{% render 'product-card' with product.product, product: product %}"
+  position: 1815..1881
+{%- endcomment -%}

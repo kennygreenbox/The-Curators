@@ -62,21 +62,21 @@
                 {% if image_1 != blank %}
                   <div class="animate-down-mid">
                       <figure>
-                        {% render 'responsive-image' with image: image_1 %}
+                        {% render 'responsive-image' with image, image: image_1 %}
                       </figure>
                   </div>
                 {% endif %}
                 {% if image_2 != blank %}
                   <div class="animate-down-mid">
                       <figure>
-                        {% render 'responsive-image' with image: image_2 %}
+                        {% render 'responsive-image' with image, image: image_2 %}
                       </figure>
                   </div>
                 {% endif %}
                 {% if image_3 != blank %}
                   <div class="animate-down-mid">
                       <figure>
-                        {% render 'responsive-image' with image: image_3 %}
+                        {% render 'responsive-image' with image, image: image_3 %}
                       </figure>
                   </div>
                 {% endif %}
@@ -214,4 +214,19 @@
         }
       ]
     }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-image' with image: image_1 %}"
+  to: "{% render 'responsive-image' with image, image: image_1 %}"
+  position: 3354..3412
+- from: "{% render 'responsive-image' with image: image_2 %}"
+  to: "{% render 'responsive-image' with image, image: image_2 %}"
+  position: 3644..3702
+- from: "{% render 'responsive-image' with image: image_3 %}"
+  to: "{% render 'responsive-image' with image, image: image_3 %}"
+  position: 3934..3992
+{%- endcomment -%}

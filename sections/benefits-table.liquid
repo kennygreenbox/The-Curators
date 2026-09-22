@@ -83,17 +83,17 @@
         <div class="desk pos-absolute parallax-chips">
             <div class="chip">
                 <figure>
-                    {% render 'responsive-image' with image: image_right_1 %}
+                    {% render 'responsive-image' with image, image: image_right_1 %}
                 </figure>
             </div>
             <div class="chip">
                 <figure>
-                    {% render 'responsive-image' with image: image_right_2 %}
+                    {% render 'responsive-image' with image, image: image_right_2 %}
                 </figure>
             </div>
             <div class="chip">
                 <figure>
-                    {% render 'responsive-image' with image: image_right_3 %}
+                    {% render 'responsive-image' with image, image: image_right_3 %}
                 </figure>
             </div>
         </div>
@@ -104,17 +104,17 @@
         <div class="desk pos-absolute parallax-puffs">
             <div class="animate-down">
                 <figure>
-                    {% render 'responsive-image' with image: image_left_1 %}
+                    {% render 'responsive-image' with image, image: image_left_1 %}
                 </figure>
             </div>
             <div class="animate-down">
                 <figure>
-                    {% render 'responsive-image' with image: image_left_2 %}
+                    {% render 'responsive-image' with image, image: image_left_2 %}
                 </figure>
             </div>
             <div class="animate-down">
                 <figure>
-                    {% render 'responsive-image' with image: image_left_3 %}
+                    {% render 'responsive-image' with image, image: image_left_3 %}
                 </figure>
             </div>
         </div>
@@ -126,14 +126,14 @@
                 {% if roundel_bg != blank %}
                     <div class="inner-sticker">
                         <figure>
-                            {% render 'responsive-image' with image:roundel_bg %}
+                            {% render 'responsive-image' with image.roundel_bg, image: roundel_bg %}
                         </figure>
                     </div>
                 {% endif %}
                 {% if spinning_roundel != blank %}
                     <div class="rotate outer-sticker pos-absolute">
                         <figure>
-                            {% render 'responsive-image' with image:spinning_roundel %}
+                            {% render 'responsive-image' with image.spinning_roundel, image: spinning_roundel %}
                         </figure>
                     </div>
                 {% endif %}
@@ -285,4 +285,35 @@
                 }
               ]
             }
-        {% endschema %}
+        {% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'responsive-image' with image: image_right_1 %}"
+  to: "{% render 'responsive-image' with image, image: image_right_1 %}"
+  position: 3570..3634
+- from: "{% render 'responsive-image' with image: image_right_2 %}"
+  to: "{% render 'responsive-image' with image, image: image_right_2 %}"
+  position: 3756..3820
+- from: "{% render 'responsive-image' with image: image_right_3 %}"
+  to: "{% render 'responsive-image' with image, image: image_right_3 %}"
+  position: 3942..4006
+- from: "{% render 'responsive-image' with image: image_left_1 %}"
+  to: "{% render 'responsive-image' with image, image: image_left_1 %}"
+  position: 4364..4427
+- from: "{% render 'responsive-image' with image: image_left_2 %}"
+  to: "{% render 'responsive-image' with image, image: image_left_2 %}"
+  position: 4557..4620
+- from: "{% render 'responsive-image' with image: image_left_3 %}"
+  to: "{% render 'responsive-image' with image, image: image_left_3 %}"
+  position: 4750..4813
+- from: "{% render 'responsive-image' with image:roundel_bg %}"
+  to: "{% render 'responsive-image' with image.roundel_bg, image: roundel_bg %}"
+  position: 5320..5392
+- from: "{% render 'responsive-image' with image:spinning_roundel %}"
+  to: "{% render 'responsive-image' with image.spinning_roundel, image: spinning_roundel
+    %}"
+  position: 5662..5746
+{%- endcomment -%}
