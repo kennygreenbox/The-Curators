@@ -39,7 +39,7 @@
       "settings": {
         "image": "shopify://shop_images/TC_Website_Image_Nov25.png",
         "deco_text": "Protein packed",
-        "rest_text": "Supersnacks",
+        "rest_text": "Super snacks",
         "text": "Snacks that get you moving",
         "btn_label": "SHOP NOW",
         "btn_url": "shopify://collections/protein-chips"
@@ -380,19 +380,6 @@
         "spinning_roundel": "shopify://shop_images/protein-outer_af5690f6-e81e-4954-91dc-ee0a8d73ddaa.svg"
       }
     },
-    "call_top_action_banner_t89dez": {
-      "type": "call-top-action-banner",
-      "name": "Call To Action Banner",
-      "settings": {
-        "box_img": "shopify://shop_images/cheesies-fringe.webp",
-        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
-        "first_text": "OFFICIAL SNACK OF THE EDINBURGH",
-        "deco_text": "FRINGE,",
-        "last_text": "NOT THE FRIDGE",
-        "btn_label": "MEET CHEESIES",
-        "btn_url": "shopify://collections/cheesies"
-      }
-    },
     "featured_products_Lh4Hba": {
       "type": "featured-products",
       "blocks": {
@@ -444,6 +431,19 @@
         "btn_label_desk": "Shop Protein Snacks",
         "btn_label_mobi": "Shop All",
         "btn_url": "shopify://collections/all-products"
+      }
+    },
+    "call_top_action_banner_t89dez": {
+      "type": "call-top-action-banner",
+      "name": "Call To Action Banner",
+      "settings": {
+        "box_img": "shopify://shop_images/cheesies-fringe.webp",
+        "box_bg_img": "shopify://shop_images/cheesies_bg.webp",
+        "first_text": "OFFICIAL SNACK OF THE EDINBURGH",
+        "deco_text": "FRINGE,",
+        "last_text": "NOT THE FRIDGE",
+        "btn_label": "MEET CHEESIES",
+        "btn_url": "shopify://collections/cheesies"
       }
     },
     "html_content_8jbyTM": {
