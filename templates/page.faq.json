@@ -87,6 +87,13 @@
             "title": "What's in your snacks?",
             "content": "<p>KETO: Our Pork Puffs, Biltong and Cheesies ranges are all keto friendly with next to no carbs across the range. BEEF BILTONG: All of our meat is British and our suppliers follow The Five Freedoms of Animal Welfare. Our cows are all grass fed too.VEGGIE PUFFS: Both our Cheese and Barbecue flavour Veggie Puffs are completely suitable for vegans. We know, hard to believe once you’ve given them a taste. </p>"
           }
+        },
+        "item_MbL3hU": {
+          "type": "item",
+          "settings": {
+            "title": "What is the small sachet inside my snack pack?",
+            "content": "<p>That’s an oxygen absorber. It helps keep your snacks fresh by absorbing oxygen inside the sealed pack.</p><p>The sachet contains iron, salt, activated carbon and quartz (all food safe, the sort of thing that is used in breads etc). It’s there to protect your snacks and <strong>must not be eaten or opened</strong>. Simply remove it and dispose of it when you open your pack, keeping it away from children and pets.</p><p><strong>What if I accidentally swallow the sachet or its contents?</strong></p><p>Do not worry or panic, it is no worse than taking an iron tablet and all the ingredients are food safe.</p>"
+          }
         }
       },
       "block_order": [
@@ -99,7 +106,8 @@
         "heading_DDmgpG",
         "item_eMYhVj",
         "item_68KFYE",
-        "item_iBFmpz"
+        "item_iBFmpz",
+        "item_MbL3hU"
       ],
       "settings": {
         "heading": "<h1>FAQs</h1><h4>Crunching Down Your Questions</h4>"
