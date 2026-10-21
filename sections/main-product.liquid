@@ -46,7 +46,7 @@
         <div class="br-10x product-featured-images swiper swiper-container">
           <div class="swiper-wrapper">
             {% for image in product.images %}
-              <div class="br-10x swiper-slide">
+              <div class="br-10x swiper-slide" data-image-id="{{ image.id }}">
                 <figure>
                   {% render 'responsive-img', image: image, above_fold: true, class: 'bg-img' %}
                 </figure>
