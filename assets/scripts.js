@@ -242,6 +242,20 @@
             },
           });
 
+          $(document).on('change', '.product__variant-radio-btn input', function () {
+            var imageId = $(this).data('image-id');
+
+            if (!imageId) return;
+
+            var slideIndex = $('.product-featured-images .swiper-slide').filter(function () {
+              return String($(this).data('image-id')) === String(imageId);
+            }).first().index();
+
+            if (slideIndex >= 0) {
+              productFeatured.slideTo(slideIndex);
+            }
+          });
+
         }
 
         // var socialmarqueeSlider = new Swiper('.social-marquee-slider', {
