@@ -242,19 +242,35 @@
             },
           });
 
-          $(document).on('change', '.product__variant-radio-btn input', function () {
-            var imageId = $(this).data('image-id');
+          function goToVariantImage(imageId) {
+    if (!imageId) return;
 
-            if (!imageId) return;
+    var slideIndex = $('.product-featured-images .swiper-slide').filter(function () {
+      return String($(this).attr('data-image-id')) === String(imageId);
+    }).first().index();
 
-            var slideIndex = $('.product-featured-images .swiper-slide').filter(function () {
-              return String($(this).data('image-id')) === String(imageId);
-            }).first().index();
+    if (slideIndex >= 0) {
+      productFeatured.slideTo(slideIndex, 0);
+    }
+  }
 
-            if (slideIndex >= 0) {
-              productFeatured.slideTo(slideIndex);
-            }
-          });
+  // Change image when variant option changes
+  $(document).on('change', '.product__variant-radio-btn input', function () {
+    goToVariantImage($(this).attr('data-image-id'));
+  });
+
+  // Load correct image from URL variant
+  var variantId = new URLSearchParams(window.location.search).get('variant');
+
+  if (variantId) {
+    var selectedInput = $('.product__variant-radio-btn input').filter(function () {
+      return $(this).attr('data-variant-id') === variantId;
+    }).first();
+
+    if (selectedInput.length) {
+      goToVariantImage(selectedInput.attr('data-image-id'));
+    }
+  }
 
         }
 
