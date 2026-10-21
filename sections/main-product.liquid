@@ -220,6 +220,7 @@
                             checked
                           {% endif %}
                           id="{{ forloop.index }}"
+                          data-image-id="{{ value.variant.featured_media.id }}"
                         >
                         <label class=" btn product__variant-label-btn active" for="{{ forloop.index }}">
                           {{ value.name }}
