@@ -138,6 +138,7 @@ $(document).ready(function() {
 
 $(document).on('change', '.cart__collection-product-select', function () {
     var imageUrl = $(this).find('option:selected').attr('data-image');
+    console.log(imageUrl);
 
     if (!imageUrl || !imageUrl.trim()) return;
 
