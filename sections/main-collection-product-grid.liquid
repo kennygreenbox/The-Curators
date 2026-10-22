@@ -187,7 +187,7 @@
                                                 <option data-quantity-available="{{ variant.available }}" 
                                                 data-quantity-price="{{ variant.price |  money }}" 
                                                 value="{{ variant.id }}"
-                                                data-image="{{ variant.image }}"
+                                                data-image="{{ variant.image | image_url }}"
                                             {% if currrent_variant.id == variant.id %}selected="selected"{% endif %}>{{ variant.title }}</option>                                                        
                                             {% endfor %}
                                             </select>
