@@ -63,6 +63,7 @@ assign button_label = button_details.button_label
                                         <option data-quantity-available="{{ variant.available }}" 
                                         data-quantity-price="{{ variant.price |  money }}"  
                                         value="{{ variant.id }}"
+                                        data-image="{{ variant.image }}"
                                     {% if currrent_variant.id == variant.id %}selected="selected"{% endif %}>{{ variant.title }}</option>                                                        
                                     {% endfor %}
                                     </select>
