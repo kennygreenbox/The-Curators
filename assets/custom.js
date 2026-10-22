@@ -136,7 +136,18 @@ $(document).ready(function() {
 
   
 
+$(document).on('change', '.cart__collection-product-select', function () {
+    var imageUrl = $(this).find('option:selected').attr('data-image');
+    var productImg = $(this).closest('.product-item').find('.product-img img').first();
 
+    if (imageUrl && productImg.length) {
+        productImg.attr({
+            'src': imageUrl,
+            'srcset': imageUrl,
+            'data-srcset': imageUrl
+        });
+    }
+});
 
 
 
