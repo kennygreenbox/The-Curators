@@ -17,6 +17,15 @@
         "padding_bottom": 28
       }
     },
+    "campaign_banner_XcJdgi": {
+      "type": "campaign-banner",
+      "name": "Campaign Banner",
+      "settings": {
+        "content": "<p>Find us IRL!</p>",
+        "button_label": "",
+        "button_url": ""
+      }
+    },
     "179275552824c76679": {
       "type": "apps",
       "blocks": {
@@ -33,6 +42,7 @@
   },
   "order": [
     "main",
+    "campaign_banner_XcJdgi",
     "179275552824c76679"
   ]
 }
