@@ -17,6 +17,42 @@
         "padding_bottom": 28
       }
     },
+    "179276691419b327d4": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_72b9cc1_MDtHdG": {
+          "type": "ai_gen_block_72b9cc1",
+          "settings": {
+            "desktop_width_percent": 100,
+            "desktop_height": 40,
+            "mobile_height": 25
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_72b9cc1_MDtHdG"
+      ],
+      "settings": {}
+    },
+    "blocks_TkwTPF": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_72b9cc1_MYbwkx": {
+          "type": "ai_gen_block_72b9cc1",
+          "settings": {
+            "desktop_width_percent": 100,
+            "desktop_height": 40,
+            "mobile_height": 25
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_72b9cc1_MYbwkx"
+      ],
+      "settings": {}
+    },
     "campaign_banner_XcJdgi": {
       "type": "campaign-banner",
       "name": "Campaign Banner",
@@ -42,6 +78,8 @@
   },
   "order": [
     "main",
+    "179276691419b327d4",
+    "blocks_TkwTPF",
     "campaign_banner_XcJdgi",
     "179275552824c76679"
   ]
