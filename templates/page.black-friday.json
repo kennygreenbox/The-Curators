@@ -25,6 +25,7 @@
           "settings": {
             "end_date": "2025-11-30",
             "end_time": "23:59",
+            "countdown_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": ""
           }
@@ -32,7 +33,7 @@
         "text_DHqKiF": {
           "type": "text",
           "settings": {
-            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 25% OFF SELECTED PRODUCTS</p>",
+            "text": "<h1>Black Friday Sale<em>🔥</em></h1><p>UP TO 50% OFF SELECTED PRODUCTS</p>",
             "text_color": "#ffffff",
             "padding_desktop": "",
             "padding_mobile": ""
@@ -63,8 +64,8 @@
         "daily_deal_text": "DAILY DEAL",
         "per_unit_text": "per bag",
         "stock_label": "Limited Stock Remaining",
-        "stock_left": "47 left",
-        "stock_progress": 80,
+        "stock_left": "75 left",
+        "stock_progress": 69,
         "add_to_cart_label": "Add to cart",
         "shipping_note": "30-day money-back guarantee",
         "deal_left_text": "New daily deal drops tomorrow"
