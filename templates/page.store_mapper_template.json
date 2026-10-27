@@ -76,20 +76,20 @@
       ],
       "settings": {}
     },
-    "17930929201730f23b": {
+    "1793093093d9373ee9": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_27b7980_dTzLQK": {
-          "type": "ai_gen_block_27b7980",
+        "ai_gen_block_d3f3e97_kAJV6m": {
+          "type": "ai_gen_block_d3f3e97",
           "settings": {
-            "custom_liquid": "<!-- Storemapper code starts here -->\n<div id='storemapper' style='width:100%;'>\n  <p>Store Locator is loading from Storemapper</p>\n</div>\n<script data-storemapper-start='2026,10,23'\n  data-storemapper-id='39614-tZr8sLEFmBwP2LHE'>\n  (function() {var script = document.createElement('script');\n    script.type  = 'text/javascript';script.async = true;\n    script.src = 'https://www.storemapper.co/js/widget-3.min.js';\n    var entry = document.getElementsByTagName('script')[0];\n    entry.parentNode.insertBefore(script, entry);}\n  ());\n</script>\n<!-- Storemapper code ends here -->",
+            "content_page": "",
             "desktop_width_percent": 75
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_27b7980_dTzLQK"
+        "ai_gen_block_d3f3e97_kAJV6m"
       ],
       "settings": {}
     }
@@ -100,6 +100,6 @@
     "blocks_TkwTPF",
     "campaign_banner_XcJdgi",
     "179275552824c76679",
-    "17930929201730f23b"
+    "1793093093d9373ee9"
   ]
 }
