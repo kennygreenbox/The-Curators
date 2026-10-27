@@ -67,11 +67,29 @@
       "blocks": {
         "storemapper_store_locator_map_storemapper_map_H8WE7f": {
           "type": "shopify://apps/storemapper-store-locator-map/blocks/storemapper-map/274f7127-75a8-4b2a-8816-530b0cac93a7",
+          "disabled": true,
           "settings": {}
         }
       },
       "block_order": [
         "storemapper_store_locator_map_storemapper_map_H8WE7f"
+      ],
+      "settings": {}
+    },
+    "17930929201730f23b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_27b7980_dTzLQK": {
+          "type": "ai_gen_block_27b7980",
+          "settings": {
+            "custom_liquid": "<!-- Storemapper code starts here -->\n<div id='storemapper' style='width:100%;'>\n  <p>Store Locator is loading from Storemapper</p>\n</div>\n<script data-storemapper-start='2026,10,23'\n  data-storemapper-id='39614-tZr8sLEFmBwP2LHE'>\n  (function() {var script = document.createElement('script');\n    script.type  = 'text/javascript';script.async = true;\n    script.src = 'https://www.storemapper.co/js/widget-3.min.js';\n    var entry = document.getElementsByTagName('script')[0];\n    entry.parentNode.insertBefore(script, entry);}\n  ());\n</script>\n<!-- Storemapper code ends here -->",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_27b7980_dTzLQK"
       ],
       "settings": {}
     }
@@ -81,6 +99,7 @@
     "179276691419b327d4",
     "blocks_TkwTPF",
     "campaign_banner_XcJdgi",
-    "179275552824c76679"
+    "179275552824c76679",
+    "17930929201730f23b"
   ]
 }
