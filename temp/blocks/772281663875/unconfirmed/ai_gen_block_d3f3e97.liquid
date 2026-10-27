@@ -1,0 +1,73 @@
+{% doc %}
+  @prompt
+    can we add page content, set padding or margin on right left this should display 75% of page
+{% enddoc %}
+{% doc %}
+  @prompt
+    can we add page content
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign content_page = block.settings.content_page %}
+{% if content_page == blank %}
+  {% assign content_page = page %}
+{% endif %}
+
+{% style %}
+  .ai-page-content-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-inline: auto;
+    color: inherit;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .ai-page-content-{{ ai_gen_id }} img,
+  .ai-page-content-{{ ai_gen_id }} video,
+  .ai-page-content-{{ ai_gen_id }} iframe {
+    max-width: 100%;
+  }
+
+  .ai-page-content-{{ ai_gen_id }} img {
+    height: auto;
+  }
+{% endstyle %}
+
+<div class="ai-page-content-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if content_page != blank and content_page.content != blank %}
+    {{ content_page.content }}
+  {% elsif request.design_mode %}
+    <p>Select a page with content, or add content to the current page.</p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Page content",
+  "settings": [
+    {
+      "type": "page",
+      "id": "content_page",
+      "label": "Page to display"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 75
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page content"
+    }
+  ],
+  "tag": null,
+  "class": "page-content-block"
+}
+{% endschema %}
