@@ -53,15 +53,6 @@
       ],
       "settings": {}
     },
-    "campaign_banner_XcJdgi": {
-      "type": "campaign-banner",
-      "name": "Campaign Banner",
-      "settings": {
-        "content": "<p>Find us IRL!</p>",
-        "button_label": "",
-        "button_url": ""
-      }
-    },
     "179275552824c76679": {
       "type": "apps",
       "blocks": {
@@ -92,13 +83,51 @@
         "ai_gen_block_d3f3e97_kAJV6m"
       ],
       "settings": {}
+    },
+    "black_hero_TQiVHA": {
+      "type": "black-hero",
+      "blocks": {
+        "text_qraGMG": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>FIND YOUR CRUNCH</h1><h6>Your favourite snacks might be closer than you think. Pop in your postcode and find The Curators at a store near you.</h6>",
+            "text_color": "#000000",
+            "padding_desktop": "",
+            "padding_mobile": ""
+          }
+        },
+        "button_JbU3HL": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All Deals",
+            "button_link": "",
+            "button_color": "#fff",
+            "button_text_color": "#000",
+            "padding_desktop": "",
+            "padding_mobile": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_qraGMG",
+        "button_JbU3HL"
+      ],
+      "name": "Landing hero",
+      "settings": {
+        "content_alignment": "center",
+        "contain_component": true,
+        "content_width": "",
+        "background_color": "#EDD775",
+        "padding_desktop": "",
+        "padding_mobile": ""
+      }
     }
   },
   "order": [
     "main",
     "179276691419b327d4",
     "blocks_TkwTPF",
-    "campaign_banner_XcJdgi",
+    "black_hero_TQiVHA",
     "179275552824c76679",
     "1793093093d9373ee9"
   ]
