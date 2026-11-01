@@ -38,11 +38,11 @@
       ],
       "settings": {
         "image": "shopify://shop_images/TC_Website_Image_Nov25.png",
-        "deco_text": "Protein packed",
-        "rest_text": "Super snacks",
-        "text": "Snacks that get you moving",
+        "deco_text": "BLACK FRIDAY",
+        "rest_text": "ALL MONTH",
+        "text": "FREE Shipping + New Deals every week",
         "btn_label": "SHOP NOW",
-        "btn_url": "shopify://collections/protein-chips"
+        "btn_url": "shopify://pages/black-friday"
       }
     },
     "partner_Re77b3": {
